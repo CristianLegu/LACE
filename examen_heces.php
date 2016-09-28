@@ -13,118 +13,53 @@
 <body>
   <div id="wrapper">
 
-  <h1>ANÁLISIS GENERAL DE ORINA</h1>
-  <h3>EXÁMEN FÍSICO</h3>
+  <h1></h1>
+  <h3></h3>
   <form onsubmit="return false">
-  <div class="col-4">
-    <label>
-      VOLUMEN
-      <input>
-    </label>
-  </div>
   <div class="col-4">
     <label>
       COLOR
       <input>
     </label>
   </div>
+  <div class="col-4">
+    <label>
+      CONSISTENCIA
+      <input>
+    </label>
+  </div>
 
   <div class="col-4">
     <label>
-      OLOR
+      MOCO
       <input>
     </label>
   </div>
   <div class="col-4">
     <label>
-      ASPECTO
+      PUS
       <input>
     </label>
   </div>
-  <div class="col-4">
+  <div class="col-3">
     <label>
-      SEDIMENTO
+      SANGRE FRESCA
       <input>
     </label>
   </div>
-  <div class="col-4">
+  <div class="col-3">
     <label>
-      DENSIDAD
+    PARA PRIMERA MUESTRA
       <input>
     </label>
   </div>
-  <div class="col-4">
+  <div class="col-3">
     <label>
-      PH
+      PARA SEGUNDA MUESTRA
       <input>
     </label>
   </div>
-  <div class="col-4">
-    <label>
-      PROTEÍNAS
-      <input>
-    </label>
-  </div>
-  <div class="col-4">
-    <label>
-      GLUCOSA
-      <input>
-    </label>
-  </div>
-  <div class="col-4">
-    <label>
-      CATOSA
-      <input>
-    </label>
-  </div>
-  <div class="col-4">
-    <label>
-      BILLIRRUBINA
-      <input>
-    </label>
-  </div>
-  <div class="col-4">
-    <label>
-      SANGRE
-      <input>
-    </label>
-  </div>
-  <div class="col-4">
-    <label>
-      NITRITOS
-      <input>
-    </label>
-  </div>
-  <div class="col-4">
-    <label>
-      NITRITOS
-      <input>
-    </label>
-  </div>
-  <div class="col-4">
-    <label>
-      UROBILINOGENO
-      <input>
-    </label>
-  </div>
-  <div class="col-4">
-    <label>
-      SOLIDOS TOTALES
-      <input>
-    </label>
-  </div>
-  <div class="col-2">
-    <label>
-      SEDIMIENTOS
-      <input>
-    </label>
-  </div>
-  <div class="col-2">
-    <label>
-      ANALISIS ORINACOL
-      <input>
-    </label>
-  </div>
+
 </div>
   <div class="col-submit">
     <button class="submitbtn">GUARDAR</button>
