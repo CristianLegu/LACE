@@ -13,53 +13,61 @@
 <body>
   <div id="wrapper">
 
-  <h1></h1>
-  <h3></h3>
+  <h1>EXÁMEN DE HECES</h1>
+  <h3>CARACTERÍSTICAS MACROSCÓPICAS</h3>
   <form onsubmit="return false">
-  <div class="col-4">
+  <div class="col-3">
     <label>
       COLOR
       <input>
     </label>
   </div>
-  <div class="col-4">
+  <div class="col-3">
     <label>
       CONSISTENCIA
       <input>
     </label>
   </div>
 
-  <div class="col-4">
+  <div class="col-3">
     <label>
       MOCO
       <input>
     </label>
   </div>
-  <div class="col-4">
+  <div class="col-2">
     <label>
       PUS
       <input>
     </label>
   </div>
-  <div class="col-3">
+  <div class="col-2">
     <label>
       SANGRE FRESCA
       <input>
     </label>
   </div>
+</form>
+  <h3>PARÁSITOS ENCONTRADOS</h3>
+<form onsubmit="return false">
   <div class="col-3">
     <label>
-    PARA PRIMERA MUESTRA
+      PRIMERA MUESTRA
       <input>
     </label>
   </div>
   <div class="col-3">
     <label>
-      PARA SEGUNDA MUESTRA
+      SEGUNDA MUESTRA
       <input>
     </label>
   </div>
-
+  <div class="col-3">
+    <label>
+      TERCERA MUESTRA
+      <input>
+    </label>
+  </div>
 </div>
   <div class="col-submit">
     <button class="submitbtn">GUARDAR</button>

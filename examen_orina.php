@@ -16,121 +16,119 @@
   <h1>ANÁLISIS GENERAL DE ORINA</h1>
   <h3>EXÁMEN FÍSICO</h3>
   <form onsubmit="return false">
-  <div class="col-4">
+  <div class="col-3">
     <label>
       VOLUMEN
       <input>
     </label>
   </div>
-  <div class="col-4">
+  <div class="col-3">
     <label>
       COLOR
       <input>
     </label>
   </div>
 
-  <div class="col-4">
+  <div class="col-3">
     <label>
       OLOR
       <input>
     </label>
   </div>
-  <div class="col-4">
+  <div class="col-3">
     <label>
       ASPECTO
       <input>
     </label>
   </div>
-  <div class="col-4">
+  <div class="col-3">
     <label>
       SEDIMENTO
       <input>
     </label>
   </div>
-  <div class="col-4">
+  <div class="col-3">
     <label>
       DENSIDAD
       <input>
     </label>
   </div>
-  <div class="col-4">
+
+
+  </form>
+  <h3>EXÁMEN QUÍMICO</h3>
+  <form onsubmit="return false">
+  <div class="col-3">
     <label>
-      PH
+    PH
       <input>
     </label>
   </div>
-  <div class="col-4">
+  <div class="col-3">
     <label>
       PROTEÍNAS
       <input>
     </label>
   </div>
-  <div class="col-4">
+
+  <div class="col-3">
     <label>
       GLUCOSA
       <input>
     </label>
   </div>
-  <div class="col-4">
+  <div class="col-3">
     <label>
-      CATOSA
+      CETONA
       <input>
     </label>
   </div>
-  <div class="col-4">
+  <div class="col-3">
     <label>
       BILLIRRUBINA
       <input>
     </label>
   </div>
-  <div class="col-4">
+  <div class="col-3">
     <label>
       SANGRE
       <input>
     </label>
   </div>
-  <div class="col-4">
+  <div class="col-3">
     <label>
       NITRITOS
       <input>
     </label>
   </div>
-  <div class="col-4">
+  <div class="col-3">
     <label>
-      NITRITOS
+    UROBILINÓGENO
       <input>
     </label>
   </div>
-  <div class="col-4">
+  <div class="col-3">
     <label>
-      UROBILINOGENO
+      SÓLIDOS TOTALES
       <input>
     </label>
   </div>
-  <div class="col-4">
+  </form>
+
+<h3>EXÁMEN MICROSCOPICO</h3>
+<form onsubmit="return false">
+  <div class="col-2" >
     <label>
-      SOLIDOS TOTALES
+      SÓLIDOS TOTALES
       <input>
     </label>
-  </div>
-  <div class="col-2">
-    <label>
-      SEDIMIENTOS
-      <input>
-    </label>
-  </div>
-  <div class="col-2">
-    <label>
-      ANALISIS ORINACOL
-      <input>
-    </label>
-  </div>
-</div>
-  <div class="col-submit">
-    <button class="submitbtn">GUARDAR</button>
   </div>
 
-  </form>
+<div class="col-submit">
+  <button class="submitbtn">GUARDAR</button>
+</div>
+</div>
+</form>
   </div>
 <script type="text/javascript">
 var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
