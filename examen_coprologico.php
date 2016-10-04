@@ -22,7 +22,11 @@
 <body>
   <div id="wrapper">
 
-
+    <span style="align: left;">
+<a href="menu.html">
+  <img src="img/logo2.png"  style="width: 15%; margin-left: 40px; ">
+</a>
+</span>
   <h1>COPROLOGICO</h1>
 
     <h3>EXÁMEN MACROSCOPICO</h3>

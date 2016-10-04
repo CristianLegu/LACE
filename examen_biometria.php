@@ -30,7 +30,11 @@ max-width: 800px;
 </head>
 <body>
   <div id="wrapper">
-
+    <span style="align: left;">
+      <a href="menu.html">
+        <img src="img/logo2.png"  style="width: 15%; margin-left: 40px; ">
+      </a>
+    </span>
 
   <h1>BIOMETRIA HEMATICA</h1>
   <section id="section1" ALIGN=center>

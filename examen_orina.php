@@ -12,7 +12,11 @@
 
 <body>
   <div id="wrapper">
-
+    <span style="align: left;">
+<a href="menu.html">
+  <img src="img/logo2.png"  style="width: 15%; margin-left: 40px; ">
+</a>
+</span>
   <h1>ANÁLISIS GENERAL DE ORINA</h1>
   <h3>EXÁMEN FÍSICO</h3>
   <form onsubmit="return false">
