@@ -31,36 +31,108 @@
 
   <form onsubmit="return false" ALIGN=center>
     <div >
-      <label style="width: 20em;" >
+      <label style="width: 35em;" >
       R. FEBRILES:
         <input style="background-color:powderblue">
     </div>
     <div >
-      <label style="width: 20em;" >
+      <label style="width: 35em;" >
+      PERFIL REUMATICO:
+        <input style="background-color:powderblue">
+    </div>
+
+    <div >
+      <label style="width: 35em;" >
       R. DE WIDAL:
         <input style="background-color:powderblue">
     </div>
     <div >
-      <label style="width: 20em;" >
-      TÍFICO O
+      <label style="width: 35em;" >
+      VEL. SED. GLOBULAR
         <input style="background-color:powderblue">
     </div>
     <div >
-      <label style="width: 20em;" >
-      TÍFICO H
+      <label style="width: 35em;" >
+    TÍFICO O
         <input style="background-color:powderblue">
     </div>
     <div >
-      <label style="width: 20em;" >
-      PARATÍFICO A
+      <label style="width: 35em;" >
+      ANTIESTREOTILISINAS
         <input style="background-color:powderblue">
     </div>
     <div >
-      <label style="width: 20em;" >
-      PARATÍFICO B
+      <label style="width: 35em;" >
+    TÍFICO H
         <input style="background-color:powderblue">
     </div>
+    <div >
+      <label style="width: 35em;" >
+    PROTEÍNAS C REACTICA
+        <input style="background-color:powderblue">
+    </div>
+    <div >
+      <label style="width: 35em;" >
+    PARATÍFICO A
+        <input style="background-color:powderblue">
+    </div>
+    <div >
+      <label style="width: 35em;" >
+    FACTOR REUMATOIDE
+        <input style="background-color:powderblue">
+    </div>
+    <div >
+      <label style="width: 35em;" >
+    PARATÍFICO B
+        <input style="background-color:powderblue">
+    </div>
+    <div >
+      <label style="width: 35em;" >
+    ACIDO URICO
+        <input style="background-color:powderblue">
+    </div>
+    <div >
+      <label style="width: 35em;" >
+  R. DE HUDDLESON
 
+    </div>
+    <div >
+      <label style="width: 35em;" >
+    P. DE AGLUTACIÓN CASTAÑEDA
+    </div>
+    <div >
+      <label style="width: 35em;" >
+    BRUCELLA ABORTUS
+        <input style="background-color:powderblue">
+    </div>
+    <div >
+      <label style="width: 35em;" >
+    SALMONELLA
+        <input style="background-color:powderblue">
+    </div>
+    <div >
+      <label style="width: 35em;" >
+    R. DE WEIL FELIX
+        <input style="background-color:powderblue">
+    </div>
+    <div >
+      <label style="width: 35em;" >
+    BRUCELLA
+        <input style="background-color:powderblue">
+    </div>
+    <div >
+      <label style="width: 35em;" >
+    PROTEUS OX-19
+        <input style="background-color:powderblue">
+    </div>
+    <div >
+      <label style="width: 35em;" >
+    PROTEUS OX-19
+        <input style="background-color:powderblue">
+    </div>
+    <div class="col-submit">
+      <button class="submitbtn">GUARDAR</button>
+    </div>
   </form>
 
 

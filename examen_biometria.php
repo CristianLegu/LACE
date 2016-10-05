@@ -259,9 +259,11 @@ ANOMALÍAS ERITOCÍTICAS
       </label>
 </div>
 <div >
-<label style="width: 40em;"  >
+<label style="width: 55em;"   >
 <input style="background-color:powderblue; ">
 </div>
+<div class="col-submit">
+  <button class="submitbtn">GUARDAR</button>
 
 </form>
 
