@@ -1,5 +1,8 @@
+<?php
+         header('Content-Type: text/html; charset=iso-8859-1');
+?>
 <!doctype html>
-<html lang="en-US">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
@@ -21,13 +24,18 @@
     	<h1>Pacientes</h1>
     </span>
 
+  <div class="col-2">
+      <input type="text" placeholder="Buscar...">
   </div>
+
+  </div>
+
       <table id="customers">
         <tr>
           <th>Folio</th>
           <th>Nombre</th>
           <th>Perfil</th>
-          <th>Análisis</th>
+          <th>An&aacute;lisis</th>
         </tr>
 
          <?php
@@ -36,21 +44,18 @@
                 mysql_select_db($db,$con)or die("Error con BD: ".mysql_error());
                 $query = mysql_query("SELECT idpacientes, nombre FROM pacientes", $con) or die(mysql_error());
 
-             $result = mysql_query ($query);
-             while ($fila = mysql_fetch_array($result)){
+             while ($fila = mysql_fetch_array($query)){
+            $nombre = $fila['1'];
           ?>
         <tr>
           <td><?php echo $fila['0']; ?></td>
-          <td><?php echo $fila['1']; ?></td>
+          <td><?php echo $nombre; ?></td>
           <td><a href= "pacientes.php? idpac=<?php echo $fila['0'] ?>">Ver</a> </td>
           <td><a href= "analisis.php? idpac=<?php echo $fila['0'] ?>">Agregar</a> </td>
         </tr>
 
         <?php } ?>
       </table>
-  <div class="col-submit">
-    <button class="submitbtn">Guardar</button>
-  </div>
   
 
 

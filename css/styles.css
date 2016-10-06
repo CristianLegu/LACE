@@ -36,7 +36,7 @@ em, i { font-style: italic; }
 
 h1{
   display: block;
-  font-size: 3.1em;
+  font-size: 4.1em;
   line-height: 1.45em;
   font-family: 'Laila', serif;
   text-align: center;
@@ -60,7 +60,7 @@ h3{
 /** form field **/
 form {
   display: block;
-  margin: 30px;
+  margin: 20px;
   overflow: hidden;
   background: #fff;
   border: 1px solid #e4e4e4;
@@ -212,4 +212,23 @@ button.submitbtn:active {
     text-align: left;
     background-color: #3F6EBF;
     color: white;
+}
+
+input[type=text] {
+    width: 120px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 20px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+input[type=text]:focus {
+    width: 70%;
 }
