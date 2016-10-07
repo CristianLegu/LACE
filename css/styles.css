@@ -60,7 +60,7 @@ h3{
 /** form field **/
 form {
   display: block;
-  margin: 20px;
+  margin: 30px;
   overflow: hidden;
   background: #fff;
   border: 1px solid #e4e4e4;
@@ -215,6 +215,8 @@ button.submitbtn:active {
 }
 
 input[type=text] {
+    display: block;
+    margin: 30px;
     width: 120px;
     box-sizing: border-box;
     border: 2px solid #ccc;
@@ -231,4 +233,22 @@ input[type=text] {
 
 input[type=text]:focus {
     width: 70%;
+}
+#hola{
+  display: table;
+  margin-top: 10px; 
+  margin-left: 30px;
+}
+
+#hola ul{
+float: left;
+margin-top: 0;
+margin-bottom: 1rem;
+
+}
+
+#logo {
+
+float: left;
+
 }

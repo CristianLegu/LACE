@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
   <title>Pacientes|LACE</title>
-<link rel="shortcut icon" href="img/icon.png"> 
+  <link rel="shortcut icon" href="img/icon.png"> 
   <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
   <script type="text/javascript" src="js/switchery.min.js"></script>
@@ -17,17 +17,19 @@
 
   <div id="wrapper">
 
-    <span>
-    <a href="menu.html">
-    	<img src="img/logo2.png"  style="width: 15%; margin-left: 40px; ">
-    </a>
-    	<h1>Pacientes</h1>
-    </span>
-
-  <div class="col-2">
-      <input type="text" placeholder="Buscar...">
-  </div>
-
+  	<span style="align: left;">
+      <a href="menu.html">
+        <img src="img/logo2.png"  style="width: 15%; margin-left: 40px; ">
+      </a>
+      <h1>Pacientes</h1>
+      <div class="col-2">
+      	<button class="submitbtn">Agregar Paciente</button>
+      </div>
+      
+    </span> 	
+  		
+  		<input type="text" placeholder="Buscar...">
+            
   </div>
 
       <table id="customers">

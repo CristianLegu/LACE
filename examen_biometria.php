@@ -4,8 +4,8 @@
 
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
-  <title>ANÁLISIS GENERAL DE ORINA</title>
-
+  <title>Biometría Hemática|LACE</title>
+  <link rel="shortcut icon" href="img/icon.png"> 
   <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
   <script type="text/javascript" src="js/switchery.min.js"></script>
