@@ -75,10 +75,16 @@
       </div>
       <div class="col-2">
        <label>Sexo</label>
-          <center class="switch-button" >
-            <input type="checkbox" class="js-switch">
-          </center>
-     </div>
+        <center>
+          <div class="onoffswitch">
+            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+            <label class="onoffswitch-label" for="myonoffswitch">
+              <span class="onoffswitch-inner"></span>
+              <span class="onoffswitch-switch"></span>
+            </label>
+          </div>
+        </center>
+      </div>
      <div class="col-2">
       <label>
         Tipo de sangre
