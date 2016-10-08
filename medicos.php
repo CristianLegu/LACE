@@ -18,7 +18,7 @@
 <a href="menu.html">
 	<img src="img/logo2.png"  style="width: 15%; margin-left: 40px; ">
 </a>
-	<h1>Proveedores</h1>
+	<h1>M&eacute;dicos</h1>
 </span>
    
   <form onsubmit="return false">
@@ -29,40 +29,39 @@
       <input  name="nombre" tabindex="1">
     </label>
   </div>
+ <div class="col-2">
+    <label>
+      Domicilio
+      <input  name="domicilio" tabindex="3">
+    </label>
+  </div>
+  <div class="col-3">
+    <label>
+      Ciudad
+      <input  name="ciudad" tabindex="3">
+    </label>
+  </div>
+  <div class="col-3">
+    <label>
+      Estado
+      <input  name="estado" tabindex="4">
+    </label>
+  </div>
+  <div class="col-3">
+    <label>
+      Teléfono
+       <input  name="telefono" tabindex="5">
+  </div>
+  
   <div class="col-2">
     <label>
-      Dirección
-      <input " name="direccion" tabindex="2">
-    </label>
-  </div>
-  
-  <div class="col-3">
-    <label>
-      Teléfono 1
-      <input  name="phone" tabindex="3">
-    </label>
-  </div>
-  <div class="col-3">
-    <label>
-      Teléfono 2
-      <input  name="phone2" tabindex="4">
-    </label>
-  </div>
-  <div class="col-3">
-    <label>
-      R.F.C
-       <input  name="rfc" tabindex="5">
-  </div>
-  
-  <div class="col-4">
-    <label>
-      Página Web
+      Hospital
       <input  name="web" tabindex="6">
     </label>
   </div>
-  <div class="col-4">
+  <div class="col-2">
     <label>
-      E-mail
+      Domicilio Hospital
       <input  name="mail" tabindex="7">
     </label>
   </div>

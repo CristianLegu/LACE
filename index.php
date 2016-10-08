@@ -1,36 +1,38 @@
 <!DOCTYPE html>
 <html >
-  <head>
-    <meta charset="UTF-8">
-    <title>LACE LABORATORIOS</title>
-    <link rel="shortcut icon" href="img/icon.png">     
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/estilo.css">
-        
+<head>
+  <meta charset="UTF-8">
+  <title>LACE LABORATORIOS</title>
+  <link rel="shortcut icon" href="img/icon.png">     
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/estilo.css">
+
+
+
   </head>
 
   <body>
 
-    
-<div class="login">
 
-  <form action="menu.html" method="post">
-    <input type="text" placeholder="Usuario" class="login-input"/>
-    <input type="password" placeholder="Contraseña" class="login-input"/>
-    <button type="submit" class="login-btn"></button>
-  </form>
+   <div class="login">
+
+    <form action="menu.html" method="post">
+      <input type="text" placeholder="Usuario" class="login-input"/>
+      <input type="password" placeholder="Contraseña" class="login-input"/>
+      <button type="submit" class="login-btn"></button>
+    </form>
     <header class="login-header">
       <span class="text"><img src="img/logo.png" width="100%"></span>
       <span class="loader"></span>
-  </header>
+    </header>
 
-</div>
+  </div>
 
-    <script src="js/prefixfree.min.js"></script>
-    <script src="js/index.js"></script>
+  <script src="js/prefixfree.min.js"></script>
+  <script src="js/index.js"></script>
 
-    
-    
-    
-  </body>
+
+
+
+</body>
 </html>
