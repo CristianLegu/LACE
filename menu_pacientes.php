@@ -22,13 +22,14 @@
         <img src="img/logo2.png"  style="width: 15%; margin-left: 40px; ">
       </a>
       <h1>Pacientes</h1>
-      <div class="col-2">
-      	<button class="submitbtn">Agregar Paciente</button>
-      </div>
-      
     </span> 	
+  		<nav>
+<ul>
+    <li><input type="text" placeholder="Buscar..."></li>
+    <li style="float:right; margin-right:-20px;"><a href="pacientes.php"><img src="img/adduser.png"></a></li>
+</ul>
+</nav>
   		
-  		<input type="text" placeholder="Buscar...">
             
   </div>
 
