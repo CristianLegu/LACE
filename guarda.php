@@ -55,18 +55,17 @@
 			echo $email."-";
 			echo $sexo."-";
 			echo $sangre;
-		
+		/*
 		if( mysqli_query($mysqli, $sql)){
 			//echo "Inserción realizada".mysqli_connect_error();
 		}else{
 			echo "Error ".mysqli_error($mysqli);
 		}
-		
+		*/
 		mysqli_close($mysqli);
-		
-		
-		
 
+		include("alert.html");
+		
 	}
 	else{
 		echo "Error";
