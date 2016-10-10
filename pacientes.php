@@ -1,3 +1,6 @@
+<?php
+  include("includes/conexion.php");
+?>
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -22,31 +25,31 @@
      <h1>Pacientes</h1>
    </span>
    
-   <form onsubmit="return false">
+   <form action="guarda.php" method="post">
 
     <div class="col-2">
       <label>
         Nombre
-        <input  name="nombre" tabindex="1">
+        <input  name="nombre" tabindex="1" required>
       </label>
     </div>
     <div class="col-2">
       <label>
         Dirección
-        <input  name="direccion" tabindex="2">
+        <input  name="direccion" tabindex="2" required>
       </label>
     </div>
 
     <div class="col-3">
       <label>
         Ciudad
-        <input  name="ciudad" tabindex="3">
+        <input  name="ciudad" tabindex="3" required>
       </label>
     </div>
     <div class="col-3">
       <label>
         Estado
-        <input name="estado" tabindex="4">
+        <input name="estado" tabindex="4" required>
       </label>
     </div>
     <div class="col-3">
@@ -58,7 +61,7 @@
       <div class="col-4">
         <label>
           Teléfono
-          <input  name="web" tabindex="6">
+          <input  name="telefono" tabindex="6" type="tel">
         </label>
       </div>
       <div class="col-4">
@@ -70,20 +73,20 @@
       <div class="col-2">
         <label>
           Email
-          <input  name="nacimiento" tabindex="8">
+          <input  name="email" tabindex="8">
         </label>
       </div>
       <div class="col-2">
        <label>Sexo</label>
-        <center>
-          <div class="onoffswitch">
-            <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-            <label class="onoffswitch-label" for="myonoffswitch">
-              <span class="onoffswitch-inner"></span>
-              <span class="onoffswitch-switch"></span>
-            </label>
-          </div>
-        </center>
+         <center  style="position:relative; margin-bottom:8px">
+            <div class="onoffswitch">
+              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+              <label class="onoffswitch-label" for="myonoffswitch">
+                <span class="onoffswitch-inner"></span>
+                <span class="onoffswitch-switch"></span>
+              </label>
+            </div>
+          </center>
       </div>
      <div class="col-2">
       <label>
@@ -93,7 +96,7 @@
     </div>
 
     <div class="col-submit">
-      <button class="submitbtn">Guardar</button>
+      <button type="submit" class="submitbtn">Guardar</button>
     </div>
 
   </form>

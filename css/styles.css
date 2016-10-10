@@ -288,10 +288,11 @@ img:hover {
     .onoffswitch {
         position: relative; width: 68px;
         -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
-        margin: 0 0 6px 0;
+        
     }
     .onoffswitch-checkbox {
         display: none;
+        padding: 0 0 20px 0;
     }
     .onoffswitch-label {
         display: block; overflow: hidden; cursor: pointer;
