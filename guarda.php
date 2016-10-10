@@ -25,43 +25,51 @@
 		$email 			= utf8_decode($_POST['email']);
 		$sangre			= utf8_decode($_POST['sangre']);
 
-
-
 		$mysqli = mysqli_connect($host, $user, $pwd, $db);
 		if (mysqli_connect_errno()) {
 			echo "Falló la conexión:".mysqli_connect_error();
+		}
+
+/*VERIFICA EL CHECKED SI ES HOMBRE O MUJER, A PARTIR DE AHI SE GUARDA EN LA BD*/
+		if (isset($_POST['onoffswitch']) && !empty($_POST['onoffswitch'])) 
+		{
+			$sexo = "M";
+		}
+		else
+		{
+			$sexo = "F";
 		}
 		
 		$sql = "INSERT INTO pacientes (nombre, direccion, ciudad, estado, codigo_postal,
         								 telefono, email, fecha_nac, sexo, tipo_sangre)
 					VALUES('$nombre', '$direccion', '$ciudad', '$estado', '$cp', 
-							'$telefono', '$email', '$nacimiento', 'M', '$sangre');";
+							'$telefono', '$email', '$nacimiento', '$sexo', '$sangre');";
 		
+			echo $nombre."-";
+			echo $direccion."-";
+			echo $ciudad."-";
+			echo $estado."-";
+			echo $cp."-";
+			echo $telefono."-";
+			echo $nacimiento."-";
+			echo $email."-";
+			echo $sexo."-";
+			echo $sangre;
 		
 		if( mysqli_query($mysqli, $sql)){
 			echo "Inserción realizada".mysqli_connect_error();
 		}else{
-
 			echo "Error".mysqli_error($mysqli);
 		}
 		
 		mysqli_close($mysqli);
-/*		
-		mysql_select_db($db,$con)or die("Error con BD: ".mysql_error());
+		
+		
+		
 
-        $sql = "INSERT INTO pacientes (nombre, direccion, ciudad, estado, codigo_postal,
-        								 telefono, tipo_sangre, fecha_nac, sexo)
-					values('$nombre', '$direccion', '$ciudad', '$estado', '$cp', 
-							'$telefono', '$nacimiento', '$email', 'M');"
-	 	$res_query = mysqli_query($con, $sql) or die("No se insertaron");
-	 	if ($res_query != null) {
-	 		echo "Datos insertados";
-	 		mysqli_close
-	 	}
-*/
 	}
 	else{
-		echo "orror";
+		echo "Error";
 			
 	}
 
