@@ -8,7 +8,7 @@
   <meta http-equiv="Content-Type" content="text/html">
   <title>Pacientes|LACE</title>
   <link rel="shortcut icon" href="img/icon.png"> 
-  <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" media="all" href="css/styles-menu.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
   <script type="text/javascript" src="js/switchery.min.js"></script>
   <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.css">
