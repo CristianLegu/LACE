@@ -6,9 +6,9 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
-  <title>Pacientes | LACE</title>
+  <title>Pacientes|LACE</title>
   <link rel="shortcut icon" href="img/icon.png"> 
-  <link rel="stylesheet" type="text/css" media="all" href="css/styles-menu.css">
+  <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
   <script type="text/javascript" src="js/switchery.min.js"></script>
   <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.css">
@@ -17,24 +17,23 @@
 
 <body>
 
+  <div id="wrapper">
 
-
-<nav>
-
+  	<span style="align: left;">
       <a href="menu.html">
-        <img src="img/logo2.png"  style="width: 15%; margin-left: 40px; margin-top:40px;">
+        <img src="img/logo2.png"  style="width: 15%; margin-left: 40px; ">
       </a>
       <h1>Pacientes</h1>
-      <ul>
-      <form name="formulario" action="" onSubmit="enviarDatos(); return false">
-      	<li><input type="text" placeholder="Buscar..." name="busca" id="busca"></li>
-      </form>
-      	<li class="add"><a href="pacientes.php"><img src="img/adduser.png"></a></li>
-      </ul>
-
+    </span> 	
+  		<nav>
+<ul>
+    <li><input type="text" placeholder="Buscar..."></li>
+    <li style="float:right; margin-right:-20px;"><a href="pacientes.php"><img src="img/adduser.png"></a></li>
+</ul>
 </nav>
   		
             
+  </div>
 
       <table id="customers">
         <tr>
@@ -46,18 +45,9 @@
 
          <?php
           include("includes/conexion.php");
-          if(empty($_GET['busca'])){
-          	$pac = ' ';
-          }
-          else{
-         	$pac = $_GET['busca']; 	
-          }
-         
-          $search = '%'.$pac.'%';
-
              $con = mysql_connect($host,$user,$pwd) or die("Error en el Server: ".mysql_error()); 
                 mysql_select_db($db,$con)or die("Error con BD: ".mysql_error());
-                $query = mysql_query("SELECT idpacientes, nombre FROM pacientes where nombre LIKE '$search'", $con) or die(mysql_error());
+                $query = mysql_query("SELECT idpacientes, nombre FROM pacientes", $con) or die(mysql_error());
 
              while ($fila = mysql_fetch_array($query)){
             $nombre = $fila['1'];
