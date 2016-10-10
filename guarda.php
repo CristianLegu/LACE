@@ -57,9 +57,9 @@
 			echo $sangre;
 		
 		if( mysqli_query($mysqli, $sql)){
-			echo "Inserción realizada".mysqli_connect_error();
+			//echo "Inserción realizada".mysqli_connect_error();
 		}else{
-			echo "Error".mysqli_error($mysqli);
+			echo "Error ".mysqli_error($mysqli);
 		}
 		
 		mysqli_close($mysqli);
