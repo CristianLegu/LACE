@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
-  <title>Proveedores - LACE</title>
+  <title>Médicos - LACE</title>
 <link rel="shortcut icon" href="img/icon.png"> 
   <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
@@ -21,51 +21,55 @@
 	<h1>M&eacute;dicos</h1>
 </span>
    
-  <form onsubmit="return false">
+  <form action="guarda.php" method="post">
 
   <div class="col-2">
     <label>
       Nombre
-      <input  name="nombre" tabindex="1">
+      <input  name="nombre_m" tabindex="1" required>
     </label>
   </div>
  <div class="col-2">
     <label>
-      Domicilio
-      <input  name="domicilio" tabindex="3">
+      Domicilio Médico
+      <input  name="domicilio_m" tabindex="2" required>
     </label>
   </div>
   <div class="col-3">
     <label>
       Ciudad
-      <input  name="ciudad" tabindex="3">
+      <input  name="ciudad_m" tabindex="3">
     </label>
   </div>
   <div class="col-3">
     <label>
       Estado
-      <input  name="estado" tabindex="4">
+      <input  name="estado_m" tabindex="4">
     </label>
   </div>
   <div class="col-3">
     <label>
       Teléfono
-       <input  name="telefono" tabindex="5">
+       <input  name="telefono_m" tabindex="5" required>
   </div>
   
   <div class="col-2">
     <label>
-      Hospital
-      <input  name="web" tabindex="6">
+      Nombre del Hospital
+      <input  name="nombre_h" tabindex="6">
     </label>
   </div>
   <div class="col-2">
     <label>
       Domicilio Hospital
-      <input  name="mail" tabindex="7">
+      <input  name="domicilio_h" tabindex="7">
     </label>
   </div>
-  
+  <?php
+      session_start();
+      $_SESSION['value'] = 'M';
+    ?>
+
   <div class="col-submit">
     <button class="submitbtn">Guardar</button>
   </div>

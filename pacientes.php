@@ -61,13 +61,13 @@
       <div class="col-4">
         <label>
           Teléfono
-          <input  name="telefono" tabindex="6" type="tel">
+          <input  name="telefono" tabindex="6" type="tel"  placeholder="(XXX) XXX XX XX">
         </label>
       </div>
       <div class="col-4">
         <label>
           Fecha de Nacimiento
-          <input  name="nacimiento" tabindex="7">
+          <input  name="nacimiento" tabindex="7" required>
         </label>
       </div>
       <div class="col-2">
@@ -90,10 +90,14 @@
       </div>
      <div class="col-2">
       <label>
-        Tipo de sangre
+        Tipo de sangre 
         <input  name="sangre" tabindex="9">
       </label>
     </div>
+   <?php
+      session_start();
+      $_SESSION['value'] = 'PA';
+    ?>
 
     <div class="col-submit">
       <button type="submit" class="submitbtn">Guardar</button>
