@@ -2,11 +2,11 @@
          header('Content-Type: text/html; charset=iso-8859-1');
 ?>
 <!doctype html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
-  <title>Pacientes|LACE</title>
+  <title>Menu Pacientes |LACE </title>
   <link rel="shortcut icon" href="img/icon.png"> 
   <link rel="stylesheet" type="text/css" media="all" href="css/styles-menu.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
@@ -17,23 +17,30 @@
 
 <body>
 
-  <div id="wrapper">
-
-  	<span style="align: left;">
-      <a href="menu.html">
-        <img src="img/logo2.png"  style="width: 15%; margin-left: 40px; ">
-      </a>
-      <h1>Pacientes</h1>
-    </span> 	
-  		<nav>
-<ul>
-    <li><input type="text" placeholder="Buscar..."></li>
-    <li style="float:right; margin-right:20px;"><a href="pacientes.php"><img src="img/adduser.png"></a></li>
-</ul>
+<nav id="hola">
+  <ul>     
+    <li><p>
+          <a href="menu.html">
+            <img src="img/logo2.png"  id="logo">
+          </a>
+        </p>
+          
+    </li>
+    
+    <li>
+      <h1>Pacientes</h1>  
+    </li>
+      <p>
+        <input type="text" placeholder="Buscar...">  
+      </p>  
+    <li></li>
+    <li></li>  
+    <li>
+      <a href="pacientes.php" class="add"><img src="img/adduser.png"></a>
+    </li>
+  </ul>
 </nav>
   		
-            
-  </div>
 
       <table id="customers">
         <tr>
