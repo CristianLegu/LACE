@@ -1,7 +1,7 @@
 <?php
   include("includes/conexion.php");
   session_start();
-  $_SESSION['guarda'] = 'P';
+  $_SESSION['guarda'] = 'PROVEEDOR';
 
 ?>
 

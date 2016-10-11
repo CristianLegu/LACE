@@ -1,8 +1,8 @@
 <?php
 	include("includes/conexion.php");
-	session_start();
+
 	if(isset($_SESSION['guarda'])){
-		 $Variable = $_SESSION['guarda'];
+		 $sesion = $_SESSION['guarda'];
 	}
 ?>
 
@@ -19,18 +19,22 @@
    text: "Guardado con éxito.",
     type: "success"
   }, function(){
-		<?php	if ( $Variable == 'P' ) { ?>
+		<?php if(  $sesion == 'PROVEEDOR') { ?>
 		window.location.href = 'proveedores.php';
-		session_destroy();
-<?	} ?>
-<?php	if ( $Variable == 'E' ) { ?>
+
+<?php	} if (  $sesion == 'EMPLEADO' ) { ?>
 window.location.href = 'empleados.php';
-session_destroy();
-<?	} ?>
-<?php	if ( $Variable == 'M' ) { ?>
-window.location.href = 'menu_pacientes.php';
-session_destroy();
-<?	} ?>
+
+<?php	} if (  $sesion == 'MEDICOS' ) { ?>
+
+window.location.href = 'menu_medicos.php';
+
+	<?php		}  ?>
+	<?php	} if (  $sesion == 'PACIENTES' ) { ?>
+
+	window.location.href = 'menu_pacientes.php';
+
+		<?php		}  ?>
   });
 	</script>
 

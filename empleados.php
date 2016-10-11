@@ -1,7 +1,7 @@
 <?php
   include("includes/conexion.php");
   session_start();
-  $_SESSION['guarda'] = 'E';
+  $_SESSION['guarda'] = 'EMPLEADO';
 ?>
 <!doctype html>
 <html lang="en-US">
