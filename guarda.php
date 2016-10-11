@@ -170,7 +170,7 @@ case 'MEDICO':
 
 
 /*VERIFICA EL CHECKED SI ES HOMBRE O MUJER, A PARTIR DE AHI SE GUARDA EN LA BD*/
- if (isset($_POST['onoffswitch']) && !empty($_POST['onoffswitch']))
+ if (isset($_POST['onoffswitch']) && !empty($_POST['onoffswitch'])) {
 
  if (isset($_POST['nombre_m']) && !empty($_POST['nombre_m']) &&
 	 isset($_POST['domicilio_m']) && !empty($_POST['domicilio_m']) &&
@@ -239,13 +239,14 @@ case 'MEDICO':
 
  include("alert.html");
 
-}
+
 else{
  echo "Error";
 
 }
 
 	break;
+	}
 	}
 
 ?>

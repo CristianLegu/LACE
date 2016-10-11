@@ -1,12 +1,13 @@
 <?php
-         header('Content-Type: text/html; charset=iso-8859-1');
+      header('Content-Type: text/html; charset=iso-8859-1');
+      echo htmlspecialchars("", ENT_QUOTES, 'utf-8');
 ?>
 <!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
-  <title>Menu Pacientes |LACE </title>
+  <title>Menu Pacientes | LACE </title>
   <link rel="shortcut icon" href="img/icon.png"> 
   <link rel="stylesheet" type="text/css" media="all" href="css/styles-menu.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
@@ -31,7 +32,9 @@
       <h1>Pacientes</h1>  
     </li>
       <p>
-        <input type="text" placeholder="Buscar...">  
+        <form name="formulario" action="" onSubmit="enviarDatos(); return false">
+          <li><input type="text" placeholder="Buscar..." name="busca" id="busca"></li>
+        </form>  
       </p>  
     <li></li>
     <li></li>  
@@ -50,23 +53,46 @@
           <th>An&aacute;lisis</th>
         </tr>
 
-         <?php
-          include("includes/conexion.php");
-             $con = mysql_connect($host,$user,$pwd) or die("Error en el Server: ".mysql_error()); 
-                mysql_select_db($db,$con)or die("Error con BD: ".mysql_error());
-                $query = mysql_query("SELECT idpacientes, nombre FROM pacientes", $con) or die(mysql_error());
+<?php
+  include("includes/conexion.php");
 
-             while ($fila = mysql_fetch_array($query)){
-            $nombre = $fila['1'];
-          ?>
+  $con = mysqli_connect($host, $user, $pwd, $db);
+
+  if (mysqli_connect_errno()) {
+    echo "Falló la conexión: ".mysqli_connect_error();
+    }
+/*Verifica si el campo busca esta vacio*/
+    if(empty($_GET['busca'])){
+            $pac = ' ';
+          }
+
+    else{
+        $pac = $_GET['busca'];  
+        }
+
+    $search = '%'.$pac.'%';
+
+    $sql = "SELECT 
+                idpacientes, 
+                nombre 
+              FROM pacientes
+            WHERE nombre LIKE '$search'" ;
+
+         $query = $con -> query($sql);
+
+         while ($fila = $query -> fetch_array()){
+         $nombre = $fila['1'];
+ ?>
         <tr>
           <td><?php echo $fila['0']; ?></td>
           <td><?php echo $nombre; ?></td>
-          <td><a href= "pacientes.php? idpac=<?php echo $fila['0'] ?>">Ver</a> </td>
-          <td><a href= "analisis.php? idpac=<?php echo $fila['0'] ?>">Agregar</a> </td>
+          <td><a href= "pacientes.php? pacnum=<?php echo $fila['0'] ?>">Ver</a> </td>
+          <td><a href= "analisis.php? pacnum=<?php echo $fila['0'] ?>">Agregar</a> </td>
         </tr>
 
-        <?php } ?>
+<?php } 
+  mysqli_close($con);
+?>
       </table>
   
 
