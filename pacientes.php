@@ -7,11 +7,11 @@
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
   <title>Pacientes - LACE</title>
-  <link rel="shortcut icon" href="img/icon.png"> 
+  <link rel="shortcut icon" href="img/icon.png">
   <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
   <script type="text/javascript" src="js/switchery.min.js"></script>
- 
+
 </head>
 
 <body>
@@ -24,7 +24,7 @@
      </a>
      <h1>Pacientes</h1>
    </span>
-   
+
    <form action="guarda.php" method="post">
 
     <div class="col-2">

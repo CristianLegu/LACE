@@ -1,10 +1,17 @@
+<?php
+  include("includes/conexion.php");
+  session_start();
+  $_SESSION['guarda'] = 'P';
+
+?>
+
 <!doctype html>
 <html lang="en-US">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
   <title>Proveedores - LACE</title>
-<link rel="shortcut icon" href="img/icon.png"> 
+<link rel="shortcut icon" href="img/icon.png">
   <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
   <script type="text/javascript" src="js/switchery.min.js"></script>
@@ -20,40 +27,40 @@
 </a>
 	<h1>Proveedores</h1>
 </span>
-   
-  <form onsubmit="return false">
+
+  <form action="guarda.php" method="post">
 
   <div class="col-2">
     <label>
       Nombre
-      <input  name="nombre" tabindex="1">
+      <input  name="nombre" tabindex="1" required>
     </label>
   </div>
   <div class="col-2">
     <label>
       Dirección
-      <input " name="direccion" tabindex="2">
+      <input  name="direccion" tabindex="2" required>
     </label>
   </div>
-  
+
   <div class="col-3">
     <label>
       Teléfono 1
-      <input  name="phone" tabindex="3">
+      <input placeholder="52-2-22-22" name="telefono" tabindex="3" >
     </label>
   </div>
   <div class="col-3">
     <label>
       Teléfono 2
-      <input  name="phone2" tabindex="4">
+      <input    name="telefono2" tabindex="4">
     </label>
   </div>
   <div class="col-3">
     <label>
       R.F.C
-       <input  name="rfc" tabindex="5">
+       <input  name="rfc" tabindex="5" required>
   </div>
-  
+
   <div class="col-4">
     <label>
       Página Web
@@ -63,14 +70,14 @@
   <div class="col-4">
     <label>
       E-mail
-      <input  name="mail" tabindex="7">
+      <input  type="email" name="email" tabindex="7">
     </label>
   </div>
-  
+
   <div class="col-submit">
-    <button class="submitbtn">Guardar</button>
+    <button type="submit" class="submitbtn">Guardar</button>
   </div>
-  
+
   </form>
   </div>
 <script type="text/javascript">
