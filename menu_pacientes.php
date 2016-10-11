@@ -28,7 +28,7 @@
   		<nav>
 <ul>
     <li><input type="text" placeholder="Buscar..."></li>
-    <li style="float:right; margin-right:-20px;"><a href="pacientes.php"><img src="img/adduser.png"></a></li>
+    <li style="float:right; margin-right:20px;"><a href="pacientes.php"><img src="img/adduser.png"></a></li>
 </ul>
 </nav>
   		

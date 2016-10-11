@@ -1,12 +1,14 @@
 <?php
   include("includes/conexion.php");
+  session_start();
+  $_SESSION['guarda'] = 'E';
 ?>
 <!doctype html>
 <html lang="en-US">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
-  <title>Pacientes - LACE</title>
+  <title>Empleados - LACE</title>
   <link rel="shortcut icon" href="img/icon.png">
   <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
@@ -22,18 +24,18 @@
       <a href="menu.html">
        <img src="img/logo2.png"  style="width: 15%; margin-left: 40px; ">
      </a>
-     <h1>Pacientes</h1>
+     <h1>Empleados</h1>
    </span>
 
    <form action="guarda.php" method="post">
 
-    <div class="col-2">
+    <div class="col-3">
       <label>
         Nombre
         <input  name="nombre" tabindex="1" required>
       </label>
     </div>
-    <div class="col-2">
+    <div class="col-3">
       <label>
         Dirección
         <input  name="direccion" tabindex="2" required>
@@ -42,62 +44,29 @@
 
     <div class="col-3">
       <label>
-        Ciudad
-        <input  name="ciudad" tabindex="3" required>
+        Telefono
+        <input  name="telefono" tabindex="3" >
       </label>
     </div>
     <div class="col-3">
       <label>
-        Estado
-        <input name="estado" tabindex="4" required>
+        Nombre de Usuario
+        <input name="user" tabindex="4" required>
       </label>
     </div>
     <div class="col-3">
       <label>
-        Código Postal
-        <input  name="cp" tabindex="5">
+        Contraseña
+        <input  type="password" name="contraseña" tabindex="5" required>
       </div>
 
-      <div class="col-4">
-        <label>
-          Teléfono
-          <input  name="telefono" tabindex="6" type="tel"  placeholder="(XXX) XXX XX XX">
-        </label>
-      </div>
-      <div class="col-4">
-        <label>
-          Fecha de Nacimiento
-          <input  name="nacimiento" tabindex="7" required>
-        </label>
-      </div>
-      <div class="col-2">
+      <div class="col-3">
         <label>
           Email
-          <input  name="email" tabindex="8">
+          <input  name="email" tabindex="6" type="tel">
         </label>
       </div>
-      <div class="col-2">
-       <label>Sexo</label>
-         <center  style="position:relative; margin-bottom:8px">
-            <div class="onoffswitch">
-              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
-              <label class="onoffswitch-label" for="myonoffswitch">
-                <span class="onoffswitch-inner"></span>
-                <span class="onoffswitch-switch"></span>
-              </label>
-            </div>
-          </center>
-      </div>
-     <div class="col-2">
-      <label>
-        Tipo de sangre 
-        <input  name="sangre" tabindex="9">
-      </label>
-    </div>
-   <?php
-      session_start();
-      $_SESSION['value'] = 'PA';
-    ?>
+
 
     <div class="col-submit">
       <button type="submit" class="submitbtn">Guardar</button>

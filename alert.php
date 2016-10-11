@@ -23,6 +23,10 @@
 		window.location.href = 'proveedores.php';
 		session_destroy();
 <?	} ?>
+<?php	if ( $Variable == 'E' ) { ?>
+window.location.href = 'empleados.php';
+session_destroy();
+<?	} ?>
 <?php	if ( $Variable == 'M' ) { ?>
 window.location.href = 'menu_pacientes.php';
 session_destroy();
