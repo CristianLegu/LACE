@@ -67,7 +67,7 @@
   </div>
   <?php
       session_start();
-      $_SESSION['value'] = 'M';
+      $_SESSION['valueF'] = 'MEDICOS';
     ?>
 
   <div class="col-submit">

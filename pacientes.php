@@ -96,7 +96,7 @@
     </div>
    <?php
       session_start();
-      $_SESSION['value'] = 'PA';
+      $_SESSION['valueF'] = 'PACIENTES';
     ?>
 
     <div class="col-submit">
