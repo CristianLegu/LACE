@@ -39,7 +39,7 @@
     <li></li>
     <li></li>  
     <li>
-      <a href="pacientes.php" class="add"><img src="img/adduser.png"></a>
+      <a href="pacientes.php" class="add"><img src="img/addpac.png"></a>
     </li>
   </ul>
 </nav>

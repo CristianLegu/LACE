@@ -39,7 +39,7 @@
     <li></li>
     <li></li>  
     <li>
-      <a href="pacientes.php" class="add"><img src="img/adduser.png"></a>
+      <a href="medicos.php" class="add"><img src="img/addmed.png"></a>
     </li>
   </ul>
 </nav>
@@ -62,20 +62,23 @@
     }
 /*Verifica si el campo busca esta vacio*/
     if(empty($_GET['busca'])){
-            $pac = ' ';
+        $sql = "SELECT 
+                    idmedicos, 
+                    nombre 
+                  FROM medicos" ;
           }
 
     else{
         $pac = $_GET['busca'];  
+
+        $search = '%'.$pac.'%';
+
+        $sql = "SELECT 
+                    idmedicos, 
+                    nombre 
+                  FROM medicos
+                WHERE nombre LIKE '$search'" ;
         }
-
-    $search = '%'.$pac.'%';
-
-    $sql = "SELECT 
-                idmedicos, 
-                nombre 
-              FROM medicos
-            WHERE nombre LIKE '$search'" ;
 
          $query = $con -> query($sql);
 
