@@ -19,8 +19,8 @@
   			}, function(){
 				<?php 	  if(  $sesion == 'PROVEEDOR') { ?>
 					window.location.href = 'proveedores.php';
-				<?php	} if (  $sesion == 'EMPLEADO' ) { ?>
-					window.location.href = 'empleados.php';
+				<?php	} if (  $sesion == 'USUARIO' ) { ?>
+					window.location.href = 'menu_usuarios.php';
 				<?php	} if (  $sesion == 'MEDICOS' ) { ?>
 					window.location.href = 'menu_medicos.php';
 				<?php	} if (  $sesion == 'PACIENTES' ) { ?>

@@ -1,14 +1,14 @@
 <?php
   include("includes/conexion.php");
   session_start();
-  $_SESSION['guarda'] = 'EMPLEADO';
+  $_SESSION['valueF'] = 'USUARIO';
 ?>
 <!doctype html>
 <html lang="en-US">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
-  <title>Empleados - LACE</title>
+  <title>Usuarios- LACE</title>
   <link rel="shortcut icon" href="img/icon.png">
   <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
@@ -24,7 +24,7 @@
       <a href="menu.html">
        <img src="img/logo2.png"  style="width: 15%; margin-left: 40px; ">
      </a>
-     <h1>Empleados</h1>
+     <h1>Usuarios</h1>
    </span>
 
    <form action="guarda.php" method="post">
