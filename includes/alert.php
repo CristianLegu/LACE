@@ -17,15 +17,17 @@
    				text: "Guardado con éxito.",
     			type: "success"
   			}, function(){
-				<?php 	  if(  $sesion == 'PROVEEDOR') { ?>
-					window.location.href = 'proveedores.php';
-				<?php	} if (  $sesion == 'EMPLEADO' ) { ?>
-					window.location.href = 'empleados.php';
-				<?php	} if (  $sesion == 'MEDICOS' ) { ?>
-					window.location.href = 'menu_medicos.php';
-				<?php	} if (  $sesion == 'PACIENTES' ) { ?>
-					window.location.href = 'menu_pacientes.php';
-				<?php   } ?>
+							<?php 	  if(  $sesion == 'PROVEEDOR') { ?>
+								window.location.href = 'proveedores.php';
+							<?php	} if (  $sesion == 'EMPLEADO' ) { ?>
+								window.location.href = 'empleados.php';
+							<?php	} if (  $sesion == 'MEDICOS' ) { ?>
+								window.location.href = 'menu_medicos.php';
+							<?php	} if (  $sesion == 'PACIENTES' ) { ?>
+								window.location.href = 'menu_pacientes.php';
+							<?php	} if (  $sesion == 'PACIENTESUP' ) { ?>
+								window.location.href = 'menu_pacientes.php';
+							<?php   } ?>
 				}
 			);
 	</script>

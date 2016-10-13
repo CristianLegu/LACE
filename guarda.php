@@ -3,7 +3,8 @@
 	session_start();
 	if(isset($_SESSION['valueF'])){
 		 $sesion = $_SESSION['valueF'];
-		 echo $sesion;
+		 //echo $sesion;
+		 $idup = $_SESSION['idup'];
 	}
 
 
@@ -156,6 +157,76 @@ switch ($sesion) {
 
 		break;
 
+/*INICIO PACIENTES UPDATE*/
+	case 'PACIENTESUP':
+		if (isset($_POST['nombre']) && !empty($_POST['nombre']) &&
+		 	isset($_POST['direccion']) && !empty($_POST['direccion']) &&
+		 	isset($_POST['ciudad']) && !empty($_POST['ciudad']) &&
+			isset($_POST['estado']) && !empty($_POST['estado']) &&
+			isset($_POST['nacimiento']) && !empty($_POST['nacimiento'])
+			)
+		{
+			$nombre 		= utf8_decode($_POST['nombre']);
+			$direccion 		= utf8_decode($_POST['direccion']);
+			$ciudad			= utf8_decode($_POST['ciudad']);
+			$estado 		= utf8_decode($_POST['estado']);
+			$cp 			= utf8_decode($_POST['cp']);
+			$telefono		= utf8_decode($_POST['telefono']);
+			$nacimiento 	= utf8_decode($_POST['nacimiento']);
+			$email 			= utf8_decode($_POST['email']);
+			$sangre			= utf8_decode($_POST['sangre']);
+
+			$mysqli = mysqli_connect($host, $user, $pwd, $db);
+			if (mysqli_connect_errno()) {
+				echo "Falló la conexión:".mysqli_connect_error();
+			}
+
+
+
+			if (isset($_POST['onoffswitch']) && !empty($_POST['onoffswitch']))
+			{
+				$sexo = "M";
+			}
+			else
+			{
+				$sexo = "F";
+			}
+			
+			$sql = "UPDATE pacientes 
+							  set nombre 		= '$nombre', 
+					 			  direccion 	= '$direccion',
+					 			  ciudad  		= '$ciudad',
+					 			  estado 		= '$estado',
+					 			  codigo_postal	= '$cp',
+					 			  telefono 		= 'telefono',
+					 			  email 		= '$email',
+					 			  fecha_nac		= '$nacimiento',
+					 			  sexo 			= '$sexo',
+					 			  tipo_sangre	= '$sangre'
+	 									WHERE idpacientes = $idup;";
+
+			if( mysqli_query($mysqli, $sql)){
+
+			}
+			else{
+				echo "Error ".mysqli_error($mysqli);
+			}
+
+			mysqli_close($mysqli);
+
+			include("includes/alert.php");
+
+		}
+		else
+		{
+			echo "Error";
+
+		}
+		break;
+
 
 }
+ unset ($_SESSION['valueF']);
+ unset ($_SESSION['idup']);
+
 ?>
