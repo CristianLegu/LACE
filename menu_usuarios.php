@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
-  <title>Men&uacute; Pacientes | LACE </title>
+  <title>Men&uacute; Usuarios | LACE </title>
   <link rel="shortcut icon" href="img/icon.png"> 
   <link rel="stylesheet" type="text/css" media="all" href="css/styles-menu.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
@@ -29,7 +29,7 @@
     </li>
     
     <li>
-      <h1>Pacientes</h1>  
+      <h1>Usuarios</h1>  
     </li>
       <p>
         <form name="formulario" action="" onSubmit="enviarDatos(); return false">
@@ -50,7 +50,6 @@
           <th>Folio</th>
           <th>Nombre</th>
           <th>Perfil</th>
-          <th>An&aacute;lisis</th>
         </tr>
 
 <?php
@@ -73,9 +72,9 @@
     $search = '%'.$pac.'%';
 
     $sql = "SELECT 
-                idpacientes, 
+                idusuarios, 
                 nombre 
-              FROM pacientes
+              FROM usuarios
             WHERE nombre LIKE '$search'" ;
 
          $query = $con -> query($sql);
@@ -86,8 +85,7 @@
         <tr>
           <td><?php echo $fila['0']; ?></td>
           <td><?php echo $nombre; ?></td>
-          <td><a href= "pacientes.php? p=<?php echo $fila['0'] ?>">Ver</a> </td>
-          <td><a href= "analisis.php? p=<?php echo $fila['0'] ?>">Agregar</a> </td>
+          <td><a href= "medicos.php? m=<?php echo $fila['0'] ?>">Ver</a> </td>
         </tr>
 
 <?php } 

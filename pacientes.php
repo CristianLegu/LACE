@@ -13,9 +13,31 @@
   <script type="text/javascript" src="js/switchery.min.js"></script>
 
 </head>
+<?php
+  include("includes/conexion.php");
 
+  $con = mysqli_connect($host, $user, $pwd, $db);
+
+  if (mysqli_connect_errno()) {
+    echo "Falló la conexión: ".mysqli_connect_error();
+    }
+/*Verifica si el campo busca esta vacio*/
+    if(empty($_GET['p'])){
+            $pac = ' ';
+          }
+
+    else{
+        $pac = $_GET['p'];  
+        }
+
+        $sql = "SELECT *
+                  FROM pacientes
+                  WHERE idpacientes = '$pac'" ;
+
+         $query  = mysqli_query($con, $sql);
+         $fila   = mysqli_fetch_array($query, MYSQLI_ASSOC);
+ ?>
 <body>
-
   <div id="wrapper">
 
     <span style="align: left;">
@@ -30,50 +52,51 @@
     <div class="col-2">
       <label>
         Nombre
-        <input  name="nombre" tabindex="1" required>
+        <input value="<?php echo $fila['nombre']; ?>" name="nombre" tabindex="1" required >
       </label>
     </div>
     <div class="col-2">
       <label>
         Dirección
-        <input  name="direccion" tabindex="2" required>
+        <input  name="direccion" tabindex="2" required value="<?php echo $fila['direccion']; ?>">
       </label>
     </div>
 
     <div class="col-3">
       <label>
         Ciudad
-        <input  name="ciudad" tabindex="3" required>
+        <input  name="ciudad" tabindex="3" required value="<?php echo $fila['ciudad']; ?>">
       </label>
     </div>
     <div class="col-3">
       <label>
         Estado
-        <input name="estado" tabindex="4" required>
+        <input name="estado" tabindex="4" required value="<?php echo $fila['estado']; ?>">
       </label>
     </div>
     <div class="col-3">
       <label>
         Código Postal
-        <input  name="cp" tabindex="5">
+        <input  name="cp" tabindex="5" value="<?php echo $fila['codigo_postal']; ?>">
       </div>
 
       <div class="col-4">
         <label>
           Teléfono
-          <input  name="telefono" tabindex="6" type="tel"  placeholder="(XXX) XXX XX XX">
+          <input  name="telefono" tabindex="6" type="tel"  placeholder="(XXX) XXX XX XX" 
+            value="<?php echo $fila['telefono']; ?>">
         </label>
       </div>
       <div class="col-4">
         <label>
           Fecha de Nacimiento
-          <input  name="nacimiento" tabindex="7" required>
+          <input  name="nacimiento" tabindex="7" required value="<?php echo $fila['fec_nac']; ?>">
         </label>
       </div>
       <div class="col-2">
         <label>
           Email
-          <input  name="email" tabindex="8">
+          <input  name="email" tabindex="8" value="<?php echo $fila['email']; ?>">
         </label>
       </div>
       <div class="col-2">
@@ -91,12 +114,12 @@
      <div class="col-2">
       <label>
         Tipo de sangre 
-        <input  name="sangre" tabindex="9">
+        <input  name="sangre" tabindex="9" value="<?php echo $fila['tipo_sangre']; ?>">
       </label>
     </div>
    <?php
       session_start();
-      $_SESSION['valueF'] = 'PACIENTES';
+      $_SESSION['value'] = 'PA';
     ?>
 
     <div class="col-submit">
