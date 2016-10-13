@@ -10,7 +10,6 @@
 
 
 switch ($sesion) {
-/*INICIO PROVEEDOR*/
 	case 'PROVEEDOR':
 			if (isset($_POST['nombre']) && !empty($_POST['nombre']) &&
 			isset($_POST['direccion']) && !empty($_POST['direccion']) &&
@@ -57,8 +56,52 @@ switch ($sesion) {
 
 		}
 		break;
-/*FIN PROVEEDOR*/
-/*INICIO PACIENTES*/
+case 'USUARIO': 
+			if (isset($_POST['nombre']) && !empty($_POST['nombre'])   &&
+			isset($_POST['direccion']) && !empty($_POST['direccion']) &&
+			isset($_POST['user']) && !empty($_POST['user'])           &&
+			isset($_POST['contraseña']) && !empty($_POST['contraseña'])
+			)
+		{
+
+			$nombre 	   	= utf8_decode($_POST['nombre']);
+			$direccion 		= utf8_decode($_POST['direccion']);
+			$telefono		= utf8_decode($_POST['telefono']);
+			$usuario        = utf8_decode($_POST['user']);
+			$contraseña  	= utf8_decode($_POST['contraseña']);
+		    $email	        = utf8_decode($_POST['email']);
+
+
+			$mysqli = mysqli_connect($host, $user, $pwd, $db);
+			if (mysqli_connect_errno()) {
+				echo "Falló la conexión:".mysqli_connect_error();
+			}
+
+
+
+			$sql = "INSERT INTO usuarios (nombre, direccion, telefono, contraseña, n_user,
+													 email)
+						VALUES('$nombre', '$direccion', '$telefono', '$contraseña', '$usuario',
+								 '$email');";
+
+
+
+			if( mysqli_query($mysqli, $sql)){
+				//echo "Inserción realizada".mysqli_connect_error();
+			}else{
+				echo "Error ".mysqli_error($mysqli);
+			}
+
+			mysqli_close($mysqli);
+
+			include("includes/alert.php");
+
+		}
+		else{
+			echo "Error";
+
+		}
+		break;
 	case 'PACIENTES':
 		if (isset($_POST['nombre']) && !empty($_POST['nombre']) &&
 		 	isset($_POST['direccion']) && !empty($_POST['direccion']) &&
@@ -115,8 +158,6 @@ switch ($sesion) {
 
 		}
 		break;
-/*FIN PACIENTES*/
-/*INICIO MEDICOS*/
 	case 'MEDICOS':
 		if (isset($_POST['nombre_m']) && !empty($_POST['nombre_m']) &&
 	 		isset($_POST['domicilio_m']) && !empty($_POST['domicilio_m']) &&
