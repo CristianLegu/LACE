@@ -48,8 +48,9 @@
         <tr>
           <th>Folio</th>
           <th>Nombre</th>
-          <th>Perfil</th>
-          <th>An&aacute;lisis</th>
+          <th>Informaci&oacute;n</th>
+          <th>Stock</th>
+          <th>Agregar</th>
         </tr>
 
 <?php
