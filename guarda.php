@@ -4,26 +4,59 @@
 	if(isset($_SESSION['valueF'])){
 		 $sesion = $_SESSION['valueF'];
 		 //echo $sesion;
-		 $idup = $_SESSION['idup'];
+	//	 $idup = $_SESSION['idup'];
 	}
 
 
 
 switch ($sesion) {
 	case 'PROVEEDOR':
+
+	
+
 			if (isset($_POST['nombre']) && !empty($_POST['nombre']) &&
 			isset($_POST['direccion']) && !empty($_POST['direccion']) &&
 			isset($_POST['rfc']) && !empty($_POST['rfc'])
 			)
 		{
-
-			$nombre 	   	= utf8_decode($_POST['nombre']);
+$encontro=0;
+      
+$con = mysqli_connect($host, $user, $pwd, $db);
+                   
+                if (mysqli_connect_errno()) {
+    echo "Falló la conexión: ".mysqli_connect_error();
+             }
+            $nombre 	   	= utf8_decode($_POST['nombre']);
 			$direccion 		= utf8_decode($_POST['direccion']);
 			$telefono		= utf8_decode($_POST['telefono']);
 			$telefono2      = utf8_decode($_POST['telefono2']);
 			$rfc			= utf8_decode($_POST['rfc']);
 			$web	       	= utf8_decode($_POST['web']);
 			$email	        = utf8_decode($_POST['email']);
+            
+          
+          $sql = "SELECT n_user
+                    FROM usuarios
+                    WHERE n_user = '$usuario'" ;
+
+                $query  = mysqli_query($con, $sql);
+                while($fila = mysqli_fetch_array($query)){
+    
+                        $nom = $fila[0];           
+                       if($usuario==$nom)
+                       {
+                        $encontro=1;
+                       }
+                  
+                } 
+                mysqli_close($mysqli); 
+    if($encontro==1){
+    
+                   include("includes/alert_existe.php");	   
+    }              
+
+else{ 
+			
 
 
 			$mysqli = mysqli_connect($host, $user, $pwd, $db);
@@ -51,27 +84,63 @@ switch ($sesion) {
 			include("includes/alert.php");
 
 		}
+		}
 		else{
 			echo "Error";
 
 		}
+		}
 		break;
 case 'USUARIO': 
-			if (isset($_POST['nombre']) && !empty($_POST['nombre'])   &&
-			isset($_POST['direccion']) && !empty($_POST['direccion']) &&
-			isset($_POST['user']) && !empty($_POST['user'])           &&
-			isset($_POST['contraseña']) && !empty($_POST['contraseña'])
-			)
-		{
-
-			$nombre 	   	= utf8_decode($_POST['nombre']);
+       
+$encontro=0;
+      
+$con = mysqli_connect($host, $user, $pwd, $db);
+                   
+                if (mysqli_connect_errno()) {
+    echo "Falló la conexión: ".mysqli_connect_error();
+             }
+            $nombre 	   	= utf8_decode($_POST['nombre']);
 			$direccion 		= utf8_decode($_POST['direccion']);
 			$telefono		= utf8_decode($_POST['telefono']);
 			$usuario        = utf8_decode($_POST['user']);
 			$contraseña  	= utf8_decode($_POST['contraseña']);
 		    $email	        = utf8_decode($_POST['email']);
+            
 
+           
+          $sql = "SELECT n_user
+                    FROM usuarios
+                    WHERE n_user = '$usuario'" ;
 
+                $query  = mysqli_query($con, $sql);
+                 
+                
+
+                 while($fila = mysqli_fetch_array($query)){
+    
+                        $nom = $fila[0];           
+                       if($usuario==$nom)
+                       {
+                        $encontro=1;
+                       }
+                  
+                } 
+                mysqli_close($mysqli); 
+    if($encontro==1){
+    
+                   include("includes/alert_existe.php");	   
+    }              
+
+else{ 
+
+			if (isset($_POST['nombre']) && !empty($_POST['nombre'])   &&
+			isset($_POST['direccion']) && !empty($_POST['direccion']) &&
+			isset($_POST['user']) && !empty($_POST['user'])           &&
+			isset($_POST['contraseña']) && !empty($_POST['contraseña']))
+		{
+
+			
 			$mysqli = mysqli_connect($host, $user, $pwd, $db);
 			if (mysqli_connect_errno()) {
 				echo "Falló la conexión:".mysqli_connect_error();
@@ -94,14 +163,16 @@ case 'USUARIO':
 
 			mysqli_close($mysqli);
 
-			include("includes/alert.php");
-
-		}
+			include("includes/alert.php");	}
 		else{
 			echo "Error";
 
 		}
+		 }
+
+		 
 		break;
+
 	case 'PACIENTES':
 		if (isset($_POST['nombre']) && !empty($_POST['nombre']) &&
 		 	isset($_POST['direccion']) && !empty($_POST['direccion']) &&
@@ -158,6 +229,7 @@ case 'USUARIO':
 
 		}
 		break;
+
 	case 'MEDICOS':
 		if (isset($_POST['nombre_m']) && !empty($_POST['nombre_m']) &&
 	 		isset($_POST['domicilio_m']) && !empty($_POST['domicilio_m']) &&

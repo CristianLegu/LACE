@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -26,6 +27,57 @@
   <img src="img/logo2.png"  style="width: 15%; margin-left: 40px; ">
 </a>
   </span>
+
+<form   method="POST" >
+<DIV>
+  <select id="selectMed" name="selectMed" onchange="submit()">
+                 <option value="" selected>Seleccionar</option>
+       <?php
+         include("includes/conexion.php");
+           $con = mysqli_connect($host, $user, $pwd, $db);
+            if (mysqli_connect_errno()) {
+          echo "Falló la conexión:".mysqli_connect_error();
+              }
+              else{
+                    $sql = "SELECT *
+                             FROM medicos " ;
+
+              $query  = mysqli_query($con, $sql);
+
+
+               while ($fila=mysqli_fetch_array($query)){
+              //    echo "<option value='{".$fila[1]."}'>".$fila[1]."</option>";
+
+
+             /* echo "<option value='{".$fila[1]."' ";
+              if($_POST['selectMed']==$fila[0])
+              echo "}'>".$fila[1]."</option>";
+
+                      /* echo "<option value= '".$fila[0]."' ";
+                         if($_POST['selectMed']==$fila[0])
+                         echo "SELECTED ";
+                         echo "}'>";
+                         echo $fila[1];
+                         echo "</option>"; */
+
+
+                         echo "<option value= '".$fila[0]."' ";
+                         if($_POST['selectMed']==$fila[0])
+                         echo "SELECTED ";
+                         echo ">";
+                         echo $fila[1];
+                         echo "</option>";
+                   }
+                  }
+                ?>
+
+
+               </select>
+</select>
+   </div >
+
+   
+  </form>
 
   <h1>INMUNOLOGÍA</h1>
 

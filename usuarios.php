@@ -27,7 +27,7 @@
      <h1>Usuarios</h1>
    </span>
 
-   <form action="guarda.php" method="post">
+   <form action="guarda.php" action="guarda.php" method="post">
 
     <div class="col-3">
       <label>
@@ -73,7 +73,7 @@
     </div>
 
   </form>
-</div>
+
 <script type="text/javascript">
 var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
 
