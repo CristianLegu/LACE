@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
-  <title>Men&uacute; Pacientes | LACE </title>
+  <title>Men&uacute; Usuarios | LACE </title>
   <link rel="shortcut icon" href="img/icon.png"> 
   <link rel="stylesheet" type="text/css" media="all" href="css/styles-menu.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
@@ -29,16 +29,16 @@
     </li>
     
     <li>
-      <h1>Pacientes</h1>  
+      <h1>Usuarios</h1>  
     </li>
       <p>
         <form name="formulario" action="" onSubmit="enviarDatos(); return false">
           <li><input type="text" placeholder="Buscar..." name="busca" id="busca"></li>
         </form>  
       </p>  
-    <li></li>  
+    <li></li> 
     <li>
-      <a href="pacientes.php" class="add"><img src="img/addpac.png"></a>
+      <a href="usuarios.php" class="add"><img src="img/adduser.png"></a>
     </li>
   </ul>
 </nav>
@@ -49,7 +49,6 @@
           <th>Folio</th>
           <th>Nombre</th>
           <th>Perfil</th>
-          <th>An&aacute;lisis</th>
         </tr>
 
 <?php
@@ -62,46 +61,23 @@
     }
 /*Verifica si el campo busca esta vacio*/
     if(empty($_GET['busca'])){
-<<<<<<< HEAD
-        $sql = "SELECT 
-                idpacientes, 
+    $sql = "SELECT 
+                idusuarios, 
                 nombre 
-              FROM pacientes";
+              FROM usuarios" ;
           }
 
     else{
 
-        $pac = $_GET['busca'];  
+        $pac = $_GET['busca']; 
         $search = '%'.$pac.'%';
 
         $sql = "SELECT 
-                idpacientes, 
+                idusuarios, 
                 nombre 
-              FROM pacientes
-            WHERE nombre LIKE '$search'" ;
+              FROM usuarios
+            WHERE nombre LIKE '$search'" ; 
         }
-  
-=======
-      
-            $sql = "SELECT 
-                    idpacientes, 
-                    nombre 
-                  FROM pacientes" ;
-          }
-
-    else{
-        $pac = $_GET['busca'];
-        $search = '%'.$pac.'%';
-
-        $sql = "SELECT 
-                    idpacientes, 
-                    nombre 
-                  FROM pacientes
-                WHERE nombre LIKE '$search'" ;  
-        }
-
-    
->>>>>>> origin/master
 
          $query = $con -> query($sql);
 
@@ -111,8 +87,7 @@
         <tr>
           <td><?php echo $fila['0']; ?></td>
           <td><?php echo $nombre; ?></td>
-          <td><a href= "pacientes.php? p=<?php echo $fila['0'] ?>">Ver</a> </td>
-          <td><a href= "analisis.php? p=<?php echo $fila['0'] ?>">Agregar</a> </td>
+          <td><a href= "medicos.php? m=<?php echo $fila['0'] ?>">Ver</a> </td>
         </tr>
 
 <?php } 

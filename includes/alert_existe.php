@@ -13,12 +13,12 @@
 	<script type="text/javascript">
 
 			swal({
-  				title: "Guardado",
-   				text: "Guardado con éxito.",
-    			type: "success"
+  				title: "Error",
+   				text: "El Registro existe.",
+    			type: "warning"
   			}, function(){
 
-							<?php 	  if(  $sesion == 'PROVEEDOR') { ?>
+				<?php 	  if(  $sesion == 'PROVEEDOR') { ?>
 								window.location.href = 'proveedores.php';
 							<?php	} if (  $sesion == 'EMPLEADO' ) { ?>
 								window.location.href = 'empleados.php';
@@ -39,7 +39,7 @@
 				<?php	} if (  $sesion == 'PACIENTES' ) { ?>
 					window.location.href = 'menu_pacientes.php';
 				<?php   } ?>
-
+	
 				}
 			);
 	</script>

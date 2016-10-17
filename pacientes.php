@@ -16,9 +16,35 @@
 
 
 </head>
+<?php
 
+  $con = mysqli_connect($host, $user, $pwd, $db);
+
+  if (mysqli_connect_errno()) {
+    echo "Falló la conexión: ".mysqli_connect_error();
+    }
+/*Verifica si el campo busca esta vacio*/
+    if(empty($_GET['p'])){
+            $pac = ' ';
+            session_start();
+               $_SESSION['valueF'] = 'PACIENTES';
+          }
+
+    else{
+        $pac = $_GET['p'];  
+        session_start();
+               $_SESSION['valueF'] = 'PACIENTESUP';
+               $_SESSION['idup'] = $pac;
+        }
+
+        $sql = "SELECT *
+                  FROM pacientes
+                  WHERE idpacientes = '$pac'" ;
+
+         $query  = mysqli_query($con, $sql);
+         $fila   = mysqli_fetch_array($query, MYSQLI_ASSOC);
+ ?>
 <body>
-
   <div id="wrapper">
 
     <span style="align: left;">
@@ -33,63 +59,82 @@
     <div class="col-2">
       <label>
         Nombre
-        <input  name="nombre" tabindex="1" required>
+        <input value="<?php echo utf8_encode($fila['nombre']); ?>" name="nombre" tabindex="1" required >
       </label>
     </div>
     <div class="col-2">
       <label>
         Dirección
-        <input  name="direccion" tabindex="2" required>
+        <input  name="direccion" tabindex="2" required value="<?php echo utf8_encode($fila['direccion']); ?>">
       </label>
     </div>
 
     <div class="col-3">
       <label>
         Ciudad
-        <input  name="ciudad" tabindex="3" required>
+        <input  name="ciudad" tabindex="3" required value="<?php echo $fila['ciudad']; ?>">
       </label>
     </div>
     <div class="col-3">
       <label>
         Estado
-        <input name="estado" tabindex="4" required>
+        <input name="estado" tabindex="4" required value="<?php echo utf8_encode($fila['estado']); ?>">
       </label>
     </div>
     <div class="col-3">
       <label>
         Código Postal
-        <input  name="cp" tabindex="5">
+        <input  name="cp" tabindex="5" value="<?php echo utf8_encode($fila['codigo_postal']); ?>">
       </div>
 
       <div class="col-4">
         <label>
           Teléfono
+<<<<<<< HEAD
           <input type="tel" name="telefono" tabindex="6" placeholder="(XXX) XXX XX XX">
+=======
+          <input  name="telefono" tabindex="6" type="tel"  placeholder="(XXX) XXX XX XX" 
+            value="<?php echo $fila['telefono']; ?>">
+>>>>>>> origin/master
         </label>
       </div>
       <div class="col-4">
         <label>
+<<<<<<< HEAD
           Fecha de Nacimiento 
           <div id="date1" class="datefield"><br><br>
             <input id="day" name="dia" maxlength="2" placeholder="DD" required/> /              
             <input id="month" name="mes" maxlength="2" placeholder="MM" required/>/
             <input id="year" name="anio" maxlength="4" placeholder="AAAA"required />
           </div>
+=======
+          Fecha de Nacimiento
+          <input  name="nacimiento" tabindex="7" required value="<?php echo $fila['fecha_nac']; ?>">
+>>>>>>> origin/master
         </label>
       </div>
       <div class="col-2">
         <label>
           Email
-          <input  name="email" tabindex="8">
+          <input  name="email" tabindex="8" value="<?php echo $fila['email']; ?>" type="email">
         </label>
       </div>
       <div class="col-2">
        <label>Sexo</label>
          <center  style="position:relative; margin-bottom:8px">
+          <?php
+                  if ($fila['sexo'] == 'M'){
+                    $s = 'checked';
+                  }
+                  else{
+                    $s = '';
+                  }
+          ?>
             <div class="onoffswitch">
-              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" <?php echo $s; ?>>
               <label class="onoffswitch-label" for="myonoffswitch">
                 <span class="onoffswitch-inner"></span>
+                
                 <span class="onoffswitch-switch"></span>
               </label>
             </div>
@@ -98,13 +143,9 @@
      <div class="col-2">
       <label>
         Tipo de sangre 
-        <input  name="sangre" tabindex="9">
+        <input  name="sangre" tabindex="9" value="<?php echo $fila['tipo_sangre']; ?>">
       </label>
     </div>
-   <?php
-      session_start();
-      $_SESSION['valueF'] = 'PACIENTES';
-    ?>
 
     <div class="col-submit">
       <button type="submit" class="submitbtn">Guardar</button>

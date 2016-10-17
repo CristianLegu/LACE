@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
-  <title>Men&uacute; Pacientes | LACE </title>
+  <title>Men&uacute; Productos | LACE </title>
   <link rel="shortcut icon" href="img/icon.png"> 
   <link rel="stylesheet" type="text/css" media="all" href="css/styles-menu.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
@@ -29,7 +29,7 @@
     </li>
     
     <li>
-      <h1>Pacientes</h1>  
+      <h1>Productos</h1>  
     </li>
       <p>
         <form name="formulario" action="" onSubmit="enviarDatos(); return false">
@@ -62,26 +62,6 @@
     }
 /*Verifica si el campo busca esta vacio*/
     if(empty($_GET['busca'])){
-<<<<<<< HEAD
-        $sql = "SELECT 
-                idpacientes, 
-                nombre 
-              FROM pacientes";
-          }
-
-    else{
-
-        $pac = $_GET['busca'];  
-        $search = '%'.$pac.'%';
-
-        $sql = "SELECT 
-                idpacientes, 
-                nombre 
-              FROM pacientes
-            WHERE nombre LIKE '$search'" ;
-        }
-  
-=======
       
             $sql = "SELECT 
                     idpacientes, 
@@ -101,7 +81,6 @@
         }
 
     
->>>>>>> origin/master
 
          $query = $con -> query($sql);
 
