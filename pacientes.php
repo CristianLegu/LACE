@@ -7,10 +7,13 @@
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
   <title>Pacientes - LACE</title>
+
+
   <link rel="shortcut icon" href="img/icon.png">
   <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
   <script type="text/javascript" src="js/switchery.min.js"></script>
+
 
 </head>
 
@@ -61,13 +64,17 @@
       <div class="col-4">
         <label>
           Teléfono
-          <input  name="telefono" tabindex="6" type="tel"  placeholder="(XXX) XXX XX XX">
+          <input type="tel" name="telefono" tabindex="6" placeholder="(XXX) XXX XX XX">
         </label>
       </div>
       <div class="col-4">
         <label>
-          Fecha de Nacimiento
-          <input  name="nacimiento" tabindex="7" required>
+          Fecha de Nacimiento 
+          <div id="date1" class="datefield"><br><br>
+            <input id="day" name="dia" maxlength="2" placeholder="DD" required/> /              
+            <input id="month" name="mes" maxlength="2" placeholder="MM" required/>/
+            <input id="year" name="anio" maxlength="4" placeholder="AAAA"required />
+          </div>
         </label>
       </div>
       <div class="col-2">
@@ -111,6 +118,12 @@ var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
 elems.forEach(function(html) {
   var switchery = new Switchery(html);
 });
+</script>
+<script type="text/javascript">
+  $('#date1 input').autotab_magic().autotab_filter('numeric');
+  $('#date1 input').datepicker()
+
+
 </script>
 </body>
 </html>

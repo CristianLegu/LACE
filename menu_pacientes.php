@@ -63,20 +63,24 @@
     }
 /*Verifica si el campo busca esta vacio*/
     if(empty($_GET['busca'])){
-            $pac = ' ';
+        $sql = "SELECT 
+                idpacientes, 
+                nombre 
+              FROM pacientes";
           }
 
     else{
+
         $pac = $_GET['busca'];  
-        }
+        $search = '%'.$pac.'%';
 
-    $search = '%'.$pac.'%';
-
-    $sql = "SELECT 
+        $sql = "SELECT 
                 idpacientes, 
                 nombre 
               FROM pacientes
             WHERE nombre LIKE '$search'" ;
+        }
+  
 
          $query = $con -> query($sql);
 

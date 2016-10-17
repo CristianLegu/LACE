@@ -255,6 +255,48 @@ float: left;
 
 
 /**********************************************************
+/*  ****************INICIO DATEBIRTH*
+**********************************************************/
+
+
+.datefield { 
+    display: inline; 
+    padding: 0.3em; 
+    
+    background: #FFF; 
+    border-radius: 4px;
+    color: #666;
+}
+
+.datefield * { 
+    display: inline-block;
+}
+
+.datefield input { 
+    width: 1.7em; 
+    padding: 0 0.4em; 
+    border: none; 
+    font-size: 100%; 
+    background: none;
+    color: #000;            
+}
+
+.datefield input#year { width:2.5em; }
+.datefield input:focus { outline:none; }
+
+
+
+
+/**********************************************************
+/*  ****************FIN PARA DATEBIRTH*
+**********************************************************/
+
+
+
+
+
+
+/**********************************************************
 /*  ****************BOTON SWITCH*
 **********************************************************/
     .onoffswitch {

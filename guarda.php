@@ -3,7 +3,6 @@
 	session_start();
 	if(isset($_SESSION['valueF'])){
 		 $sesion = $_SESSION['valueF'];
-		 echo $sesion;
 	}
 
 
@@ -63,7 +62,9 @@ switch ($sesion) {
 		 	isset($_POST['direccion']) && !empty($_POST['direccion']) &&
 		 	isset($_POST['ciudad']) && !empty($_POST['ciudad']) &&
 			isset($_POST['estado']) && !empty($_POST['estado']) &&
-			isset($_POST['nacimiento']) && !empty($_POST['nacimiento'])
+			isset($_POST['dia']) && !empty($_POST['dia'])	&& 
+			isset($_POST['mes']) && !empty($_POST['mes'])	&&
+			isset($_POST['anio']) && !empty($_POST['anio'])
 			)
 		{
 			$nombre 		= utf8_decode($_POST['nombre']);
@@ -72,9 +73,27 @@ switch ($sesion) {
 			$estado 		= utf8_decode($_POST['estado']);
 			$cp 			= utf8_decode($_POST['cp']);
 			$telefono		= utf8_decode($_POST['telefono']);
-			$nacimiento 	= utf8_decode($_POST['nacimiento']);
+			$dia 			= utf8_decode($_POST['dia']);
+			$mes 			= utf8_decode($_POST['mes']);
+			$anio 			= utf8_decode($_POST['anio']);
 			$email 			= utf8_decode($_POST['email']);
 			$sangre			= utf8_decode($_POST['sangre']);
+
+			$nacimiento		= $anio.'-'.$mes.'-'.$dia;
+
+			echo $nombre.'-';
+			echo $direccion.'-';
+			echo $ciudad.'-';
+			echo $estado.'-';
+			echo $cp.'-';
+			echo $telefono.'-';
+			echo $nacimiento.'-';
+			echo $email.'-';
+			echo $sangre.'-';
+
+
+
+			$enc = 0;
 
 			$mysqli = mysqli_connect($host, $user, $pwd, $db);
 			if (mysqli_connect_errno()) {
@@ -82,39 +101,61 @@ switch ($sesion) {
 			}
 
 
+			$nom_consul = '%'.$nombre.'%';
 
-			if (isset($_POST['onoffswitch']) && !empty($_POST['onoffswitch']))
-			{
-				$sexo = "M";
+
+			$sql_nom = "SELECT nombre FROM pacientes WHERE nombre LIKE'$nom_consul';";
+			$result = mysqli_query($mysqli, $sql_nom);
+			while ( $fila = mysqli_fetch_array($result, MYSQLI_NUM)) {
+				$comp_nom = utf8_encode($fila[0]);
+				$nombre2 = utf8_encode($nombre);					
+
+				if ($comp_nom==$nombre2) {
+					
+					$enc = 1;
+				}
+			}
+
+			if ($enc == 1) {
+				include("includes/warning.php");
+				
 			}
 			else
 			{
-				$sexo = "F";
+				if (isset($_POST['onoffswitch']) && !empty($_POST['onoffswitch']))
+				{
+					$sexo = "M";
+				}
+				else
+				{
+					$sexo = "F";
+				}
+
+				$sql = "INSERT INTO pacientes (nombre, direccion, ciudad, estado, codigo_postal,
+		        								 telefono, email, fecha_nac, sexo, tipo_sangre)
+							VALUES('$nombre', '$direccion', '$ciudad', '$estado', '$cp',
+									'$telefono', '$email', '$nacimiento', '$sexo', '$sangre');";
+
+				if( mysqli_query($mysqli, $sql)){
+
+				}else{
+					echo "Error ".mysqli_error($mysqli);
+				}
+
+				mysqli_close($mysqli);
+
+				include("includes/alert.php");	
 			}
-
-			$sql = "INSERT INTO pacientes (nombre, direccion, ciudad, estado, codigo_postal,
-	        								 telefono, email, fecha_nac, sexo, tipo_sangre)
-						VALUES('$nombre', '$direccion', '$ciudad', '$estado', '$cp',
-								'$telefono', '$email', '$nacimiento', '$sexo', '$sangre');";
-
-			if( mysqli_query($mysqli, $sql)){
-
-			}else{
-				echo "Error ".mysqli_error($mysqli);
-			}
-
-			mysqli_close($mysqli);
-
-			include("includes/alert.php");
-
 		}
 		else
 		{
-			echo "Error";
+			echo "Error Recibiendo";
 
 		}
 		break;
 /*FIN PACIENTES*/
+
+
 /*INICIO MEDICOS*/
 	case 'MEDICOS':
 		if (isset($_POST['nombre_m']) && !empty($_POST['nombre_m']) &&
