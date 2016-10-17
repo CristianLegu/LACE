@@ -62,7 +62,7 @@
     }
 /*Verifica si el campo busca esta vacio*/
     if(empty($_GET['busca'])){
-<<<<<<< HEAD
+
         $sql = "SELECT 
                 idpacientes, 
                 nombre 
@@ -81,7 +81,7 @@
             WHERE nombre LIKE '$search'" ;
         }
   
-=======
+
       
             $sql = "SELECT 
                     idpacientes, 
@@ -101,7 +101,7 @@
         }
 
     
->>>>>>> origin/master
+
 
          $query = $con -> query($sql);
 

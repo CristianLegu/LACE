@@ -90,27 +90,27 @@
       <div class="col-4">
         <label>
           Teléfono
-<<<<<<< HEAD
+
           <input type="tel" name="telefono" tabindex="6" placeholder="(XXX) XXX XX XX">
-=======
+
           <input  name="telefono" tabindex="6" type="tel"  placeholder="(XXX) XXX XX XX" 
             value="<?php echo $fila['telefono']; ?>">
->>>>>>> origin/master
+
         </label>
       </div>
       <div class="col-4">
         <label>
-<<<<<<< HEAD
+
           Fecha de Nacimiento 
           <div id="date1" class="datefield"><br><br>
             <input id="day" name="dia" maxlength="2" placeholder="DD" required/> /              
             <input id="month" name="mes" maxlength="2" placeholder="MM" required/>/
             <input id="year" name="anio" maxlength="4" placeholder="AAAA"required />
           </div>
-=======
+
           Fecha de Nacimiento
           <input  name="nacimiento" tabindex="7" required value="<?php echo $fila['fecha_nac']; ?>">
->>>>>>> origin/master
+
         </label>
       </div>
       <div class="col-2">

@@ -3,11 +3,10 @@
 	session_start();
 	if(isset($_SESSION['valueF'])){
 		 $sesion = $_SESSION['valueF'];
-<<<<<<< HEAD
-=======
+
 		 //echo $sesion;
 	//	 $idup = $_SESSION['idup'];
->>>>>>> origin/master
+
 	}
 
 
@@ -272,14 +271,14 @@ else{
 
 		}
 		break;
-<<<<<<< HEAD
+
 /*FIN PACIENTES*/
 
 
 /*INICIO MEDICOS*/
-=======
 
->>>>>>> origin/master
+
+
 	case 'MEDICOS':
 		if (isset($_POST['nombre_m']) && !empty($_POST['nombre_m']) &&
 	 		isset($_POST['domicilio_m']) && !empty($_POST['domicilio_m']) &&
