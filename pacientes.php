@@ -91,7 +91,7 @@
         <label>
           Teléfono
 
-          <input type="tel" name="telefono" tabindex="6" placeholder="(XXX) XXX XX XX">
+        
 
           <input  name="telefono" tabindex="6" type="tel"  placeholder="(XXX) XXX XX XX" 
             value="<?php echo $fila['telefono']; ?>">
@@ -108,8 +108,8 @@
             <input id="year" name="anio" maxlength="4" placeholder="AAAA"required />
           </div>
 
-          Fecha de Nacimiento
-          <input  name="nacimiento" tabindex="7" required value="<?php echo $fila['fecha_nac']; ?>">
+         
+         
 
         </label>
       </div>

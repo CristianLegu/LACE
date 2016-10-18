@@ -82,25 +82,7 @@
         }
   
 
-      
-            $sql = "SELECT 
-                    idpacientes, 
-                    nombre 
-                  FROM pacientes" ;
-          }
 
-    else{
-        $pac = $_GET['busca'];
-        $search = '%'.$pac.'%';
-
-        $sql = "SELECT 
-                    idpacientes, 
-                    nombre 
-                  FROM pacientes
-                WHERE nombre LIKE '$search'" ;  
-        }
-
-    
 
 
          $query = $con -> query($sql);
