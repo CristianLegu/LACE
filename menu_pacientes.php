@@ -54,21 +54,60 @@
 
 <?php
   include("includes/conexion.php");
-
+/******PAGINACION EJEMPLO******/
   $con = mysqli_connect($host, $user, $pwd, $db);
-
-  if (mysqli_connect_errno()) {
-    echo "Falló la conexión: ".mysqli_connect_error();
-    }
-/*Verifica si el campo busca esta vacio*/
+  $total_paginas = 0;
     if(empty($_GET['busca'])){
+       $resultados_pagina = 10;
+
+      if (isset($_GET["pagina"])) {
+        if (is_string($_GET["pagina"])) {
+          if (is_numeric($_GET["pagina"])) {
+            if ($_GET["pagina"] == 1) {
+              header("Location: menu_pacientes.php");
+              die();
+            }
+            else{
+              $pagina = $_GET["pagina"];
+            }
+          }
+          else{
+             header("Location: menu_pacientes.php");
+             die();
+          }
+        }
+      }
+      else{
+        $pagina = 1;
+      }
+
+      $empezar_desde = ($pagina-1) * $resultados_pagina;
+
+
+
+      
+
+      if (mysqli_connect_errno()) {
+        echo "Falló la conexión: ".mysqli_connect_error();
+        }
 
         $sql = "SELECT 
-                idpacientes, 
-                nombre 
-              FROM pacientes";
-          }
+                    idpacientes, 
+                    nombre 
+                  FROM pacientes";
+        $query = $con -> query($sql);
+        $total_registros = mysqli_num_rows($query);
+        $total_paginas = ceil($total_registros / $resultados_pagina); 
 
+        $sql2 =   "SELECT 
+                    idpacientes, 
+                    nombre 
+                  FROM pacientes
+                  LIMIT $empezar_desde, $resultados_pagina";
+        $query2 = $con -> query($sql2);
+
+       
+}
     else{
 
         $pac = $_GET['busca'];  
@@ -79,15 +118,13 @@
                 nombre 
               FROM pacientes
             WHERE nombre LIKE '$search'" ;
+        $query2 = $con -> query($sql);
+
         }
-  
 
+         
 
-
-
-         $query = $con -> query($sql);
-
-         while ($fila = $query -> fetch_array()){
+         while ($fila = $query2 -> fetch_array()){
          $nombre = $fila['1'];
  ?>
         <tr>
@@ -101,6 +138,14 @@
   mysqli_close($con);
 ?>
       </table>
+
+      | <?php
+//Crea un bucle donde $i es igual 1, y hasta que $i sea menor o igual a X, a sumar (1, 2, 3, etc.)
+//Nota: X = $total_paginas
+for ($i=1; $i<=$total_paginas; $i++) {
+  //En el bucle, muestra la paginación
+  echo "<a href='?pagina=".$i."'>".$i."</a> | ";
+}; ?>
   
 
 
