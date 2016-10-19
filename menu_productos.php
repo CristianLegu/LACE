@@ -38,7 +38,7 @@
       </p>  
     <li></li>  
     <li>
-      <a href="pacientes.php" class="add"><img src="img/addpac.png"></a>
+      <a href="productos.php" class="add"><img src="img/addprod.png" alt="Agregar Productos"></a>
     </li>
   </ul>
 </nav>
@@ -48,7 +48,6 @@
         <tr>
           <th>Folio</th>
           <th>Nombre</th>
-          <th>Informaci&oacute;n</th>
           <th>Stock</th>
           <th>Agregar</th>
         </tr>
@@ -65,9 +64,10 @@
     if(empty($_GET['busca'])){
       
             $sql = "SELECT 
-                    idpacientes, 
-                    nombre 
-                  FROM pacientes" ;
+                    idinventario, 
+                    nombre_art,
+                    cantidad 
+                  FROM inventario" ;
           }
 
     else{
@@ -75,10 +75,11 @@
         $search = '%'.$pac.'%';
 
         $sql = "SELECT 
-                    idpacientes, 
-                    nombre 
-                  FROM pacientes
-                WHERE nombre LIKE '$search'" ;  
+                    idinventario, 
+                    nombre_art,
+                    cantidad  
+                  FROM inventario
+                WHERE nombre_art LIKE '$search'" ;  
         }
 
     
@@ -91,8 +92,8 @@
         <tr>
           <td><?php echo $fila['0']; ?></td>
           <td><?php echo $nombre; ?></td>
-          <td><a href= "pacientes.php? p=<?php echo $fila['0'] ?>">Ver</a> </td>
-          <td><a href= "analisis.php? p=<?php echo $fila['0'] ?>">Agregar</a> </td>
+          <td><?php echo $fila['2']; ?></td>
+          <td><a href= "productos_agregar.php? prod=<?php echo $fila['0'] ?>">Agregar</a> </td>
         </tr>
 
 <?php } 

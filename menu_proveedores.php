@@ -36,7 +36,8 @@
         <form name="formulario" action="" onSubmit="enviarDatos(); return false">
           <li><input type="text" placeholder="Buscar..." name="busca" id="busca"></li>
         </form>  
-      </p>   
+      </p>  
+    <li></li>  
     <li>
       <a href="pacientes.php" class="add"><img src="img/addpac.png"></a>
     </li>
