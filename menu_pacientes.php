@@ -14,6 +14,7 @@
   <script type="text/javascript" src="js/switchery.min.js"></script>
   <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.min.css">
+  <link rel="stylesheet" type="text/css" media="all" href="css/paginacion.css">
 </head>
 
 <body>
@@ -139,13 +140,25 @@
 ?>
       </table>
 
-      | <?php
+
+    
+
+
+
+<div class="center">
+  <ul class="pagination">
+       <?php
 //Crea un bucle donde $i es igual 1, y hasta que $i sea menor o igual a X, a sumar (1, 2, 3, etc.)
 //Nota: X = $total_paginas
 for ($i=1; $i<=$total_paginas; $i++) {
   //En el bucle, muestra la paginación
-  echo "<a href='?pagina=".$i."'>".$i."</a> | ";
+  
+  
+  echo "<li><a href='?pagina=".$i."'>".$i."</a></li>";
+  
 }; ?>
+  </ul>
+</div>
   
 
 
