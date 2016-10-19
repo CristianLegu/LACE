@@ -22,11 +22,9 @@
 								window.location.href = 'proveedores.php';
 							<?php	} if (  $sesion == 'EMPLEADO' ) { ?>
 								window.location.href = 'empleados.php';
-							<?php	} if (  $sesion == 'MEDICOS' ) { ?>
+							<?php	} if (  $sesion == 'MEDICOS' or $sesion == 'MEDICOSUP') { ?>
 								window.location.href = 'menu_medicos.php';
-							<?php	} if (  $sesion == 'PACIENTES' ) { ?>
-								window.location.href = 'menu_pacientes.php';
-							<?php	} if (  $sesion == 'PACIENTESUP' ) { ?>
+							<?php	} if (  $sesion == 'PACIENTES' OR $sesion == 'PACIENTESUP' ) { ?>
 								window.location.href = 'menu_pacientes.php';
 							<?php   } ?>
 
