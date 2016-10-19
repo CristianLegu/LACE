@@ -1,4 +1,5 @@
 
+<?php include("includes/conexion.php"); ?>
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -32,34 +33,24 @@
 <div>
 <label>Medico</label>
 </div>
-<div>
-  <select id="selectMed" name="selectMed" onchange="submit()">
-                 <option value="" selected>Seleccionar</option>
-       <?php
-         include("includes/conexion.php");
-           $con = mysqli_connect($host, $user, $pwd, $db);
+<div> 
+ <select>
+        <option value="0">Selección:</option>
+        <?php
+              $con = mysqli_connect($host, $user, $pwd, $db);
             if (mysqli_connect_errno()) {
           echo "Falló la conexión:".mysqli_connect_error();
-              }
-              else{
-                    $sql = "SELECT *
-                             FROM medicos " ;
-
-              $query  = mysqli_query($con, $sql);
-
-
-               while ($fila=mysqli_fetch_array($query)){
-          
-                         echo "<option value= '".$fila[0]."' ";
-                        if($_POST['selectMed']==$fila[0])
-                         echo "SELECTED ";
-                         echo ">";
-                         echo $fila[1];
-                         echo "</option>";
-                         }
-                  }
-                ?>
-</select>
+              }       
+          $query = $con -> query ("SELECT idmedicos, nombre FROM medicos");
+                      
+          while ($valores = mysqli_fetch_array($query)) {
+                        
+            echo '<option value="'.$valores[id].'">'.$valores[nombre].'</option>';
+                          
+          }
+        ?>
+      </select>
+      
    </div >
 
   <div>
@@ -69,7 +60,7 @@
   <select id="selectPac" name="selectPac" onchange="submit()">
                  <option value="" selected>Seleccionar</option>
        <?php
-         include("includes/conexion.php");
+         
            $con = mysqli_connect($host, $user, $pwd, $db);
             if (mysqli_connect_errno()) {
           echo "Falló la conexión:".mysqli_connect_error();
@@ -121,7 +112,7 @@
     <div >
       <label style="width: 35em;" >
       VEL. SED. GLOBULAR
-        <input style="background-color:powderblue" name="globular">
+        <input style="background-color:powderblue" name="p_r_globu">
          </label>
     </div>
     <div >
@@ -133,7 +124,7 @@
     <div >
       <label style="width: 35em;" >
       ANTIESTREOTILISINAS
-        <input style="background-color:powderblue" name="antiestrotilisinas">
+        <input style="background-color:powderblue" name="p_r_antie">
          </label>
     </div>
     <div >
@@ -145,7 +136,7 @@
     <div >
       <label style="width: 35em;" >
     PROTEÍNAS C REACTICA
-        <input style="background-color:powderblue" name="proteinas">
+        <input style="background-color:powderblue" name="p_r_pro_c">
          </label>
     </div>
     <div >
@@ -186,7 +177,7 @@
     <div >
       <label style="width: 35em;" >
     BRUCELLA ABORTUS
-        <input style="background-color:powderblue" name="brucellaabortus">
+        <input style="background-color:powderblue" name="r_hudd_bru">
          </label>
     </div>
     <div >
@@ -204,25 +195,28 @@
     <div >
       <label style="width: 35em;" >
     BRUCELLA
-        <input style="background-color:powderblue" name="brucella">
-         </label>
-    </div>
-    <div >
-      <label style="width: 35em;" >
-    PROTEUS OX-191
-        <input style="background-color:powderblue" name="proteusHUDDLESON">
+        <input style="background-color:powderblue" name="bp_aglu_brucella">
          </label>
     </div>
     <div >
       <label style="width: 35em;" >
     PROTEUS OX-19
-        <input style="background-color:powderblue" name="proteusCASTAÑEDA">
+        <input style="background-color:powderblue" name="r_weil_prot">
+         </label>
+    </div>
+    <div >
+      <label style="width: 35em;" >
+    PROTEUS OX-19
+        <input style="background-color:powderblue" name="p_aglu_prote">
          </label>
     </div>
     <div class="col-submit">
       <button class="submitbtn">GUARDAR</button>
+
     </div>
   </form>
+
+  <button ><a href = index_gerencia_examinar.php?idpedir=".urlencode($idpedir)."&nombre=".urlencode($nombre).">"."Examinar"."</a></td>";</button>
 <script type="text/javascript">
 var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
 

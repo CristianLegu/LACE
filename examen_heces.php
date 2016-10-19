@@ -26,33 +26,48 @@
   <h1>EXÁMEN DE HECES</h1>
   <h3>CARACTERÍSTICAS MACROSCÓPICAS</h3>
   <form  action="guarda_analisis.php" method="post" ALIGN=center>
-  <div>
-      <input list="Medico" name = "Medico" style="background-color:powderblue; ">
-    <datalist id="Medico" >
-                  <?php
-                      include("includes/conexion.php");
-                      $con = mysqli_connect($host, $user, $pwd, $db);
-                    
+<div>
+<label>Medico</label>
+</div>
+<div> 
+ <select id="idmedico"  name="idmedico" >
+        <option  value="0">Seleccionar</option>
+        <?php
+              $con = mysqli_connect($host, $user, $pwd, $db);
+            if (mysqli_connect_errno()) {
+          echo "Falló la conexión:".mysqli_connect_error();
+              }       
+          $query = $con -> query ("SELECT idmedicos, nombre FROM medicos");
+                      
+          while ($valores = mysqli_fetch_array($query)) {                        
+            echo '<option value="'.$valores[idmedicos].'">'.$valores[nombre].'</option>';
 
-                          if (mysqli_connect_errno()) {
-                              echo "Falló la conexión:".mysqli_connect_error();
-                                }
-                          else{
-                                $sql = "SELECT *
-                             FROM medicos " ;
+          }
+        ?>
+      </select>
+      
+   </div >
+<div>
+<label>Paciente</label>
+</div>   
+    <div> 
+ <select id="idpaciente"  name="idpaciente" >
+        <option  value="0">Seleccionar</option>
+        <?php
+              $con = mysqli_connect($host, $user, $pwd, $db);
+            if (mysqli_connect_errno()) {
+          echo "Falló la conexión:".mysqli_connect_error();
+              }       
+          $query = $con -> query ("SELECT idpacientes, nombre FROM pacientes");
+                      
+          while ($valores = mysqli_fetch_array($query)) {                        
+            echo '<option value="'.$valores[idpacientes].'">'.$valores[nombre].'</option>';
 
-                         $query  = mysqli_query($con, $sql);
-                        while ($fila=mysqli_fetch_array($query)){
-                          
-                                                        ?>
-                   <option value="<?php echo $fila['nombre']; ?>"><?php echo $fila['nombre']; ?></option>
-
-                    <?php }
-                    } ?>
-                </datalist>
-                </div>
-
-             
+          }
+        ?>
+      </select>
+      
+   </div >         
   <div >
     <label style="width: 25em;">
       COLOR

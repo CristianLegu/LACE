@@ -16,6 +16,7 @@ switch ($sesion) {
 	 		isset($_POST['domicilio_m']) && !empty($_POST['domicilio_m']) &&
 	 		isset($_POST['telefono_m']) && !empty($_POST['telefono_m']))
 		{*/
+			
 			$color            = utf8_decode($_POST['color']);
 			$consistencia     = utf8_decode($_POST['consistencia']);
 			$moco             = utf8_decode($_POST['moco']);
@@ -23,8 +24,8 @@ switch ($sesion) {
 			$sangre_fresca    = utf8_decode($_POST['sangre_fresca']);
 			$para_pri_muestra = utf8_decode($_POST['para_pri_muestra']);
 			$para_seg_muestra = utf8_decode($_POST['para_seg_muestra']);
-			$idpacientes      = '1';
-			$idmedicos        = '1';
+			$idpacientes      = utf8_decode($_POST['idpaciente']);
+			$idmedicos        = utf8_decode($_POST['idmedico']);
 			$mysqli = mysqli_connect($host, $user, $pwd, $db);
 			if (mysqli_connect_errno()) {
 			 echo "Falló la conexión:".mysqli_connect_error();
