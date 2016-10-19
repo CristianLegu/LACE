@@ -35,8 +35,7 @@
         <form name="formulario" action="" onSubmit="enviarDatos(); return false">
           <li><input type="text" placeholder="Buscar..." name="busca" id="busca"></li>
         </form>  
-      </p>  
-    <li></li>  
+      </p>   
     <li>
       <a href="productos.php" class="add"><img src="img/addprod.png" alt="Agregar Productos"></a>
     </li>

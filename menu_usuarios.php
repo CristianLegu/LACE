@@ -36,7 +36,6 @@
           <li><input type="text" placeholder="Buscar..." name="busca" id="busca"></li>
         </form>  
       </p>  
-    <li></li> 
     <li>
       <a href="usuarios.php" class="add"><img src="img/adduser.png"></a>
     </li>
