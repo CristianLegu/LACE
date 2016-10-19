@@ -2,6 +2,10 @@
   include("includes/conexion.php");
   session_start();
   $_SESSION['valueA'] = 'HECES';
+   $con = mysqli_connect($host, $user, $pwd, $db);
+            if (mysqli_connect_errno()) {
+          echo "Falló la conexión:".mysqli_connect_error();
+              }  
 
 ?>
 <!doctype html>
@@ -26,17 +30,12 @@
   <h1>EXÁMEN DE HECES</h1>
   <h3>CARACTERÍSTICAS MACROSCÓPICAS</h3>
   <form  action="guarda_analisis.php" method="post" ALIGN=center>
-<div>
-<label>Medico</label>
-</div>
+
 <div> 
- <select id="idmedico"  name="idmedico" >
-        <option  value="0">Seleccionar</option>
+ <select id="idmedico"  name="idmedico" style="width: 25em;" ALIGN=center >
+        <option  value="0" >Seleccionar Medico</option>
         <?php
-              $con = mysqli_connect($host, $user, $pwd, $db);
-            if (mysqli_connect_errno()) {
-          echo "Falló la conexión:".mysqli_connect_error();
-              }       
+                  
           $query = $con -> query ("SELECT idmedicos, nombre FROM medicos");
                       
           while ($valores = mysqli_fetch_array($query)) {                        
@@ -47,27 +46,7 @@
       </select>
       
    </div >
-<div>
-<label>Paciente</label>
-</div>   
-    <div> 
- <select id="idpaciente"  name="idpaciente" >
-        <option  value="0">Seleccionar</option>
-        <?php
-              $con = mysqli_connect($host, $user, $pwd, $db);
-            if (mysqli_connect_errno()) {
-          echo "Falló la conexión:".mysqli_connect_error();
-              }       
-          $query = $con -> query ("SELECT idpacientes, nombre FROM pacientes");
-                      
-          while ($valores = mysqli_fetch_array($query)) {                        
-            echo '<option value="'.$valores[idpacientes].'">'.$valores[nombre].'</option>';
-
-          }
-        ?>
-      </select>
-      
-   </div >         
+    
   <div >
     <label style="width: 25em;">
       COLOR

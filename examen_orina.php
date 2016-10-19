@@ -1,3 +1,11 @@
+<?php 
+  include("includes/conexion.php");
+  session_start();
+  $_SESSION['valueA'] = 'ORINA';
+   $con = mysqli_connect($host, $user, $pwd, $db);
+            if (mysqli_connect_errno()) {
+          echo "Falló la conexión:".mysqli_connect_error();
+              }   ?>
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -19,112 +27,140 @@
 </span>
   <h1>ANÁLISIS GENERAL DE ORINA</h1>
   <h3>EXÁMEN FÍSICO</h3>
-  <form onsubmit="return false">
-  <div class="col-3">
-    <label>
+  <form action="guarda_analisis.php" method="post" ALIGN=center >
+<div>
+<label style="width: 17em;" >Medico</label>
+</div>
+<div> 
+ <select id="idmedico"  name="idmedico" style="width: 20em;">
+        <option  value="0">Seleccionar</option>
+        <?php
+                  
+          $query = $con -> query ("SELECT idmedicos, nombre FROM medicos");
+                      
+          while ($valores = mysqli_fetch_array($query)) {                        
+            echo '<option value="'.$valores[idmedicos].'">'.$valores[nombre].'</option>';
+
+          }
+        ?>
+      </select>
+      
+   </div >
+
+
+  <div >
+    <label style="width: 25em;">
       VOLUMEN
-      <input>
+      <input name="color" style="background-color:powderblue; ">
     </label>
   </div>
-  <div class="col-3">
-    <label>
+  <div >
+    <label style="width: 25em;">
       COLOR
-      <input>
-    </label>
+      <input name="color" style="background-color:powderblue; ">
+    </label >
   </div>
 
-  <div class="col-3">
-    <label>
+  <div >
+    <label style="width: 25em;">
       OLOR
-      <input>
+      <input name="color" style="background-color:powderblue; "> 
     </label>
   </div>
-  <div class="col-3">
-    <label>
+  <div >
+    <label style="width: 25em;"> 
       ASPECTO
-      <input>
+      <input name="color" style="background-color:powderblue; ">
     </label>
   </div>
-  <div class="col-3">
-    <label>
+  <div >
+    <label style="width: 25em;">
       SEDIMENTO
-      <input>
+      <input name="color" style="background-color:powderblue; ">
     </label>
   </div>
-  <div class="col-3">
-    <label>
+  <div >
+    <label style="width: 25em;">
       DENSIDAD
-      <input>
+      <input name="color" style="background-color:powderblue; ">
     </label>
   </div>
 
 
-  </form>
-  <h3>EXÁMEN QUÍMICO</h3>
-  <form onsubmit="return false">
-  <div class="col-3">
-    <label>
-    PH
-      <input>
+ <div >
+   <LABEL style="width: 75em;"> <h3>EXÁMEN QUÍMICO </h3></LABEL>
+  </div>
+     <div >
+    <label style="width: 25em;">
+      PH
+      <input name="color" style="background-color:powderblue; ">
     </label>
   </div>
-  <div class="col-3">
-    <label>
+  <div >
+    <label style="width: 25em;">
       PROTEÍNAS
-      <input>
+      <input name="color" style="background-color:powderblue; ">
     </label>
   </div>
 
-  <div class="col-3">
-    <label>
-      GLUCOSA
-      <input>
+  <div >
+    <label style="width: 25em;">
+   GLUCOSA
+      <input style="background-color:powderblue; ">
     </label>
   </div>
-  <div class="col-3">
-    <label>
-      CETONA
-      <input>
+ 
+
+  <div >
+    <label style="width: 25em;">
+     CETONA
+      <input name="color" style="background-color:powderblue; ">
     </label>
   </div>
-  <div class="col-3">
-    <label>
+  <div >
+    <label style="width: 25em;">
       BILLIRRUBINA
-      <input>
+      <input name="color" style="background-color:powderblue; ">
     </label>
   </div>
-  <div class="col-3">
-    <label>
-      SANGRE
-      <input>
-    </label>
-  </div>
-  <div class="col-3">
-    <label>
-      NITRITOS
-      <input>
-    </label>
-  </div>
-  <div class="col-3">
-    <label>
-    UROBILINÓGENO
-      <input>
-    </label>
-  </div>
-  <div class="col-3">
-    <label>
-      SÓLIDOS TOTALES
-      <input>
-    </label>
-  </div>
-  </form>
 
-<h3>EXÁMEN MICROSCOPICO</h3>
-<form onsubmit="return false">
-  <div class="col-2" >
-    <label>
+  <div >
+    <label style="width: 25em;">
+   SANGRE
+      <input style="background-color:powderblue; ">
+    </label>
+  </div>
+
+
+
+
+  <div >
+    <label style="width: 25em;">
+      NITRITOS
+      <input style="background-color:powderblue; ">
+    </label>
+  </div>
+  <div >
+    <label style="width: 25em;">
+    UROBILINÓGENO
+      <input style="background-color:powderblue; ">
+    </label>
+  </div>
+  <div >
+    <label style="width: 25em;">
       SÓLIDOS TOTALES
-      <input>
+      <input style="background-color:powderblue; ">
+    </label>
+  </div>
+ 
+
+<div >
+   <LABEL style="width: 75em;"> <h3>EXÁMEN MICROSCOPICO </h3></LABEL>
+  </div>
+  <div  >
+    <label style="width: 70em;">
+      SEDIMIENTO
+      <input style="background-color:powderblue; ">
     </label>
   </div>
 
