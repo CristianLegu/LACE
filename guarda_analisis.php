@@ -1,38 +1,41 @@
 <?php
 	include("includes/conexion.php");
 	session_start();
-	if(isset($_SESSION['valueF'])){
-		 $sesion = $_SESSION['valueF'];
-		 //echo $sesion;
+	if(isset($_SESSION['valueA'])){
+		 $sesion = $_SESSION['valueA'];
+		 echo $sesion;
 	//	 $idup = $_SESSION['idup'];
 	}
 
 
 
 switch ($sesion) {
-	case 'BIOMETRIA':
+	case 'HECES':
 	
- 		if (isset($_POST['nombre_m']) && !empty($_POST['nombre_m']) &&
+ 		/*if (isset($_POST['nombre_m']) && !empty($_POST['nombre_m']) &&
 	 		isset($_POST['domicilio_m']) && !empty($_POST['domicilio_m']) &&
 	 		isset($_POST['telefono_m']) && !empty($_POST['telefono_m']))
-		{
-			$nombre   = utf8_decode($_POST['nombre_m']);
-			$direccion   = utf8_decode($_POST['domicilio_m']);
-			$ciudad   = utf8_decode($_POST['ciudad_m']);
-			$estado   = utf8_decode($_POST['estado_m']);
-			$telefono  = utf8_decode($_POST['telefono_m']);
-			$nombre_hosp  = utf8_decode($_POST['nombre_h']);
-			$domicilio_hos = utf8_decode($_POST['domicilio_h']);
-
+		{*/
+			$color            = utf8_decode($_POST['color']);
+			$consistencia     = utf8_decode($_POST['consistencia']);
+			$moco             = utf8_decode($_POST['moco']);
+			$pus              = utf8_decode($_POST['pus']);
+			$sangre_fresca    = utf8_decode($_POST['sangre_fresca']);
+			$para_pri_muestra = utf8_decode($_POST['para_pri_muestra']);
+			$para_seg_muestra = utf8_decode($_POST['para_seg_muestra']);
+			$idpacientes      = '1';
+			$idmedicos        = '1';
 			$mysqli = mysqli_connect($host, $user, $pwd, $db);
 			if (mysqli_connect_errno()) {
 			 echo "Falló la conexión:".mysqli_connect_error();
 			}
 
-			$sql = "INSERT INTO medicos (nombre, domicilio_medi, ciudad_medi, estado_medi,
-							telefono_medi, hospital, direccion_hospital)
-				 VALUES('$nombre', '$direccion', '$ciudad', '$estado',
-					 '$telefono', '$nombre_hosp', '$domicilio_hos');";
+			$sql = "INSERT INTO heces (color, consistencia, moco, pus,
+							sangre_fresca, para_pri_muestra, para_seg_muestra, idpacientes,
+							idmedicos)
+				 VALUES('$color', '$consistencia', '$moco', '$pus',
+					 '$sangre_fresca', '$para_pri_muestra', '$para_seg_muestra'
+					 , '$idpacientes' , '$idmedicos');";
 
 			if( mysqli_query($mysqli, $sql)){
 
@@ -42,12 +45,12 @@ switch ($sesion) {
 
 			mysqli_close($mysqli);
 
-			include("includes/alert_me.html");
-		}
+		//	include("includes/alert_analisis.html");
+		/*}
 		else
 		{
 			echo "Error";
-		}
+		}*/
 
 		break;
 

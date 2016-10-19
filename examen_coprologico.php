@@ -54,31 +54,31 @@
   </div>
   <div >
     <label style="width: 25em;" >
-    <input style="background-color:powderblue; ">
+    <input style="background-color:powderblue; name " name="color_pri">
 
   </div>
   <div >
 
 
   <label style="width: 25em; " >
-  <input style="background-color:powderblue; ">
+  <input style="background-color:powderblue; " name="color_seg">
 </div>
 
 
 <div >
 <label style="width: 25em;" >
-  MARCA
+  MOCO
 
 </div>
 <div >
 <label style="width: 25em;" >
-<input style="background-color:powderblue; ">
+<input style="background-color:powderblue; " name="moco_pri">
 
 </div>
 <div >
 
 <label style="width: 25em; " >
-<input style="background-color:powderblue; ">
+<input style="background-color:powderblue; "moco_seg>
 </div>
 <div >
 <label style="width: 25em;" >
@@ -87,14 +87,14 @@
 </div>
 <div >
 <label style="width: 25em;" >
-<input style="background-color:powderblue; ">
+<input style="background-color:powderblue;" name="pus_pri">
 
 </div>
 <div >
 
 
 <label style="width: 25em; " >
-<input style="background-color:powderblue; ">
+<input style="background-color:powderblue; " name="pus_seg">
 </div>
 <div >
 <label style="width: 25em;" >
@@ -103,13 +103,13 @@
 </div>
 <div >
 <label style="width: 25em;" >
-<input style="background-color:powderblue; ">
+<input style="background-color:powderblue; " name="consistencia_pri">
 
 </div>
 
 <div >
 <label style="width: 25em; " >
-<input style="background-color:powderblue; ">
+<input style="background-color:powderblue; " name="consistencia_seg">
 </div>
 <div >
 <label style="width: 25em;" >
@@ -118,14 +118,14 @@ SANGRE FRESCA
 </div>
 <div >
 <label style="width: 25em;" >
-<input style="background-color:powderblue; ">
+<input style="background-color:powderblue; " name="sangre_pri">
 
 </div>
 <div >
 
 
 <label style="width: 25em; " >
-<input style="background-color:powderblue; ">
+<input style="background-color:powderblue; " name="sangre_seg">
 </div>
 
 <div >
@@ -135,14 +135,14 @@ SANGRE FRESCA
 </div>
 <div >
 <label style="width: 25em;" >
-<input style="background-color:powderblue; ">
+<input style="background-color:powderblue; " name="residuos_pri">
 
 </div>
 <div >
 
 
 <label style="width: 25em; " >
-<input style="background-color:powderblue; ">
+<input style="background-color:powderblue;" name="residuos_seg">
 </div>
 
 
@@ -173,14 +173,14 @@ SANGRE FRESCA
 </div>
 <div >
   <label style="width: 25em;" >
-  <input style="background-color:powderblue; ">
+  <input style="background-color:powderblue; " name="ph_pri">
 
 </div>
 <div >
 
 
 <label style="width: 25em; " >
-<input style="background-color:powderblue; ">
+<input style="background-color:powderblue; " name="ph_seg">
 </div>
 
 
@@ -191,13 +191,13 @@ BILLIRRUBINAS
 </div>
 <div >
 <label style="width: 25em;" >
-<input style="background-color:powderblue; ">
+<input style="background-color:powderblue; " name="billi_pri">
 
 </div>
 <div >
 
 <label style="width: 25em; " >
-<input style="background-color:powderblue; ">
+<input style="background-color:powderblue; " name="billi_seg">
 </div>
 <div >
 <label style="width: 25em;" >
@@ -206,14 +206,14 @@ UROBILLINÓGENO
 </div>
 <div >
 <label style="width: 25em;" >
-<input style="background-color:powderblue; ">
+<input style="background-color:powderblue; " name="uro_pri">
 
 </div>
 <div >
 
 
 <label style="width: 25em; " >
-<input style="background-color:powderblue; ">
+<input style="background-color:powderblue; " name="uro_seg">
 </div>
 <div >
 <label style="width: 25em;" >
@@ -222,13 +222,13 @@ SANGRE OCULTA
 </div>
 <div >
 <label style="width: 25em;" >
-<input style="background-color:powderblue; ">
+<input style="background-color:powderblue; " name="sang_oculta_pri">
 
 </div>
 
 <div >
 <label style="width: 25em; " >
-<input style="background-color:powderblue; ">
+<input style="background-color:powderblue; " name="sang_oculta_seg">
 </div>
 <div >
 <label style="width: 25em;" >
@@ -237,14 +237,14 @@ AZÚCARES
 </div>
 <div >
 <label style="width: 25em;" >
-<input style="background-color:powderblue; ">
+<input style="background-color:powderblue; " name="azucares_pri">
 
 </div>
 <div >
 
 
 <label style="width: 25em; " >
-<input style="background-color:powderblue; ">
+<input style="background-color:powderblue; " name="azucares_seg">
 </div>
 
 <div >
@@ -254,16 +254,25 @@ REDUCTORES
 </div>
 <div >
 <label style="width: 25em;" >
-<input style="background-color:powderblue; ">
+<input style="background-color:powderblue; " name="reductores_pri">
 
 </div>
 <div >
 
 
 <label style="width: 25em; " >
-<input style="background-color:powderblue; ">
+<input style="background-color:powderblue; " name="reductores_seg">
 </div>
 
+<div >
+<label style="width: 25em;" >
+EXAMEN MICROSCOPICO
+
+</div>
+<div >
+<label style="width: 50em; " >
+<input style="background-color:powderblue; " name="ex_micros">
+</div>
 <div class="col-submit">
   <button class="submitbtn">GUARDAR</button>
 </div>

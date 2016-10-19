@@ -27,13 +27,13 @@
   <div >
     <label style="width: 20em;">
       ERITROCITOS MILL/MM3
-      <input  name="eritrocitos"  style="background-color:powderblue">
+      <input  name="eritrocitos"  style="background-color:powderblue" name="eritrocitos">
 
   </div>
   <div >
     <label  style="width: 20em;">
       HEMOGLOBINA EN GR. %
-      <input name="hemoglobina" style="background-color:powderblue; ">
+      <input name="hemoglobina" style="background-color:powderblue; " name="hemoglobina">
         </label>
   </div>
   <div >
@@ -45,19 +45,19 @@
   <div >
     <label   style="width: 20em;">
       H.G.M. UG.
-      <input name="gfm" style="background-color:powderblue; ">
+      <input name="h_g_m" style="background-color:powderblue; ">
         </label>
   </div>
     <div >
   <label   style="width: 20em;">
     V.G.M. MICRA3
-    <input name="vgm" style="background-color:powderblue; ">
+    <input name="v_g_m" style="background-color:powderblue; ">
       </label>
 </div>
 <div >
 <label   style="width: 20em;">
 C.H.G.M %
-<input name="chgm" style="background-color:powderblue; ">
+<input name="c_h_g_m" style="background-color:powderblue; ">
   </label>
 </div>
 <div >
@@ -69,7 +69,7 @@ PLAQUETAS
 <div >
 <label   style="width: 20em;">
 ANOMALÍAS ERITOCÍTICAS
-<input name="anomalia" style="background-color:powderblue; ">
+<input name="anomalias_eritrociticas" style="background-color:powderblue; ">
   </label>
 </div>
 
@@ -119,7 +119,7 @@ ANOMALÍAS ERITOCÍTICAS
 </div>
 <div >
 <label style="width: 25em;"  >
-<input name="segmentos" style="background-color:powderblue; ">
+<input name="segmentados" style="background-color:powderblue; ">
 </div>
 <div >
 <label style="width: 5em;"  >
@@ -137,7 +137,7 @@ ANOMALÍAS ERITOCÍTICAS
 </div>
 <div >
 <label style="width: 25em;"  >
-<input name="en banda" style="background-color:powderblue; ">
+<input name="en_banda" style="background-color:powderblue; ">
 </div>
 <div >
 <label style="width: 5em;"  >

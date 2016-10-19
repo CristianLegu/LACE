@@ -1,3 +1,9 @@
+<?php
+  include("includes/conexion.php");
+  session_start();
+  $_SESSION['valueA'] = 'HECES';
+
+?>
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -19,66 +25,96 @@
 </span>
   <h1>EXÁMEN DE HECES</h1>
   <h3>CARACTERÍSTICAS MACROSCÓPICAS</h3>
-  <form onsubmit="return false">
-  <div class="col-3">
-    <label>
+  <form  action="guarda_analisis.php" method="post" ALIGN=center>
+  <div>
+      <input list="Medico" name = "Medico" style="background-color:powderblue; ">
+    <datalist id="Medico" >
+                  <?php
+                      include("includes/conexion.php");
+                      $con = mysqli_connect($host, $user, $pwd, $db);
+                    
+
+                          if (mysqli_connect_errno()) {
+                              echo "Falló la conexión:".mysqli_connect_error();
+                                }
+                          else{
+                                $sql = "SELECT *
+                             FROM medicos " ;
+
+                         $query  = mysqli_query($con, $sql);
+                        while ($fila=mysqli_fetch_array($query)){
+                          
+                                                        ?>
+                   <option value="<?php echo $fila['nombre']; ?>"><?php echo $fila['nombre']; ?></option>
+
+                    <?php }
+                    } ?>
+                </datalist>
+                </div>
+
+             
+  <div >
+    <label style="width: 25em;">
       COLOR
-      <input>
+      <input name="color" style="background-color:powderblue; ">
     </label>
   </div>
-  <div class="col-3">
-    <label>
+  <div >
+    <label style="width: 25em;">
       CONSISTENCIA
-      <input>
+      <input name="consistencia" style="background-color:powderblue; ">
     </label>
   </div>
 
-  <div class="col-3">
-    <label>
+  <div >
+    <label style="width: 25em;">
       MOCO
-      <input>
+      <input name="moco" style="background-color:powderblue; ">
     </label>
   </div>
-  <div class="col-2">
-    <label>
+  <div >
+    <label style="width: 25em;">
       PUS
-      <input>
+      <input name="pus" style="background-color:powderblue; ">
     </label>
   </div>
-  <div class="col-2">
-    <label>
+  <div >
+    <label style="width: 25em;">
       SANGRE FRESCA
-      <input>
+      <input name="sangre_fresca" style="background-color:powderblue; ">
     </label>
   </div>
-</form>
-  <h3>PARÁSITOS ENCONTRADOS</h3>
-<form onsubmit="return false">
-  <div class="col-3">
-    <label>
+
+<div >
+   <LABEL style="width: 75em;"> <h3>PARÁSITOS ENCONTRADOS </h3></LABEL>
+  </div>
+ 
+  <div >
+    <label style="width: 25em;">
       PRIMERA MUESTRA
-      <input>
+      <input name="para_pri_muestra" style="background-color:powderblue; ">
     </label>
   </div>
-  <div class="col-3">
-    <label>
+  <div >
+    <label style="width: 25em;">
       SEGUNDA MUESTRA
-      <input>
+      <input name="para_seg_muestra" style="background-color:powderblue; ">
     </label>
   </div>
-  <div class="col-3">
-    <label>
+  <div >
+    <label style="width: 25em;" >
       TERCERA MUESTRA
-      <input>
+      <input style="background-color:powderblue; ">
     </label>
   </div>
-</div>
+
   <div class="col-submit">
     <button class="submitbtn">GUARDAR</button>
   </div>
+ 
 
   </form>
-  </div>
+
 <script type="text/javascript">
 var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
 
