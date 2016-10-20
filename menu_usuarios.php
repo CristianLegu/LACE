@@ -86,7 +86,7 @@
         <tr>
           <td><?php echo $fila['0']; ?></td>
           <td><?php echo $nombre; ?></td>
-          <td><a href= "medicos.php? m=<?php echo $fila['0'] ?>">Ver</a> </td>
+          <td><a href= "usuarios.php? u=<?php echo $fila['0'] ?>">Ver</a> </td>
         </tr>
 
 <?php } 

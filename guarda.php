@@ -100,7 +100,7 @@ switch ($sesion) {
 			$direccion 		= utf8_decode($_POST['direccion']);
 			$telefono		= utf8_decode($_POST['telefono']);
 			$usuario        = utf8_decode($_POST['user']);
-			$contraseña  	= utf8_decode($_POST['contraseña']);
+			$contrasena  	= utf8_decode($_POST['contraseña']);
 		    $email	        = utf8_decode($_POST['email']);
 
 		    $sql = "SELECT n_user
@@ -113,7 +113,7 @@ switch ($sesion) {
 					$encontro=1;
                 }
             }
-            mysqli_close($mysqli); 
+            mysqli_close($con); 
 
             if($encontro==1){
 		   		include("includes/alert_existe.php");	   
@@ -128,9 +128,9 @@ switch ($sesion) {
 					if (mysqli_connect_errno()) {
 						echo "Falló la conexión:".mysqli_connect_error();
 					}
-					$sql = "INSERT INTO usuarios (nombre, direccion, telefono, contraseña, n_user,
+					$sql = "INSERT INTO usuarios (nombre, direccion, telefono, contrasena, n_user,
 															 email)
-								VALUES('$nombre', '$direccion', '$telefono', '$contraseña', '$usuario',
+								VALUES('$nombre', '$direccion', '$telefono', '$contrasena', '$usuario',
 										 '$email');";
 					if( mysqli_query($mysqli, $sql)){
 						//echo "Inserción realizada".mysqli_connect_error();

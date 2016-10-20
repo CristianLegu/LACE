@@ -90,11 +90,8 @@
       <div class="col-4">
         <label>
           Teléfono
-
-        
-
           <input  name="telefono" tabindex="6" type="tel"  placeholder="(XXX) XXX XX XX" 
-            value="<?php echo $fila['telefono']; ?>">
+            value="<?php echo $fila['telefono']; ?>" pattern="[0-9]*">
 
         </label>
       </div>
@@ -107,9 +104,6 @@
             <input id="month" name="mes" maxlength="2" placeholder="MM" required/>/
             <input id="year" name="anio" maxlength="4" placeholder="AAAA"required />
           </div>
-
-         
-         
 
         </label>
       </div>

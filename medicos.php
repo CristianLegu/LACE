@@ -81,7 +81,7 @@
   <div class="col-3">
     <label>
       Teléfono
-       <input  name="telefono_m" tabindex="5" required  placeholder="(XXX) XXX XX XX" value="<?php echo utf8_encode($fila['telefono_medi']); ?>">
+       <input  name="telefono_m" tabindex="5" required  placeholder="(XXX) XXX XX XX" value="<?php echo utf8_encode($fila['telefono_medi']); ?>" pattern="[0-9]*">
   </div>
   
   <div class="col-2">
