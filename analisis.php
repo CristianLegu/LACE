@@ -1,3 +1,7 @@
+<?php include("includes/conexion.php");
+	session_start();
+	$_SESSION['idpaciente'] = $_GET['p'];
+	 ?>
 <!DOCTYPE html>
 <html lang="es" class="no-js">
 	<head>

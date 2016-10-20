@@ -1,4 +1,11 @@
-
+<?php 
+  include("includes/conexion.php");
+  session_start();
+  $_SESSION['valueA'] = 'BIOMETRIA';
+   $con = mysqli_connect($host, $user, $pwd, $db);
+            if (mysqli_connect_errno()) {
+          echo "Falló la conexión:".mysqli_connect_error();
+              }   ?>
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -23,78 +30,95 @@
 
   
     <h3>FORMULA ROJA</h3>
-  <form action="guarda_analisis.php" >
+  <form action="guarda_analisis.php" ALIGN=center >
+<div> 
+ <select id="idmedico"  name="idmedico" style="width: 25em;">
+        <option  value="0">Seleccionar Médico</option>
+        <?php
+                  
+          $query = $con -> query ("SELECT idmedicos, nombre FROM medicos");
+                      
+          while ($valores = mysqli_fetch_array($query)) {                        
+            echo '<option value="'.$valores[idmedicos].'">'.$valores[nombre].'</option>';
+
+          }
+        ?>
+      </select>
+      
+   </div >
   <div >
-    <label style="width: 20em;">
+    <label style="width: 25em;" > 
       ERITROCITOS MILL/MM3
       <input  name="eritrocitos"  style="background-color:powderblue" name="eritrocitos">
 
   </div>
   <div >
-    <label  style="width: 20em;">
+    <label  style="width: 25em;">
       HEMOGLOBINA EN GR. %
       <input name="hemoglobina" style="background-color:powderblue; " name="hemoglobina">
         </label>
   </div>
   <div >
-    <label  style="width: 20em;">
+    <label  style="width: 25em;">
       HEMATOCRITO EN %
       <input name="hematocrito" style="background-color:powderblue; ">
         </label>
   </div>
   <div >
-    <label   style="width: 20em;">
+    <label   style="width: 25em;">
       H.G.M. UG.
       <input name="h_g_m" style="background-color:powderblue; ">
         </label>
   </div>
     <div >
-  <label   style="width: 20em;">
+  <label   style="width: 25em;">
     V.G.M. MICRA3
     <input name="v_g_m" style="background-color:powderblue; ">
       </label>
 </div>
 <div >
-<label   style="width: 20em;">
+<label   style="width: 25em;">
 C.H.G.M %
 <input name="c_h_g_m" style="background-color:powderblue; ">
   </label>
 </div>
 <div >
-<label   style="width: 20em;">
+<label   style="width: 25em;">
 PLAQUETAS
 <input name="plaquetas" style="background-color:powderblue; ">
   </label>
 </div>
 <div >
-<label   style="width: 20em;">
+<label   style="width: 25em;">
 ANOMALÍAS ERITOCÍTICAS
 <input name="anomalias_eritrociticas" style="background-color:powderblue; ">
   </label>
 </div>
 
-
-  </form>
-
-
-
-  <h3>FORMULA BLANCA</h3>
-<form action="guarda_analisis.php">
-  <div >
-    <label style="width: 25em;" >
-      LEUCOCITOS POR MM3
-
+ <div >
+   <LABEL style="width: 75em;"> <h3>FORMULA BLANCA</h3></LABEL>
   </div>
-  <div >
-    <label style="width: 25em;" >
-    <input name="leucocitos" style="background-color:powderblue; ">
 
-  </div>
-  <div >
-  <label style="width: 25em; " >
+ <div >
+  <label  style="width: 25em;"  >
+    LEUCOCITOS POR MM3
+
+      </label>
 </div>
+<div >
+<label style="width: 25em;"  >
+<input name="neotrofilos" style="background-color:powderblue; ">
+</div>
+<div >
+<label style="width: 5em;"  >
+
+</div>
+<div >
+<label style="width: 25em;"  >
+</div>
+  
 <div>
-  <label  style="width: 25em;">
+  <label  style="width: 25em;" >
     NEOTRÓFILOS TOTALES
 
       </label>
@@ -265,6 +289,7 @@ ANOMALÍAS ERITOCÍTICAS
 <label style="width: 55em;"   >
 <input name="anomalias" style="background-color:powderblue; ">
 </div>
+
 <div class="col-submit">
   <button class="submitbtn">GUARDAR</button>
 

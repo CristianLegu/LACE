@@ -28,12 +28,10 @@
   <h1>ANÁLISIS GENERAL DE ORINA</h1>
   <h3>EXÁMEN FÍSICO</h3>
   <form action="guarda_analisis.php" method="post" ALIGN=center >
-<div>
-<label style="width: 17em;" >Medico</label>
-</div>
+
 <div> 
- <select id="idmedico"  name="idmedico" style="width: 20em;">
-        <option  value="0">Seleccionar</option>
+ <select id="idmedico"  name="idmedico" style="width: 25em;">
+        <option  value="0">Seleccionar Médico</option>
         <?php
                   
           $query = $con -> query ("SELECT idmedicos, nombre FROM medicos");
@@ -51,7 +49,7 @@
   <div >
     <label style="width: 25em;">
       VOLUMEN
-      <input name="color" style="background-color:powderblue; ">
+      <input name="volumen" style="background-color:powderblue; ">
     </label>
   </div>
   <div >
@@ -64,25 +62,25 @@
   <div >
     <label style="width: 25em;">
       OLOR
-      <input name="color" style="background-color:powderblue; "> 
+      <input name="olor" style="background-color:powderblue; "> 
     </label>
   </div>
   <div >
     <label style="width: 25em;"> 
       ASPECTO
-      <input name="color" style="background-color:powderblue; ">
+      <input name="aspecto" style="background-color:powderblue; ">
     </label>
   </div>
   <div >
     <label style="width: 25em;">
       SEDIMENTO
-      <input name="color" style="background-color:powderblue; ">
+      <input name="sedimiento" style="background-color:powderblue; ">
     </label>
   </div>
   <div >
     <label style="width: 25em;">
       DENSIDAD
-      <input name="color" style="background-color:powderblue; ">
+      <input name="densidad" style="background-color:powderblue; ">
     </label>
   </div>
 
@@ -93,20 +91,20 @@
      <div >
     <label style="width: 25em;">
       PH
-      <input name="color" style="background-color:powderblue; ">
+      <input name="ph" style="background-color:powderblue; ">
     </label>
   </div>
   <div >
     <label style="width: 25em;">
       PROTEÍNAS
-      <input name="color" style="background-color:powderblue; ">
+      <input name="proteinas" style="background-color:powderblue; ">
     </label>
   </div>
 
   <div >
     <label style="width: 25em;">
    GLUCOSA
-      <input style="background-color:powderblue; ">
+      <input name="glucosa" style="background-color:powderblue; ">
     </label>
   </div>
  
@@ -114,20 +112,20 @@
   <div >
     <label style="width: 25em;">
      CETONA
-      <input name="color" style="background-color:powderblue; ">
+      <input name="cetona" style="background-color:powderblue; ">
     </label>
   </div>
   <div >
     <label style="width: 25em;">
       BILLIRRUBINA
-      <input name="color" style="background-color:powderblue; ">
+      <input name="billirrubina" style="background-color:powderblue; ">
     </label>
   </div>
 
   <div >
     <label style="width: 25em;">
    SANGRE
-      <input style="background-color:powderblue; ">
+      <input name="sangre" style="background-color:powderblue; ">
     </label>
   </div>
 
@@ -137,19 +135,19 @@
   <div >
     <label style="width: 25em;">
       NITRITOS
-      <input style="background-color:powderblue; ">
+      <input name="nitritos" style="background-color:powderblue; ">
     </label>
   </div>
   <div >
     <label style="width: 25em;">
     UROBILINÓGENO
-      <input style="background-color:powderblue; ">
+      <input name="urobilinogeno" style="background-color:powderblue; ">
     </label>
   </div>
   <div >
     <label style="width: 25em;">
       SÓLIDOS TOTALES
-      <input style="background-color:powderblue; ">
+      <input name="solidos_totales" style="background-color:powderblue; ">
     </label>
   </div>
  
@@ -160,7 +158,7 @@
   <div  >
     <label style="width: 70em;">
       SEDIMIENTO
-      <input style="background-color:powderblue; ">
+      <input name="sedimientos" style="background-color:powderblue; ">
     </label>
   </div>
 

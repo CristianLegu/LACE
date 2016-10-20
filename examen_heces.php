@@ -7,6 +7,7 @@
           echo "Falló la conexión:".mysqli_connect_error();
               }  
 
+
 ?>
 <!doctype html>
 <html lang="en-US">
@@ -33,7 +34,7 @@
 
 <div> 
  <select id="idmedico"  name="idmedico" style="width: 25em;" ALIGN=center >
-        <option  value="0" >Seleccionar Medico</option>
+        <option  value="0" >Seleccionar Médico</option>
         <?php
                   
           $query = $con -> query ("SELECT idmedicos, nombre FROM medicos");
@@ -98,7 +99,7 @@
   <div >
     <label style="width: 25em;" >
       TERCERA MUESTRA
-      <input style="background-color:powderblue; ">
+      <input  name="para_ter_muestra" style="background-color:powderblue; ">
     </label>
   </div>
 
