@@ -1,3 +1,11 @@
+<?php 
+  include("includes/conexion.php");
+  session_start();
+  $_SESSION['valueA'] = 'COPROLOGICO';
+   $con = mysqli_connect($host, $user, $pwd, $db);
+            if (mysqli_connect_errno()) {
+          echo "Falló la conexión:".mysqli_connect_error();
+              }   ?>
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -31,7 +39,33 @@
 
     <h3>EXÁMEN MACROSCOPICO</h3>
 
-  <form onsubmit="return false" >
+  <form method="post" action="guarda_analisis.php" >
+ <div >
+      <label style="width: 25em;" >
+      Médico
+
+    </div>
+<div> 
+ <select id="idmedico"  name="idmedico" style="width: 25em;">
+        <option  value="0">Seleccionar Médico</option>
+        <?php
+                  
+          $query = $con -> query ("SELECT idmedicos, nombre FROM medicos");
+                      
+          while ($valores = mysqli_fetch_array($query)) {                        
+            echo '<option value="'.$valores[idmedicos].'">'.$valores[nombre].'</option>';
+
+          }
+        ?>
+      </select>
+      
+   </div >
+  
+    <div >
+      <label style="width: 25em;" >
+
+
+    </div>    
     <div >
       <label style="width: 25em;" >
 
@@ -43,7 +77,7 @@
 
     </div>
     <div >
-      <label style="width: 25em; "ALIGN=center >
+      <label style="width: 25em;" ALIGN=center >
         SEGUNDA
 
     </div>
@@ -54,14 +88,14 @@
   </div>
   <div >
     <label style="width: 25em;" >
-    <input style="background-color:powderblue; name " name="color_pri">
+    <input name="color_pri" style="background-color:powderblue;" >
 
   </div>
   <div >
 
 
   <label style="width: 25em; " >
-  <input style="background-color:powderblue; " name="color_seg">
+  <input name="color_seg" style="background-color:powderblue; ">
 </div>
 
 
@@ -72,13 +106,13 @@
 </div>
 <div >
 <label style="width: 25em;" >
-<input style="background-color:powderblue; " name="moco_pri">
+<input name="moco_pri" style="background-color:powderblue; ">
 
 </div>
 <div >
 
 <label style="width: 25em; " >
-<input style="background-color:powderblue; "moco_seg>
+<input name="moco_seg" style="background-color:powderblue; ">
 </div>
 <div >
 <label style="width: 25em;" >
@@ -87,14 +121,14 @@
 </div>
 <div >
 <label style="width: 25em;" >
-<input style="background-color:powderblue;" name="pus_pri">
+<input name="pus_pri" style="background-color:powderblue;">
 
 </div>
 <div >
 
 
 <label style="width: 25em; " >
-<input style="background-color:powderblue; " name="pus_seg">
+<input name="pus_seg" style="background-color:powderblue; " >
 </div>
 <div >
 <label style="width: 25em;" >
@@ -103,13 +137,13 @@
 </div>
 <div >
 <label style="width: 25em;" >
-<input style="background-color:powderblue; " name="consistencia_pri">
+<input name="consistencia_pri" style="background-color:powderblue; ">
 
 </div>
 
 <div >
 <label style="width: 25em; " >
-<input style="background-color:powderblue; " name="consistencia_seg">
+<input name="consistencia_seg" style="background-color:powderblue; ">
 </div>
 <div >
 <label style="width: 25em;" >
@@ -118,14 +152,14 @@ SANGRE FRESCA
 </div>
 <div >
 <label style="width: 25em;" >
-<input style="background-color:powderblue; " name="sangre_pri">
+<input name="sangre_pri" style="background-color:powderblue; ">
 
 </div>
 <div >
 
 
 <label style="width: 25em; " >
-<input style="background-color:powderblue; " name="sangre_seg">
+<input name="sangre_seg" style="background-color:powderblue; ">
 </div>
 
 <div >
@@ -135,22 +169,21 @@ SANGRE FRESCA
 </div>
 <div >
 <label style="width: 25em;" >
-<input style="background-color:powderblue; " name="residuos_pri">
+<input name="residuos_pri" style="background-color:powderblue; ">
 
 </div>
 <div >
 
 
 <label style="width: 25em; " >
-<input style="background-color:powderblue;" name="residuos_seg">
+<input name="residuos_seg" style="background-color:powderblue;">
 </div>
 
 
 
-
-  </form>
-  <h3>EXÁMEN QUIMICO</h3>
-<form onsubmit="return false" >
+<div >
+   <LABEL style="width: 100em;" > <h3 >EXÁMEN QUIMICO</h3></LABEL>
+  </div>
   <div >
     <label style="width: 25em;" >
 
@@ -162,7 +195,7 @@ SANGRE FRESCA
 
   </div>
   <div >
-    <label style="width: 25em; "ALIGN=center >
+    <label style="width: 25em;" ALIGN=center >
       SEGUNDA
 
   </div>

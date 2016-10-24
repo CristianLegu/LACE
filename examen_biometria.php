@@ -30,7 +30,7 @@
 
   
     <h3>FORMULA ROJA</h3>
-  <form action="guarda_analisis.php" ALIGN=center >
+  <form action="guarda_analisis.php" ALIGN=center method="post">
 <div> 
  <select id="idmedico"  name="idmedico" style="width: 25em;">
         <option  value="0">Seleccionar Médico</option>
@@ -49,13 +49,13 @@
   <div >
     <label style="width: 25em;" > 
       ERITROCITOS MILL/MM3
-      <input  name="eritrocitos"  style="background-color:powderblue" name="eritrocitos">
+      <input  name="eritrocitos"  style="background-color:powderblue" >
 
   </div>
   <div >
     <label  style="width: 25em;">
       HEMOGLOBINA EN GR. %
-      <input name="hemoglobina" style="background-color:powderblue; " name="hemoglobina">
+      <input name="hemoglobina" style="background-color:powderblue; ">
         </label>
   </div>
   <div >
@@ -107,7 +107,7 @@ ANOMALÍAS ERITOCÍTICAS
 </div>
 <div >
 <label style="width: 25em;"  >
-<input name="neotrofilos" style="background-color:powderblue; ">
+<input name="leucocitos" style="background-color:powderblue; ">
 </div>
 <div >
 <label style="width: 5em;"  >
@@ -125,15 +125,15 @@ ANOMALÍAS ERITOCÍTICAS
 </div>
 <div >
 <label style="width: 25em;"  >
-<input name="neotrofilos" style="background-color:powderblue; ">
+<input name="neotrofilos_uno" style="background-color:powderblue; ">
 </div>
 <div >
 <label style="width: 5em;"  >
 %
 </div>
 <div >
-<label style="width: 25em;"  >
-<input style="background-color:powderblue; ">
+<label  style="width: 25em;"  >
+<input  name="neotrofilos_dos" style="background-color:powderblue; ">
 </div>
 <div>
   <label  style="width: 25em;">
@@ -143,7 +143,7 @@ ANOMALÍAS ERITOCÍTICAS
 </div>
 <div >
 <label style="width: 25em;"  >
-<input name="segmentados" style="background-color:powderblue; ">
+<input name="segmentados_uno" style="background-color:powderblue; ">
 </div>
 <div >
 <label style="width: 5em;"  >
@@ -151,7 +151,7 @@ ANOMALÍAS ERITOCÍTICAS
 </div>
 <div >
 <label style="width: 25em;"  >
-<input style="background-color:powderblue; ">
+<input name="segmentados_dos" style="background-color:powderblue; ">
 </div>
 <div>
   <label  style="width: 25em;">
@@ -161,7 +161,7 @@ ANOMALÍAS ERITOCÍTICAS
 </div>
 <div >
 <label style="width: 25em;"  >
-<input name="en_banda" style="background-color:powderblue; ">
+<input name="en_banda_uno" style="background-color:powderblue; ">
 </div>
 <div >
 <label style="width: 5em;"  >
@@ -169,7 +169,7 @@ ANOMALÍAS ERITOCÍTICAS
 </div>
 <div >
 <label style="width: 25em;"  >
-<input style="background-color:powderblue; ">
+<input  name="en_banda_dos" style="background-color:powderblue; ">
 </div>
 <div>
   <label  style="width: 25em;">
@@ -179,7 +179,7 @@ ANOMALÍAS ERITOCÍTICAS
 </div>
 <div >
 <label style="width: 25em;"  >
-<input name="juveniles" style="background-color:powderblue; ">
+<input name="juveniles_uno" style="background-color:powderblue; ">
 </div>
 <div >
 <label style="width: 5em;"  >
@@ -187,17 +187,17 @@ ANOMALÍAS ERITOCÍTICAS
 </div>
 <div >
 <label style="width: 25em;"  >
-<input style="background-color:powderblue; ">
+<input  name="juveniles_dos" style="background-color:powderblue; ">
 </div>
 <div>
   <label  style="width: 25em;">
-    MIELECITOS
+    MIELOCITOS
 
       </label>
 </div>
 <div >
 <label style="width: 25em;"  >
-<input name="mielecitos" style="background-color:powderblue; ">
+<input name="mielocitos_uno" style="background-color:powderblue; ">
 </div>
 <div >
 <label style="width: 5em;"  >
@@ -205,7 +205,7 @@ ANOMALÍAS ERITOCÍTICAS
 </div>
 <div >
 <label style="width: 25em;"  >
-<input style="background-color:powderblue; ">
+<input  name="mielocitos_dos" style="background-color:powderblue; ">
 </div>
 <div>
   <label  style="width: 25em;">
@@ -215,7 +215,7 @@ ANOMALÍAS ERITOCÍTICAS
 </div>
 <div >
 <label style="width: 25em;"  >
-<input name="linfocitos" style="background-color:powderblue; ">
+<input name="linfocitos_uno" style="background-color:powderblue; ">
 </div>
 <div >
 <label style="width: 5em;"  >
@@ -223,7 +223,7 @@ ANOMALÍAS ERITOCÍTICAS
 </div>
 <div >
 <label style="width: 25em;"  >
-<input style="background-color:powderblue; ">
+<input name="linfocitos_dos" style="background-color:powderblue; ">
 </div>
 <div>
   <label  style="width: 25em;">
@@ -233,7 +233,7 @@ ANOMALÍAS ERITOCÍTICAS
 </div>
 <div >
 <label style="width: 25em;"  >
-<input name="monocitos" style="background-color:powderblue; ">
+<input name="monocitos_uno" style="background-color:powderblue; ">
 </div>
 <div >
 <label style="width: 5em;"  >
@@ -241,7 +241,7 @@ ANOMALÍAS ERITOCÍTICAS
 </div>
 <div >
 <label style="width: 25em;"  >
-<input style="background-color:powderblue; ">
+<input  name="monocitos_dos" style="background-color:powderblue; ">
 </div>
 <div>
   <label  style="width: 25em;">
@@ -251,7 +251,7 @@ ANOMALÍAS ERITOCÍTICAS
 </div>
 <div >
 <label style="width: 25em;"  >
-<input name="eosinofilos" style="background-color:powderblue; ">
+<input name="eosinofilos_uno" style="background-color:powderblue; ">
 </div>
 <div >
 <label style="width: 5em;"  >
@@ -259,7 +259,7 @@ ANOMALÍAS ERITOCÍTICAS
 </div>
 <div >
 <label style="width: 25em;"  >
-<input style="background-color:powderblue; ">
+<input name="eosinofilos_dos" style="background-color:powderblue; ">
 </div>
 <div>
   <label  style="width: 25em;">
@@ -269,7 +269,7 @@ ANOMALÍAS ERITOCÍTICAS
 </div>
 <div >
 <label style="width: 25em;"  >
-<input name="basofilos" style="background-color:powderblue; ">
+<input name="basofilos_uno" style="background-color:powderblue; ">
 </div>
 <div >
 <label style="width: 5em;"  >
@@ -277,7 +277,7 @@ ANOMALÍAS ERITOCÍTICAS
 </div>
 <div >
 <label style="width: 25em;"  >
-<input style="background-color:powderblue; ">
+<input name="basofilos_dos" style="background-color:powderblue; ">
 </div>
 <div>
   <label  style="width: 25em;">
@@ -287,7 +287,7 @@ ANOMALÍAS ERITOCÍTICAS
 </div>
 <div >
 <label style="width: 55em;"   >
-<input name="anomalias" style="background-color:powderblue; ">
+<input name="anomalias_leucocitarias" style="background-color:powderblue; ">
 </div>
 
 <div class="col-submit">

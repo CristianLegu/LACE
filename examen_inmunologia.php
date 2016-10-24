@@ -1,5 +1,11 @@
-
-<?php include("includes/conexion.php"); ?>
+<?php 
+  include("includes/conexion.php");
+  session_start();
+  $_SESSION['valueA'] = 'INMUNOLOGIA';
+   $con = mysqli_connect($host, $user, $pwd, $db);
+            if (mysqli_connect_errno()) {
+          echo "Falló la conexión:".mysqli_connect_error();
+              }   ?>
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -29,67 +35,41 @@
 </a>
   </span>
 
-<form   method="POST" ALIGN=center>
-<div>
-<label>Medico</label>
-</div>
+
+
+  <h1>INMUNOLOGÍA</h1>
+
+  <form action="guarda_analisis.php" method="post" ALIGN=center>
+  <div >
+      <label style="width: 35em;" >
+      Médico
+
+    </div>
+<div >
+      <label style="width: 5em;" >
+
+
+    </div>
 <div> 
- <select>
-        <option value="0">Selección:</option>
+ <select id="idmedico"  name="idmedico" style="width: 25em;">
+        <option  value="0">Seleccionar Médico</option>
         <?php
-              $con = mysqli_connect($host, $user, $pwd, $db);
-            if (mysqli_connect_errno()) {
-          echo "Falló la conexión:".mysqli_connect_error();
-              }       
+                  
           $query = $con -> query ("SELECT idmedicos, nombre FROM medicos");
                       
-          while ($valores = mysqli_fetch_array($query)) {
-                        
-            echo '<option value="'.$valores[id].'">'.$valores[nombre].'</option>';
-                          
+          while ($valores = mysqli_fetch_array($query)) {                        
+            echo '<option value="'.$valores[idmedicos].'">'.$valores[nombre].'</option>';
+
           }
         ?>
       </select>
       
    </div >
-
-  <div>
-<label>Paciente</label>
-</div>
-<div>
-  <select id="selectPac" name="selectPac" onchange="submit()">
-                 <option value="" selected>Seleccionar</option>
-       <?php
-         
-           $con = mysqli_connect($host, $user, $pwd, $db);
-            if (mysqli_connect_errno()) {
-          echo "Falló la conexión:".mysqli_connect_error();
-              }
-              else{
-                    $sql = "SELECT *
-                             FROM pacientes " ;
-
-              $query  = mysqli_query($con, $sql);
+    <div >
+      <label style="width: 5em;" >
 
 
-               while ($fila=mysqli_fetch_array($query)){
-          
-                         echo "<option value= '".$fila[0]."' ";
-                        if($_POST['selectPac']==$fila[0])
-                         echo "SELECTED ";
-                         echo ">";
-                         echo $fila[1];
-                         echo "</option>";
-                         }
-                  }
-                ?>
-</select>
-   </div >
-  </form>
-
-  <h1>INMUNOLOGÍA</h1>
-
-  <form action="guarda.php" method="post" ALIGN=center>
+    </div>
     <div >
       <label style="width: 35em;" >
       R. FEBRILES:

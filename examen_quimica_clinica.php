@@ -1,3 +1,11 @@
+<?php 
+  include("includes/conexion.php");
+  session_start();
+  $_SESSION['valueA'] = 'CLINICA';
+   $con = mysqli_connect($host, $user, $pwd, $db);
+            if (mysqli_connect_errno()) {
+          echo "Falló la conexión:".mysqli_connect_error();
+              }   ?>
 <!doctype html>
 <html lang="en-US">
 <head>
@@ -28,137 +36,152 @@
   </span>
 
   <h1>QUIMICA CLINICA</h1>
-  <form onsubmit="return false" ALIGN=center>
+  <form action="guarda_analisis.php" method="post" ALIGN=center>
+ <div> 
+ <select id="idmedico"  name="idmedico" style="width: 25em;">
+        <option  value="0">Seleccionar Médico</option>
+        <?php
+                  
+          $query = $con -> query ("SELECT idmedicos, nombre FROM medicos");
+                      
+          while ($valores = mysqli_fetch_array($query)) {                        
+            echo '<option value="'.$valores[idmedicos].'">'.$valores[nombre].'</option>';
+
+          }
+        ?>
+      </select>
+      
+   </div >
   <div >
-    <label style="width: 20em;" >
+    <label style="width: 25em;" >
       GLUCOSA
-      <input style="background-color:powderblue">
+      <input name="glucosa" style="background-color:powderblue">
   </div>
 
   <div >
-    <label  style="width: 20em;" >
+    <label  style="width: 25em;" >
       UREA
-      <input style="background-color:powderblue; ">
+      <input name="urea" style="background-color:powderblue; ">
         </label>
   </div>
   <div >
-    <label  style="width: 20em;" >
+    <label  style="width: 25em;" >
       CREATININA
-      <input style="background-color:powderblue; ">
+      <input name="creatinina" style="background-color:powderblue; ">
         </label>
   </div>
   <div >
-    <label   style="width: 20em;">
+    <label   style="width: 25em;">
     ACIDO ÚRICO
-      <input style="background-color:powderblue; ">
+      <input name="acido_urico" style="background-color:powderblue; ">
         </label>
   </div>
     <div >
-  <label   style="width: 20em;">
+  <label   style="width: 25em;">
     COLESTEROL TOTAL
-    <input style="background-color:powderblue; ">
+    <input name="colesterol_tot" style="background-color:powderblue; ">
       </label>
 </div>
 <div >
-<label   style="width: 20em;">
+<label   style="width: 25em;">
 ESTERES DE COLESTEROL
-<input style="background-color:powderblue; ">
+<input name="esteres_col" style="background-color:powderblue; ">
   </label>
 </div>
 <div >
-<label   style="width: 20em;">
+<label   style="width: 25em;">
 LÍPIDOS TOTALES
-<input style="background-color:powderblue; ">
+<input name="lipidos_tot" style="background-color:powderblue; ">
   </label>
 </div>
 <div >
-<label   style="width: 20em;">
+<label   style="width: 25em;">
 TRIGLICÉRIDOS
-<input style="background-color:powderblue; ">
+<input name="trigliceridos" style="background-color:powderblue; ">
   </label>
 </div>
 <div >
-<label   style="width: 20em;">
+<label   style="width: 25em;">
 GLUCOSA POSTPRANDIAL
-<input style="background-color:powderblue; ">
+<input name="glucosa_post" style="background-color:powderblue; ">
   </label>
 </div>
 <div >
-<label   style="width: 20em;">
+<label   style="width: 25em;">
 PROTEÍNAS TOTALES
-<input style="background-color:powderblue; ">
+<input name="proteinas_tot" style="background-color:powderblue; ">
   </label>
 </div>
 <div >
-<label   style="width: 20em;">
+<label   style="width: 25em;">
 ALBÚMINAS
-<input style="background-color:powderblue; ">
+<input name="albuminas" style="background-color:powderblue; ">
   </label>
 </div>
 <div >
-<label   style="width: 20em;">
+<label   style="width: 25em;">
 GLOBULINAS
-<input style="background-color:powderblue; ">
+<input name="globulinas" style="background-color:powderblue; ">
   </label>
 </div>
 <div >
-<label   style="width: 20em;">
+<label   style="width: 25em;">
 RELACIÓN A/G
-<input style="background-color:powderblue; ">
+<input name="relacion_ag" style="background-color:powderblue; ">
   </label>
 </div>
 <div >
-<label   style="width: 20em;">
+<label   style="width: 25em;">
 TRANSAMINASA GO
-<input style="background-color:powderblue; ">
+<input name="transaminasa_go" style="background-color:powderblue; ">
   </label>
 </div>
 <div >
-<label   style="width: 20em;">
+<label   style="width: 25em;">
 TRANSAMINASA GP
-<input style="background-color:powderblue; ">
+<input name="transaminasa_gp" style="background-color:powderblue; ">
   </label>
 </div>
 <div >
-<label   style="width: 20em;">
+<label   style="width: 25em;">
 FOSFATASA ACISA
-<input style="background-color:powderblue; ">
+<input name="fosfatasa_acida" style="background-color:powderblue; ">
   </label>
 </div>
 <div >
-<label   style="width: 20em;">
-FOSFATASA PROSTÁTICA
-<input style="background-color:powderblue; ">
-  </label>
-</div>
-<div >
-<label   style="width: 20em;">
+<label   style="width: 25em;">
 FOSFATASA ALCALINA
-<input style="background-color:powderblue; ">
+<input name="fosfatasa_alcalina" style="background-color:powderblue; ">
   </label>
 </div>
 <div >
-<label   style="width: 20em;">
+<label   style="width: 25em;">
+FOSFATASA PROSTÁTICA 
+<input name="fosfatasa_prostatica" style="background-color:powderblue; ">
+  </label>
+</div>
+<div >
+<label   style="width: 25em;">
 DEHIDROGENASA LÁCTICA
-<input style="background-color:powderblue; ">
+<input name="dehidrogenasa_lactica" style="background-color:powderblue; ">
   </label>
 </div>
 <div >
-<label   style="width: 20em;">
+<label   style="width: 25em;">
 BILLIRRUBINA DIRECTA
-<input style="background-color:powderblue; ">
+<input name="billi_directa" style="background-color:powderblue; ">
   </label>
 </div>
 <div >
-<label   style="width: 20em;">
+<label   style="width: 25em;">
 BILLIRRUBINA INDIRECTA
-<input style="background-color:powderblue; ">
+<input name="billi_indirecta" style="background-color:powderblue; ">
   </label>
 </div>
 <div >
-<label   style="width: 20em;">
+<label   style="width: 25em;">
 AMILASA
-<input style="background-color:powderblue; ">
+<input name="amilasa" style="background-color:powderblue; ">
   </label>
 </div>
 <div class="col-submit">
