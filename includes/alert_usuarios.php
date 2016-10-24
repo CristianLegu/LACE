@@ -1,4 +1,25 @@
 <?php
+
+$pas = $_SESSION['pass'];
+$con = mysqli_connect($host, $user, $pwd, $db);
+
+  if (mysqli_connect_errno()) {
+    echo "Falló la conexión: ".mysqli_connect_error();
+    }
+
+
+        $sql = "SELECT 
+                contrasena
+              FROM usuarios
+            WHERE idusuarios = $pas" ; 
+   
+
+         $query = $con -> query($sql);
+
+        $fila = $query -> fetch_array();
+        $pass = $fila['contrasena'];
+
+
 ?>
 <html>
 	<header>
@@ -8,6 +29,7 @@
 
 	<script type="text/javascript">
 
+ 	mivarJS=<?php echo $pass ?>;
 						swal({
 			  title: "Confirma tu contraseña!",
 			  text: "",
@@ -27,12 +49,20 @@
 			    swal.showInputError("El campo está vacío!");
 			    return false
 			  }
-			  
-			  swal("Nice!", "You wrote: " + inputValue, "Bienvenido");
+			  else{
+			  	
+			  	if(inputValue == mivarJS){
+			  		swal("Bien!", "", "success");	
+			  	}
+			  	else{
+			  		swal.showInputError("Contraseña incorrecta!");
+			  	}
+			  }
+			  	
+			  	
+
+
+	     	  
 			});
 	</script>
-<?php
-$pass = "<script> document.write(inputValue) </script>";
-echo $pass;
-?>
 </html>

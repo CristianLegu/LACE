@@ -5,7 +5,7 @@
 		 $sesion = $_SESSION['valueF'];
 
 		 //echo $sesion;
-		 $idup = $_SESSION['idup'];
+		 
 
 	}
 
@@ -148,6 +148,51 @@ switch ($sesion) {
 		    }
 		break;
 
+	case 'USUARIOUP':
+			$con = mysqli_connect($host, $user, $pwd, $db);
+			if (mysqli_connect_errno()) {
+    		echo "Falló la conexión: ".mysqli_connect_error();
+        	}
+        	$nombre 	   	= utf8_decode($_POST['nombre']);
+			$direccion 		= utf8_decode($_POST['direccion']);
+			$telefono		= utf8_decode($_POST['telefono']);
+			$usuario        = utf8_decode($_POST['user']);
+			$contrasena  	= utf8_decode($_POST['contraseña']);
+		    $email	        = utf8_decode($_POST['email']);
+
+
+		    	if (isset($_POST['nombre']) && !empty($_POST['nombre'])   &&
+				isset($_POST['direccion']) && !empty($_POST['direccion']) &&
+				isset($_POST['user']) && !empty($_POST['user'])           &&
+				isset($_POST['contraseña']) && !empty($_POST['contraseña']))
+				{
+					$mysqli = mysqli_connect($host, $user, $pwd, $db);
+					if (mysqli_connect_errno()) {
+						echo "Falló la conexión:".mysqli_connect_error();
+					}
+					$idup = $_SESSION['idup'];
+				$sql = "UPDATE usuarios
+								  set nombre 			= '$nombre', 
+						 			  direccion			= '$direccion',
+						 			  telefono  		= '$telefono',
+						 			  contrasena 		= '$contrasena',
+						 			  n_user			= '$user',
+						 			  email 		    = '$email'
+		 									WHERE idusuarios = $idup;";
+					if( mysqli_query($mysqli, $sql)){
+						//echo "Inserción realizada".mysqli_connect_error();
+					}else{
+						echo "Error ".mysqli_error($mysqli);
+					}
+					mysqli_close($mysqli);
+
+					include("includes/alert.php");
+
+				}
+				else{
+
+				}
+		break;
 	case 'PACIENTES':
 			if (isset($_POST['nombre']) && !empty($_POST['nombre']) &&
 		 	isset($_POST['direccion']) && !empty($_POST['direccion']) &&
@@ -303,6 +348,7 @@ switch ($sesion) {
 				 echo "Falló la conexión:".mysqli_connect_error();
 				}
 
+				$idup = $_SESSION['idup'];
 				$sql = "UPDATE medicos
 								  set nombre 			= '$nombre', 
 						 			  domicilio_medi 	= '$direccion',
@@ -353,6 +399,7 @@ switch ($sesion) {
 					echo "Falló la conexión:".mysqli_connect_error();
 				}
 
+				$idup = $_SESSION['idup'];
 
 
 				if (isset($_POST['onoffswitch']) && !empty($_POST['onoffswitch']))

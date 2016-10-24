@@ -26,17 +26,9 @@
 								window.location.href = 'menu_medicos.php';
 							<?php	} if (  $sesion == 'PACIENTES' OR $sesion == 'PACIENTESUP' ) { ?>
 								window.location.href = 'menu_pacientes.php';
-							<?php   } ?>
-
-				<?php 	  if(  $sesion == 'PROVEEDOR') { ?>
-					window.location.href = 'proveedores.php';
-				<?php	} if (  $sesion == 'USUARIO' ) { ?>
-					window.location.href = 'menu_usuarios.php';
-				<?php	} if (  $sesion == 'MEDICOS' ) { ?>
-					window.location.href = 'menu_medicos.php';
-				<?php	} if (  $sesion == 'PACIENTES' ) { ?>
-					window.location.href = 'menu_pacientes.php';
-				<?php   } ?>
+							<?php	} if (  $sesion == 'USUARIO'  or $sesion == 'USUARIOUP' ) { ?>
+								window.location.href = 'menu_usuarios.php';
+							<?php	}  ?>
 
 				}
 			);

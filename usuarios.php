@@ -2,7 +2,7 @@
   include("includes/conexion.php");
   session_start();
   $_SESSION['valueF'] = 'USUARIO';
-  
+
 
 ?>
 <!doctype html>
@@ -20,7 +20,32 @@
 <?php
 if (!empty($_GET['u'])) {
     $u = $_GET['u'];  
+    $_SESSION['pass']   =  $_GET['u'];
     include("includes/alert_usuarios.php");
+
+    $con = mysqli_connect($host, $user, $pwd, $db);
+
+  if (mysqli_connect_errno()) {
+    echo "Falló la conexión: ".mysqli_connect_error();
+    }
+/*Verifica si el campo busca esta vacio*/
+    if(empty($_GET['u'])){
+            $pac = ' ';
+               $_SESSION['valueF'] = 'USUARIO';
+          }
+
+    else{
+        $pac = $_GET['u'];  
+               $_SESSION['valueF'] = 'USUARIOUP';
+               $_SESSION['idup'] = $pac;
+        }
+
+        $sql = "SELECT *
+                  FROM usuarios
+                  WHERE idusuarios = '$pac'" ;
+
+         $query  = mysqli_query($con, $sql);
+         $fila   = mysqli_fetch_array($query, MYSQLI_ASSOC);
   }
 
 ?>
@@ -39,43 +64,43 @@ if (!empty($_GET['u'])) {
     <div class="col-3">
       <label>
         Nombre
-        <input  name="nombre" tabindex="1" required>
+        <input  name="nombre" tabindex="1" required value="<?php echo utf8_encode($fila['nombre']); ?>">
       </label>
     </div>
     <div class="col-3">
       <label>
         Dirección
-        <input  name="direccion" tabindex="2" required>
+        <input  name="direccion" tabindex="2" required value="<?php echo utf8_encode($fila['direccion']); ?>">
       </label>
     </div>
 
     <div class="col-3">
       <label>
         Telefono
-        <input  name="telefono" tabindex="3" placeholder="(XXX) XXX XX XX" pattern="[0-9]*" >
+        <input  name="telefono" tabindex="3" placeholder="(XXX) XXX XX XX" pattern="[0-9]*" value="<?php echo utf8_encode($fila['telefono']); ?>">
       </label>
     </div>
     <div class="col-3">
       <label>
         Nombre de Usuario
-        <input name="user" tabindex="4" required>
+        <input name="user" tabindex="4" required value="<?php echo utf8_encode($fila['n_user']); ?>">
       </label>
     </div>
     <div class="col-3">
       <label>
         Contraseña
-        <input  type="password" name="contraseña" id="contraseña" tabindex="5" required maxlength="20" minlength="6">
+        <input  type="password" name="contraseña" id="contraseña" tabindex="5" required maxlength="20" minlength="6" value="<?php echo utf8_encode($fila['contrasena']); ?>">
       </div>
       <div class="col-3">
       <label>
         Repetir Contraseña
-        <input  type="password" name="pass2" id="pass2" tabindex="5" required maxlength="20" minlength="6">
+        <input  type="password" name="pass2" id="pass2" tabindex="5" required maxlength="20" minlength="6" value="<?php echo utf8_encode($fila['contrasena']); ?>">
       </div>
 
       <div class="col-3">
         <label>
           Email
-          <input  name="email" tabindex="6" type="email" placeholder="nombre@dominio.com" >
+          <input  name="email" tabindex="6" type="email" placeholder="nombre@dominio.com" value="<?php echo utf8_encode($fila['email']); ?>">
         </label>
       </div>
 

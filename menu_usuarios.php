@@ -14,6 +14,7 @@
   <script type="text/javascript" src="js/switchery.min.js"></script>
   <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.min.css">
+
 </head>
 
 <body>
@@ -96,12 +97,6 @@
   
 
 
-<script type="text/javascript">
-var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
 
-elems.forEach(function(html) {
-  var switchery = new Switchery(html);
-});
-</script>
 </body>
 </html>
