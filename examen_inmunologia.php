@@ -79,32 +79,32 @@
     <div >
       <label style="width: 35em;" >
       PERFIL REUMATICO:
-        <input style="background-color:powderblue" name="reumatico">
+        <input style="background-color:powderblue" name="p_r_reumatico">
          </label>
     </div>
 
     <div >
       <label style="width: 35em;" >
       R. DE WIDAL:
-        <input style="background-color:powderblue" name="widal">
+        <input style="background-color:powderblue" name="r_widal">
          </label>
     </div>
     <div >
       <label style="width: 35em;" >
       VEL. SED. GLOBULAR
-        <input style="background-color:powderblue" name="p_r_globu">
+        <input style="background-color:powderblue" name="p_glubar">
          </label>
     </div>
     <div >
       <label style="width: 35em;" >
     TÍFICO O
-        <input style="background-color:powderblue" name="r_tifico_o">
+        <input style="background-color:powderblue" name="r_widal_tifico_o">
          </label>
     </div>
     <div >
       <label style="width: 35em;" >
       ANTIESTREOTILISINAS
-        <input style="background-color:powderblue" name="p_r_antie">
+        <input style="background-color:powderblue" name="p_r_antiestro">
          </label>
     </div>
     <div >
@@ -116,32 +116,32 @@
     <div >
       <label style="width: 35em;" >
     PROTEÍNAS C REACTICA
-        <input style="background-color:powderblue" name="p_r_pro_c">
+        <input style="background-color:powderblue" name="p_r_proteinas_reactica">
          </label>
     </div>
     <div >
       <label style="width: 35em;" >
     PARATÍFICO A
-        <input style="background-color:powderblue" name="pr_widal_para_a">
+        <input style="background-color:powderblue" name="r_widal_paratifico_a">
          </label>
     </div>
     <div >
       <label style="width: 35em;" >
     FACTOR REUMATOIDE
-        <input style="background-color:powderblue" name="p_r_reuma">
+        <input style="background-color:powderblue" name="p_r_rematoide">
          </label>
     </div>
     <div >
       <label style="width: 35em;" >
     PARATÍFICO B
         <input style="background-color:powderblue" 
-        name="pr_widal_para_b">
+        name="r_widal_paratifico_b">
          </label>
     </div>
     <div >
       <label style="width: 35em;" >
     ACIDO URICO
-        <input style="background-color:powderblue" name="p_r_urico">
+        <input style="background-color:powderblue" name="p_r_acido_urico">
          </label>
     </div>
     <div >
@@ -157,37 +157,37 @@
     <div >
       <label style="width: 35em;" >
     BRUCELLA ABORTUS
-        <input style="background-color:powderblue" name="r_hudd_bru">
+        <input style="background-color:powderblue" name="r_hudd_brucella">
          </label>
     </div>
     <div >
       <label style="width: 35em;" >
     SALMONELLA
-        <input style="background-color:powderblue" name="p_aglu_salmo">
+        <input style="background-color:powderblue" name="p_aglu_salmonella">
          </label>
     </div>
     <div >
       <label style="width: 35em;" >
     R. DE WEIL FELIX
-        <input style="background-color:powderblue" name="felix">
+        <input style="background-color:powderblue" name="r_weil_felix">
          </label>
     </div>
     <div >
       <label style="width: 35em;" >
     BRUCELLA
-        <input style="background-color:powderblue" name="bp_aglu_brucella">
+        <input style="background-color:powderblue" name="p_aglu_brucella">
          </label>
     </div>
     <div >
       <label style="width: 35em;" >
     PROTEUS OX-19
-        <input style="background-color:powderblue" name="r_weil_prot">
+        <input style="background-color:powderblue" name="r_weil_proteus_ox19">
          </label>
     </div>
     <div >
       <label style="width: 35em;" >
     PROTEUS OX-19
-        <input style="background-color:powderblue" name="p_aglu_prote">
+        <input style="background-color:powderblue" name="p_aglu_proteox19">
          </label>
     </div>
     <div class="col-submit">
@@ -196,7 +196,7 @@
     </div>
   </form>
 
-  <button ><a href = index_gerencia_examinar.php?idpedir=".urlencode($idpedir)."&nombre=".urlencode($nombre).">"."Examinar"."</a></td>";</button>
+  
 <script type="text/javascript">
 var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
 
