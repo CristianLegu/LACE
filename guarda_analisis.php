@@ -302,36 +302,35 @@ case 'INMUNOLOGIA':
 	 		isset($_POST['telefono_m']) && !empty($_POST['telefono_m']))
 		{*/
 			
-			$r_fibriles     	   = utf8_decode($_POST['r_fibriles']);
-			$r_widal          = utf8_decode($_POST['r_widal']);
-			$r_widal_tifico_o       	   = utf8_decode($_POST['r_widal_tifico_o']);
-			$r_widal_tifico_h  = utf8_decode($_POST['r_widal_tifico_h']);
-			$r_widal_paratifico_a  	   = utf8_decode($_POST['r_widal_paratifico_a']);
-			$r_widal_paratifico_b      = utf8_decode($_POST['r_widal_paratifico_b']);
-			$r_hudd_brucella         = utf8_decode($_POST['r_hudd_brucella']);
-			$r_weil_felix          = utf8_decode($_POST['r_weil_felix']);
-		    $r_weil_proteus_ox19           = utf8_decode($_POST['r_weil_proteus_ox19']);
-			$p_reumatico  = utf8_decode($_POST['p_reumatico']);
-			$p_glubular    	   = utf8_decode($_POST['p_glubular']);
-			$p_r_antiestreo      = utf8_decode($_POST['p_r_antiestreo']);
-			$p_r_proteinas   		   = utf8_decode($_POST['p_r_proteinas']);
-			$p_r_reumatoide 		   = utf8_decode($_POST['p_r_reumatoide']);
-			$p_r_acido_urico     	   = utf8_decode($_POST['p_r_acido_urico']);
-		    $p_aglu_salmonella   = utf8_decode($_POST['p_aglu_salmonella']);
-		    $p_aglu_brucella      = utf8_decode($_POST['p_aglu_brucella']);
-		    $p_proteus_ox19    = utf8_decode($_POST['p_proteus_ox19']);
-			
-			$idmedicos         = utf8_decode($_POST['idmedico']);
+			$r_febriles     	    = utf8_decode($_POST['r_febriles']);
+			$r_widal                = utf8_decode($_POST['r_widal']);
+			$r_widal_tifico_o       = utf8_decode($_POST['r_widal_tifico_o']);
+			$r_widal_tifico_h       = utf8_decode($_POST['r_widal_tifico_h']);
+			$r_widal_paratifico_a   = utf8_decode($_POST['r_widal_paratifico_a']);
+			$r_widal_paratifico_b   = utf8_decode($_POST['r_widal_paratifico_b']);
+			$r_hudd_brucella        = utf8_decode($_POST['r_hudd_brucella']);
+			$r_weil_felix           = utf8_decode($_POST['r_weil_felix']);
+		    $r_weil_proteus_ox19    = utf8_decode($_POST['r_weil_proteus_ox19']);
+			$p_reumatico_globu      = utf8_decode($_POST['p_reumatico_globu']);
+			$p_glubular    	        = utf8_decode($_POST['p_glubular']);
+			$p_r_antiestreo         = utf8_decode($_POST['p_r_antiestreo']);
+			$p_r_proteinas_reactica = utf8_decode($_POST['p_r_proteinas_reactica']);
+			$p_r_reumatoide 	    = utf8_decode($_POST['p_r_reumatoide']);
+			$p_r_acido_urico  	    = utf8_decode($_POST['p_r_acido_urico']);
+		    $p_aglu_salmonella      = utf8_decode($_POST['p_aglu_salmonella']);
+		    $p_aglu_brucella        = utf8_decode($_POST['p_aglu_brucella']);
+		    $p_proteus_ox19         = utf8_decode($_POST['p_proteus_ox19']);
+			$idmedicos              = utf8_decode($_POST['idmedico']);
 			
 			$mysqli = mysqli_connect($host, $user, $pwd, $db);
 			if (mysqli_connect_errno()) {
 			 echo "Falló la conexión:".mysqli_connect_error();
 			}
 
-			$sql = "INSERT INTO inmunologia (r_fibriles, r_widal, r_widal_tifico_o, r_widal_tifico_h, r_widal_paratifico_a,
-							r_widal_paratifico_b, r_hudd_brucella, r_weil_felix, r_weil_proteus_ox19, p_reumatico, p_glubular, p_r_antiestreo, p_r_proteinas, p_r_reumatoide, p_r_acido_urico, p_aglu_salmonella, p_aglu_brucella, p_proteus_ox19, idpacientes, idmedicos)
-				 VALUES('$r_fibriles', '$r_widal', '$r_widal_tifico_o', '$r_widal_tifico_h', '$r_widal_paratifico_a',
-					 '$r_widal_paratifico_b', '$r_hudd_brucella', '$r_weil_felix', '$r_weil_proteus_ox19', '$p_reumatico' ,       '$p_angular' , '$p_r_antiestreo' , '$p_r_proteinas' , '$p_r_reumatoide' , '$p_r_acido_urico' ,       '$p_aglu_salmonella' , '$p_aglu_brucella' , '$p_proteus_ox19' 
+			$sql = "INSERT INTO inmunologia (r_febriles, r_widal, r_widal_tifico_o, r_widal_tifico_h, r_widal_paratifico_a,
+							r_widal_paratifico_b, r_hudd_brucella, r_weil_felix, r_weil_proteus_ox19, p_reumatico_globu, p_glubular, p_r_antiestreo, p_r_proteinas_reactica, p_r_reumatoide, p_r_acido_urico, p_aglu_salmonella, p_aglu_brucella, p_proteus_ox19, idpacientes, idmedicos)
+				 VALUES('$r_febriles', '$r_widal', '$r_widal_tifico_o', '$r_widal_tifico_h', '$r_widal_paratifico_a',
+					 '$r_widal_paratifico_b', '$r_hudd_brucella', '$r_weil_felix', '$r_weil_proteus_ox19', '$p_reumatico_globu' ,       '$p_glubular' , '$p_r_antiestreo' , '$p_r_proteinas_reactica' , '$p_r_reumatoide' , '$p_r_acido_urico' ,       '$p_aglu_salmonella' , '$p_aglu_brucella' , '$p_proteus_ox19' 
 					 ,'$idpacientes', '$idmedicos');";
 
 			if( mysqli_query($mysqli, $sql)){
