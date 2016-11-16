@@ -7,7 +7,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
-  <title>Men&uacute; Pacientes | LACE </title>
+  <title>Men&uacute; Proveedores | LACE </title>
   <link rel="shortcut icon" href="img/icon.png"> 
   <link rel="stylesheet" type="text/css" media="all" href="css/styles-menu.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
@@ -30,7 +30,7 @@
     </li>
     
     <li>
-      <h1>Pacientes</h1>  
+      <h1>Proveedores</h1>  
     </li>
       <p>
         <form name="formulario" action="" onSubmit="enviarDatos(); return false">
@@ -38,7 +38,7 @@
         </form>  
       </p>   
     <li>
-      <a href="pacientes.php" class="add"><img src="img/addpac.png"></a>
+      <a href="proveedores.php" class="add"><img src="img/addprov.png"></a>
     </li>
   </ul>
 </nav>
@@ -49,7 +49,6 @@
           <th>Folio</th>
           <th>Nombre</th>
           <th>Perfil</th>
-          <th>An&aacute;lisis</th>
         </tr>
 
 <?php
@@ -72,7 +71,7 @@
             }
           }
           else{
-             header("Location: menu_pacientes.php");
+             header("Location: menu_proveedores.php");
              die();
           }
         }
@@ -92,17 +91,17 @@
         }
 
         $sql = "SELECT 
-                    idpacientes, 
+                    idproveedores, 
                     nombre 
-                  FROM pacientes";
+                  FROM proveedores";
         $query = $con -> query($sql);
         $total_registros = mysqli_num_rows($query);
         $total_paginas = ceil($total_registros / $resultados_pagina); 
 
         $sql2 =   "SELECT 
-                    idpacientes, 
+                    idproveedores, 
                     nombre 
-                  FROM pacientes
+                  FROM proveedores
                   LIMIT $empezar_desde, $resultados_pagina";
         $query2 = $con -> query($sql2);
 
@@ -114,9 +113,9 @@
         $search = '%'.$pac.'%';
 
         $sql = "SELECT 
-                idpacientes, 
+                idproveedores, 
                 nombre 
-              FROM pacientes
+              FROM proveedores
             WHERE nombre LIKE '$search'" ;
         $query2 = $con -> query($sql);
 
@@ -130,8 +129,7 @@
         <tr>
           <td><?php echo $fila['0']; ?></td>
           <td><?php echo $nombre; ?></td>
-          <td><a href= "pacientes.php? p=<?php echo $fila['0'] ?>">Ver</a> </td>
-          <td><a href= "analisis.php? p=<?php echo $fila['0'] ?>">Agregar</a> </td>
+          <td><a href= "proveedores.php? prov=<?php echo $fila['0'] ?>">Ver</a> </td>
         </tr>
 
 <?php } 

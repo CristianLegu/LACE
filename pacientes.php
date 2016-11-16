@@ -47,6 +47,11 @@
          if ($nacimiento != null) {
          list($año, $mes, $dia) = split('[/.-]', $nacimiento);
         }
+        else{
+          $año = '';
+          $mes = '';
+          $dia = '';
+        }
  ?>
 <body>
   <div id="wrapper">
@@ -95,7 +100,7 @@
         <label>
           Teléfono
           <input  name="telefono" tabindex="6" type="tel"  placeholder="(XXX) XXX XX XX" 
-            value="<?php echo $fila['telefono']; ?>" pattern="[0-9]*">
+            value="<?php echo utf8_encode($fila['telefono']); ?>" pattern="[0-9]*">
 
         </label>
       </div>
@@ -105,9 +110,9 @@
           Fecha de Nacimiento 
          
           <div id="date1" class="datefield"><br><br>
-     <input id="day" name="dia" maxlength="2" placeholder="DD"  value="<?php echo utf8_encode($dia); ?>" required/>  /              
-        <input id="month" name="mes" maxlength="2" placeholder="MM" value="<?php echo utf8_encode($mes); ?>"  required/> /
-            <input id="year" name="anio" maxlength="4" placeholder="AAAA" value="<?php  echo utf8_encode($año); ?>"  required/> 
+     <input id="day" name="dia" maxlength="2" placeholder="DD"  value="<?php echo $dia; ?>" required/>  /              
+        <input id="month" name="mes" maxlength="2" placeholder="MM" value="<?php echo $mes; ?>"  required/> /
+            <input id="year" name="anio" maxlength="4" placeholder="AAAA" value="<?php echo $año; ?>"  required/> 
         
           </div>
 

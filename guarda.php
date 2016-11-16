@@ -34,21 +34,21 @@ switch ($sesion) {
 						$email	        = utf8_decode($_POST['email']);
 			            
           
-         		 $sql = "SELECT n_user
-                    FROM usuarios
-                    WHERE n_user = '$usuario'" ;
+         		 $sql = "SELECT nombre
+                    FROM proveedores
+                    WHERE nombre = '$nombre'" ;
 
                 $query  = mysqli_query($con, $sql);
                 while($fila = mysqli_fetch_array($query)){
     
                         $nom = $fila[0];           
-                       if($usuario==$nom)
+                       if($nombre==$nom)
                        {
                         $encontro=1;
                        }
                   
                 } 
-                mysqli_close($mysqli); 
+                mysqli_close($con); 
     			if($encontro==1){
     
                    include("includes/alert_existe.php");	   
@@ -88,6 +88,52 @@ switch ($sesion) {
 				echo "Error";
 
 			}
+		break;
+
+	case 'PROVEEDORUP':
+			$con = mysqli_connect($host, $user, $pwd, $db);
+			if (mysqli_connect_errno()) {
+    		echo "Falló la conexión: ".mysqli_connect_error();
+        	}
+        	$nombre 	   	= utf8_decode($_POST['nombre']);
+			$direccion 		= utf8_decode($_POST['direccion']);
+			$telefono		= utf8_decode($_POST['telefono']);
+			$telefono2		= utf8_decode($_POST['telefono2']);
+			$rfc_prov       = utf8_decode($_POST['rfc']);
+			$pag_web    	= utf8_decode($_POST['web']);
+		    $email	        = utf8_decode($_POST['email']);
+
+
+		    	if (isset($_POST['nombre']) && !empty($_POST['nombre'])   &&
+				isset($_POST['direccion']) && !empty($_POST['direccion']))
+				{
+					$mysqli = mysqli_connect($host, $user, $pwd, $db);
+					if (mysqli_connect_errno()) {
+						echo "Falló la conexión:".mysqli_connect_error();
+					}
+					$idup = $_SESSION['idup'];
+				$sql = "UPDATE proveedores
+								  set nombre 			= '$nombre', 
+						 			  direccion			= '$direccion',
+						 			  telefono_uno  	= '$telefono',
+						 			  telefono_dos		= '$telefono2',
+						 			  rfc_prov 		    = '$rfc_prov',
+						 			  pag_web			= '$pag_web',
+						 			  e_mail 		    = '$email'
+		 									WHERE idproveedores = $idup;";
+					if( mysqli_query($mysqli, $sql)){
+						//echo "Inserción realizada".mysqli_connect_error();
+					}else{
+						echo "Error ".mysqli_error($mysqli);
+					}
+					mysqli_close($mysqli);
+
+					include("includes/alert.php");
+
+				}
+				else{
+
+				}
 		break;
 
 	case 'USUARIO':
@@ -189,9 +235,7 @@ switch ($sesion) {
 					include("includes/alert.php");
 
 				}
-				else{
 
-				}
 		break;
 	case 'PACIENTES':
 			if (isset($_POST['nombre']) && !empty($_POST['nombre']) &&
@@ -377,22 +421,20 @@ switch ($sesion) {
 		break;
 
 	case 'PACIENTESUP':
-			if (isset($_POST['nombre']) && !empty($_POST['nombre']) &&
-		 	isset($_POST['direccion']) && !empty($_POST['direccion']) &&
-		 	isset($_POST['ciudad']) && !empty($_POST['ciudad']) &&
-			isset($_POST['estado']) && !empty($_POST['estado']) &&
-			isset($_POST['nacimiento']) && !empty($_POST['nacimiento'])
-			)
-			{
+
 				$nombre 		= utf8_decode($_POST['nombre']);
 				$direccion 		= utf8_decode($_POST['direccion']);
 				$ciudad			= utf8_decode($_POST['ciudad']);
 				$estado 		= utf8_decode($_POST['estado']);
 				$cp 			= utf8_decode($_POST['cp']);
 				$telefono		= utf8_decode($_POST['telefono']);
-				$nacimiento 	= utf8_decode($_POST['nacimiento']);
 				$email 			= utf8_decode($_POST['email']);
 				$sangre			= utf8_decode($_POST['sangre']);
+
+				$dia 			= utf8_decode($_POST['dia']);
+				$mes 			= utf8_decode($_POST['mes']);
+				$anio 			= utf8_decode($_POST['anio']);
+				$nacimiento		= $anio.'-'.$mes.'-'.$dia;
 
 				$mysqli = mysqli_connect($host, $user, $pwd, $db);
 				if (mysqli_connect_errno()) {
@@ -417,7 +459,7 @@ switch ($sesion) {
 						 			  ciudad  		= '$ciudad',
 						 			  estado 		= '$estado',
 						 			  codigo_postal	= '$cp',
-						 			  telefono 		= 'telefono',
+						 			  telefono 		= '$telefono',
 						 			  email 		= '$email',
 						 			  fecha_nac		= '$nacimiento',
 						 			  sexo 			= '$sexo',
@@ -435,12 +477,6 @@ switch ($sesion) {
 
 				include("includes/alert.php");
 
-			}
-			else
-			{
-				echo "Error";
-
-			}
 		break;
 
 }

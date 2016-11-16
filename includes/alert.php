@@ -18,10 +18,10 @@
     			type: "success"
   			}, function(){
 
-							<?php 	  if(  $sesion == 'PROVEEDOR') { ?>
-								window.location.href = 'proveedores.php';
+							<?php 	  if(  $sesion == 'PROVEEDOR' or $sesion == 'PROVEEDORUP') { ?>
+								window.location.href = 'menu_proveedores.php';
 							<?php	} if (  $sesion == 'EMPLEADO' ) { ?>
-								window.location.href = 'empleados.php';
+								window.location.href = 'menu_empleados.php';
 							<?php	} if (  $sesion == 'MEDICOS' or $sesion == 'MEDICOSUP') { ?>
 								window.location.href = 'menu_medicos.php';
 							<?php	} if (  $sesion == 'PACIENTES' OR $sesion == 'PACIENTESUP' ) { ?>
