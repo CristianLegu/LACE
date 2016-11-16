@@ -260,7 +260,7 @@ switch ($sesion) {
 				$sangre			= utf8_decode($_POST['sangre']);
 
 				$nacimiento		= $anio.'-'.$mes.'-'.$dia;
-
+/*
 				echo $nombre.'-';
 				echo $direccion.'-';
 				echo $ciudad.'-';
@@ -270,7 +270,7 @@ switch ($sesion) {
 				echo $nacimiento.'-';
 				echo $email.'-';
 				echo $sangre.'-';
-
+*/
 
 
 				$enc = 0;

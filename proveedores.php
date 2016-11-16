@@ -73,13 +73,13 @@
   <div class="col-3">
     <label>
       Teléfono 1
-      <input placeholder="(XXX) XXX XX XX" pattern="[0-9]*" name="telefono" tabindex="3" value="<?php echo utf8_encode($fila['telefono_uno']); ?>">
+      <input placeholder="XXX XXX XX XX" pattern="[0-9 | \s]*" name="telefono" tabindex="3" value="<?php echo utf8_encode($fila['telefono_uno']); ?>">
     </label>
   </div>
   <div class="col-3">
     <label>
       Teléfono 2
-      <input    name="telefono2" tabindex="4" placeholder="(XXX) XXX XX XX" pattern="[0-9]*" value="<?php echo utf8_encode($fila['telefono_dos']); ?>">
+      <input    name="telefono2" tabindex="4" placeholder="XXX XXX XX XX" pattern="[0-9 | \s]*" value="<?php echo utf8_encode($fila['telefono_dos']); ?>">
     </label>
   </div>
   <div class="col-3">

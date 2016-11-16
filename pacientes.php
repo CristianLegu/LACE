@@ -45,7 +45,7 @@
          $fila   = mysqli_fetch_array($query, MYSQLI_ASSOC);
          $nacimiento = utf8_encode($fila['fecha_nac']);
          if ($nacimiento != null) {
-         list($año, $mes, $dia) = split('[/.-]', $nacimiento);
+            list($año, $mes, $dia) = explode('-', $nacimiento);
         }
         else{
           $año = '';
@@ -93,14 +93,14 @@
     <div class="col-3">
       <label>
         Código Postal
-        <input  name="cp" tabindex="5" value="<?php echo utf8_encode($fila['codigo_postal']); ?>">
+        <input  name="cp" tabindex="5" maxlength="5" value="<?php echo utf8_encode($fila['codigo_postal']); ?>">
       </div>
 
       <div class="col-4">
         <label>
           Teléfono
-          <input  name="telefono" tabindex="6" type="tel"  placeholder="(XXX) XXX XX XX" 
-            value="<?php echo utf8_encode($fila['telefono']); ?>" pattern="[0-9]*">
+          <input  name="telefono" tabindex="6" placeholder="XXX XXX XX XX" 
+            value="<?php echo utf8_encode($fila['telefono']); ?>" pattern="[0-9 | \s]*">
 
         </label>
       </div>
