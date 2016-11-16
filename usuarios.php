@@ -46,6 +46,10 @@ if (!empty($_GET['u'])) {
 
          $query  = mysqli_query($con, $sql);
          $fila   = mysqli_fetch_array($query, MYSQLI_ASSOC);
+
+  }
+  else{
+    $fila = "";
   }
 
 ?>
@@ -64,43 +68,45 @@ if (!empty($_GET['u'])) {
     <div class="col-3">
       <label>
         Nombre
-        <input  name="nombre" tabindex="1" required value="<?php echo utf8_encode($fila['nombre']); ?>">
+        <input  name="nombre" tabindex="1" required value="<?php if ($fila != null ){echo utf8_encode($fila['nombre']);} ?>">
       </label>
     </div>
     <div class="col-3">
       <label>
         Dirección
-        <input  name="direccion" tabindex="2" required value="<?php echo utf8_encode($fila['direccion']); ?>">
+        <input  name="direccion" tabindex="2" required value="<?php if ($fila != null ){echo utf8_encode($fila['direccion']);} ?>">
       </label>
     </div>
 
     <div class="col-3">
       <label>
         Telefono
-        <input  name="telefono" tabindex="3" placeholder="(XXX) XXX XX XX" pattern="[0-9]*" value="<?php echo utf8_encode($fila['telefono']); ?>">
+        <input  name="telefono" tabindex="3" placeholder="(XXX) XXX XX XX" pattern="[0-9]*" value="<?php 
+        if ($fila != null ){echo utf8_encode($fila['telefono']);} ?>">
       </label>
     </div>
     <div class="col-3">
       <label>
         Nombre de Usuario
-        <input name="user" tabindex="4" required value="<?php echo utf8_encode($fila['n_user']); ?>">
+        <input name="user" tabindex="4" required value="<?php if ($fila != null ){echo utf8_encode($fila['n_user']); }?>">
       </label>
     </div>
     <div class="col-3">
       <label>
         Contraseña
-        <input  type="password" name="contraseña" id="contraseña" tabindex="5" required maxlength="20" minlength="6" value="<?php echo utf8_encode($fila['contrasena']); ?>">
+        <input  type="password" name="contraseña" id="contraseña" tabindex="5" required maxlength="20" minlength="6" value="<?php if ($fila != null ){echo utf8_encode($fila['contrasena']);} ?>">
       </div>
       <div class="col-3">
       <label>
         Repetir Contraseña
-        <input  type="password" name="pass2" id="pass2" tabindex="5" required maxlength="20" minlength="6" value="<?php echo utf8_encode($fila['contrasena']); ?>">
+        <input  type="password" name="pass2" id="pass2" tabindex="5" required maxlength="20" minlength="6" value="<?php if ($fila != null ){echo utf8_encode($fila['contrasena']);} ?>">
       </div>
 
       <div class="col-3">
         <label>
           Email
-          <input  name="email" tabindex="6" type="email" placeholder="nombre@dominio.com" value="<?php echo utf8_encode($fila['email']); ?>">
+          <input  name="email" tabindex="6" type="email" placeholder="nombre@dominio.com" value="<?php 
+          if ($fila != null ){echo utf8_encode($fila['email']);} ?>">
         </label>
       </div>
 
