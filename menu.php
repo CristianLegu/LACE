@@ -1,14 +1,13 @@
 <?php
-	include("includes/conexion.php");
+
 	session_start();
-	if(!empty( $_SESSION['valueuser'])){
-
-
-		 //echo $sesion;
-
+	if(!empty($_SESSION['valueuser'])){
+		
+		
 		 }
 		 else{
-	include("includes/error_nologin.php");
+	//include("includes/error_nologin.php");	   
+		
 		 }
 		  ?>
 <!DOCTYPE html>
@@ -31,13 +30,12 @@
 					<ul id="menu">
 						 <li>
 							 <span class="right">
-							 <h5 style="margin-top: 2.1em; font-size: 12px;">Bienvenido, @elMariano1</h5>
+							 <h5 style="margin-top: 2.1em; font-size: 12px;">Bienvenido, <?php echo $_SESSION['valueuser'] ?></h5>
 							 </span>
 	 							<img src="img/conf.png" width="20%" >
              <ul>
                <li><a href="index.php" style="align:center;">
-		 							<a>Cerrar Sesión</a>
-		 					</a></li>
+		 							Cerrar Sesion		 					</a></li>
              </ul>
                </li>
          </ul>
@@ -45,7 +43,7 @@
 
 			</div>
 			<header>
-				<span><a href="menu.html"><img src="img/logo2.png" class="imag"></a></span>
+				<span><a href="menu.php"><img src="img/logo2.png" class="imag"></a></span>
 			</header>
 			<div class="main clearfix">
 				<nav id="menu" class="nav">
