@@ -1,3 +1,16 @@
+<?php
+	include("includes/conexion.php");
+	session_start();
+	if(!empty( $_SESSION['valueuser'])){
+		
+
+		 //echo $sesion;
+		 
+		 }
+		 else{
+	include("includes/error_nologin.php");	   
+		 }
+		  ?>
 <!DOCTYPE html>
 <html lang="es" class="no-js">
 	<head>

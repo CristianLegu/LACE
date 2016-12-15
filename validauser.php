@@ -13,6 +13,10 @@
          $query  = mysqli_query($con, $sql);
          $fila   = mysqli_fetch_array($query, MYSQLI_ASSOC);
        if (!empty($fila['n_user']) && !empty($fila['contrasena'])){
+         session_start();
+               $_SESSION['valueuser'] = $fila['n_user'];
+              
+        }
         header ("Location: menu.html");
      
        }
