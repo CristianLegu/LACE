@@ -152,13 +152,13 @@
     </div>
 
     <div class="col-3">
-      <center>
+      <center id="dynamic_field">
         <button type="button" name="add" id="add" class="rfc">Agregar RFC</button>
       </center>
     </div>
   
-    <div id="dynamic_field">            
-    </div>  
+    <div style="padding-left: 10px;" id="dynamic_field">            
+    </div>
 
     <div class="col-submit">
       <button type="submit" class="submitbtn">Guardar</button>
@@ -183,18 +183,18 @@ elems.forEach(function(html) {
       $('#add').click(function(){ 
         if(i==0){
            $('#dynamic_field').append(
-             '<div class="col-3"> <input type="text" placeholder="Razón Social" id="razon" /></div>'+
-             '<div class="col-3"> <input type="text" placeholder="RFC" id="rfc"/></div>'+
-             '<div class="col-3"> <input type="text" placeholder="Dirección Fiscal" id="dir_fiscal"/></div>'); 
+             '<div class="col-1"> <label><input placeholder="Razón Social" id="razon"/></label></div>'+
+             '<div class="col-1"> <label><input placeholder="RFC" id="rfc"/></label></div>'+
+             '<div class="col-1"> <label><input placeholder="Dirección Fiscal" id="dir_fiscal"/></label></div>');
+             document.getElementById("add").style.background='#CE0202'; 
+              $('#add').remove();  
              i=1; 
         }  
       });  
-      $(document).on('click', '.btn_remove', function(){  
-           var button_id = $(this).attr("id");   
-           $('#row'+button_id+'').remove();  
-      });  
+       
       
  });  
+
  </script>  
 
 <script type="text/javascript">
