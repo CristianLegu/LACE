@@ -4,7 +4,7 @@
           if (mysqli_connect_errno()) {
             echo "Falló la conexión:".mysqli_connect_error();
           }
-$password = 'hola';
+
 
           $sql = "SELECT *
                   FROM usuarios
@@ -12,4 +12,10 @@ $password = 'hola';
 
          $query  = mysqli_query($con, $sql);
          $fila   = mysqli_fetch_array($query, MYSQLI_ASSOC);
-       echo $fila['n_user'];
+       if (!empty($fila['n_user']) && !empty($fila['contrasena'])){
+        header ("Location: menu.html");
+     
+       }
+       else {
+        
+       }

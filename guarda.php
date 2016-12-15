@@ -146,8 +146,10 @@ switch ($sesion) {
 			$direccion 		= utf8_decode($_POST['direccion']);
 			$telefono		= utf8_decode($_POST['telefono']);
 			$usuario        = utf8_decode($_POST['user']);
-			$pass  	= utf8_decode($_POST['contraseña']);
+			$pass        	= utf8_decode($_POST['contraseña']);
 		    $email	        = utf8_decode($_POST['email']);
+
+		
 
 		    $sql = "SELECT n_user
                     FROM usuarios
@@ -168,13 +170,13 @@ switch ($sesion) {
 		    	if (isset($_POST['nombre']) && !empty($_POST['nombre'])   &&
 				isset($_POST['direccion']) && !empty($_POST['direccion']) &&
 				isset($_POST['user']) && !empty($_POST['user'])           &&
-				isset($_POST['pass']) && !empty($_POST['pass']))
+				isset($_POST['contraseña']) && !empty($_POST['contraseña']))
 				{
 					$mysqli = mysqli_connect($host, $user, $pwd, $db);
 					if (mysqli_connect_errno()) {
 						echo "Falló la conexión:".mysqli_connect_error();
 					}
-					include("includes/genera.php");
+						include("includes/password.php");
 					$sql = "INSERT INTO usuarios (nombre, direccion, telefono, contrasena, n_user,
 															 email)
 								VALUES('$nombre', '$direccion', '$telefono', '$password', '$usuario',
@@ -190,6 +192,11 @@ switch ($sesion) {
 
 				}
 				else{
+echo $_POST['nombre'];
+
+echo $_POST['direccion']; 
+echo $_POST['user'];
+echo $_POST['contraseña'];
 
 				}
 		    }
