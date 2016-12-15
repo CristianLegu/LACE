@@ -17,8 +17,7 @@
                $_SESSION['valueuser'] = $fila['n_user'];
               
         
-        header ("Location: menu.html");
-     
+        header ("Location: menu.php");
        }
        else {
         
