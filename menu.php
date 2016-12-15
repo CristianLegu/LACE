@@ -33,7 +33,7 @@
 							 <span class="right">
 							 <h5 style="margin-top: 2.1em; font-size: 12px;">Bienvenido, @elMariano1</h5>
 							 </span>
-	 							<img src="img/conf.png" width="15%" >
+	 							<img src="img/conf.png" width="20%" >
              <ul>
                <li><a href="index.php" style="align:center;">
 		 							<img src="img/cs.png" width="50%" ><h5 style="margin-top: 1em;">
