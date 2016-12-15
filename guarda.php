@@ -146,7 +146,7 @@ switch ($sesion) {
 			$direccion 		= utf8_decode($_POST['direccion']);
 			$telefono		= utf8_decode($_POST['telefono']);
 			$usuario        = utf8_decode($_POST['user']);
-			$contrasena  	= utf8_decode($_POST['contraseña']);
+			$pass  	= utf8_decode($_POST['contraseña']);
 		    $email	        = utf8_decode($_POST['email']);
 
 		    $sql = "SELECT n_user
@@ -168,15 +168,16 @@ switch ($sesion) {
 		    	if (isset($_POST['nombre']) && !empty($_POST['nombre'])   &&
 				isset($_POST['direccion']) && !empty($_POST['direccion']) &&
 				isset($_POST['user']) && !empty($_POST['user'])           &&
-				isset($_POST['contraseña']) && !empty($_POST['contraseña']))
+				isset($_POST['pass']) && !empty($_POST['pass']))
 				{
 					$mysqli = mysqli_connect($host, $user, $pwd, $db);
 					if (mysqli_connect_errno()) {
 						echo "Falló la conexión:".mysqli_connect_error();
 					}
+					include("includes/genera.php");
 					$sql = "INSERT INTO usuarios (nombre, direccion, telefono, contrasena, n_user,
 															 email)
-								VALUES('$nombre', '$direccion', '$telefono', '$contrasena', '$usuario',
+								VALUES('$nombre', '$direccion', '$telefono', '$password', '$usuario',
 										 '$email');";
 					if( mysqli_query($mysqli, $sql)){
 						//echo "Inserción realizada".mysqli_connect_error();
