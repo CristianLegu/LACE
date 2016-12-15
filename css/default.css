@@ -22,7 +22,7 @@ body, html { font-size: 12px; padding: 0; margin: 0; background-image: url("../i
 body {
 	font-family: 'Lato', Calibri, Arial, sans-serif;
 	color: #89867e;
-	
+
 }
 
 a {
@@ -125,7 +125,7 @@ a:hover {
 	content: "\e003";
 }
 
-@media screen and (max-width: 25em) { 
+@media screen and (max-width: 25em) {
 	.codrops-icon span {
 		display: none;
 	}
@@ -134,4 +134,3 @@ a:hover {
 	}
 
 }
-
