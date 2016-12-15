@@ -6,8 +6,8 @@
 		
 		 }
 		 else{
-	include("includes/error_nologin.php");	   
-		 echo "hola";
+	//include("includes/error_nologin.php");	   
+		
 		 }
 		  ?>
 <!DOCTYPE html>

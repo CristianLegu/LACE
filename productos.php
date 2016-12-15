@@ -41,16 +41,22 @@
         <input  name="cantidad" tabindex="2" required>
       </label>
     </div>
-
+    <div class="col-3">
+      <label>
+        Costo
+        <input  name="Costo" tabindex="3" required>
+      </label>
+    </div>
     <div class="col-3">
       <label>
         Unidad de Medida
-      <select tabindex="3">
+      <select tabindex="4">
         <option>Lts.</option>
         <option>M</option>
         <option>30-40 hrs per week</option>
       </select>
   </div>
+  
       </label>
     </div>
 
