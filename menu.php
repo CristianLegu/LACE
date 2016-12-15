@@ -2,13 +2,13 @@
 	include("includes/conexion.php");
 	session_start();
 	if(!empty( $_SESSION['valueuser'])){
-		
+
 
 		 //echo $sesion;
-		 
+
 		 }
 		 else{
-	include("includes/error_nologin.php");	   
+	include("includes/error_nologin.php");
 		 }
 		  ?>
 <!DOCTYPE html>
@@ -36,7 +36,7 @@
 	 							<img src="img/conf.png" width="20%" >
              <ul>
                <li><a href="index.php" style="align:center;">
-		 							<img src="img/cs.png" width="50%" ><h5 style="margin-top: 1em;">
+		 							<a>Cerrar Sesión</a>
 		 					</a></li>
              </ul>
                </li>
