@@ -157,7 +157,7 @@
       </center>
     </div>
   
-    <div class="col-3" id="dynamic_field">            
+    <div id="dynamic_field">            
     </div>  
 
     <div class="col-submit">
@@ -165,7 +165,6 @@
     </div>
 
   </form>
-</div>
 
 </body>
 </html>
