@@ -32,7 +32,7 @@
     <div class="col-3">
       <label>
         Nombre Producto
-        <input  name="producto" tabindex="1" required>
+        <input  name="nombre_art" tabindex="1" required>
       </label>
     </div>
     <div class="col-3">
@@ -51,36 +51,60 @@
     <div class="col-3">
       <label>
         Unidad de Medida
-      <select tabindex="4">
+      <select tabindex="4" name="u_medida">
         <option>Lts.</option>
         <option>M</option>
         <option>30-40 hrs per week</option>
       </select>
   </div>
     <div class="col-3">
-      <label>
-        Fecha Stock
-        <input  name="fechastock" tabindex="5" required>
-      </label>
-    </div>
-    <div class="col-3">
-      <label>
-        Fecha Inicio
-        <input  name="fechaincio" tabindex="6" required>
-      </label>
-    </div>
-    <div class="col-3">
-      <label>
-        Fecha Termino
-        <input  name="fechatermino" tabindex="7" required>
-      </label>
-    </div>
-    <div class="col-3">
-      <label>
-        Fecha Caducidad
-        <input  name="fechacaducidad" tabindex="8" required>
-      </label>
-    </div>
+        <label>
+          Fecha Stock
+          <div  id="fechastock" class="datefield"><br><br>
+     <input id="day" name="diafechastock" maxlength="2" placeholder="DD"  value="" required/>  /              
+        <input id="month" name="mesfechastock" maxlength="2" placeholder="MM" value=""  required/> /
+            <input id="year" name="aniofechastock" maxlength="4" placeholder="AAAA" value=""  required/> 
+        
+          </div>
+
+        </label>
+      </div>
+          <div class="col-3">
+        <label>
+          Fecha Inicio
+          <div name="fechainicio" id="fechainicio" class="datefield"><br><br>
+     <input id="day" name="dia" maxlength="2" placeholder="DD"  value="" required/>  /              
+        <input id="month" name="mes" maxlength="2" placeholder="MM" value=""  required/> /
+            <input id="year" name="anio" maxlength="4" placeholder="AAAA" value=""  required/> 
+        
+          </div>
+
+        </label>
+      </div>
+          <div class="col-3">
+        <label>
+          Fecha Termino
+          <div name="fechatermino" id="fechatermino" class="datefield"><br><br>
+     <input id="day" name="dia" maxlength="2" placeholder="DD"  value="" required/>  /              
+        <input id="month" name="mes" maxlength="2" placeholder="MM" value=""  required/> /
+            <input id="year" name="anio" maxlength="4" placeholder="AAAA" value=""  required/> 
+        
+          </div>
+
+        </label>
+      </div>
+          <div class="col-3">
+        <label>
+          Fecha Caducidad
+          <div name="fechacaducidad" id="fechacaducidad" class="datefield"><br><br>
+     <input id="day" name="dia" maxlength="2" placeholder="DD"  value="" required/>  /              
+        <input id="month" name="mes" maxlength="2" placeholder="MM" value=""  required/> /
+            <input id="year" name="anio" maxlength="4" placeholder="AAAA" value=""  required/> 
+        
+          </div>
+
+        </label>
+      </div>
     <div class="col-3">
       <label>
         Cotro Prueba
