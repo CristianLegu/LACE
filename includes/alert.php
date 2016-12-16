@@ -20,6 +20,9 @@
 
 							<?php 	  if(  $sesion == 'PROVEEDOR' or $sesion == 'PROVEEDORUP') { ?>
 								window.location.href = 'menu_proveedores.php';
+
+								<?php } 	  if(  $sesion == 'PRODUCTOS') { ?>
+								window.location.href = 'menu_productos.php';
 							<?php	} if (  $sesion == 'EMPLEADO' ) { ?>
 								window.location.href = 'menu_empleados.php';
 							<?php	} if (  $sesion == 'MEDICOS' or $sesion == 'MEDICOSUP') { ?>
@@ -28,7 +31,12 @@
 								window.location.href = 'menu_pacientes.php';
 							<?php	} if (  $sesion == 'USUARIO'  or $sesion == 'USUARIOUP' ) { ?>
 								window.location.href = 'menu_usuarios.php';
-							<?php	}  ?>
+							
+
+							<?php	} 
+
+
+							?>
 
 				}
 			);
