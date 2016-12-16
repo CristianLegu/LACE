@@ -32,7 +32,7 @@
      <h1>Productos</h1>
    </span>
 
-   <form action="guarda.php" action="guarda.php" method="post">
+   <form action="guarda.php" action="guarda.php" method="post" autocomplete="off">
 
     <div class="col-3">
       <label>
