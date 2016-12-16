@@ -63,7 +63,7 @@
      <h1>Pacientes</h1>
    </span>
 
-   <form action="guarda.php" method="post">
+   <form action="guarda.php" method="post" autocomplete="off">
 
     <div class="col-2">
       <label>

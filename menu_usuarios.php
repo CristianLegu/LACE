@@ -8,12 +8,14 @@
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
   <title>Men&uacute; Usuarios | LACE </title>
+  <link rel="stylesheet" type="text/css" media="all" href="css/estilo.css">
   <link rel="shortcut icon" href="img/icon.png"> 
   <link rel="stylesheet" type="text/css" media="all" href="css/styles-menu.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
-  <script type="text/javascript" src="js/switchery.min.js"></script>
   <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.min.css">
+  
+  <script type="text/javascript" src="js/switchery.min.js"></script>
 
 </head>
 
@@ -33,7 +35,7 @@
       <h1>Usuarios</h1>  
     </li>
       <p>
-        <form name="formulario" action="" onSubmit="enviarDatos(); return false">
+        <form name="formulario" action="" onSubmit="enviarDatos(); return false" autocomplete="off">
           <li><input type="text" placeholder="Buscar..." name="busca" id="busca"></li>
         </form>  
       </p>  
@@ -55,18 +57,79 @@
   include("includes/conexion.php");
 
   $con = mysqli_connect($host, $user, $pwd, $db);
-
+  $paginationCtrls = '';
   if (mysqli_connect_errno()) {
     echo "Falló la conexión: ".mysqli_connect_error();
     }
 /*Verifica si el campo busca esta vacio*/
     if(empty($_GET['busca'])){
-    $sql = "SELECT 
-                idusuarios, 
-                nombre 
-              FROM usuarios" ;
-          }
+    
 
+              $sql = "SELECT 
+              count(idusuarios)
+              FROM usuarios";
+      $result = mysqli_query($con, $sql);
+      $row = mysqli_fetch_row($result);
+      $rows = $row[0];
+      $page_rows = 1;
+
+      $last= ceil($rows/$page_rows);
+
+      if($last < 1){
+        $last = 1;
+      }
+
+      $pagenum = 1;
+
+      if(isset($_GET['pn'])){
+      	  $pagenum = preg_replace('#[^0-9]#', '', $_GET['pn']);
+      }
+    
+      if ($pagenum < 1) { 
+        $pagenum = 1; 
+      } else if ($pagenum > $last) { 
+        $pagenum = $last; 
+      }
+      
+      $limit = 'LIMIT ' .($pagenum - 1) * $page_rows .',' .$page_rows;
+      
+      $sql = "SELECT  idusuarios, 
+                      nombre 
+              FROM usuarios  
+              ORDER BY idusuarios 
+              ASC $limit";
+      $query = mysqli_query($con, $sql);
+
+
+      
+      if($last != 1){
+          if($pagenum > 1){
+            $previous = $pagenum - 1;
+            $paginationCtrls .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$previous.'">Anterior</a> &nbsp; &nbsp; ';
+
+            for($i = $pagenum-4; $i < $pagenum; $i++){
+                if($i > 0){
+                    $paginationCtrls .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'">'.$i.'</a> &nbsp; ';
+                }
+	          }
+          }
+	        
+          $paginationCtrls .= ''.$pagenum.' &nbsp; ';
+
+          for($i = $pagenum+1; $i <= $last; $i++){
+		        $paginationCtrls .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'">'.$i.'</a> &nbsp; ';
+		        if($i >= $pagenum+4){
+			          break;
+		        }
+	        }
+
+          if ($pagenum != $last) {
+                $next = $pagenum + 1;
+                $paginationCtrls .= ' &nbsp; &nbsp; <a href="'.$_SERVER['PHP_SELF'].'?pn='.$next.'">Siguiente</a> ';
+          }
+      }
+
+    }
     else{
 
         $pac = $_GET['busca']; 
@@ -77,17 +140,18 @@
                 nombre 
               FROM usuarios
             WHERE nombre LIKE '$search'" ; 
+            $query = $con -> query($sql);
         }
 
-         $query = $con -> query($sql);
+         
 
-         while ($fila = $query -> fetch_array()){
-         $nombre = $fila['1'];
+         while ($fila = mysqli_fetch_array($query, MYSQLI_ASSOC)){
+         $nombre = $fila['nombre'];
  ?>
         <tr>
-          <td><?php echo $fila['0']; ?></td>
+          <td><?php echo $fila['idusuarios']; ?></td>
           <td><?php echo $nombre; ?></td>
-          <td><a href= "usuarios.php? u=<?php echo $fila['0'] ?>">Ver</a> </td>
+          <td><a href= "usuarios.php? u=<?php echo $fila['idusuarios'] ?>">Ver</a> </td>
         </tr>
 
 <?php } 
@@ -95,7 +159,9 @@
 ?>
       </table>
   
-
+    <div id="pagination_controls">
+      <?php echo $paginationCtrls; ?>
+    </div>
 
 
 </body>
