@@ -1,3 +1,6 @@
+<?php 
+session_start();
+session_destroy(); ?>
 <!DOCTYPE html>
 <html >
 <head>
@@ -16,9 +19,9 @@
 
    <div class="login">
 
-    <form action="menu.html" method="post">
-      <input type="text" placeholder="Usuario" class="login-input"/>
-      <input type="password" placeholder="Contraseña" class="login-input"/>
+    <form action="comprobar.php" method="post">
+      <input type="text" placeholder="Usuario" name="Usuario" class="login-input"/>
+      <input type="password" placeholder="Contraseña" name="pass" class="login-input"/>
       <button type="submit" class="login-btn"></button>
     </form>
     <header class="login-header">

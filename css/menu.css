@@ -1,0 +1,48 @@
+ul#menu {
+ width: 400px;
+ height: 45px;
+ float:left;
+}
+
+ul#menu li {
+ float: left;
+ width: 210px;
+ list-style: none;
+ margin: 0% 5%;
+}
+
+ul#menu li:hover{
+ cursor:pointer;
+}
+
+ul#menu ul {
+ display: none;
+ position: absolute;
+ top: 49px;
+ padding: 5px 0px 5px 5px;
+ margin: 0;
+ }
+
+ul#menu ul li{
+ float: left;
+ width:100%;
+ margin:0% 0%;
+}
+
+
+ul#menu ul li a{
+}
+
+ul#menu ul li a:hover{
+ cursor:pointer;
+}
+
+ul#menu li:hover ul ul,ul#menu li:hover ul ul ul,ul#menu li.iehover ul ul,ul#menu li.iehover ul ul ul {
+ display: none;
+ cursor:pointer;
+}
+
+ul#menu li:hover ul,ul#menu ul li:hover ul,ul#menu ul ul li:hover ul,ul#menu li.iehover ul,ul#menu ul li.iehover ul,ul#menu ul ul li.iehover ul {
+ display: block;
+ cursor:pointer;
+}

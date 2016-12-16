@@ -13,8 +13,8 @@
   <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
   <script type="text/javascript" src="js/switchery.min.js"></script>
-
-
+  <script src="js/bootstrap.min.js"></script>  
+  <script src="js/jquery.min.js"></script>  
 </head>
 <?php
 
@@ -106,9 +106,7 @@
       </div>
       <div class="col-4">
         <label>
-
           Fecha de Nacimiento 
-         
           <div id="date1" class="datefield"><br><br>
      <input id="day" name="dia" maxlength="2" placeholder="DD"  value="<?php echo $dia; ?>" required/>  /              
         <input id="month" name="mes" maxlength="2" placeholder="MM" value="<?php echo $mes; ?>"  required/> /
@@ -124,7 +122,7 @@
           <input  name="email" tabindex="8" value="<?php echo $fila['email']; ?>" type="email">
         </label>
       </div>
-      <div class="col-2">
+      <div class="col-3">
        <label>Sexo</label>
          <center  style="position:relative; margin-bottom:8px">
           <?php
@@ -136,7 +134,8 @@
                   }
           ?>
             <div class="onoffswitch">
-              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" <?php echo $s; ?>>
+              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" 
+              <?php echo $s; ?>>
               <label class="onoffswitch-label" for="myonoffswitch">
                 <span class="onoffswitch-inner"></span>
                 
@@ -145,11 +144,20 @@
             </div>
           </center>
       </div>
-     <div class="col-2">
+     <div class="col-3">
       <label>
         Tipo de sangre 
         <input  name="sangre" tabindex="9" value="<?php echo $fila['tipo_sangre']; ?>">
       </label>
+    </div>
+
+    <div class="col-3">
+      <center id="dynamic_field">
+        <button type="button" name="add" id="add" class="rfc">Agregar RFC</button>
+      </center>
+    </div>
+  
+    <div style="padding-left: 10px;" id="dynamic_field">            
     </div>
 
     <div class="col-submit">
@@ -157,7 +165,10 @@
     </div>
 
   </form>
-</div>
+
+</body>
+</html>
+
 <script type="text/javascript">
 var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
 
@@ -165,12 +176,29 @@ elems.forEach(function(html) {
   var switchery = new Switchery(html);
 });
 </script>
+
+ <script type="text/javascript">
+ var i=0;  
+ $(document).ready(function(){  
+      $('#add').click(function(){ 
+        if(i==0){
+           $('#dynamic_field').append(
+             '<div class="col-1"> <label><input placeholder="Razón Social" id="razon"/></label></div>'+
+             '<div class="col-1"> <label><input placeholder="RFC" id="rfc"/></label></div>'+
+             '<div class="col-1"> <label><input placeholder="Dirección Fiscal" id="dir_fiscal"/></label></div>');
+             document.getElementById("add").style.background='#CE0202'; 
+              $('#add').remove();  
+             i=1; 
+        }  
+      });  
+       
+      
+ });  
+
+ </script>  
+
 <script type="text/javascript">
   $('#date1 input').autotab_magic().autotab_filter('numeric');
   $('#date1 input').datepicker()
-
-
 </script>
-</body>
-</html>
 

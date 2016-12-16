@@ -48,7 +48,7 @@
 
       <table id="customers">
         <tr>
-          <th>Folio</th>
+          <th><a href="">Folio</a></th>
           <th>Nombre</th>
           <th>Perfil</th>
           <th>An&aacute;lisis</th>

@@ -1,9 +1,13 @@
 <?php
                  
- echo '<script language="javascript"> alert("Error no iniciaste sesión correctamente");</script>';
- // echo("<script>window.location = 'prueba.php';</script>");
-                  
-              
-                                
-                 
+      
+   $Usuario = $_POST['Usuario'] ;
+   $pass = $_POST['pass'];          
+    
+     include("includes/password.php");	        
+     include("validauser.php");
+     include("includes/error_usuario.php");	
 ?>
+
+
+

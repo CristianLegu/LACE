@@ -79,7 +79,7 @@
     <div >
       <label style="width: 35em;" >
       PERFIL REUMATICO:
-        <input style="background-color:powderblue" name="p_r_reumatico">
+        <input style="background-color:powderblue" name="p_reumatico_globu">
          </label>
     </div>
 
@@ -92,7 +92,7 @@
     <div >
       <label style="width: 35em;" >
       VEL. SED. GLOBULAR
-        <input style="background-color:powderblue" name="p_glubar">
+        <input style="background-color:powderblue" name="p_glubular">
          </label>
     </div>
     <div >
@@ -104,7 +104,7 @@
     <div >
       <label style="width: 35em;" >
       ANTIESTREOTILISINAS
-        <input style="background-color:powderblue" name="p_r_antiestro">
+        <input style="background-color:powderblue" name="p_r_antiestreo">
          </label>
     </div>
     <div >
@@ -128,7 +128,7 @@
     <div >
       <label style="width: 35em;" >
     FACTOR REUMATOIDE
-        <input style="background-color:powderblue" name="p_r_rematoide">
+        <input style="background-color:powderblue" name="p_r_reumatoide">
          </label>
     </div>
     <div >
@@ -187,7 +187,7 @@
     <div >
       <label style="width: 35em;" >
     PROTEUS OX-19
-        <input style="background-color:powderblue" name="p_aglu_proteox19">
+        <input style="background-color:powderblue" name="p_proteus_ox19">
          </label>
     </div>
     <div class="col-submit">

@@ -146,8 +146,10 @@ switch ($sesion) {
 			$direccion 		= utf8_decode($_POST['direccion']);
 			$telefono		= utf8_decode($_POST['telefono']);
 			$usuario        = utf8_decode($_POST['user']);
-			$contrasena  	= utf8_decode($_POST['contraseña']);
+			$pass        	= utf8_decode($_POST['contraseña']);
 		    $email	        = utf8_decode($_POST['email']);
+
+		
 
 		    $sql = "SELECT n_user
                     FROM usuarios
@@ -174,9 +176,10 @@ switch ($sesion) {
 					if (mysqli_connect_errno()) {
 						echo "Falló la conexión:".mysqli_connect_error();
 					}
+						include("includes/password.php");
 					$sql = "INSERT INTO usuarios (nombre, direccion, telefono, contrasena, n_user,
 															 email)
-								VALUES('$nombre', '$direccion', '$telefono', '$contrasena', '$usuario',
+								VALUES('$nombre', '$direccion', '$telefono', '$password', '$usuario',
 										 '$email');";
 					if( mysqli_query($mysqli, $sql)){
 						//echo "Inserción realizada".mysqli_connect_error();
@@ -189,6 +192,11 @@ switch ($sesion) {
 
 				}
 				else{
+echo $_POST['nombre'];
+
+echo $_POST['direccion']; 
+echo $_POST['user'];
+echo $_POST['contraseña'];
 
 				}
 		    }
@@ -479,5 +487,72 @@ switch ($sesion) {
 
 		break;
 
+
+case 'PRODUCTOS':
+
+
+			
+
+				$mysqli = mysqli_connect($host, $user, $pwd, $db);
+				if (mysqli_connect_errno()) {
+					echo "Falló la conexión:".mysqli_connect_error();
+				}
+
+				
+
+if (isset($_POST['nombre_art'])             && !empty($_POST['nombre_art'])   &&
+	 		isset($_POST['cantidad'])       && !empty($_POST['cantidad'])       &&
+	 		isset($_POST['Costo'])          && !empty($_POST['Costo'])          &&
+	 		isset($_POST['u_medida'])       && !empty($_POST['u_medida'])       &&
+	 		isset($_POST['costoprueba'])    && !empty($_POST['costoprueba'])    &&
+	 		isset($_POST['marca'])          && !empty($_POST['marca'])          &&
+	 		isset($_POST['prueba_kit'])     && !empty($_POST['prueba_kit']))
+			{
+				
+				$nombre_art		= utf8_decode($_POST['nombre_art']);
+				$cantidad 			= utf8_decode($_POST['cantidad']);
+				$Costo				= utf8_decode($_POST['Costo']);
+				$u_medida 			= utf8_decode($_POST['u_medida']);
+				$diafechastock 		= utf8_decode($_POST['diafechastock']);
+				$mesfechastock 		= utf8_decode($_POST['mesfechastock']);
+				$aniofechastock 	= utf8_decode($_POST['aniofechastock']);
+				$fechaincio			= utf8_decode($_POST['fechaincio']);
+				$fechatermino 		= utf8_decode($_POST['fechatermino']);
+				$fechacaducidad		= utf8_decode($_POST['fechacaducidad']);
+				$costoprueba 		= utf8_decode($_POST['costoprueba']);
+				$marca 				= utf8_decode($_POST['marca']);
+				$prueba_kit 		= utf8_decode($_POST['prueba_kit']);
+
+
+				echo $fechastock 		= $aniofechastock .'-'.$mesfechastock .'-'.$diafechastock ;
+				$mysqli = mysqli_connect($host, $user, $pwd, $db);
+				if (mysqli_connect_errno()) {
+				 echo "Falló la conexión:".mysqli_connect_error();
+				}
+
+				$sql = "INSERT INTO inventario (nombre_art, cantidad, Costo, u_medida,
+								fechastock, fechaincio, fechatermino, fechacaducidad, costoprueba, marca, prueba_kit)
+					 VALUES('$nombre_art', '$cantidad', '$Costo', '$u_medida',
+						 '$fechastock', '$fechaincio', '$fechatermino', '$fechacaducidad', '$costoprueba', 
+						 '$marca', '$prueba_kit');";
+
+				if( mysqli_query($mysqli, $sql)){
+
+				}else{
+				 echo "Error ".mysqli_error($mysqli);
+				}
+
+				mysqli_close($mysqli);
+
+				include("includes/alert.php");
+			}
+			else
+			{ echo $aniofechastock;
+				echo 1;
+				echo "Error";
+
+			}
+
+		break;
 }
 ?>
