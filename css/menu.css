@@ -1,12 +1,12 @@
 ul#menu {
- width: 400px;
+ width: 420px;
  height: 45px;
  float:left;
 }
 
 ul#menu li {
  float: left;
- width: 210px;
+ width: 250px;
  list-style: none;
  margin: 0% 5%;
 }
@@ -25,12 +25,19 @@ ul#menu ul {
 
 ul#menu ul li{
  float: left;
- width:100%;
- margin:0% 0%;
+ margin-top: 10em;
+ width:170%;
+ height: 50%;
+ margin:5% 0%;
+ background: rgba(255, 255, 255, 0.4);
 }
 
 
 ul#menu ul li a{
+   font-size: 14px;
+   margin-top: 1.8em;
+   margin-bottom: 1.8em;
+   color:#ffffff
 }
 
 ul#menu ul li a:hover{

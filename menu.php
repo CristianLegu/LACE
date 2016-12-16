@@ -2,12 +2,12 @@
 
 	session_start();
 	if(!empty($_SESSION['valueuser'])){
-		
-		
+
+
 		 }
 		 else{
-	//include("includes/error_nologin.php");	   
-		
+	//include("includes/error_nologin.php");
+
 		 }
 		  ?>
 <!DOCTYPE html>
@@ -34,8 +34,7 @@
 							 </span>
 	 							<img src="img/conf.png" width="20%" >
              <ul>
-               <li><a href="index.php" style="align:center;">
-		 							Cerrar Sesion		 					</a></li>
+               <li><a href="index.php" style="">Cerrar Sesion</a></li>
              </ul>
                </li>
          </ul>
