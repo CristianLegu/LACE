@@ -184,6 +184,7 @@ elems.forEach(function(html) {
          );*/
       });
 
+
  $(document).on('click', '.fup', function(){
   /* $('#fup').remove();
 
