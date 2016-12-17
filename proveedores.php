@@ -49,7 +49,7 @@
   <div id="wrapper">
 
 <span style="align: left;">
-<a href="menu.html">
+<a href="menu.php">
 	<img src="img/logo2.png"  style="width: 15%; margin-left: 40px; ">
 </a>
 	<h1>Proveedores</h1>
