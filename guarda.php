@@ -557,9 +557,7 @@ if (isset($_POST['nombre_art'])             && !empty($_POST['nombre_art'])   &&
 				include("includes/alert.php");
 			}
 			else
-			{ echo $aniofechastock;
-				echo 1;
-				echo "Error";
+			{ 
 
 			}
 

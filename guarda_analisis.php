@@ -99,7 +99,7 @@ case 'CLINICA':
 					 , '$proteinas_tot' , '$albuminas' , '$globulinas' , '$relacion_ag' ,                '$transaminasa_go' , '$transaminasa_gp' , '$fosfatasa_acida' , '$fosfatasa_alcalina' , '$fosfatasa_prostatica' , '$dehidrogenasa_lactica' ,       '$billi_directa' , '$billi_indirecta' , '$amilasa' , '$idpacientes', '$idmedicos');";
 
 			if( mysqli_query($mysqli, $sql)){
-
+ $query  = mysqli_query($con, $sql);
 			}else{
 			 echo "Error ".mysqli_error($mysqli);
 			}

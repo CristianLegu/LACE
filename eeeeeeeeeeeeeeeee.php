@@ -1,18 +1,17 @@
 
 <!doctype html>
- <html lang="en-US">  
+ <html>  
       <head>  
            <title>Análisis</title>  
            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
-           <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-           <meta charset="utf-8">
+           <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>  
       </head>  
       <body>  
            <div class="container">  
                 <br />  
                 <br />  
-                <h2 align="center">Análisis</h2>  
+                <h2 align="center">Dynamically Add or Remove input fields in PHP with JQuery</h2>  
                 <div class="form-group">  
                      <form name="add_name" id="add_name" method="post" action="index.php">  
                       <div >
@@ -46,8 +45,8 @@
                                          <td><button type="button" name="add" id="add" class="btn btn-success">Aregar</button></td>  
                                     </tr>  
                                </table>  
-                               <input type="button" name="submit" id="submit" class="btn btn-info" value="GUARDAR" />  
-                                
+                               <input type="button" name="submit" id="submit" class="btn btn-info" value="Submit" />  
+                                 <button class="submitbtn">GUARDAR</button>
                           </div>  
                      </form>  
                 </div>  

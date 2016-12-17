@@ -365,4 +365,11 @@ float: left;
 /**********************************************************
 ***************** FIN BOTON SWITCH
 **********************************************************/
-
+.submitbtn{
+    background-image: -moz-linear-gradient(#97c16b, #8ab959);
+  background-image: -webkit-linear-gradient(#97c16b, #8ab959);
+  background-image: linear-gradient(#97c16b, #8ab959);
+  border-bottom: 1px solid #648c3a;
+  cursor: pointer;
+  color: #fff;
+}
