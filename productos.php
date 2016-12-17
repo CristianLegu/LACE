@@ -56,6 +56,7 @@
     <div class="col-3">
       <label>
         Unidad de Medida
+        <br><br>
       <select tabindex="4" name="u_medida">
         <option>Lts.</option>
         <option>M</option>
@@ -70,13 +71,14 @@
         <div  id="fechastock" class="datefield">
          <input id="day" name="diafechastock" maxlength="2" placeholder="DD"  value="" required/>  /
          <input id="month" name="mesfechastock" maxlength="2" placeholder="MM" value=""  required/> /
-         <input id="year" name="aniofechastock" maxlength="4" placeholder="AAAA" value=""  required/><br>
+         <input id="year" name="aniofechastock" maxlength="4" placeholder="AAAA" value=""  required/>
        </div>
         </label>
  </div>
         <div class="col-3">
           <label>
             Proveedores
+            <br><br>
  <select id="idproveedor"  name="idproveedor" >
 
         <option  value="0">Seleccionar Proveedor</option>
