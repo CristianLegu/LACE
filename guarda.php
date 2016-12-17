@@ -4,9 +4,7 @@
 	if(isset($_SESSION['valueF'])){
 		 $sesion = $_SESSION['valueF'];
 
-		 //echo $sesion;
-		 
-
+		 echo $_SESSION['RFCX'];
 	}
 
 
@@ -258,28 +256,28 @@ echo $_POST['contraseña'];
 				$nombre 		= utf8_decode($_POST['nombre']);
 				$direccion 		= utf8_decode($_POST['direccion']);
 				$ciudad			= utf8_decode($_POST['ciudad']);
-				$estado 		= utf8_decode($_POST['estado']);
+				$estado 		=  utf8_decode($_POST['estado']);
 				$cp 			= utf8_decode($_POST['cp']);
-				$telefono		= utf8_decode($_POST['telefono']);
+				$fijo 			= utf8_decode($_POST['fijo']);
 				$dia 			= utf8_decode($_POST['dia']);
 				$mes 			= utf8_decode($_POST['mes']);
 				$anio 			= utf8_decode($_POST['anio']);
 				$email 			= utf8_decode($_POST['email']);
 				$sangre			= utf8_decode($_POST['sangre']);
+				$movil  		= utf8_decode($_POST['movil']);
+				$oficina 		= utf8_decode($_POST['oficina']);
+				if(isset($_POST['rfc']) && isset($_POST['razon']) && isset($_POST['fiscal']) ){
+					$rfc			= utf8_decode($_POST['rfc']);
+					$razonsocial    = utf8_decode($_POST['razon']);
+					$direccionfiscal= utf8_decode($_POST['fiscal']);
+				}
+				else{
+					$rfc = '';
+					$razonsocial = '';
+					$direccionfiscal ='';
+				}
 
 				$nacimiento		= $anio.'-'.$mes.'-'.$dia;
-/*
-				echo $nombre.'-';
-				echo $direccion.'-';
-				echo $ciudad.'-';
-				echo $estado.'-';
-				echo $cp.'-';
-				echo $telefono.'-';
-				echo $nacimiento.'-';
-				echo $email.'-';
-				echo $sangre.'-';
-*/
-
 
 				$enc = 0;
 
@@ -319,10 +317,12 @@ echo $_POST['contraseña'];
 						$sexo = "F";
 					}
 
-					$sql = "INSERT INTO pacientes (nombre, direccion, ciudad, estado, codigo_postal,
-			        								 telefono, email, fecha_nac, sexo, tipo_sangre)
-								VALUES('$nombre', '$direccion', '$ciudad', '$estado', '$cp',
-										'$telefono', '$email', '$nacimiento', '$sexo', '$sangre');";
+					$sql = "INSERT INTO pacientes (nombre, direccion, ciudad, estado, codigo_postal, telefono,
+			        								 email, fecha_nac, sexo, tipo_sangre, telefono_movil, tel_oficina,
+													 rfc, razonsocial, direccionfiscal)
+								VALUES('$nombre', '$direccion', '$ciudad', '$estado', '$cp', '$fijo',
+										'$email', '$nacimiento', '$sexo', '$sangre',
+										'$movil', '$oficina', '$rfc', '$razonsocial', '$direccionfiscal');";
 
 					if( mysqli_query($mysqli, $sql)){
 
@@ -433,11 +433,26 @@ echo $_POST['contraseña'];
 				$nombre 		= utf8_decode($_POST['nombre']);
 				$direccion 		= utf8_decode($_POST['direccion']);
 				$ciudad			= utf8_decode($_POST['ciudad']);
-				$estado 		= utf8_decode($_POST['estado']);
+				$estado 		=  utf8_decode($_POST['estado']);
 				$cp 			= utf8_decode($_POST['cp']);
-				$telefono		= utf8_decode($_POST['telefono']);
+				$fijo 			= utf8_decode($_POST['fijo']);
+				$dia 			= utf8_decode($_POST['dia']);
+				$mes 			= utf8_decode($_POST['mes']);
+				$anio 			= utf8_decode($_POST['anio']);
 				$email 			= utf8_decode($_POST['email']);
 				$sangre			= utf8_decode($_POST['sangre']);
+				$movil  		= utf8_decode($_POST['movil']);
+				$oficina 		= utf8_decode($_POST['oficina']);
+				if(isset($_POST['rfc']) && isset($_POST['razon']) && isset($_POST['fiscal']) ){
+					$rfc			= utf8_decode($_POST['rfc']);
+					$razonsocial    = utf8_decode($_POST['razon']);
+					$direccionfiscal= utf8_decode($_POST['fiscal']);
+				}
+				else{
+					$rfc = '';
+					$razonsocial = '';
+					$direccionfiscal ='';
+				}
 
 				$dia 			= utf8_decode($_POST['dia']);
 				$mes 			= utf8_decode($_POST['mes']);
@@ -467,11 +482,16 @@ echo $_POST['contraseña'];
 						 			  ciudad  		= '$ciudad',
 						 			  estado 		= '$estado',
 						 			  codigo_postal	= '$cp',
-						 			  telefono 		= '$telefono',
+						 			  telefono 		= '$fijo',
 						 			  email 		= '$email',
 						 			  fecha_nac		= '$nacimiento',
 						 			  sexo 			= '$sexo',
-						 			  tipo_sangre	= '$sangre'
+						 			  tipo_sangre	= '$sangre',
+									  telefono_movil = '$movil',
+									  tel_oficina	= '$oficina',
+									  rfc			= '$rfc',
+									  razonsocial	= '$razonsocial',
+									  direccionfiscal= '$direccionfiscal'
 		 									WHERE idpacientes = $idup;";
 
 				if( mysqli_query($mysqli, $sql)){
