@@ -60,21 +60,23 @@
         <option>Lts.</option>
         <option>M</option>
         <option>30-40 hrs per week</option>
-      </select><p></p>
+      </select>
       </label>
   </div>
     <div class="col-3">
         <label>
           Fecha Stock
-        <div  id="fechastock" class="datefield"><br><p></p>
+          <br><br>
+        <div  id="fechastock" class="datefield">
          <input id="day" name="diafechastock" maxlength="2" placeholder="DD"  value="" required/>  /
          <input id="month" name="mesfechastock" maxlength="2" placeholder="MM" value=""  required/> /
-         <input id="year" name="aniofechastock" maxlength="4" placeholder="AAAA" value=""  required/>
-        </div><p></p>
+         <input id="year" name="aniofechastock" maxlength="4" placeholder="AAAA" value=""  required/><br>
+       </div>
         </label>
  </div>
         <div class="col-3">
           <label>
+            Proveedores
  <select id="idproveedor"  name="idproveedor" >
 
         <option  value="0">Seleccionar Proveedor</option>
@@ -87,7 +89,7 @@
 
           }
         ?>
-      </select><p></p>
+      </select>
 
    </div >
 </label>
