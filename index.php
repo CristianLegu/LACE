@@ -19,7 +19,7 @@ session_destroy(); ?>
 
    <div class="login">
 
-    <form action="comprobar.php" method="post">
+    <form action="comprobar.php" method="post" autocomplete="off">
       <input type="text" placeholder="Usuario" name="Usuario" class="login-input"/>
       <input type="password" placeholder="Contraseña" name="pass" class="login-input"/>
       <button type="submit" class="login-btn"></button>

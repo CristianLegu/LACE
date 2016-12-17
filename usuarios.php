@@ -63,7 +63,7 @@ if (!empty($_GET['u'])) {
      </a>
      <h1>Usuarios</h1>
    </span>
-   <form action="guarda.php" action="guarda.php" method="post" name="fus">
+   <form action="guarda.php" action="guarda.php" method="post" name="fus" autocomplete="off">
 
     <div class="col-3">
       <label>
