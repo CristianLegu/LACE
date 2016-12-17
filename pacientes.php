@@ -211,6 +211,7 @@ elems.forEach(function(html) {
 });
 </script>
 
+
  <script type="text/javascript">
 
  $(document).ready(function(){ 
