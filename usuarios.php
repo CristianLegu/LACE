@@ -13,6 +13,7 @@
   <title>Usuarios| LACE</title>
   <link rel="shortcut icon" href="img/icon.png">
   <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" media="all" href="css/styles2.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
   <script type="text/javascript" src="js/switchery.min.js"></script>
 
