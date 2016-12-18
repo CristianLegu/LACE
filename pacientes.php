@@ -10,11 +10,11 @@
 
 
   <link rel="shortcut icon" href="img/icon.png">
-  <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" media="all" href="css/styles2.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
   <script type="text/javascript" src="js/switchery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>  
-  <script src="js/jquery.min.js"></script>  
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.min.js"></script>
 </head>
 <?php
 
@@ -31,7 +31,7 @@
           }
 
     else{
-        $pac = $_GET['p'];  
+        $pac = $_GET['p'];
         session_start();
                $_SESSION['valueF'] = 'PACIENTESUP';
                $_SESSION['idup'] = $pac;
@@ -96,27 +96,26 @@
         <input  name="cp" tabindex="5" maxlength="5" value="<?php echo utf8_encode($fila['codigo_postal']); ?>">
       </div>
 
-      <div class="col-4">
+      <div class="col-3">
         <label>
           Teléfono
-          <input  name="telefono" tabindex="6" placeholder="XXX XXX XX XX" 
+          <input  name="telefono" tabindex="6" placeholder="XXX XXX XX XX"
             value="<?php echo utf8_encode($fila['telefono']); ?>" pattern="[0-9 | \s]*">
 
         </label>
       </div>
-      <div class="col-4">
-        <label>
-          Fecha de Nacimiento 
-          <div id="date1" class="datefield"><br><br>
-     <input id="day" name="dia" maxlength="2" placeholder="DD"  value="<?php echo $dia; ?>" required/>  /              
+      <div class="col-3">
+        <label >
+          Fecha de Nacimiento
+          <div id="date1" class="datefield" ><br><br>
+     <input id="day" name="dia" maxlength="2" placeholder="DD"  value="<?php echo $dia; ?>" required/>  /
         <input id="month" name="mes" maxlength="2" placeholder="MM" value="<?php echo $mes; ?>"  required/> /
-            <input id="year" name="anio" maxlength="4" placeholder="AAAA" value="<?php echo $año; ?>"  required/> 
-        
+            <input id="year" name="anio" maxlength="4" placeholder="AAAA" value="<?php echo $año; ?>"  required/>
           </div>
 
         </label>
       </div>
-      <div class="col-2">
+      <div class="col-3">
         <label>
           Email
           <input  name="email" tabindex="8" value="<?php echo $fila['email']; ?>" type="email">
@@ -134,11 +133,11 @@
                   }
           ?>
             <div class="onoffswitch">
-              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" 
+              <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch"
               <?php echo $s; ?>>
               <label class="onoffswitch-label" for="myonoffswitch">
                 <span class="onoffswitch-inner"></span>
-                
+
                 <span class="onoffswitch-switch"></span>
               </label>
             </div>
@@ -146,7 +145,7 @@
       </div>
      <div class="col-3">
       <label>
-        Tipo de sangre 
+        Tipo de sangre
         <input  name="sangre" tabindex="9" value="<?php echo $fila['tipo_sangre']; ?>">
       </label>
     </div>
@@ -156,8 +155,8 @@
         <button type="button" name="add" id="add" class="rfc">Agregar RFC</button>
       </center>
     </div>
-  
-    <div style="padding-left: 10px;" id="dynamic_field">            
+
+    <div style="padding-left: 10px;" id="dynamic_field">
     </div>
 
     <div class="col-submit">
@@ -178,27 +177,26 @@ elems.forEach(function(html) {
 </script>
 
  <script type="text/javascript">
- var i=0;  
- $(document).ready(function(){  
-      $('#add').click(function(){ 
+ var i=0;
+ $(document).ready(function(){
+      $('#add').click(function(){
         if(i==0){
            $('#dynamic_field').append(
              '<div class="col-1"> <label><input placeholder="Razón Social" id="razon"/></label></div>'+
              '<div class="col-1"> <label><input placeholder="RFC" id="rfc"/></label></div>'+
              '<div class="col-1"> <label><input placeholder="Dirección Fiscal" id="dir_fiscal"/></label></div>');
-             document.getElementById("add").style.background='#CE0202'; 
-              $('#add').remove();  
-             i=1; 
-        }  
-      });  
-       
-      
- });  
+             document.getElementById("add").style.background='#CE0202';
+              $('#add').remove();
+             i=1;
+        }
+      });
 
- </script>  
+
+ });
+
+ </script>
 
 <script type="text/javascript">
   $('#date1 input').autotab_magic().autotab_filter('numeric');
   $('#date1 input').datepicker()
 </script>
-

@@ -8,7 +8,7 @@
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
   <title>Men&uacute; Pacientes | LACE </title>
-  <link rel="shortcut icon" href="img/icon.png"> 
+  <link rel="shortcut icon" href="img/icon.png">
   <link rel="stylesheet" type="text/css" media="all" href="css/styles-menu.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.css">
@@ -22,34 +22,34 @@
 <body>
 
 <nav id="hola">
-  <ul>     
+  <ul>
     <li><p>
           <a href="menu.php">
             <img src="img/logo2.png"  id="logo">
           </a>
         </p>
-          
+
     </li>
-    
+
     <li>
-      <h1>Pacientes</h1>  
+      <h1>Pacientes</h1>
     </li>
       <p>
         <form name="formulario" action="" onSubmit="enviarDatos(); return false" autocomplete="off">
           <li><input type="text" placeholder="Buscar..." name="busca" id="busca"></li>
-        </form>  
-      </p>   
+        </form>
+      </p>
     <li>
       <a href="pacientes.php" class="add"><img src="img/addpac.png"></a>
     </li>
   </ul>
 </nav>
-      
+
 
       <table id="customers">
         <tr>
-          <th><a href="">Folio</a></th>
-          <th>Nombre</th>
+          <th id="dynamic_field" ><label id="fdes" class="fdwn">Folio</label></th>
+          <th><label>Nombre</label></th>
           <th>Perfil</th>
           <th>An&aacute;lisis</th>
         </tr>
@@ -62,8 +62,8 @@
         echo "Falló la conexión: ".mysqli_connect_error();
         }
   if(empty($_GET['busca'])){
-      
-      $sql = "SELECT 
+
+      $sql = "SELECT
               count(idpacientes)
               FROM pacientes";
       $result = mysqli_query($con, $sql);
@@ -82,24 +82,24 @@
       if(isset($_GET['pn'])){
       	  $pagenum = preg_replace('#[^0-9]#', '', $_GET['pn']);
       }
-    
-      if ($pagenum < 1) { 
-        $pagenum = 1; 
-      } else if ($pagenum > $last) { 
-        $pagenum = $last; 
+
+      if ($pagenum < 1) {
+        $pagenum = 1;
+      } else if ($pagenum > $last) {
+        $pagenum = $last;
       }
-      
+
       $limit = 'LIMIT ' .($pagenum - 1) * $page_rows .',' .$page_rows;
-      
-      $sql = "SELECT  idpacientes, 
-                      nombre 
-              FROM pacientes  
-              ORDER BY idpacientes 
+
+      $sql = "SELECT  idpacientes,
+                      nombre
+              FROM pacientes
+              ORDER BY idpacientes
               ASC $limit";
       $query = mysqli_query($con, $sql);
 
 
-      
+
       if($last != 1){
           if($pagenum > 1){
             $previous = $pagenum - 1;
@@ -111,7 +111,7 @@
                 }
 	          }
           }
-	        
+
           $paginationCtrls .= ''.$pagenum.' &nbsp; ';
 
           for($i = $pagenum+1; $i <= $last; $i++){
@@ -128,11 +128,11 @@
       }
 
     }else{
-          $pac = $_GET['busca'];  
+          $pac = $_GET['busca'];
           $search = '%'.$pac.'%';
-          $sql = "SELECT 
-                   idpacientes, 
-                   nombre 
+          $sql = "SELECT
+                   idpacientes,
+                   nombre
                   FROM pacientes
                   WHERE nombre LIKE '$search'" ;
           $query = $con -> query($sql);
@@ -141,7 +141,7 @@
 
 
 
-      
+
 
       while ($fila = mysqli_fetch_array($query, MYSQLI_ASSOC)){
          $nombre = $fila['nombre'];
@@ -150,20 +150,19 @@
           <td><?php echo $fila['idpacientes']; ?></td>
           <td><?php echo $nombre; ?></td>
           <td><a href= "pacientes.php?p=<?php echo $fila['idpacientes'] ?>">Ver</a> </td>
-          <td><a href= "analisis.php?p=<?php echo $fila['idpacientes'] ?>">Agregar</a> </td>
+          <td><a href= "analisis.php?p=<?php echo $fila['idpacientes'] ?>">Agregar </a>/
+            <a href= "analisis.php?p=<?php echo $fila['idpacientes'] ?>">Ver</a> </td>
         </tr>
 
-<?php } 
+<?php }
   mysqli_close($con);
 ?>
       </table>
 
-   
-  
     <div id="pagination_controls">
       <?php echo $paginationCtrls; ?>
     </div>
-  
+
 
 
 <script type="text/javascript">
@@ -173,5 +172,27 @@ elems.forEach(function(html) {
   var switchery = new Switchery(html);
 });
 </script>
+
+<script type="text/javascript">
+
+  $(document).ready(function(){
+     $(document).on('click', '.fdwn', function(){
+      /*   $('#fdes').remove();
+
+         $('#dynamic_field').append(
+           '<label class="fup">Folio 2</label>'
+         );*/
+      });
+
+ $(document).on('click', '.fup', function(){
+  /* $('#fup').remove();
+
+   $('#dynamic_field').append(
+     '<label class="fdwn">Folio</label>'
+   );*/
+ });
+  });
+ </script>
+
 </body>
 </html>
