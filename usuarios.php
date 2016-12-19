@@ -63,7 +63,7 @@ if (!empty($_GET['u'])) {
      </a>
      <h1>Usuarios</h1>
    </span>
-   <form action="guarda.php" action="guarda.php" method="post" name="fus">
+   <form action="guarda.php" action="guarda.php" method="post" name="fus" autocomplete="off">
 
     <div class="col-3">
       <label>
@@ -81,7 +81,7 @@ if (!empty($_GET['u'])) {
     <div class="col-3">
       <label>
         Telefono
-        <input  name="telefono" tabindex="3" placeholder="(XXX) XXX XX XX" pattern="[0-9]*" value="<?php 
+        <input  name="telefono" tabindex="3" placeholder="(XXX) XXX XX XX" pattern="[0-9 | \s]*" value="<?php 
         if ($fila != null ){echo utf8_encode($fila['telefono']);} ?>">
       </label>
     </div>

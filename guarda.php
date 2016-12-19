@@ -507,5 +507,82 @@ echo $_POST['contraseña'];
 
 		break;
 
+
+case 'PRODUCTOS':
+
+
+			
+
+				$mysqli = mysqli_connect($host, $user, $pwd, $db);
+				if (mysqli_connect_errno()) {
+					echo "Falló la conexión:".mysqli_connect_error();
+				}
+
+				
+
+if (isset($_POST['nombre_art'])             && !empty($_POST['nombre_art'])   &&
+	 		isset($_POST['cantidad'])       && !empty($_POST['cantidad'])       &&
+	 		isset($_POST['Costo'])          && !empty($_POST['Costo'])          &&
+	 		isset($_POST['u_medida'])       && !empty($_POST['u_medida'])       &&
+	 		isset($_POST['costo_prueba'])    && !empty($_POST['costo_prueba'])    &&
+	 		isset($_POST['marca'])          && !empty($_POST['marca'])          &&
+	 		isset($_POST['prueba_kit'])     && !empty($_POST['prueba_kit']))
+			{
+				
+				$nombre_art		= utf8_decode($_POST['nombre_art']);
+				$cantidad 			= utf8_decode($_POST['cantidad']);
+				$Costo				= utf8_decode($_POST['Costo']);
+				$u_medida 			= utf8_decode($_POST['u_medida']);
+				$diafechastock 		= utf8_decode($_POST['diafechastock']);
+				$mesfechastock 		= utf8_decode($_POST['mesfechastock']);
+				$aniofechastock 	= utf8_decode($_POST['aniofechastock']);
+				$diafechainicio		= utf8_decode($_POST['diafechainicio']);
+				$mesfechainicio     = utf8_decode($_POST['mesfechainicio']); 
+				$aniofechainicio    = utf8_decode($_POST['aniofechainicio']); 
+				$diafechatermino	= utf8_decode($_POST['diafechatermino']);
+				$mesfechatermino    = utf8_decode($_POST['mesfechatermino']); 
+				$aniofechatermino   = utf8_decode($_POST['aniofechatermino']); 
+				$diafechacaducidad	= utf8_decode($_POST['diafechacaducidad']);
+				$mesfechacaducidad  = utf8_decode($_POST['mesfechacaducidad']); 
+				$aniofechacaducidad = utf8_decode($_POST['aniofechacaducidad']); 
+				$idproveedores 	    = utf8_decode($_POST['idproveedor']);
+				$costo_prueba 		= utf8_decode($_POST['costo_prueba']);
+				$marca 				= utf8_decode($_POST['marca']);
+				$prueba_kit 		= utf8_decode($_POST['prueba_kit']);
+
+
+				$fechastock 		= $aniofechastock .'.'.$mesfechastock .'.'.$diafechastock ;
+				$fechainicio 		= $aniofechainicio .'.'.$mesfechainicio .'.'.$diafechainicio ;
+                $fechatermino 		= $aniofechatermino .'.'.$mesfechatermino .'.'.$diafechatermino ;
+                $fechacaducidad 	= $aniofechacaducidad .'.'.$mesfechacaducidad .'.'.$diafechacaducidad ;
+				$mysqli = mysqli_connect($host, $user, $pwd, $db);
+				if (mysqli_connect_errno()) {
+				 echo "Falló la conexión:".mysqli_connect_error();
+				}
+
+				$sql = "INSERT INTO inventario (nombre_art, cantidad, Costo, u_medida, idproveedores,
+								fechastock, fechainicio, fechatermino, fechacaducidad, costo_prueba, marca, prueba_kit)
+					 VALUES('$nombre_art', '$cantidad', '$Costo', '$u_medida', '$idproveedores' ,
+						 '$fechastock', '$fechainicio', '$fechatermino', '$fechacaducidad', '$costo_prueba', 
+						 '$marca', '$prueba_kit');";
+
+				if( mysqli_query($mysqli, $sql)){
+
+				}else{
+				 echo "Error ".mysqli_error($mysqli);
+				}
+
+				mysqli_close($mysqli);
+
+				include("includes/alert.php");
+			}
+			else
+			{ echo $aniofechastock;
+				echo 1;
+				echo "Error";
+
+			}
+
+		break;
 }
 ?>

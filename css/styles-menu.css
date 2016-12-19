@@ -24,11 +24,11 @@ body {
   padding-top: 0px;
 }
 
-br { display: block; line-height: 1.6em; } 
+br { display: block; line-height: 1.6em; }
 
-input, textarea { 
+input, textarea {
   -webkit-font-smoothing: antialiased;
-  outline: none; 
+  outline: none;
 }
 
 strong, b { font-weight: bold; }
@@ -51,7 +51,7 @@ h3{
  /*form field */
 
 
-.col-2, .col-3, .col-4 { 
+.col-2, .col-3, .col-4 {
   border-bottom: 1px solid #e4e4e4;
 }
 
@@ -165,10 +165,8 @@ button.submitbtn:active {
     text-align: left;
     background-color: #2D4C82;
     color: white;
+    cursor: pointer;
 }
-
-
-
 
 /* -------------------------------------------- */
 /* ----------- Pagination: Digg Style --------- */
@@ -295,7 +293,7 @@ img:hover {
 }
 
 .add {
-  float: right; 
+  float: right;
   margin-top: -20px;
   margin-right: 10em;
 
@@ -349,7 +347,7 @@ input[type="text"]:focus { width: 40%;}
 #logo { width: 30%; float: left;}
 
 .add {
-  float: right; 
+  float: right;
   margin-top: -50px;
   margin-right: 60px;
 
@@ -394,7 +392,7 @@ nav ul li {
   #logo { width: 30%; float: left;}
 
   .add {
-  float: right; 
+  float: right;
   margin-top: -50px;
   margin-right: 40px;
 }
@@ -438,7 +436,7 @@ input[type="text"]:focus { width: 50%;}
  #logo { width: 30%; float: left;}
 
  .add {
-  float: right; 
+  float: right;
   margin-right: 30px;
   margin-top: -50px;
 }
@@ -448,6 +446,3 @@ nav ul li {
   }
 
 }
-
-
-

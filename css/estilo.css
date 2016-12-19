@@ -6,6 +6,7 @@
 body {
   background: #F0F0F0;
   font: 100%/1 "Helvetica Neue", Arial, sans-serif;
+  font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
 }
 
 .login {
@@ -154,3 +155,28 @@ body {
 .login-btn:hover:after, .login-btn:focus:after, .login-btn:active:after {
   border-left-color: #67B5F0;
 }
+
+
+
+
+div#pagination_controls{
+    font-size: 15px;
+    text-align: center;
+    margin: 20px -10px 0 -10px;
+  }
+div#pagination_controls a{
+  padding: 10px;
+	border: 1px solid #EEE;
+  background-color: #2D4C82;
+	text-decoration: none; /* no underline */
+	color:white;
+}
+div#pagination_controls > a:hover{ 
+  border: 1px solid #999;
+	color: white;
+  background-color: rgba(45, 76, 130, .9);
+  
+  }
+
+
+
