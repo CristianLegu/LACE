@@ -35,6 +35,7 @@
         session_start();
                $_SESSION['valueF'] = 'PACIENTESUP';
                $_SESSION['idup'] = $pac;
+               
         }
 
         $sql = "SELECT *
@@ -43,6 +44,12 @@
 
          $query  = mysqli_query($con, $sql);
          $fila   = mysqli_fetch_array($query, MYSQLI_ASSOC);
+         if($fila['rfc'] != null){
+          $rfc = $fila['rfc'];
+         }
+         else{
+           $rfc = 'x';
+         }
          $nacimiento = utf8_encode($fila['fecha_nac']);
          if ($nacimiento != null) {
             list($año, $mes, $dia) = explode('-', $nacimiento);
@@ -78,24 +85,25 @@
       </label>
     </div>
 
-    <div class="col-3">
+    <div class="col-4">
       <label>
         Ciudad
         <input  name="ciudad" tabindex="3" required value="<?php echo $fila['ciudad']; ?>">
       </label>
     </div>
-    <div class="col-3">
+    <div class="col-4">
       <label>
         Estado
         <input name="estado" tabindex="4" required value="<?php echo utf8_encode($fila['estado']); ?>">
       </label>
     </div>
-    <div class="col-3">
+    <div class="col-4">
       <label>
         Código Postal
         <input  name="cp" tabindex="5" maxlength="5" value="<?php echo utf8_encode($fila['codigo_postal']); ?>">
       </div>
 
+<<<<<<< HEAD
       <div class="col-3">
         <label>
           Teléfono
@@ -119,11 +127,23 @@
         <label>
           Email
           <input  name="email" tabindex="8" value="<?php echo $fila['email']; ?>" type="email">
+=======
+            <div class="col-4">
+        <label style="height: 86px;">
+          Fecha de Nacimiento 
+          <div id="date1" class="datefield"><br><br>
+            <input id="day" name="dia" maxlength="2" placeholder="DD"  value="<?php echo $dia; ?>" required/>  /              
+            <input id="month" name="mes" maxlength="2" placeholder="MM" value="<?php echo $mes; ?>"  required/> /
+            <input id="year" name="anio" maxlength="4" placeholder="AAAA" value="<?php echo $año; ?>"  required/> 
+          </div>
+>>>>>>> refs/remotes/origin/cristian
         </label>
       </div>
-      <div class="col-3">
-       <label>Sexo</label>
-         <center  style="position:relative; margin-bottom:8px">
+
+      <div class="col-4">
+       <label>Sexo
+       <label style="height: 86px;">
+         <center  style="margin-bottom:10px">
           <?php
                   if ($fila['sexo'] == 'M'){
                     $s = 'checked';
@@ -142,21 +162,66 @@
               </label>
             </div>
           </center>
+          </label>
       </div>
-     <div class="col-3">
+
+      <div class="col-4">
+        <label>
+          Teléfono (Fijo)
+          <input  name="fijo" tabindex="6" placeholder="XXX XXX XX XX" 
+            value="<?php echo utf8_encode($fila['telefono']); ?>" pattern="[0-9 | \s]*">
+        </label>
+      </div>
+
+      
+
+      <div class="col-4">
+        <label>
+          Teléfono (Móvil)
+          <input  name="movil" tabindex="6" placeholder="XXX XXX XX XX" 
+            value="<?php echo utf8_encode($fila['telefono_movil']); ?>" pattern="[0-9 | \s]*">
+
+        </label>
+      </div>
+
+      <div class="col-4">
+        <label>
+          Teléfono (Oficina)
+          <input  name="oficina" tabindex="6" placeholder="XXX XXX XX XX" 
+            value="<?php echo utf8_encode($fila['tel_oficina']); ?>" pattern="[0-9 | \s]*">
+
+        </label>
+      </div>
+      
+     <div class="col-4">
       <label>
         Tipo de sangre
         <input  name="sangre" tabindex="9" value="<?php echo $fila['tipo_sangre']; ?>">
       </label>
     </div>
 
+      <div class="col-3">
+        <label>
+          Email
+          <input  name="email" tabindex="8" value="<?php echo $fila['email']; ?>" type="email">
+        </label>
+      </div>
+
     <div class="col-3">
-      <center id="dynamic_field">
+      <center id="dynamic">
         <button type="button" name="add" id="add" class="rfc">Agregar RFC</button>
       </center>
     </div>
 
+<<<<<<< HEAD
     <div style="padding-left: 10px;" id="dynamic_field">
+=======
+      <center id="dynamic_field" style="margin-left: 20px;">
+      </center>
+
+  
+    <div style="padding-left: 10px;" id="dynamic_field">            
+>>>>>>> refs/remotes/origin/cristian
     </div>
 
     <div class="col-submit">
@@ -177,6 +242,7 @@ elems.forEach(function(html) {
 </script>
 
  <script type="text/javascript">
+<<<<<<< HEAD
  var i=0;
  $(document).ready(function(){
       $('#add').click(function(){
@@ -191,6 +257,42 @@ elems.forEach(function(html) {
         }
       });
 
+=======
+
+ $(document).ready(function(){ 
+   var ver = <?php echo '"'.$rfc.'"' ?>;
+   console.log(ver);
+   if(ver != 'x'){
+     $('#dynamic_field').append(
+             '<div class="col-1"> <label><input placeholder="Razón Social" id="razon" name="razon" required value="<?php echo utf8_encode($fila['razonsocial']); ?>"/></div>'+
+             '<div class="col-1"> <label><input placeholder="RFC" id="rfc" name="rfc" required value="<?php echo utf8_encode($fila['rfc']); ?>"/></div>'+
+             '<div class="col-1"> <label><input placeholder="Dirección Fiscal" id="dir_fiscal" name="fiscal" required value="<?php echo utf8_encode($fila['direccionfiscal']); ?>"/></div>');
+             $('#add').remove();
+             $('#dynamic').append(
+             '<button type="button" name="del" id="del" class="rfc2">Quitar RFC</button>');
+   }
+     $(document).on('click', '.rfc', function(){  
+            $('#dynamic_field').append(
+             '<div class="col-1"> <label><input placeholder="Razón Social" id="razon" name="razon" required value="<?php echo utf8_encode($fila['razonsocial']); ?>"/></div>'+
+             '<div class="col-1"> <label><input placeholder="RFC" id="rfc" name="rfc" required value="<?php echo utf8_encode($fila['rfc']); ?>"/></div>'+
+             '<div class="col-1"> <label><input placeholder="Dirección Fiscal" id="dir_fiscal" name="fiscal" required value="<?php echo utf8_encode($fila['direccionfiscal']); ?>"/></div>');
+              $('#add').remove();
+           $('#dynamic').append(
+             '<button type="button" name="del" id="del" class="rfc2">Quitar RFC</button>');
+      });
+
+ $(document).on('click', '.rfc2', function(){  
+            $('#del').remove();
+            $('#razon').remove();
+            $('#rfc').remove();
+            $('#dir_fiscal').remove();
+            $('#dynamic').append(
+             '<button type="button" name="add" id="add" class="rfc">Agregar RFC</button>');
+
+      });   
+  }); 
+     
+>>>>>>> refs/remotes/origin/cristian
 
  });
 

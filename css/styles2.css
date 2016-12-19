@@ -76,7 +76,7 @@ form > div > label {
   font-weight: bold;
   text-transform: uppercase;
   color: #939393;
-  cursor: pointer;
+
 }
 form > div.switch > label {
   padding: 16px 20px 13px;
@@ -162,6 +162,15 @@ button.rfc {
   background-image: -webkit-linear-gradient(#0065B5, #0065B5);
   background-image: linear-gradient(#0065B5, #0065B5);
   border-bottom: 1px solid #0065B5;
+  cursor: pointer;
+  color: #fff;
+}
+button.rfc2 {
+  width: 50%;
+  background-image: -moz-linear-gradient(#f70000,#f70000);
+  background-image: -webkit-linear-gradient(#f70000, #f70000);
+  background-image: linear-gradient(#f70000, #f70000);
+  border-bottom: 1px solid #f70000;
   cursor: pointer;
   color: #fff;
 }
@@ -291,7 +300,11 @@ float: left;
     color: #000;
 }
 
+<<<<<<< HEAD:css/styles2.css
 .datefield input#year { width:2.7em; height: 1.3em;}
+=======
+.datefield input#year { width: 3em; }
+>>>>>>> refs/remotes/origin/cristian:css/styles.css
 .datefield input:focus { outline:none; }
 
 
