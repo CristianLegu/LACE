@@ -64,13 +64,13 @@
   <div id="wrapper">
 
     <span style="align: left;">
-      <a href="menu.html">
+      <a href="menu.php">
        <img src="img/logo2.png"  style="width: 15%; margin-left: 40px; ">
      </a>
      <h1>Pacientes</h1>
    </span>
 
-   <form action="guarda.php" method="post">
+   <form action="guarda.php" method="post" autocomplete="off">
 
     <div class="col-2">
       <label>
