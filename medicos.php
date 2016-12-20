@@ -9,6 +9,7 @@
   <title>Médicos - LACE</title>
 <link rel="shortcut icon" href="img/icon.png"> 
   <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+  <link rel="stylesheet" type="text/css" media="all" href="css/styles2.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
   <script type="text/javascript" src="js/switchery.min.js"></script>
 </head>
@@ -46,7 +47,7 @@
   <div id="wrapper">
 
 <span style="align: left;">
-<a href="menu.html">
+<a href="menu.php">
 	<img src="img/logo2.png"  style="width: 15%; margin-left: 40px; ">
 </a>
 	<h1>M&eacute;dicos</h1>

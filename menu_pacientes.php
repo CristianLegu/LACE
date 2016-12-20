@@ -24,7 +24,7 @@
 <nav id="hola">
   <ul>
     <li><p>
-          <a href="menu.html">
+          <a href="menu.php">
             <img src="img/logo2.png"  id="logo">
           </a>
         </p>
