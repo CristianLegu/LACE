@@ -118,6 +118,8 @@ if (!empty($_GET['u'])) {
 
   </form>
 
+
+
 <script type="text/javascript">
 var password, password2;
 
@@ -133,5 +135,10 @@ function passwordMatch() {
         password2.setCustomValidity('');
 }
 </script>
+
+
+
+
 </body>
+
 </html>

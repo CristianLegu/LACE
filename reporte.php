@@ -9,7 +9,7 @@ class PDF extends FPDF
         function Header()
         {
             //Logo
-            $this->Image('img/conf.png', 10, 8, 33);
+            $this->Image('img/logo2.png', 10, 8, 33);
             //Fuente
             $this->SetFont('Arial', 'B', 14);
             //Espacio
@@ -54,10 +54,7 @@ class PDF extends FPDF
 
     $con = mysqli_connect($host, $user, $pwd, $db);
 
-    $sql = "SELECT  idusuarios, 
-		            nombre,
-                    n_user 
-            FROM usuarios";
+    $sql = " ";
     $query = $con -> query($sql);
     
     
@@ -66,11 +63,14 @@ class PDF extends FPDF
     $pdf->AliasNbPages();
     $pdf->SetFillColor(232, 232, 232);
     $pdf->SetFont('Arial', 'B', 10);
-    
+    $pdf->SetFillColor(45, 76, 130);
+    $pdf->SetTextColor(255, 255, 255);
+
     $pdf->Ln();
     $pdf->Ln();
 
     $pdf->SetX(15);
+    
     $pdf->Cell(30, 6, 'Prueba', 1, 0, 'C', 1);
     
     $pdf->SetX(45);
@@ -87,7 +87,7 @@ class PDF extends FPDF
 
     
 
-    $pdf->Ln();
+    
 /*
     while($row = mysqli_fetch_array($query, MYSQLI_ASSOC))
     {
@@ -104,7 +104,13 @@ class PDF extends FPDF
         $pdf->Cell(70, 6, $row['n_user'], 1, 1, 'C');
         
     }
-*/    
+*/   
+
+    $pdf->SetFillColor(255, 255, 255);
+    $pdf->SetTextColor(0, 0, 0);
+    $pdf->SetXY(20, 100);
+    $pdf->MultiCell(170, 6, 'Comentarios', 1, 'C', true);
+
     $pdf->Output();
     
 
