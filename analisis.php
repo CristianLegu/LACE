@@ -33,9 +33,6 @@
            <script src="js/jquery.min.js"></script>
            <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
  		   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
-
-  <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.css">
-  <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.min.css">
   
            <meta charset="utf-8">
       </head>  
@@ -99,7 +96,7 @@
                                          <td><input type="text" name="valorreferencia[]" placeholder="Valor de referencia" class="form-control name_list" /></td>  
                                          <td><input type="text" name="comentario[]" placeholder="Comentario" class="form-control name_list" /></td> 
                                          <td><input type="text" name="observaciones[]" placeholder="Observaciones" class="form-control name_list" /></td> 
-                                         <td><button type="button" name="add" id="add" class="btn btn-success">Agregar</button></td>  
+                                         <td><button type="button" name="add" id="add" class="agregar">Agregar</button></td>  
                                          
                                     </tr>  
                                </table>  
@@ -119,9 +116,9 @@
                                          <td><input type="text" name="comentario[]" placeholder="Comentario" class="form-control name_list" value="<?php  echo $row ['comentario'] ?> " /></td> 
                                          <td><input type="text" name="observaciones[]" placeholder="Observaciones" class="form-control name_list" value="<?php  echo $row ['observaciones'] ?> " /></td> 
                                          <?php if ($cont == 1) { ?>
-                                         <td><button type="button" name="add" id="add" class="btn btn-success">Agregar</button></td>  
+                                         <td><button type="button" name="add" id="add" class="agregar">Agregar</button></td>  
                                          <?php } else { ?>
-										 <td><button type="button" name="remove" id="<?php echo $i; ?>" class="btn btn-danger btn_remove">X</button></td>
+										 <td><button type="button" name="remove" id="<?php echo $i; ?>" class="eliminar btn_remove">X</button></td>
                                          <?php } ?>
                                     </tr>  
                              <script language='javascript'>
@@ -134,8 +131,10 @@
 									   </table> 
      							<?php	 }   $i ;   ?>
                       
-                               <input type="button" name="submit" id="submit" class="btn btn-info" value="GUARDAR" />  
-                                
+                               
+                                <div class="col-submit">
+      <button type="submit" name="submit1" id="submit1" class="guardar">Guardar</button>
+    </div>
                           </div>  
                      </form>  
                 </div>  
@@ -148,7 +147,7 @@
  $(document).ready(function(){  
       $('#add').click(function(){  
            i++;  
-           $('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" name="pruebas[]" placeholder="Prueba" class="form-control name_list" /></td><td><input type="text" name="resultado[]" placeholder="Resultado" class="form-control name_list" /></td><td><input type="text" name="unidades[]" placeholder="Unidades" class="form-control name_list" /></td><td><input type="text" name="valorreferencia[]" placeholder="Valor de referencia" class="form-control name_list" /></td><td><input type="text" name="comentario[]" placeholder="Comentario" class="form-control name_list" /></td>  <td><input type="text" name="observaciones[]" placeholder="Observaciones" class="form-control name_list" /></td> <td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');  
+           $('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" name="pruebas[]" placeholder="Prueba" class="form-control name_list" /></td><td><input type="text" name="resultado[]" placeholder="Resultado" class="form-control name_list" /></td><td><input type="text" name="unidades[]" placeholder="Unidades" class="form-control name_list" /></td><td><input type="text" name="valorreferencia[]" placeholder="Valor de referencia" class="form-control name_list" /></td><td><input type="text" name="comentario[]" placeholder="Comentario" class="form-control name_list" /></td>  <td><input type="text" name="observaciones[]" placeholder="Observaciones" class="form-control name_list" /></td> <td><button type="button" name="remove" id="'+i+'" class="eliminar btn_remove">X</button></td></tr>');  
 
 
 
@@ -157,7 +156,7 @@
            var button_id = $(this).attr("id");   
            $('#row'+button_id+'').remove();  
       });  
-      $('#submit').click(function(){            
+      $('#submit1').click(function(){            
            $.ajax({  
                 url:"agrega_analisis.php",  
                 method:"POST",  
