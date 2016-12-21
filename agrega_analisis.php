@@ -25,7 +25,7 @@ $sql    =    "SELECT idpropio FROM analisis order by idpropio desc";
     $departamento  = $_POST["departamento"];
     $estudio       = $_POST["estudio"];
     $pacientes_idpacientes = 1;
-    $medicos_idmedicos = 1;
+    $medicos_idmedicos = $_POST["idmedico"];
     $number        = count($_POST["pruebas"]);  
 
  if($number > 0)  
@@ -42,11 +42,10 @@ echo "entro";
       }
       echo $prueba          =  $_POST["pruebas"][$i];
       echo $resultado       =  $_POST["resultado"][$i];
-     echo  $unidades        =  $_POST["unidades"][$i];
-     echo  $valorreferencia =  $_POST["valorreferencia"][$i];
-     echo  $comentario      =  $_POST["comentario"][$i];
-    echo   $observaciones   =  $_POST["observaciones"][$i];
-    echo   $observaciones   =  $_POST["observaciones"][$i];
+      echo $unidades        =  $_POST["unidades"][$i];
+      echo $valorreferencia =  $_POST["valorreferencia"][$i];
+      echo $comentario      =  $_POST["comentario"][$i];
+      echo $observaciones   =  $_POST["observaciones"][$i];
 
          //       $sql = "INSERT INTO analisis(idanalisis, area, departamento, estudio, pruebas, observaciones, pacientes_idpacientes, medicos_idmedicos ) VALUES('".mysqli_real_escape_string($connect, $_POST["name"][$i])."')";  
             $sql = "INSERT INTO analisis ( area, departamento, estudio, prueba, resultado, unidades, valorreferencia, comentario, observaciones, fecha, pacientes_idpacientes, medicos_idmedicos, idpropio) 

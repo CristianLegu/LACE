@@ -8,35 +8,63 @@
        } 
   $cont = 1;
   $i = 1;
-    $idpropio = 1;
+  if ($_GET['pro'] != 0){
+
+
+    $idpropio = $_GET['pro'];
 		$sql    = "SELECT * FROM analisis where idpropio = '$idpropio' "; 
         $query  = mysqli_query($mysqli, $sql);
         $fila = $mysqli->query($sql);
         $fila1 = mysqli_fetch_array($query);
 		mysqli_close($mysqli);
           ?>
-                 <script language='javascript'>
+                
+		<?php    }
+		else{ $fila = null;
+         $fila1 = null;}?>
+
+				   <script language='javascript'>
 				  var i = 1;
-					
-				  
 			</script>	
 <!doctype html>
  <html lang="en-US">  
       <head>  
            <title>Análisis</title>  
-           <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
-           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
-           <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+           <script src="js/jquery.min.js"></script>
+           <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+ 		   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
+ 		   
+  <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.css">
+  <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.min.css">
+  
            <meta charset="utf-8">
       </head>  
       <body>  
            <div class="container">  
                 <br />  
                 <br />  
-                <h2 align="center">Análisis</h2>  
+                <h1 align="center">Análisis</h1>  
                 <div class="form-group">  
-                     <form name="add_name" id="add_name" method="post" action="index.php">  
-                     
+
+                     <form name="add_name" id="add_name" method="post" action="agrega_analisis.php " ALIGN=center>  
+        <div> 
+        <label >
+      					  Medico
+      						</label>
+ <select id="idmedico"  name="idmedico" >
+        <option  value="0">Seleccionar Médico</option>
+        <?php
+                    $mysqli = mysqli_connect($host, $user, $pwd, $db);
+          $querymedicos = $mysqli -> query ("SELECT idmedicos, nombre FROM medicos");
+                   
+          while ($valores =  mysqli_fetch_array($querymedicos, MYSQLI_ASSOC)) {                        
+            echo '<option value="'.$valores[idmedicos].'">'.$valores[nombre].'</option>';
+
+          }
+          mysqli_close($mysqli);
+        ?>
+      </select> 
+   </div >
                      <div >
     					<label >
       					  Área
@@ -107,7 +135,8 @@
                           </div>  
                      </form>  
                 </div>  
-           </div>  
+           </div> 
+
       </body>  
  </html>  
 
