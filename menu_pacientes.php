@@ -164,7 +164,7 @@
       <?php echo $paginationCtrls; ?>
     </div>
 
-
+    
 
 <script type="text/javascript">
 var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));

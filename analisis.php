@@ -40,7 +40,7 @@
       </head>  
       <body>  
       <span style="align: left;">
-<a href="menu.php">
+<a href="menu_pacientes.php">
 	<img src="img/logo2.png"  style="width: 15%; margin-left: 40px; ">
 </a>
 	<h1 align="center">Análisis</h1>  
@@ -133,7 +133,7 @@
 									   </table> 
      							<?php	 }   $i ;   ?>
                       
-                               <input type="button" name="submit" id="submit" class="btn btn-info" value="GUARDAR" />  
+                               <a href="agrega_analisis.php"><input type="button" name="submit" id="submit" class="btn btn-info" value="GUARDAR" /></a>  
                                 
                           </div>  
                      </form>  

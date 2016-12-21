@@ -1,7 +1,10 @@
 <?php
     include('fpdf181/fpdf.php');
     include("includes/conexion.php");
-    
+    /*
+    session_start();
+    $idpropio  = $_SESSION['idpropio'];
+    */
 
 class PDF extends FPDF
     {
@@ -54,7 +57,7 @@ class PDF extends FPDF
 
     $con = mysqli_connect($host, $user, $pwd, $db);
 
-    $sql = " ";
+    $sql = "SELECT ";
     $query = $con -> query($sql);
     
     
@@ -109,7 +112,7 @@ class PDF extends FPDF
     $pdf->SetFillColor(255, 255, 255);
     $pdf->SetTextColor(0, 0, 0);
     $pdf->SetXY(20, 100);
-    $pdf->MultiCell(170, 6, 'Comentarios', 1, 'C', true);
+    $pdf->MultiCell(170, 6, 'da', 1, 'C', true);
 
     $pdf->Output();
     

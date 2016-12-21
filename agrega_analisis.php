@@ -1,12 +1,11 @@
 <?php  
-  include("includes/conexion.php");
-         $mysqli = mysqli_connect($host, $user, $pwd, $db);
+      include("includes/conexion.php");
+      $mysqli = mysqli_connect($host, $user, $pwd, $db);
+
       if (mysqli_connect_errno()) {
-      // echo "Falló la conexión:".mysqli_connect_error();
+       echo "Falló la conexión: IF".mysqli_connect_error();
       }
-          else{
-      // echo "Error ".mysqli_error($mysqli);
-       } 
+      
 
 
 $sql    =    "SELECT idpropio FROM analisis order by idpropio desc"; 
@@ -19,7 +18,15 @@ $sql    =    "SELECT idpropio FROM analisis order by idpropio desc";
       else{
          $idpropio = $fila['idpropio'] + 1;
       }
+      
 
+if(isset($_POST['area']) && isset($_POST['departamento'])
+    &&  isset($_POST['estudio']) && isset($_POST['idmedico'])
+    &&  isset($_POST['pruebas'])
+    ){
+
+    
+    
     $fecha         =  date("Y") . date("m") . date("j") ; 
     $area          = $_POST["area"];
     $departamento  = $_POST["departamento"];
@@ -53,7 +60,7 @@ echo "entro";
               if( mysqli_query($mysqli, $sql)){
 
      }else{
-     echo "Error ".mysqli_error($mysqli);
+     echo "Error antes de cerrar".mysqli_error($mysqli);
       }
 
       mysqli_close($mysqli);
@@ -64,5 +71,13 @@ echo "entro";
  else  
  {  
       echo "Please Enter Name";  
- }   
+ }  
+
+ } 
+
+
+ echo $idpropio;
+
+ $_SESSION['idpropio'] = $idpropio;
+ include('reporte.php');
  ?>
