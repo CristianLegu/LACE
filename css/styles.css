@@ -279,6 +279,8 @@ input[type=text] {
 input[type=text]:focus {
     width: 70%;
 }
+
+
 #hola{
   display: table;
   margin-top: 10px; 
