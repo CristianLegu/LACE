@@ -32,13 +32,13 @@
            <title>Análisis</title>  
            <script src="js/jquery.min.js"></script>
            <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
-<<<<<<< HEAD
+
  		   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
-=======
+
  		       <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
            <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.css">
            <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.min.css">
->>>>>>> origin/master
+
   
            <meta charset="utf-8">
       </head>  
@@ -56,17 +56,20 @@
                      <form name="add_name" id="add_name" method="post" action="agrega_analisis.php " ALIGN=center>  
         <div> 
         <label >
-      					  Medico
+      					  Medico <?php if($fila1 != null){ $idmedico = $fila1[12]; } else { $idmedico = 0;} ?>
       						</label>
  <select id="idmedico"  name="idmedico" >
-        <option  value="0">Seleccionar Médico</option>
+
+        <option  value="<?php $idmedico ?>" >Seleccionar Médico</option>
         <?php
-                    $mysqli = mysqli_connect($host, $user, $pwd, $db);
+          $mysqli = mysqli_connect($host, $user, $pwd, $db);
           $querymedicos = $mysqli -> query ("SELECT idmedicos, nombre FROM medicos");
                    
-          while ($valores =  mysqli_fetch_array($querymedicos, MYSQLI_ASSOC)) {                        
-            echo '<option value="'.$valores[idmedicos].'">'.$valores[nombre].'</option>';
+          while ($valores =  mysqli_fetch_array($querymedicos, MYSQLI_ASSOC)) {  
 
+                               
+            echo '<option value="'.$valores[idmedicos].'">'.$valores[nombre].'</option>';
+              
           }
           mysqli_close($mysqli);
         ?>
