@@ -152,7 +152,7 @@
           <td><?php echo $fila['idinventario']; ?></td>
           <td><?php echo $nombre; ?></td>
           <td><?php echo $fila['cantidad']; ?></td>
-          <td><a href= "productos_agregar.php? prod=<?php echo $fila['idinventario'] ?>">Agregar</a> </td>
+          <td><a href= "productos_agregar.php?prod=<?php echo $fila['idinventario'] ?>">Agregar</a> </td>
         </tr>
 
 <?php } 

@@ -12,10 +12,12 @@
   <link rel="shortcut icon" href="img/icon.png"> 
   <link rel="stylesheet" type="text/css" media="all" href="css/styles-menu.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
+  
   <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.min.css">
   
   <script type="text/javascript" src="js/switchery.min.js"></script>
+ 
 
 </head>
 
@@ -143,7 +145,7 @@
             $query = $con -> query($sql);
         }
 
-         
+      
 
          while ($fila = mysqli_fetch_array($query, MYSQLI_ASSOC)){
          $nombre = $fila['nombre'];
@@ -166,4 +168,7 @@
 
 
 </body>
+
+
+
 </html>

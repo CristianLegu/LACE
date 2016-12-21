@@ -1,12 +1,11 @@
 <?php  
-  include("includes/conexion.php");
-         $mysqli = mysqli_connect($host, $user, $pwd, $db);
+      include("includes/conexion.php");
+      $mysqli = mysqli_connect($host, $user, $pwd, $db);
+
       if (mysqli_connect_errno()) {
-      // echo "Falló la conexión:".mysqli_connect_error();
+       echo "Falló la conexión: IF".mysqli_connect_error();
       }
-          else{
-      // echo "Error ".mysqli_error($mysqli);
-       } 
+      
 
 
 $sql    =    "SELECT idpropio FROM analisis order by idpropio desc"; 
@@ -19,13 +18,21 @@ $sql    =    "SELECT idpropio FROM analisis order by idpropio desc";
       else{
          $idpropio = $fila['idpropio'] + 1;
       }
+      
 
+if(isset($_POST['area']) && isset($_POST['departamento'])
+    &&  isset($_POST['estudio']) && isset($_POST['idmedico'])
+    &&  isset($_POST['pruebas'])
+    ){
+
+    
+    
     $fecha         =  date("Y") . date("m") . date("j") ; 
     $area          = $_POST["area"];
     $departamento  = $_POST["departamento"];
     $estudio       = $_POST["estudio"];
     $pacientes_idpacientes = 1;
-    $medicos_idmedicos = 1;
+    $medicos_idmedicos = $_POST["idmedico"];
     $number        = count($_POST["pruebas"]);  
 
  if($number > 0)  
@@ -42,11 +49,10 @@ echo "entro";
       }
       echo $prueba          =  $_POST["pruebas"][$i];
       echo $resultado       =  $_POST["resultado"][$i];
-     echo  $unidades        =  $_POST["unidades"][$i];
-     echo  $valorreferencia =  $_POST["valorreferencia"][$i];
-     echo  $comentario      =  $_POST["comentario"][$i];
-    echo   $observaciones   =  $_POST["observaciones"][$i];
-    echo   $observaciones   =  $_POST["observaciones"][$i];
+      echo $unidades        =  $_POST["unidades"][$i];
+      echo $valorreferencia =  $_POST["valorreferencia"][$i];
+      echo $comentario      =  $_POST["comentario"][$i];
+      echo $observaciones   =  $_POST["observaciones"][$i];
 
          //       $sql = "INSERT INTO analisis(idanalisis, area, departamento, estudio, pruebas, observaciones, pacientes_idpacientes, medicos_idmedicos ) VALUES('".mysqli_real_escape_string($connect, $_POST["name"][$i])."')";  
             $sql = "INSERT INTO analisis ( area, departamento, estudio, prueba, resultado, unidades, valorreferencia, comentario, observaciones, fecha, pacientes_idpacientes, medicos_idmedicos, idpropio) 
@@ -54,7 +60,7 @@ echo "entro";
               if( mysqli_query($mysqli, $sql)){
 
      }else{
-     echo "Error ".mysqli_error($mysqli);
+     echo "Error antes de cerrar".mysqli_error($mysqli);
       }
 
       mysqli_close($mysqli);
@@ -65,5 +71,14 @@ echo "entro";
  else  
  {  
       echo "Please Enter Name";  
- }   
+ }  
+
+ } 
+
+
+ echo $idpropio;
+
+ session_start();
+ $_SESSION['idpropio'] = $idpropio;
+ include('reporte.php');
  ?>

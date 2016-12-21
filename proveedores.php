@@ -17,8 +17,8 @@
 </head>
 
 <body>
-<?php 
-  
+<?php
+
 
   $con = mysqli_connect($host, $user, $pwd, $db);
 
@@ -33,7 +33,7 @@
           }
 
     else{
-        $pac = $_GET['prov'];  
+        $pac = $_GET['prov'];
         session_start();
                $_SESSION['valueF'] = 'PROVEEDORUP';
                $_SESSION['idup'] = $pac;
@@ -61,13 +61,13 @@
   <div class="col-2">
     <label>
       Nombre
-      <input  name="nombre" tabindex="1" required value="<?php echo utf8_encode($fila['nombre']); ?>">
+      <input  name="nombre" tabindex="1" required value="<?php echo utf8_encode($fila['nombre']); ?>" style="text-transform:capitalize;">
     </label>
   </div>
   <div class="col-2">
     <label>
       Dirección
-      <input  name="direccion" tabindex="2" required value="<?php echo utf8_encode($fila['direccion']); ?>">
+      <input  name="direccion" tabindex="2" required value="<?php echo utf8_encode($fila['direccion']); ?>" style="text-transform:capitalize;">
     </label>
   </div>
 
@@ -86,19 +86,19 @@
   <div class="col-3">
     <label>
       R.F.C
-       <input  name="rfc" tabindex="5" required value="<?php echo utf8_encode($fila['rfc_prov']); ?>">
+       <input  name="rfc" tabindex="5" required value="<?php echo utf8_encode($fila['rfc_prov']); ?>" style="text-transform:uppercase;">
   </div>
 
   <div class="col-4">
     <label>
       Página Web
-      <input  name="web" tabindex="6" value="<?php echo utf8_encode($fila['pag_web']); ?>">
+      <input  name="web" tabindex="6" value="<?php echo utf8_encode($fila['pag_web']); ?>" style="text-transform:lowercase;">
     </label>
   </div>
   <div class="col-4">
     <label>
       E-mail
-      <input  type="email" name="email" tabindex="7" placeholder="nombre@dominio.com" value="<?php echo ($fila['e_mail']); ?>">
+      <input  type="email" name="email" tabindex="7" placeholder="nombre@dominio.com" value="<?php echo ($fila['e_mail']); ?>" style="text-transform:lowercase;">
     </label>
   </div>
 

@@ -148,7 +148,7 @@
         <tr>
           <td><?php echo $fila['idmedicos']; ?></td>
           <td><?php echo $nombre; ?></td>
-          <td><a href= "medicos.php? m=<?php echo $fila['idmedicos'] ?>">Ver</a> </td>
+          <td><a href= "medicos.php?m=<?php echo $fila['idmedicos'] ?>">Ver</a> </td>
         </tr>
 
 <?php } 

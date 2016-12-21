@@ -1,13 +1,14 @@
 <?php
       header('Content-Type: text/html; charset=iso-8859-1');
       echo htmlspecialchars("", ENT_QUOTES, 'utf-8');
+    
 ?>
 <!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
-  <title>Men&uacute; Pacientes | LACE </title>
+  <title>Men&uacute; An&aacute;lisis | LACE </title>
   <link rel="shortcut icon" href="img/icon.png">
   <link rel="stylesheet" type="text/css" media="all" href="css/styles-menu.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
@@ -16,9 +17,6 @@
   <link rel="stylesheet" type="text/css" media="all" href="css/paginacion.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/estilo.css">
   <script type="text/javascript" src="js/switchery.min.js"></script>
-  <script src="js/jquery.min.js"></script>
-  <link rel="stylesheet" href="css/style3.css" />
-  <script type="text/javascript" src="js/script.js"></script>
 
 </head>
 
@@ -35,26 +33,22 @@
     </li>
 
     <li>
-      <h1>Pacientes</h1>
+      <h1>An&aacute;lisis</h1>
     </li>
-      <p>
-        <form name="formulario" action="" onSubmit="enviarDatos(); return false" autocomplete="off">
-          <li><input type="text" placeholder="Buscar..." name="busca" id="busca"></li>
-        </form>
-      </p>
+   
     <li>
-      <a href="pacientes.php" class="add"><img src="img/addpac.png"></a>
+      <a  href= "analisis.php?p=<?php echo $_GET['p']?>&pro=<?php echo 0 ?>" class="add"><img src="img/addpac.png"></a>
     </li>
   </ul>
 </nav>
 
 
-      <table cellpadding="0" cellspacing="0" border="0" class="sortable" id="sorter">
+      <table id="customers">
         <tr>
-          <th>Folio</th>
-          <th>Nombre</th>
-          <th class="nosort">Perfil</th>
-          <th class="nosort">An&aacute;lisis</th>
+          <th id="dynamic_field" ><label id="fdes" class="fdwn">Estudio</label></th>
+          <th><label>Fecha</label></th>
+          <th>M&eacute;dico</th>
+          <th>An&aacute;lisis</th>
         </tr>
 
 <?php
@@ -94,11 +88,11 @@
 
       $limit = 'LIMIT ' .($pagenum - 1) * $page_rows .',' .$page_rows;
 
-      $sql = "SELECT  idpacientes,
-                      nombre
-              FROM    pacientes
-              ORDER BY idpacientes
-              ASC $limit";
+      $sql = "SELECT  estudio,
+                      fecha,
+                      medicos_idmedicos,
+                      idpropio
+              FROM analisis";
       $query = mysqli_query($con, $sql);
 
 
@@ -142,30 +136,37 @@
     }
 
 
+$fila = mysqli_fetch_array($query, MYSQLI_ASSOC);
+     if($fila != null){
 
-
-
+         $idpropio = 0;
 
       while ($fila = mysqli_fetch_array($query, MYSQLI_ASSOC)){
-         $nombre = $fila['nombre'];
+      $sql1 = "SELECT nombre
+              FROM   medicos
+              where  idmedicos = '$fila[medicos_idmedicos]'";
+               $query1 = mysqli_query($con, $sql1);
+               $fila1 = mysqli_fetch_array($query1, MYSQLI_ASSOC);
  ?>
         <tr>
-          <td><?php echo $fila['idpacientes']; ?></td>
-          <td><?php echo $nombre; ?></td>
-          <?php $idpaciente = $fila['idpacientes'];  ?>
-          <td><a href= "pacientes.php?p=<?php echo $idpaciente?>">Ver</a> </td>
-          <td><a href= "analisis.php?p=<?php echo $idpaciente ?>&pro=<?php echo 0 ?>">Agregar </a>/
-            <a href= "menu_analisis.php?p=<?php echo $idpaciente ?>">Ver</a> </td>
+        <?php if($idpropio !=  $fila['idpropio'] ) { ?>
+          <td><?php echo $fila['estudio']; ?></td>
+          <td><?php echo $fila['fecha']; ?></td>
+          <td><?php echo $fila1['nombre']; ?> </td>
+          
+          <td><a href= "analisis.php?p=<?php echo $_GET['p']?> & pro=<?php echo $fila['idpropio'] ?> " >Editar </a> </td>
         </tr>
-
+         <?php $idpropio = $fila['idpropio'];  } ?>
 <?php }
   mysqli_close($con);
+}
 ?>
       </table>
 
     <div id="pagination_controls">
       <?php echo $paginationCtrls; ?>
     </div>
+
 
 
 <script type="text/javascript">
@@ -177,9 +178,25 @@ elems.forEach(function(html) {
 </script>
 
 <script type="text/javascript">
-var sorter=new table.sorter("sorter");
-sorter.init("sorter",1);
-</script>
+
+  $(document).ready(function(){
+     $(document).on('click', '.fdwn', function(){
+      /*   $('#fdes').remove();
+
+         $('#dynamic_field').append(
+           '<label class="fup">Folio 2</label>'
+         );*/
+      });
+
+ $(document).on('click', '.fup', function(){
+  /* $('#fup').remove();
+
+   $('#dynamic_field').append(
+     '<label class="fdwn">Folio</label>'
+   );*/
+ });
+  });
+ </script>
 
 </body>
 </html>
