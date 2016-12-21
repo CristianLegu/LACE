@@ -93,7 +93,7 @@
 
       $sql = "SELECT  idpacientes,
                       nombre
-              FROM pacientes
+              FROM    pacientes
               ORDER BY idpacientes
               ASC $limit";
       $query = mysqli_query($con, $sql);
@@ -151,7 +151,7 @@
           <td><?php echo $nombre; ?></td>
           <?php $idpaciente = $fila['idpacientes'];  ?>
           <td><a href= "pacientes.php?p=<?php echo $idpaciente?>">Ver</a> </td>
-          <td><a href= "analisis.php?p=<?php echo $idpaciente ?>">Agregar </a>/
+          <td><a href= "analisis.php?p=<?php echo $idpaciente ?>&pro=<?php echo 0 ?>">Agregar </a>/
             <a href= "menu_analisis.php?p=<?php echo $idpaciente ?>">Ver</a> </td>
         </tr>
 
