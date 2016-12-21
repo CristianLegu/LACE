@@ -37,7 +37,7 @@
     <div class="col-3">
       <label>
         Nombre Producto
-        <input  name="nombre_art" tabindex="1" required>
+        <input  name="nombre_art" tabindex="1" required style="text-transform:capitalize;">
       </label>
     </div>
     <div class="col-3">
@@ -139,8 +139,8 @@
     </div>
         <div class="col-3">
       <label>
-        marca
-        <input  name="marca" tabindex="10" required>
+        Marca
+        <input  name="marca" tabindex="10" required style="text-transform:capitalize;">
       </label>
     </div>
 
