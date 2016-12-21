@@ -151,7 +151,7 @@
         <tr>
           <td><?php echo $fila['idproveedores']; ?></td>
           <td><?php echo $nombre; ?></td>
-          <td><a href= "proveedores.php? prov=<?php echo $fila['idproveedores'] ?>">Ver</a> </td>
+          <td><a href= "proveedores.php?prov=<?php echo $fila['idproveedores'] ?>">Ver</a> </td>
         </tr>
 
 <?php } 
