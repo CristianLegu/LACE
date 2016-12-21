@@ -16,6 +16,9 @@
   <link rel="stylesheet" type="text/css" media="all" href="css/paginacion.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/estilo.css">
   <script type="text/javascript" src="js/switchery.min.js"></script>
+  <script src="js/jquery.min.js"></script>
+  <link rel="stylesheet" href="css/style3.css" />
+  <script type="text/javascript" src="js/script.js"></script>
 
 </head>
 
@@ -46,12 +49,12 @@
 </nav>
 
 
-      <table id="customers">
+      <table cellpadding="0" cellspacing="0" border="0" class="sortable" id="sorter">
         <tr>
-          <th id="dynamic_field" ><label id="fdes" class="fdwn">Folio</label></th>
-          <th><label>Nombre</label></th>
-          <th>Perfil</th>
-          <th>An&aacute;lisis</th>
+          <th>Folio</th>
+          <th>Nombre</th>
+          <th class="nosort">Perfil</th>
+          <th class="nosort">An&aacute;lisis</th>
         </tr>
 
 <?php
@@ -164,7 +167,6 @@
       <?php echo $paginationCtrls; ?>
     </div>
 
-    
 
 <script type="text/javascript">
 var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
@@ -175,25 +177,9 @@ elems.forEach(function(html) {
 </script>
 
 <script type="text/javascript">
-
-  $(document).ready(function(){
-     $(document).on('click', '.fdwn', function(){
-      /*   $('#fdes').remove();
-
-         $('#dynamic_field').append(
-           '<label class="fup">Folio 2</label>'
-         );*/
-      });
-
- $(document).on('click', '.fup', function(){
-  /* $('#fup').remove();
-
-   $('#dynamic_field').append(
-     '<label class="fdwn">Folio</label>'
-   );*/
- });
-  });
- </script>
+var sorter=new table.sorter("sorter");
+sorter.init("sorter",1);
+</script>
 
 </body>
 </html>

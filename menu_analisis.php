@@ -136,10 +136,11 @@
     }
 
 
-
-
+$fila = mysqli_fetch_array($query, MYSQLI_ASSOC);
+     if($fila != null){
 
          $idpropio = 0;
+
       while ($fila = mysqli_fetch_array($query, MYSQLI_ASSOC)){
       $sql1 = "SELECT nombre
               FROM   medicos
@@ -158,6 +159,7 @@
          <?php $idpropio = $fila['idpropio'];  } ?>
 <?php }
   mysqli_close($con);
+}
 ?>
       </table>
 

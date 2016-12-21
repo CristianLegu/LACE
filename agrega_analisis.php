@@ -78,6 +78,7 @@ echo "entro";
 
  echo $idpropio;
 
+ session_start();
  $_SESSION['idpropio'] = $idpropio;
  include('reporte.php');
  ?>
