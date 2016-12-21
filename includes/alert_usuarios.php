@@ -29,7 +29,7 @@ $con = mysqli_connect($host, $user, $pwd, $db);
 
 	<script type="text/javascript">
 
- 	mivarJS=<?php echo $pass ?>;
+ 	mivarJS=<?php echo "'".$pass."'" ?>;
 						swal({
 			  title: "Confirma tu contraseña!",
 			  text: "",
@@ -58,11 +58,7 @@ $con = mysqli_connect($host, $user, $pwd, $db);
 			  		swal.showInputError("Contraseña incorrecta!");
 			  	}
 			  }
-			  	
-			  	
-
-
-	     	  
+     	  
 			});
 	</script>
 </html>
