@@ -32,7 +32,13 @@
            <title>Análisis</title>  
            <script src="js/jquery.min.js"></script>
            <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+<<<<<<< HEAD
  		   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
+=======
+ 		       <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
+           <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.css">
+           <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.min.css">
+>>>>>>> origin/master
   
            <meta charset="utf-8">
       </head>  
