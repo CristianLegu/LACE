@@ -33,17 +33,21 @@
            <script src="js/jquery.min.js"></script>
            <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
  		   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
- 		   
+
   <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.min.css">
   
            <meta charset="utf-8">
       </head>  
       <body>  
+      <span style="align: left;">
+<a href="menu.php">
+	<img src="img/logo2.png"  style="width: 15%; margin-left: 40px; ">
+</a>
+	<h1 align="center">Análisis</h1>  
+</span>
            <div class="container">  
-                <br />  
-                <br />  
-                <h1 align="center">Análisis</h1>  
+               
                 <div class="form-group">  
 
                      <form name="add_name" id="add_name" method="post" action="agrega_analisis.php " ALIGN=center>  
