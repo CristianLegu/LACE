@@ -137,7 +137,7 @@ label > input:focus, label > select:focus {
 
 /** button design based on http://codepen.io/guvootes/pen/eyDAb **/
 button {
-  width: 100%;
+ 
   height: 35px;
   border: none;
   border-radius: 4px;
@@ -168,7 +168,7 @@ button.rfc {
   color: #fff;
 }
 button.agregar {
-  width: 100%;
+
   background-image: -moz-linear-gradient(#0065B5,#0065B5);
   background-image: -webkit-linear-gradient(#0065B5, #0065B5);
   background-image: linear-gradient(#0065B5, #0065B5);
@@ -176,7 +176,15 @@ button.agregar {
   cursor: pointer;
   color: #fff;
 }
+button.guardar {
 
+  background-image: -moz-linear-gradient(#97c16b, #8ab959);
+  background-image: -webkit-linear-gradient(#97c16b, #8ab959);
+  background-image: linear-gradient(#97c16b, #8ab959);
+  border-bottom: 1px solid #648c3a;
+  cursor: pointer;
+  color: #fff;
+}
     button.guardar {
   color: #fff;
     background-color: #398439;
@@ -276,6 +284,7 @@ input[type=text] {
     transition: width 0.4s ease-in-out;
 }
 
+
 input[type=text]:focus {
     width: 70%;
 }
@@ -338,10 +347,186 @@ float: left;
 /*  ****************FIN PARA DATEBIRTH*
 **********************************************************/
 
+@media (min-width: 1200px) { 
 
+input[type=form-control] {
+   white-space: pre-line;
+  display: block;
+    margin: 5px;
+    width: 190px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 20px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
 
+}
+}
+@media (min-width: 1150px) and (max-width: 1199px) {
+input[type=form-control] {
+  display: block;
+    margin: 5px;
+    width: 180px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 20px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+}
+@media (min-width: 1100px) and (max-width: 1150px) {
+input[type=form-control] {
+  display: block;
+    margin: 5px;
+    width: 170px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 20px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+}
+@media (min-width: 1050px) and (max-width: 1100px) {
+input[type=form-control] {
+  display: block;
+    margin: 5px;
+    width: 160px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 20px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+}
+@media (min-width: 1000px) and (max-width: 1050px) {
+input[type=form-control] {
+  display: block;
+    margin: 5px;
+    width: 150px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 11px 19px 11px 19px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
 
+}
+}
+@media (min-width: 950px) and (max-width: 1000px) {
+input[type=form-control] {
+  display: block;
+    margin: 5px;
+    width: 140px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 9px 17px 9px 17px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
 
+}
+}
+@media (min-width: 900px) and (max-width: 950px) {
+
+input[type=form-control] {
+
+  display: block;
+    margin: 4px;
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 7px 17px 7px 17px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+}
+@media (min-width: 850px) and (max-width: 900px) {
+input[type=form-control] {
+  display: block;
+    margin: 4px;
+    width: 120px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 7px 17px 7px 17px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+}
+
+@media (min-width: 800px) and (max-width: 850px) {
+input[type=form-control] {
+
+  display: block;
+    margin: 4px;
+    width: 110px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('searchicon.png');
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 7px 17px 7px 17px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+  
+  vertical-align: baseline;
+  outline: none;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+}
 
 /**********************************************************
 /*  ****************BOTON SWITCH*
@@ -582,12 +767,12 @@ float: left;
 }
 /*Loading*/
 
-
-#submit1 {
-    background-image: -webkit-linear-gradient(#97c16b, #8ab959);
+button.submit1 {
+ background-image: -webkit-linear-gradient(#97c16b, #8ab959);
     background-image: linear-gradient(#97c16b, #8ab959);
     border-bottom: 1px solid #648c3a;
     cursor: pointer;
     color: #fff;
 }
+
 

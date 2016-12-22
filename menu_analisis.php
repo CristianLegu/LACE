@@ -97,6 +97,13 @@
 
 
 
+       $sqlcuenta = "SELECT
+              count(idpropio)
+              FROM analisis";
+      $resultado = mysqli_query($con, $sqlcuenta);
+      $registros = mysqli_fetch_row($resultado);
+      $registros = $row[0];
+
       if($last != 1){
           if($pagenum > 1){
             $previous = $pagenum - 1;
@@ -136,17 +143,18 @@
     }
 
 
-$fila = mysqli_fetch_array($query, MYSQLI_ASSOC);
-     if($fila != null){
+     if($registros!= null){
 
          $idpropio = 0;
 
       while ($fila = mysqli_fetch_array($query, MYSQLI_ASSOC)){
+
       $sql1 = "SELECT nombre
               FROM   medicos
               where  idmedicos = '$fila[medicos_idmedicos]'";
                $query1 = mysqli_query($con, $sql1);
                $fila1 = mysqli_fetch_array($query1, MYSQLI_ASSOC);
+
  ?>
         <tr>
         <?php if($idpropio !=  $fila['idpropio'] ) { ?>
