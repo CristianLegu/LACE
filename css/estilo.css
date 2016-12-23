@@ -171,12 +171,9 @@ div#pagination_controls a{
 	text-decoration: none; /* no underline */
 	color:white;
 }
-div#pagination_controls > a:hover{ 
+div#pagination_controls > a:hover{
   border: 1px solid #999;
 	color: white;
   background-color: rgba(45, 76, 130, .9);
-  
+
   }
-
-
-
