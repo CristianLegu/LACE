@@ -8,6 +8,7 @@
        }
   $cont = 1;
   $i = 1;
+  $idpac = $_GET['p'];
   if ($_GET['pro'] != 0){
 
 
@@ -49,7 +50,7 @@
 
                 <div class="form-group">
 
-                     <form name="add_name" id="add_name" method="post" action="agrega_analisis.php " ALIGN=center>
+                     <form name="add_name" id="add_name" method="post" action="agrega_analisis.php " ALIGN=center autocomplete="off">
         <div>
         
               <label >
@@ -146,6 +147,7 @@
               </label>
              </div>
               <input name="idpropio" value="<?php if($fila1 != null) { echo $idpropio; } else {$idpropio = 0; echo $idpropio;}?>"  style='display:none;'>
+              <input name="idpaciente" value = "<?php echo $idpac; ?>" style="display:none;"> 
                       <button name="submit1"   class="guardar" >GUARDAR</button>  
                      </form>  
                 </div>  

@@ -10,10 +10,14 @@
     $idpropio  = $_SESSION['idpropio'];
     */
     
-    $id = 0;
-    if(isset($_GET['id'])){
-        $id = $_GET['id'];
-        
+    $idpr   = 0;
+    $idpac  = 0;
+    $idmed  = 0;
+    if(isset($_GET['idpr']) && isset($_GET['idpac']) && isset($_GET['idm'])){
+        $idpr   = $_GET['idpr'];
+        $idpac  = $_GET['idpac'];
+        $idmed  = $_GET['idm'];
+        //echo $idpr;
     }
     
 class PDF extends FPDF
@@ -67,7 +71,16 @@ class PDF extends FPDF
 
     $con = mysqli_connect($host, $user, $pwd, $db);
 
-    $sql = "SELECT ";
+    $sql = "SELECT a.prueba, a.resultado, a.unidades, a.valorreferencia, a.comentario, a.observaciones
+            FROM analisis AS a 
+            JOIN pacientes AS p 
+            ON a.pacientes_idpacientes = p.idpacientes
+            JOIN medicos m
+            ON a.medicos_idmedicos = m.idmedicos
+            WHERE a.idpropio = '$idpr'
+            ORDER BY a.idpropio";
+
+    
     $query = $con -> query($sql);
     
     
@@ -83,7 +96,6 @@ class PDF extends FPDF
     $pdf->Ln();
 
     $pdf->SetX(15);
-    
     $pdf->Cell(30, 6, 'Prueba', 1, 0, 'C', 1);
     
     $pdf->SetX(45);
@@ -96,33 +108,44 @@ class PDF extends FPDF
     $pdf->Cell(25, 6, 'Vl. Referencia', 1, 0, 'C', 1);
 
     $pdf->SetX(155);
-    $pdf->Cell(40, 6, 'Observaciones', 1, 0, 'C', 1);
+    $pdf->Cell(40, 6, 'Comentarios', 1, 0, 'C', 1);
 
     
+    $pdf->Ln();
 
-    
-/*
+
     while($row = mysqli_fetch_array($query, MYSQLI_ASSOC))
     {
         $pdf->SetFont('Arial', '', 12);
-        $pdf->SetFillColor(232, 232, 232);
-        $pdf->SetFont('Arial', 'B', 12);
-        $pdf->SetX(20);
-        $pdf->Cell(70, 6, $row['nombre'], 1, 0, 'C');
+        $pdf->SetTextColor(0, 0, 0);
+                
+        $pdf->SetX(15);
+        $pdf->Cell(30, 6, $row['prueba'], 1, 0, 'C');
     
-        $pdf->SetX(90);
-        $pdf->Cell(20, 6, $row['idusuarios'], 1, 0, 'C');
+        $pdf->SetX(45);
+        $pdf->Cell(60, 6, $row['resultado'], 1, 0, 'C');
     
-        $pdf->SetX(110);
-        $pdf->Cell(70, 6, $row['n_user'], 1, 1, 'C');
+        $pdf->SetX(105);
+        $pdf->Cell(25, 6, $row['unidades'], 1, 0, 'C');
+
+        $pdf->SetX(130);
+        $pdf->Cell(25, 6, $row['valorreferencia'], 1, 0, 'C');
+
+        $pdf->SetX(155);
+        $pdf->Cell(40, 6, $row['comentario'], 1, 1, 'C');
+
+
+        $pdf->SetFillColor(255, 255, 255);
+        $pdf->SetTextColor(0, 0, 0);
+        $pdf->SetXY(20, 100);
+        $pdf->MultiCell(170, 6, 'Observaciones', 1, 'C', true);
+        $pdf->Ln();
+        $pdf->Cell(40, 6, $row['observaciones'], 1, 1, 'C');
         
     }
-*/   
+   
 
-    $pdf->SetFillColor(255, 255, 255);
-    $pdf->SetTextColor(0, 0, 0);
-    $pdf->SetXY(20, 100);
-    $pdf->MultiCell(170, 6, 'Comentarios', 1, 'C', true);
+  
 
     $pdf->Output();
     
