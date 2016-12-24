@@ -167,7 +167,7 @@
 
 <script type="text/javascript">
     var sorter=new table.sorter("sorter");
-    sorter.init("sorter",1);
+    sorter.init("sorter",0);
 </script>
 
 </body>

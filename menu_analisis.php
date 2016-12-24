@@ -36,7 +36,11 @@
     <li>
       <h1>An&aacute;lisis</h1>
     </li>
-
+      <p>
+        <form name="formulario" action="" onSubmit="enviarDatos(); return false" autocomplete="off">
+          <li><input type="text" placeholder="Buscar..." name="busca" id="busca"></li>
+        </form>
+      </p>
     <li>
       <a  href= "analisis.php?p=<?php echo $_GET['p']?>&pro=<?php echo 0 ?>" class="add"><img src="img/addpac.png"></a>
     </li>
@@ -188,7 +192,7 @@ elems.forEach(function(html) {
 
 <script type="text/javascript">
   var sorter=new table.sorter("sorter");
-  sorter.init("sorter",1);
+  sorter.init("sorter",0);
 </script>
 
 </body>

@@ -50,7 +50,7 @@
           <th>Folio</th>
           <th>Nombre</th>
           <th>Stock</th>
-          <th class="nosort">Agregar</th>
+          <!-- th class="nosort">Agregar</th -->
         </tr>
 
 <?php
@@ -153,7 +153,7 @@
           <td><?php echo $fila['idinventario']; ?></td>
           <td><?php echo $nombre; ?></td>
           <td><?php echo $fila['cantidad']; ?></td>
-          <td><a href= "productos_agregar.php?prod=<?php echo $fila['idinventario'] ?>">Agregar</a> </td>
+          <!-- td><a href= "productos_agregar.php?prod=<?php echo $fila['idinventario'] ?>">Agregar</a> </td-->
         </tr>
 
 <?php }
@@ -175,7 +175,7 @@
 
 <script type="text/javascript">
   var sorter=new table.sorter("sorter");
-  sorter.init("sorter",1);
+  sorter.init("sorter",0);
 </script>
 
 </body>

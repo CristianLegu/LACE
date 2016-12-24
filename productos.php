@@ -133,7 +133,7 @@
       </div>
     <div class="col-3">
       <label>
-        Cotro Prueba
+        Costo Prueba
         <input  name="costo_prueba" tabindex="9" required>
       </label>
     </div>
