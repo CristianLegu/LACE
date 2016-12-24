@@ -7,11 +7,19 @@
   <meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
   <title>Médicos - LACE</title>
-<link rel="shortcut icon" href="img/icon.png"> 
+<link rel="shortcut icon" href="img/icon.png">
   <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/styles2.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
   <script type="text/javascript" src="js/switchery.min.js"></script>
+  <!-- Pantalla de carga-->
+  <script type="text/javascript">
+    window.onload = detectarCarga;
+      function detectarCarga(){
+        document.getElementById("cargando").style.visibility="hidden";
+      }
+  </script>
+  <!-- Pantalla de carga-->
 </head>
 <?php
 
@@ -28,7 +36,7 @@
           }
 
     else{
-        $pac = $_GET['m'];  
+        $pac = $_GET['m'];
         session_start();
                $_SESSION['valueF'] = 'MEDICOSUP';
                $_SESSION['idup'] = $pac;
@@ -43,7 +51,16 @@
  ?>
 
 <body>
-
+  <!-- Pantalla de carga-->
+        <div id="cargando">
+          <div class="cssload-thecube">
+            <div class="cssload-cube cssload-c1"></div>
+            <div class="cssload-cube cssload-c2"></div>
+            <div class="cssload-cube cssload-c4"></div>
+            <div class="cssload-cube cssload-c3"></div>
+          </div>
+        </div>
+  <!-- Pantalla de carga-->
   <div id="wrapper">
 
 <span style="align: left;">
@@ -52,7 +69,7 @@
 </a>
 	<h1>M&eacute;dicos</h1>
 </span>
-   
+
   <form action="guarda.php" method="post" autocomplete="off">
 
   <div class="col-2">
@@ -84,7 +101,7 @@
       Teléfono
        <input  name="telefono_m" tabindex="5" required  placeholder="XXX XXX XX XX" value="<?php echo utf8_encode($fila['telefono_medi']); ?>" pattern="[0-9 | \s]*">
   </div>
-  
+
   <div class="col-2">
     <label>
       Nombre del Hospital
@@ -101,7 +118,7 @@
   <div class="col-submit">
     <button class="submitbtn">Guardar</button>
   </div>
-  
+
   </form>
   </div>
 <script type="text/javascript">
