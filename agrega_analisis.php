@@ -1,4 +1,5 @@
-<?php  
+<?php 
+ 
       include("includes/conexion.php");
       $mysqli = mysqli_connect($host, $user, $pwd, $db);
 
@@ -51,7 +52,7 @@ if ($idpropio == 0) {
                     VALUES( '$area', '$departamento', '$estudio', '$prueba', '$resultado', '$unidades','$valorreferencia','$comentario','$observaciones', '$fecha', '$pacientes_idpacientes', '$medicos_idmedicos', '$idpropio')";  
                 if( mysqli_query($mysqli, $sql)){
                 } else{
-                  echo "Error antes de cerrar".mysqli_error($mysqli);
+                  echo "Error antes de cerrar 1 ".mysqli_error($mysqli);
                 } 
                 mysqli_close($mysqli);
             }  
@@ -102,7 +103,8 @@ else {
               if( mysqli_query($mysqli, $sql)){
 
               } else{
-                echo "Error antes de cerrar".mysqli_error($mysqli);
+                
+                echo "Error antes de cerrar 2 ".mysqli_error($mysqli);
                 }
               mysqli_close($mysqli);
             }  
@@ -126,11 +128,88 @@ else {
           //  </script>';
 
  ?>
+ <!DOCTYPE html>
+<html lang="es" class="no-js">
+<head>
+		<meta charset="UTF-8" />
+		<title>Menú Principal</title>
+		<link rel="shortcut icon" href="img/icon.png">
+		<link rel="stylesheet" type="text/css" href="css/default.css" />
+		<link rel="stylesheet" type="text/css" href="css/menu.css" />
+		<link rel="stylesheet" type="text/css" href="css/component.css" />
+		<script src="js/modernizr.custom.js"></script>
+	</head>
+  <body>
+    <div class="container">
+        <header>
+				  <span><a href="menu.php"><img src="img/logo2.png" class="imag"></a></span>
+			  </header>
+      <div class="main clearfix">
+          <nav id="menu" class="nav" style="">
+              <ul>
+                  <li style="visibility:hidden;">
+                    <a href="">
+								    <span class="icon">
+									    <i aria-hidden="true" class="icon-services"></i>
+								    </span>
+								    <span>Enviar por correo electr&oacutenico</span>
+							      </a>
+                  </li>
+                  <li style="visibility:hidden;">
+                    <a href="">
+								    <span class="icon">
+									    <i aria-hidden="true" class="icon-services"></i>
+								    </span>
+								    <span>Visualizar PDF</span>
+							      </a>
+                  </li>
+
+                   <li>
+                    <a href="">
+								    <span class="icon">
+									    <i aria-hidden="true" class="icon-services"></i>
+								    </span>
+								    <span>Enviar por correo electr&oacutenico</span>
+							      </a>
+                  </li>
+                  <li>
+                    <a target="_blank" href="reporte.php?idpr=<?php echo $idpropio?>&idpac=<?php echo $idpaciente?>&idm=<?php echo $medicos_idmedicos?>">
+								    <span class="icon">
+									    <i aria-hidden="true" class="icon-services"></i>
+								    </span>
+								    <span>Visualizar PDF</span>
+							      </a>
+                  </li>
+
+                   <li style="visibility:hidden;">
+                    <a href="">
+								    <span class="icon">
+									    <i aria-hidden="true" class="icon-services"></i>
+								    </span>
+								    <span>Enviar por correo electr&oacutenico</span>
+							      </a>
+                  </li>
+                  <li style="visibility:hidden;">
+                    <a href="">
+								    <span class="icon">
+									    <i aria-hidden="true" class="icon-services"></i>
+								    </span>
+								    <span>Visualizar PDF</span>
+							      </a>
+                  </li>
+              </ul>
+          </nav><!--NAV-->
+      </div> <!--class = "main clearfix"-->
+    </div> <!--Cointainer-->
+  </body>
+
+</html>
+
 
  <script type="text/javascript">
-      var prop  = <?php echo $idpropio; ?>;
-      var pac   = <?php echo $idpaciente; ?>;
-      var med   = <?php echo $medicos_idmedicos; ?>;
-      alert(prop+" "+pac+" "+med);
-      window.open("reporte.php?idpr=" + prop + "&idpac=" + pac + "&idm=" + med, "_blank");
+     // var prop  = <?php echo $idpropio; ?>;
+     // var pac   = <?php echo $idpaciente; ?>;
+     // var med   = <?php echo $medicos_idmedicos; ?>;
+     // alert(prop+" "+pac+" "+med);
+     // window.open("reporte.php?idpr=" + prop + "&idpac=" + pac + "&idm=" + med, "_blank");
  </script>
