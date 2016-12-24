@@ -16,7 +16,10 @@
   <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.min.css">
   <script type="text/javascript" src="js/switchery.min.js"></script>
   <script type="text/javascript" src="js/script.js"></script>
-
+  <style>
+  .text {font-size:10; font-family:Arial, Tahoma, sans-serif; color:#0072C6; text-decoration:none}
+  .text:hover {font-size:10; font-family:Arial, Tahoma, sans-serif; color:#005B99; text-decoration:none}
+  </style>
 
 </head>
 
@@ -152,8 +155,8 @@
         <tr>
           <td><?php echo $fila['idusuarios']; ?></td>
           <td><?php echo $nombre; ?></td>
-          <td><a href= "usuarios.php?u=<?php echo $fila['idusuarios'] ?>">Ver</a> /
-              <a href= "recupera.php?u=<?php echo $fila['idusuarios'] ?>">Recuperar contrase&ntilde;a</a></td>
+          <td><a class="text" href= "usuarios.php?u=<?php echo $fila['idusuarios'] ?>"><strong>Ver</strong></a><strong class="text"> / </strong>
+              <a class="text" href= "recupera.php?u=<?php echo $fila['idusuarios'] ?>"><strong>Recuperar contrase&ntilde;a</strong></a></td>
         </tr>
 
 <?php }

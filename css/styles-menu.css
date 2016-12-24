@@ -170,18 +170,17 @@ button.submitbtn:active {
 }
 
 .sortable .head {
-  background-color: #444 url(images/sort.gif) 6px center no-repeat;
   cursor:pointer; padding-left:18px
 }
 
 .sortable .desc {
-  background:#222 url(images/desc.gif) 6px center no-repeat;
+  background:#005BBF;
   cursor:pointer;
   padding-left:18px
 }
 
 .sortable .asc {
-  background:#444 url(images/asc.gif) 6px  center no-repeat;
+  background:#0054A0;
   cursor:pointer;
   padding-left:18px
 }

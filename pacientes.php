@@ -219,7 +219,7 @@ elems.forEach(function(html) {
    if(ver != 'x'){
      $('#dynamic_field').append(
              '<div class="col-1"> <label><input placeholder="Razón Social" id="razon" name="razon" required value="<?php echo utf8_encode($fila['razonsocial']); ?>"/></div>'+
-             '<div class="col-1"> <label><input placeholder="RFC" id="rfc" name="rfc" required value="<?php echo utf8_encode($fila['rfc']); ?>"/></div>'+
+             '<div class="col-1"> <label><input placeholder="RFC" id="rfc" name="rfc" maxlength="13" required value="<?php echo utf8_encode($fila['rfc']); ?>"/></div>'+
              '<div class="col-1"> <label><input placeholder="Dirección Fiscal" id="dir_fiscal" name="fiscal" required value="<?php echo utf8_encode($fila['direccionfiscal']); ?>"/></div>');
              $('#add').remove();
              $('#dynamic').append(

@@ -86,7 +86,7 @@
   <div class="col-3">
     <label>
       R.F.C
-       <input  name="rfc" tabindex="5" required value="<?php echo utf8_encode($fila['rfc_prov']); ?>" style="text-transform:uppercase;">
+       <input  name="rfc" tabindex="5" maxlength="13" required value="<?php echo utf8_encode($fila['rfc_prov']); ?>" style="text-transform:uppercase;">
   </div>
 
   <div class="col-4">

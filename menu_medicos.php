@@ -16,6 +16,10 @@
   <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.min.css">
   <script type="text/javascript" src="js/switchery.min.js"></script>
   <script type="text/javascript" src="js/script.js"></script>
+  <style>
+  .text {font-size:10; font-family:Arial, Tahoma, sans-serif; color:#0072C6; text-decoration:none}
+  .text:hover {font-size:10; font-family:Arial, Tahoma, sans-serif; color:#005B99; text-decoration:none}
+  </style>
 </head>
 
 <body>
@@ -149,7 +153,7 @@
         <tr>
           <td><?php echo $fila['idmedicos']; ?></td>
           <td><?php echo $nombre; ?></td>
-          <td><a href= "medicos.php?m=<?php echo $fila['idmedicos'] ?>">Ver</a> </td>
+          <td><a class="text" href= "medicos.php?m=<?php echo $fila['idmedicos'] ?>"><strong>Ver</strong></a> </td>
         </tr>
 
 <?php }
