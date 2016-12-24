@@ -176,8 +176,8 @@ elems.forEach(function(html) {
 </script>
 
 <script type="text/javascript">
-var sorter=new table.sorter("sorter");
-sorter.init("sorter",1);
+  var sorter=new table.sorter("sorter");
+  sorter.init("sorter",1);
 </script>
 
 </body>

@@ -9,47 +9,48 @@
   <meta http-equiv="Content-Type" content="text/html">
   <title>Men&uacute; Productos | LACE </title>
   <link rel="stylesheet" type="text/css" media="all" href="css/estilo.css">
-  <link rel="shortcut icon" href="img/icon.png"> 
+  <link rel="shortcut icon" href="img/icon.png">
   <link rel="stylesheet" type="text/css" media="all" href="css/styles-menu.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
   <script type="text/javascript" src="js/switchery.min.js"></script>
   <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.min.css">
+  <script type="text/javascript" src="js/script.js"></script>
 </head>
 
 <body>
 
 <nav id="hola">
-  <ul>     
+  <ul>
     <li><p>
           <a href="menu.php">
             <img src="img/logo2.png"  id="logo">
           </a>
         </p>
-          
+
     </li>
-    
+
     <li>
-      <h1>Productos</h1>  
+      <h1>Productos</h1>
     </li>
       <p>
         <form name="formulario" action="" onSubmit="enviarDatos(); return false" autocomplete="off">
           <li><input type="text" placeholder="Buscar..." name="busca" id="busca"></li>
-        </form>  
-      </p>   
+        </form>
+      </p>
     <li>
       <a href="productos.php" class="add"><img src="img/addprod.png" alt="Agregar Productos"></a>
     </li>
   </ul>
 </nav>
-  		
 
-      <table id="customers">
+
+      <table class="sortable" id="sorter">
         <tr>
           <th>Folio</th>
           <th>Nombre</th>
           <th>Stock</th>
-          <th>Agregar</th>
+          <th class="nosort">Agregar</th>
         </tr>
 
 <?php
@@ -62,7 +63,7 @@
     }
 /*Verifica si el campo busca esta vacio*/
     if(empty($_GET['busca'])){
-              $sql = "SELECT 
+              $sql = "SELECT
               count(idinventario)
               FROM inventario";
       $result = mysqli_query($con, $sql);
@@ -81,25 +82,25 @@
       if(isset($_GET['pn'])){
       	  $pagenum = preg_replace('#[^0-9]#', '', $_GET['pn']);
       }
-    
-      if ($pagenum < 1) { 
-        $pagenum = 1; 
-      } else if ($pagenum > $last) { 
-        $pagenum = $last; 
+
+      if ($pagenum < 1) {
+        $pagenum = 1;
+      } else if ($pagenum > $last) {
+        $pagenum = $last;
       }
-      
+
       $limit = 'LIMIT ' .($pagenum - 1) * $page_rows .',' .$page_rows;
-      
-      $sql = "SELECT  idinventario, 
+
+      $sql = "SELECT  idinventario,
                       nombre_art,
                       cantidad
-              FROM inventario  
-              ORDER BY idinventario 
+              FROM inventario
+              ORDER BY idinventario
               ASC $limit";
       $query = mysqli_query($con, $sql);
 
 
-      
+
       if($last != 1){
           if($pagenum > 1){
             $previous = $pagenum - 1;
@@ -111,7 +112,7 @@
                 }
 	          }
           }
-	        
+
           $paginationCtrls .= ''.$pagenum.' &nbsp; ';
 
           for($i = $pagenum+1; $i <= $last; $i++){
@@ -132,18 +133,18 @@
         $pac = $_GET['busca'];
         $search = '%'.$pac.'%';
 
-        $sql = "SELECT 
-                    idinventario, 
+        $sql = "SELECT
+                    idinventario,
                     nombre_art,
-                    cantidad  
+                    cantidad
                   FROM inventario
-                WHERE nombre_art LIKE '$search'" ;  
+                WHERE nombre_art LIKE '$search'" ;
                 $query = $con -> query($sql);
         }
 
-    
 
-         
+
+
 
          while ($fila = mysqli_fetch_array($query, MYSQLI_ASSOC)){
          $nombre = $fila['nombre_art'];
@@ -155,7 +156,7 @@
           <td><a href= "productos_agregar.php?prod=<?php echo $fila['idinventario'] ?>">Agregar</a> </td>
         </tr>
 
-<?php } 
+<?php }
   mysqli_close($con);
 ?>
       </table>
@@ -165,11 +166,17 @@
 
 
 <script type="text/javascript">
-var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
+  var elems = Array.prototype.slice.call(document.querySelectorAll('.js-switch'));
 
-elems.forEach(function(html) {
+  elems.forEach(function(html) {
   var switchery = new Switchery(html);
 });
 </script>
+
+<script type="text/javascript">
+  var sorter=new table.sorter("sorter");
+  sorter.init("sorter",1);
+</script>
+
 </body>
 </html>

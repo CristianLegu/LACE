@@ -1,7 +1,7 @@
 <?php
       header('Content-Type: text/html; charset=iso-8859-1');
       echo htmlspecialchars("", ENT_QUOTES, 'utf-8');
-    
+
 ?>
 <!doctype html>
 <html lang="es">
@@ -10,13 +10,14 @@
   <meta http-equiv="Content-Type" content="text/html">
   <title>Men&uacute; An&aacute;lisis | LACE </title>
   <link rel="shortcut icon" href="img/icon.png">
+  <link rel="stylesheet" type="text/css" media="all" href="css/estilo.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/styles-menu.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.min.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/paginacion.css">
-  <link rel="stylesheet" type="text/css" media="all" href="css/estilo.css">
   <script type="text/javascript" src="js/switchery.min.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
 
 </head>
 
@@ -35,7 +36,7 @@
     <li>
       <h1>An&aacute;lisis</h1>
     </li>
-   
+
     <li>
       <a  href= "analisis.php?p=<?php echo $_GET['p']?>&pro=<?php echo 0 ?>" class="add"><img src="img/addpac.png"></a>
     </li>
@@ -43,10 +44,10 @@
 </nav>
 
 
-      <table id="customers">
+      <table class="sortable" id="sorter">
         <tr>
-          <th id="dynamic_field" ><label id="fdes" class="fdwn">Estudio</label></th>
-          <th><label>Fecha</label></th>
+          <th>Estudio</th>
+          <th>Fecha</th>
           <th>M&eacute;dico</th>
           <th>An&aacute;lisis</th>
         </tr>
@@ -161,7 +162,7 @@
           <td><?php echo $fila['estudio']; ?></td>
           <td><?php echo $fila['fecha']; ?></td>
           <td><?php echo $fila1['nombre']; ?> </td>
-          
+
           <td><a href= "analisis.php?p=<?php echo $_GET['p']?> & pro=<?php echo $fila['idpropio'] ?> " >Editar </a> </td>
         </tr>
          <?php $idpropio = $fila['idpropio'];  } ?>
@@ -186,25 +187,9 @@ elems.forEach(function(html) {
 </script>
 
 <script type="text/javascript">
-
-  $(document).ready(function(){
-     $(document).on('click', '.fdwn', function(){
-      /*   $('#fdes').remove();
-
-         $('#dynamic_field').append(
-           '<label class="fup">Folio 2</label>'
-         );*/
-      });
-
- $(document).on('click', '.fup', function(){
-  /* $('#fup').remove();
-
-   $('#dynamic_field').append(
-     '<label class="fdwn">Folio</label>'
-   );*/
- });
-  });
- </script>
+  var sorter=new table.sorter("sorter");
+  sorter.init("sorter",1);
+</script>
 
 </body>
 </html>
