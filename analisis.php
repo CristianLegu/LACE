@@ -36,8 +36,26 @@
            <link rel="shortcut icon" href="img/icon.png">
  		       <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
            <meta charset="utf-8">
+           <!-- Pantalla de carga-->
+           <script type="text/javascript">
+             window.onload = detectarCarga;
+               function detectarCarga(){
+                 document.getElementById("cargando").style.visibility="hidden";
+               }
+           </script>
+           <!-- Pantalla de carga-->
       </head>
       <body>
+        <!-- Pantalla de carga-->
+              <div id="cargando">
+                <div class="cssload-thecube">
+                  <div class="cssload-cube cssload-c1"></div>
+                  <div class="cssload-cube cssload-c2"></div>
+                  <div class="cssload-cube cssload-c4"></div>
+                  <div class="cssload-cube cssload-c3"></div>
+                </div>
+              </div>
+        <!-- Pantalla de carga-->
       <span style="align: left;">
         <a href="menu_pacientes.php">
 	        <img src="img/logo2.png"  style="width: 15%; margin-left: 40px; ">
