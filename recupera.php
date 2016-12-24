@@ -1,5 +1,18 @@
 <?php
 
+include("includes/encript.php");
+
+if($_GET)
+{	
+//recibo la url la decodifico y la dejo en la variable $_GET
+decode_get2($_SERVER["REQUEST_URI"]); 
+//ya puedo hacer uso de la variable $_GET
+//Ejemplos
+// imprimo la variable $_GET
+
+echo "iduser = ". $_GET['u'];
+
+}
 if(isset($_GET['u'])){
 
 $id = $_GET['u'];
@@ -23,7 +36,7 @@ while ($fila = mysqli_fetch_array($query, MYSQLI_ASSOC)){
          $user = $fila['n_user'];
          $pass = $fila['respuscol'];
          echo "correo: ".$correo."usuario: ".$user."contraseña".$pass;
-}
+
 /*require_once('includes/AttachMailer.php'); 
 
      while ($fila = mysqli_fetch_array($query, MYSQLI_ASSOC)){
@@ -38,5 +51,6 @@ while ($fila = mysqli_fetch_array($query, MYSQLI_ASSOC)){
 
 
 
+}
 }
 ?>
