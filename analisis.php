@@ -34,7 +34,6 @@
            <script src="js/jquery.min.js"></script>
            <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
            <link rel="shortcut icon" href="img/icon.png">
- 		       <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
            <meta charset="utf-8">
            <!-- Pantalla de carga-->
            <script type="text/javascript">
@@ -65,31 +64,24 @@
       </span>
            <div class="container">
                 <div class="form-group">
-
-
                      <form name="add_name" id="add_name" method="post" action="agrega_analisis.php " ALIGN=center>
       <div>
       <label >
         Elegir Medico
-         <select id="idmedico"  name="idmedico" >
+    <!--    <select id="idmedico"  name="idmedico" >
 
 
-                     <form name="add_name" id="add_name" method="post" action="agrega_analisis.php " ALIGN=center autocomplete="off">
-                     </label>
-                     </div>
-        <div>
 
-              <label >
+-->
+<form name="add_name" id="add_name" method="post" action="agrega_analisis.php " ALIGN=center autocomplete="off">
  <select id="idmedico"  name="idmedico" >
-
-
         <option  value="<?php $idmedico ?>" >Seleccionar Médico</option>
         <?php
           $mysqli = mysqli_connect($host, $user, $pwd, $db);
           $querymedicos = $mysqli -> query ("SELECT idmedicos, nombre FROM medicos");
 
           while ($valores =  mysqli_fetch_array($querymedicos, MYSQLI_ASSOC)) {
-            echo '<option value="'.$valores[idmedicos].'">'.$valores[nombre].'</option>';
+            echo '<option value="'.$valores['idmedicos'].'">'.$valores['nombre'].'</option>';
           }
           mysqli_close($mysqli);
         ?>
@@ -157,11 +149,7 @@
 									} ?>
 									   </table>
      							<?php	 }   $i ;   ?>
-
-
-
-
-                          </div>
+             </div>
 
               <div >
               <label >
@@ -174,11 +162,8 @@
 
                       <button name="submit1"   class="guardar" >GUARDAR</button>
                      </form>
-                </div>
-           </div>
 
-      </body>
- </html>
+
 
  <script>
  $(document).ready(function(){

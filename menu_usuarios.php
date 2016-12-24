@@ -75,6 +75,7 @@
 
 <?php
   include("includes/conexion.php");
+  include("includes/encript.php");
 
   $con = mysqli_connect($host, $user, $pwd, $db);
   $paginationCtrls = '';
@@ -168,21 +169,15 @@
          while ($fila = mysqli_fetch_array($query, MYSQLI_ASSOC)){
          $nombre = $fila['nombre'];
          $iduser = $fila['idusuarios'];
-         $link = "recupera.php?u=".urlencode(base64_encode($iduser));
+         $id = encode_this("cx=0110733507785635592193A9mvckb5bdk&1");
  ?>
         <tr>
           <td><?php echo $fila['idusuarios']; ?></td>
           <td><?php echo $nombre; ?></td>
-<<<<<<< HEAD
 
           <td><a class="text" href= "usuarios.php?u=<?php echo $fila['idusuarios'] ?>"><strong>Ver</strong></a><strong class="text"> / </strong>
               <a class="text" href= "recupera.php?u=<?php echo $fila['idusuarios'] ?>"><strong>Recuperar contrase&ntilde;a</strong></a></td>
 
-
-=======
-          <td><a href= "usuarios.php?u=<?php echo $fila['idusuarios'] ?>">Ver</a> /
-              <a href= "<?php echo $link ?>">Recuperar contrase&ntilde;a</a></td>
->>>>>>> origin/master
         </tr>
 
 <?php }
