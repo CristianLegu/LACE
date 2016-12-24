@@ -174,7 +174,7 @@
 
       while ($fila = mysqli_fetch_array($query, MYSQLI_ASSOC)){
 
-      $sql1 = "SELECT nombre
+      $sql1 = "SELECT idmedicos, nombre
               FROM   medicos
               where  idmedicos = '$fila[medicos_idmedicos]'";
                $query1 = mysqli_query($con, $sql1);
@@ -186,7 +186,19 @@
           <td><?php echo $fila['estudio']; ?></td>
           <td><?php echo $fila['fecha']; ?></td>
           <td><?php echo $fila1['nombre']; ?> </td>
-          <td><a class="text" href= "analisis.php?p=<?php echo $_GET['p']?> & pro=<?php echo $fila['idpropio'] ?> " ><strong>Editar</strong></a> </td>
+          <td>
+              <a class="text" href= "analisis.php?p=<?php echo $_GET['p']?>&pro=<?php echo $fila['idpropio'] ?> " >
+                <strong>Enviar Correo electr&oacutenico</strong>
+              </a> 
+              |
+              <a class="text" href= "analisis.php?p=<?php echo $_GET['p']?>&pro=<?php echo $fila['idpropio'] ?> " >
+                <strong>Editar</strong>
+              </a> 
+              |
+              <a class="text" target="_blank" href= "reporte.php?idpac=<?php echo $_GET['p']?>&idpr=<?php echo $fila['idpropio']?>&idm=<?php echo $fila1['idmedicos'] ?> " >
+                <strong>Visualizar</strong>
+              </a> 
+          </td>
         </tr>
          <?php $idpropio = $fila['idpropio'];  } ?>
 <?php }
