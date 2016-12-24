@@ -47,20 +47,14 @@
       </span>
            <div class="container">
                 <div class="form-group">
-<<<<<<< HEAD
-                     <form name="add_name" id="add_name" method="post" action="agrega_analisis.php " ALIGN=center>
-      <div>
 
-      <label >
-         <select id="idmedico"  name="idmedico" >
-=======
 
                      <form name="add_name" id="add_name" method="post" action="agrega_analisis.php " ALIGN=center autocomplete="off">
         <div>
         
               <label >
  <select id="idmedico"  name="idmedico" >
->>>>>>> origin/master
+
 
         <option  value="<?php $idmedico ?>" >Seleccionar Médico</option>
         <?php
@@ -151,20 +145,7 @@
               </label>
              </div>
               <input name="idpropio" value="<?php if($fila1 != null) { echo $idpropio; } else {$idpropio = 0; echo $idpropio;}?>"  style='display:none;'>
-<<<<<<< HEAD
-                      <button name="submit1"   class="guardar" >GUARDAR</button>
-                     </form>
-                </div>
-           </div>
 
-      </body>
- </html>
-
- <script>
- $(document).ready(function(){
-      $('#add').click(function(){
-           i++;
-=======
               <input name="idpaciente" value = "<?php echo $idpac; ?>" style="display:none;"> 
                       <button name="submit1"   class="guardar" >GUARDAR</button>  
                      </form>  
@@ -178,7 +159,7 @@
  $(document).ready(function(){  
       $('#add').click(function(){  
            i++;  
->>>>>>> origin/master
+
            $('#dynamic_field').append('<tr id="row'+i+'"><td><input type="form-control" name="pruebas[]" placeholder="Prueba" class="form-control name_list" /></td><td><input type="form-control" name="resultado[]" placeholder="Resultado" class="form-control name_list" /></td><td><input type="form-control" name="unidades[]" placeholder="Unidades" class="form-control name_list" /></td><td><input type="form-control" name="valorreferencia[]" placeholder="Valor de referencia" class="form-control name_list" /></td> <td><input type="form-control" name="observaciones[]" placeholder="Observaciones" class="form-control name_list" /></td> <td><button type="button" name="remove" id="'+i+'" class="eliminar btn_remove">X</button></td></tr>');
 
       });

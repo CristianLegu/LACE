@@ -113,42 +113,42 @@ class PDF extends FPDF
     
     $pdf->Ln();
 
-
+    $observaciones = "";
     while($row = mysqli_fetch_array($query, MYSQLI_ASSOC))
     {
-        $pdf->SetFont('Arial', '', 12);
+        $pdf->SetFont('Arial', '', 9);
         $pdf->SetTextColor(0, 0, 0);
                 
         $pdf->SetX(15);
         $pdf->Cell(30, 6, $row['prueba'], 1, 0, 'C');
-    
+        
         $pdf->SetX(45);
         $pdf->Cell(60, 6, $row['resultado'], 1, 0, 'C');
-    
+        
         $pdf->SetX(105);
         $pdf->Cell(25, 6, $row['unidades'], 1, 0, 'C');
-
+        
         $pdf->SetX(130);
         $pdf->Cell(25, 6, $row['valorreferencia'], 1, 0, 'C');
-
+        
         $pdf->SetX(155);
-        $pdf->Cell(40, 6, $row['comentario'], 1, 1, 'C');
+        $pdf->MultiCell(40, 6, $row['observaciones'], 1, 'C', false);
 
-
-        $pdf->SetFillColor(255, 255, 255);
-        $pdf->SetTextColor(0, 0, 0);
-        $pdf->SetXY(20, 100);
-        $pdf->MultiCell(170, 6, 'Observaciones', 1, 'C', true);
-        $pdf->Ln();
-        $pdf->Cell(40, 6, $row['observaciones'], 1, 1, 'C');
+        $observaciones = $row['comentario'];
+        
         
     }
    
 
+        $pdf->Ln();
+        $pdf->SetFillColor(255, 255, 255);
+        $pdf->SetTextColor(0, 0, 0);
+        $pdf->SetX(20);
+        $pdf->Cell(170, 6, 'Observaciones', 1, 1, 'C');
+        $pdf->SetX(20);
+        $pdf->MultiCell(170, 6, $observaciones, 1, 'J', true);
+        
   
-
-    $pdf->Output();
-    
-
+        $pdf->Output();
 
 ?>
