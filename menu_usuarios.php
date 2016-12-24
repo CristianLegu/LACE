@@ -153,7 +153,8 @@
         <tr>
           <td><?php echo $fila['idusuarios']; ?></td>
           <td><?php echo $nombre; ?></td>
-          <td><a href= "usuarios.php?u=<?php echo $fila['idusuarios'] ?>">Ver</a> </td>
+          <td><a href= "usuarios.php?u=<?php echo $fila['idusuarios'] ?>">Ver</a> / 
+              <a href= "recupera.php?u=<?php echo $fila['idusuarios'] ?>">Recuperar contrase&ntilde;a</a></td>
         </tr>
 
 <?php } 

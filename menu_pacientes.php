@@ -9,15 +9,14 @@
   <meta http-equiv="Content-Type" content="text/html">
   <title>Men&uacute; Pacientes | LACE </title>
   <link rel="shortcut icon" href="img/icon.png">
+  <link rel="stylesheet" type="text/css" media="all" href="css/estilo.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/styles-menu.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.min.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/paginacion.css">
-  <link rel="stylesheet" type="text/css" media="all" href="css/estilo.css">
   <script type="text/javascript" src="js/switchery.min.js"></script>
   <script src="js/jquery.min.js"></script>
-  <link rel="stylesheet" href="css/style3.css" />
   <script type="text/javascript" src="js/script.js"></script>
 
 </head>
@@ -49,7 +48,7 @@
 </nav>
 
 
-      <table cellpadding="0" cellspacing="0" border="0" class="sortable" id="sorter">
+      <table class="sortable" id="sorter" >
         <tr>
           <th>Folio</th>
           <th>Nombre</th>

@@ -9,17 +9,16 @@ $con = mysqli_connect($host, $user, $pwd, $db);
 
 
         $sql = "SELECT 
-                contrasena
-              FROM usuarios
-            WHERE idusuarios = $pas" ; 
-   
+                respuscol
+               FROM usuarios
+               JOIN respus
+               WHERE idusuarios = $pas and id = $pas "  ; 
+
 
          $query = $con -> query($sql);
 
         $fila = $query -> fetch_array();
-        $pass = $fila['contrasena'];
-
-
+        $pass = $fila['respuscol'];	
 ?>
 <html>
 	<header>
@@ -29,7 +28,7 @@ $con = mysqli_connect($host, $user, $pwd, $db);
 
 	<script type="text/javascript">
 
- 	mivarJS=<?php echo $pass ?>;
+ 	mivarJS=<?php echo "'".$pass."'" ?>;
 						swal({
 			  title: "Confirma tu contraseña!",
 			  text: "",
@@ -50,7 +49,8 @@ $con = mysqli_connect($host, $user, $pwd, $db);
 			    return false
 			  }
 			  else{
-			  	
+
+                
 			  	if(inputValue == mivarJS){
 			  		swal("Bien!", "", "success");	
 			  	}
@@ -58,11 +58,7 @@ $con = mysqli_connect($host, $user, $pwd, $db);
 			  		swal.showInputError("Contraseña incorrecta!");
 			  	}
 			  }
-			  	
-			  	
-
-
-	     	  
+     	  
 			});
 	</script>
 </html>

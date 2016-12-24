@@ -3,8 +3,6 @@
 	session_start();
 	if(isset($_SESSION['valueF'])){
 		 $sesion = $_SESSION['valueF'];
-
-		 echo $_SESSION['RFCX'];
 	}
 
 
@@ -147,8 +145,6 @@ switch ($sesion) {
 			$pass        	= utf8_decode($_POST['contraseña']);
 		    $email	        = utf8_decode($_POST['email']);
 
-		
-
 		    $sql = "SELECT n_user
                     FROM usuarios
                     WHERE n_user = '$usuario'";
@@ -174,27 +170,34 @@ switch ($sesion) {
 					if (mysqli_connect_errno()) {
 						echo "Falló la conexión:".mysqli_connect_error();
 					}
+					
+					$sql = "INSERT INTO respus (respuscol)
+								VALUES('$pass');";
+
+					if( mysqli_query($mysqli, $sql)){
+
 						include("includes/password.php");
-					$sql = "INSERT INTO usuarios (nombre, direccion, telefono, contrasena, n_user,
+						$sql = "INSERT INTO usuarios (nombre, direccion, telefono, contrasena, n_user,
 															 email)
 								VALUES('$nombre', '$direccion', '$telefono', '$password', '$usuario',
 										 '$email');";
-					if( mysqli_query($mysqli, $sql)){
-						//echo "Inserción realizada".mysqli_connect_error();
-					}else{
+						if( mysqli_query($mysqli, $sql)){
+						include("includes/alert.php");
+						}
+						else{
+							echo "Error ".mysqli_error($mysqli);
+						}
+						mysqli_close($mysqli);
+						
+					
+					}
+
+					else{
 						echo "Error ".mysqli_error($mysqli);
 					}
-					mysqli_close($mysqli);
-
-					include("includes/alert.php");
 
 				}
 				else{
-echo $_POST['nombre'];
-
-echo $_POST['direccion']; 
-echo $_POST['user'];
-echo $_POST['contraseña'];
 
 				}
 		    }
@@ -209,7 +212,7 @@ echo $_POST['contraseña'];
 			$direccion 		= utf8_decode($_POST['direccion']);
 			$telefono		= utf8_decode($_POST['telefono']);
 			$usuario        = utf8_decode($_POST['user']);
-			$contrasena  	= utf8_decode($_POST['contraseña']);
+			$pass  	        = utf8_decode($_POST['contraseña']);
 		    $email	        = utf8_decode($_POST['email']);
 
 
@@ -222,22 +225,38 @@ echo $_POST['contraseña'];
 					if (mysqli_connect_errno()) {
 						echo "Falló la conexión:".mysqli_connect_error();
 					}
+
+					
+					  include("includes/password.php");	  
+					  echo $password;
 					$idup = $_SESSION['idup'];
-				$sql = "UPDATE usuarios
+				    $sql = "UPDATE usuarios
 								  set nombre 			= '$nombre', 
 						 			  direccion			= '$direccion',
 						 			  telefono  		= '$telefono',
-						 			  contrasena 		= '$contrasena',
+						 			  contrasena 		= '$password',
 						 			  n_user			= '$user',
 						 			  email 		    = '$email'
-		 									WHERE idusuarios = $idup;";
+		 							  WHERE idusuarios = $idup;";
 					if( mysqli_query($mysqli, $sql)){
 						//echo "Inserción realizada".mysqli_connect_error();
 					}else{
 						echo "Error ".mysqli_error($mysqli);
 					}
-					mysqli_close($mysqli);
+					
 
+
+						$sql1 = "UPDATE respus
+								  set respuscol = '$pass'
+						 			 
+		 							  WHERE id = $idup;";
+
+					if( mysqli_query($mysqli, $sql1)){
+						//echo "Inserción realizada".mysqli_connect_error();
+					}else{
+						echo "Error ".mysqli_error($mysqli);
+					}
+					mysqli_close($mysqli);
 					include("includes/alert.php");
 
 				}
