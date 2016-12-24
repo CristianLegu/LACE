@@ -1,18 +1,7 @@
 <?php
 
-include("includes/encript.php");
+foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
 
-if($_GET)
-{	
-//recibo la url la decodifico y la dejo en la variable $_GET
-decode_get2($_SERVER["REQUEST_URI"]); 
-//ya puedo hacer uso de la variable $_GET
-//Ejemplos
-// imprimo la variable $_GET
-
-echo "iduser = ". $_GET['u'];
-
-}
 if(isset($_GET['u'])){
 
 $id = $_GET['u'];
