@@ -20,11 +20,27 @@
   .text {font-size:10; font-family:Arial, Tahoma, sans-serif; color:#0072C6; text-decoration:none}
   .text:hover {font-size:10; font-family:Arial, Tahoma, sans-serif; color:#005B99; text-decoration:none}
   </style>
-
+  <!-- Pantalla de carga-->
+  <script type="text/javascript">
+    window.onload = detectarCarga;
+      function detectarCarga(){
+        document.getElementById("cargando").style.visibility="hidden";
+      }
+  </script>
+  <!-- Pantalla de carga-->
 </head>
 
 <body>
-
+  <!-- Pantalla de carga-->
+        <div id="cargando">
+          <div class="cssload-thecube">
+            <div class="cssload-cube cssload-c1"></div>
+            <div class="cssload-cube cssload-c2"></div>
+            <div class="cssload-cube cssload-c4"></div>
+            <div class="cssload-cube cssload-c3"></div>
+          </div>
+        </div>
+  <!-- Pantalla de carga-->
 <nav id="hola">
   <ul>
     <li><p>
@@ -158,13 +174,13 @@
         <tr>
           <td><?php echo $fila['idusuarios']; ?></td>
           <td><?php echo $nombre; ?></td>
-<<<<<<< HEAD
+
           <td><a class="text" href= "usuarios.php?u=<?php echo $fila['idusuarios'] ?>"><strong>Ver</strong></a><strong class="text"> / </strong>
               <a class="text" href= "recupera.php?u=<?php echo $fila['idusuarios'] ?>"><strong>Recuperar contrase&ntilde;a</strong></a></td>
-=======
+
           <td><a href= "usuarios.php?u=<?php echo $fila['idusuarios'] ?>">Ver</a> /
               <a href= "recupera.php?u=<?php echo $id ?>">Recuperar contrase&ntilde;a</a></td>
->>>>>>> origin/master
+
         </tr>
 
 <?php }

@@ -22,11 +22,27 @@
   .text {font-size:10; font-family:Arial, Tahoma, sans-serif; color:#0072C6; text-decoration:none}
   .text:hover {font-size:10; font-family:Arial, Tahoma, sans-serif; color:#005B99; text-decoration:none}
   </style>
-
+  <!-- Pantalla de carga-->
+  <script type="text/javascript">
+    window.onload = detectarCarga;
+      function detectarCarga(){
+        document.getElementById("cargando").style.visibility="hidden";
+      }
+  </script>
+  <!-- Pantalla de carga-->
 </head>
 
 <body>
-
+  <!-- Pantalla de carga-->
+        <div id="cargando">
+          <div class="cssload-thecube">
+            <div class="cssload-cube cssload-c1"></div>
+            <div class="cssload-cube cssload-c2"></div>
+            <div class="cssload-cube cssload-c4"></div>
+            <div class="cssload-cube cssload-c3"></div>
+          </div>
+        </div>
+  <!-- Pantalla de carga-->
 <nav id="hola">
   <ul>
     <li><p>

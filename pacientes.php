@@ -15,6 +15,14 @@
   <script type="text/javascript" src="js/switchery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/jquery.min.js"></script>
+  <!-- Pantalla de carga-->
+  <script type="text/javascript">
+    window.onload = detectarCarga;
+      function detectarCarga(){
+        document.getElementById("cargando").style.visibility="hidden";
+      }
+  </script>
+  <!-- Pantalla de carga-->
 </head>
 <?php
 
@@ -61,6 +69,16 @@
         }
  ?>
 <body>
+  <!-- Pantalla de carga-->
+        <div id="cargando">
+          <div class="cssload-thecube">
+            <div class="cssload-cube cssload-c1"></div>
+            <div class="cssload-cube cssload-c2"></div>
+            <div class="cssload-cube cssload-c4"></div>
+            <div class="cssload-cube cssload-c3"></div>
+          </div>
+        </div>
+  <!-- Pantalla de carga-->
   <div id="wrapper">
 
     <span style="align: left;">
