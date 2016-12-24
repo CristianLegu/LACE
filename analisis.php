@@ -75,6 +75,8 @@
 
 
                      <form name="add_name" id="add_name" method="post" action="agrega_analisis.php " ALIGN=center autocomplete="off">
+                     </label>
+                     </div>
         <div>
 
               <label >
