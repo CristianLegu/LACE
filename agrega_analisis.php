@@ -78,7 +78,17 @@ echo "entro";
 
  echo $idpropio;
 
- session_start();
- $_SESSION['idpropio'] = $idpropio;
- include('reporte.php');
+ //session_start();
+ //$_SESSION['idpropio'] = $idpropio;
+ //include('reporte.php');
+      //echo '<script type="text/javascript">
+        //          window.open("reporte.php?id=", "_blank");
+          //  </script>';
+
  ?>
+
+ <script type="text/javascript">
+      var a = <?php echo $idpropio?>;
+      alert(a);
+      window.open("reporte.php?id="+a, "_blank");
+ </script>

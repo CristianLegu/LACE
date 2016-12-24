@@ -1,11 +1,21 @@
 <?php
     include('fpdf181/fpdf.php');
     include("includes/conexion.php");
+    
     /*
-    session_start();
+     if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    }
     $idpropio  = $_SESSION['idpropio'];
     */
-
+    
+    $id = 0;
+    if(isset($_GET['id'])){
+        $id = $_GET['id'];
+        
+    }
+    
 class PDF extends FPDF
     {
         //******Cabecera
@@ -86,7 +96,7 @@ class PDF extends FPDF
     $pdf->Cell(25, 6, 'Vl. Referencia', 1, 0, 'C', 1);
 
     $pdf->SetX(155);
-    $pdf->Cell(40, 6, 'Comentario', 1, 0, 'C', 1);
+    $pdf->Cell(40, 6, 'Observaciones', 1, 0, 'C', 1);
 
     
 
@@ -112,7 +122,7 @@ class PDF extends FPDF
     $pdf->SetFillColor(255, 255, 255);
     $pdf->SetTextColor(0, 0, 0);
     $pdf->SetXY(20, 100);
-    $pdf->MultiCell(170, 6, 'da', 1, 'C', true);
+    $pdf->MultiCell(170, 6, 'Comentarios', 1, 'C', true);
 
     $pdf->Output();
     
