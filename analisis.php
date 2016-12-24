@@ -64,7 +64,7 @@
       </span>
            <div class="container">
                 <div class="form-group">
-                     <form name="add_name" id="add_name" method="post" action="agrega_analisis.php " ALIGN=center>
+                     <form name="add_name" id="add_name" method="post" action="agrega_analisis.php " ALIGN=center autocomplete="off">
       <div>
       <label >
         Elegir Medico
@@ -141,9 +141,8 @@
 
                                     </tr>
                              <script language='javascript'>
-
-				              var i = i + 1;
-				             </script>
+                              var i = i + 1;
+				                    </script>
 
                                <?php $cont++; $i++;
 									} ?>
@@ -161,17 +160,12 @@
               <input name="idpropio" value="<?php if($fila1 != null) { echo $idpropio; } else {$idpropio = 0; echo $idpropio;}?>"  style='display:none;'>
 
                       <button name="submit1"   class="guardar" >GUARDAR</button>
-                     </form>
+                     
 
-
-
- <script>
- $(document).ready(function(){
-      $('#add').click(function(){
-           i++;
+ 
 
               <input name="idpaciente" value = "<?php echo $idpac; ?>" style="display:none;">
-                      <button name="submit1"   class="guardar" >GUARDAR</button>
+                      
                      </form>
                 </div>
            </div>
@@ -179,19 +173,7 @@
       </body>
  </html>
 
- <script>
- $(document).ready(function(){
-      $('#add').click(function(){
-           i++;
 
-              <input name="idpaciente" value = "<?php echo $idpac; ?>" style="display:none;">
-                      <button name="submit1"   class="guardar" >GUARDAR</button>
-                     </form>
-                </div>
-           </div>
-
-      </body>
- </html>
 
  <script>
  $(document).ready(function(){
