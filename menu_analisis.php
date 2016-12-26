@@ -2,7 +2,7 @@
       header('Content-Type: text/html; charset=iso-8859-1');
       echo htmlspecialchars("", ENT_QUOTES, 'utf-8');
       include("includes/conexion.php");
-      
+
       $con = mysqli_connect($host, $user, $pwd, $db);
 
   if (mysqli_connect_errno()) {
@@ -63,7 +63,7 @@ $id = $_GET['p'];
 <nav id="hola">
   <ul>
     <li><p>
-          <a href="menu.php">
+          <a href="analisis.php">
             <img src="img/logo2.png"  id="logo">
           </a>
         </p>
@@ -94,7 +94,7 @@ $id = $_GET['p'];
         </tr>
 
 <?php
-  
+
   $con = mysqli_connect($host, $user, $pwd, $db);
   $paginationCtrls = '';
 
@@ -210,15 +210,15 @@ $id = $_GET['p'];
           <td>
               <a class="text" href= "recupera.php?idpac=<?php echo $_GET['p']?>&idpr=<?php echo $fila['idpropio']?>&idm=<?php echo $fila1['idmedicos'] ?> " >
                 <strong>Enviar Correo electr&oacutenico</strong>
-              </a> 
+              </a>
               |
               <a class="text" href= "analisis.php?p=<?php echo $_GET['p']?>&pro=<?php echo $fila['idpropio'] ?> " >
                 <strong>Editar</strong>
-              </a> 
+              </a>
               |
               <a class="text" target="_blank" href= "reporte.php?idpac=<?php echo $_GET['p']?>&idpr=<?php echo $fila['idpropio']?>&idm=<?php echo $fila1['idmedicos'] ?> " >
                 <strong>Visualizar</strong>
-              </a> 
+              </a>
           </td>
         </tr>
          <?php $idpropio = $fila['idpropio'];  } ?>

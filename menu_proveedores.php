@@ -44,7 +44,7 @@
 <nav id="hola">
   <ul>
     <li><p>
-          <a href="menu.php">
+          <a href="proveedores.php">
             <img src="img/logo2.png"  id="logo">
           </a>
         </p>

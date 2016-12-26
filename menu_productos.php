@@ -40,7 +40,7 @@
 <nav id="hola">
   <ul>
     <li><p>
-          <a href="menu.php">
+          <a href="productos.php">
             <img src="img/logo2.png"  id="logo">
           </a>
         </p>
