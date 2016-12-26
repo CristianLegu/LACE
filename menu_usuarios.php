@@ -75,6 +75,7 @@
 
 <?php
   include("includes/conexion.php");
+  include("includes/encript.php");
 
   $con = mysqli_connect($host, $user, $pwd, $db);
   $paginationCtrls = '';
@@ -168,8 +169,10 @@
          while ($fila = mysqli_fetch_array($query, MYSQLI_ASSOC)){
          $nombre = $fila['nombre'];
          $iduser = $fila['idusuarios'];
+
          $recupera = "recupera.php?u=".urlencode(base64_encode($iduser));
          $ver = "usuarios.php?u=".urlencode(base64_encode($iduser));
+
  ?>
         <tr>
           <td><?php echo $fila['idusuarios']; ?></td>

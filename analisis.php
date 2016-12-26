@@ -37,7 +37,6 @@
            <script src="js/jquery.min.js"></script>
            <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
            <link rel="shortcut icon" href="img/icon.png">
- 		       <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
            <meta charset="utf-8">
            <!-- Pantalla de carga-->
            <script type="text/javascript">
@@ -68,29 +67,24 @@
       </span>
            <div class="container">
                 <div class="form-group">
-
-
-                     <form name="add_name" id="add_name" method="post" action="agrega_analisis.php " ALIGN=center>
+                     <form name="add_name" id="add_name" method="post" action="agrega_analisis.php " ALIGN=center autocomplete="off">
       <div>
       <label >
         Elegir Medico
-         <select id="idmedico"  name="idmedico" >
+    <!--    <select id="idmedico"  name="idmedico" >
 
 
-                     <form name="add_name" id="add_name" method="post" action="agrega_analisis.php " ALIGN=center autocomplete="off">
-        <div>
 
-              <label >
+-->
+<form name="add_name" id="add_name" method="post" action="agrega_analisis.php " ALIGN=center autocomplete="off">
  <select id="idmedico"  name="idmedico" >
-
-
         <option  value="<?php $idmedico ?>" >Seleccionar Médico</option>
         <?php
           $mysqli = mysqli_connect($host, $user, $pwd, $db);
           $querymedicos = $mysqli -> query ("SELECT idmedicos, nombre FROM medicos");
 
           while ($valores =  mysqli_fetch_array($querymedicos, MYSQLI_ASSOC)) {
-            echo '<option value="'.$valores[idmedicos].'">'.$valores[nombre].'</option>';
+            echo '<option value="'.$valores['idmedicos'].'">'.$valores['nombre'].'</option>';
           }
           mysqli_close($mysqli);
         ?>
@@ -150,19 +144,14 @@
 
                                     </tr>
                              <script language='javascript'>
-
-				              var i = i + 1;
-				             </script>
+                              var i = i + 1;
+				                    </script>
 
                                <?php $cont++; $i++;
 									} ?>
 									   </table>
      							<?php	 }   $i ;   ?>
-
-
-
-
-                          </div>
+             </div>
 
               <div >
               <label >
@@ -174,20 +163,12 @@
               <input name="idpropio" value="<?php if($fila1 != null) { echo $idpropio; } else {$idpropio = 0; echo $idpropio;}?>"  style='display:none;'>
 
                       <button name="submit1"   class="guardar" >GUARDAR</button>
-                     </form>
-                </div>
-           </div>
+                     
 
-      </body>
- </html>
-
- <script>
- $(document).ready(function(){
-      $('#add').click(function(){
-           i++;
+ 
 
               <input name="idpaciente" value = "<?php echo $idpac; ?>" style="display:none;">
-                      <button name="submit1"   class="guardar" >GUARDAR</button>
+                      
                      </form>
                 </div>
            </div>
@@ -195,19 +176,7 @@
       </body>
  </html>
 
- <script>
- $(document).ready(function(){
-      $('#add').click(function(){
-           i++;
 
-              <input name="idpaciente" value = "<?php echo $idpac; ?>" style="display:none;">
-                      <button name="submit1"   class="guardar" >GUARDAR</button>
-                     </form>
-                </div>
-           </div>
-
-      </body>
- </html>
 
  <script>
  $(document).ready(function(){

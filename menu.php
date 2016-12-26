@@ -50,7 +50,7 @@
 						<li>
 							<a href="menu_pacientes.php">
 								<span class="icon">
-									<i aria-hidden="true" class="icon-services"></i>
+									<i aria-hidden="true" class="icon-services" width="25%"></i>
 								</span>
 								<span>Pacientes</span>
 							</a>
