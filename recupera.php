@@ -26,8 +26,21 @@ $idmed  = 0;
           while ($fila = mysqli_fetch_array($query, MYSQLI_ASSOC)) {
             $nombrePac  = $fila['nombre'];
             $email      = $fila['email'];
-            echo $nombrePac." ".$email;
+            echo "NombrePac: ".$nombrePac." emailpac:".$email." url: ".$url;
+
+            /*require_once('includes/AttachMailer.php'); 
+
+        
+                $mailer = new AttachMailer("administracion@aboratorioslace.com", $email, "Análisis",
+                "Usted podrá encontrar sus análisis en la siguiente dirección: ".$url);
+                $mailer->send() ? "Enviado": "Problema al enviar";
+            
+              
+
+      */
+
           }
+          mysqli_close($con);
         }
         
         
@@ -69,11 +82,12 @@ $idmed  = 0;
           $msj."\n   Usuario ".$user." Contraseña: ".$pass);
           $mailer->send() ? "Enviado": "Problema al enviar";
           }
-            mysqli_close($con);
+            
 
       */
 
       }
+      mysqli_close($con);
     }
     
 ?>
