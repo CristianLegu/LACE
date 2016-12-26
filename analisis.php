@@ -6,6 +6,9 @@
           else{
       // echo "Error ".mysqli_error($mysqli);
        }
+
+       foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
+       
   $cont = 1;
   $i = 1;
   $idpac = $_GET['p'];

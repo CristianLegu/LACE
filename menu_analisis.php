@@ -86,7 +86,7 @@
 
 
   if(isset($_GET['p'])){
-    echo "tiene parametro ".$_GET['p'];
+    //echo "tiene parametro ".$_GET['p'];
   }
   else{
     echo "no tiene parametro P";

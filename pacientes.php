@@ -31,6 +31,9 @@
   if (mysqli_connect_errno()) {
     echo "Falló la conexión: ".mysqli_connect_error();
     }
+
+foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
+
 /*Verifica si el campo busca esta vacio*/
     if(empty($_GET['p'])){
             $pac = ' ';
