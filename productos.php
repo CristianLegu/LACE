@@ -42,7 +42,7 @@
   <div id="wrapper">
 
     <span style="align: left;">
-      <a href="menu.php">
+      <a href="menu_productos.php">
        <img src="img/logo2.png"  style="width: 15%; margin-left: 40px; ">
      </a>
      <h1>Productos</h1>

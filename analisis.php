@@ -8,7 +8,7 @@
        }
 
       // foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
-       
+
   $cont = 1;
   $i = 1;
   $idpac = $_GET['p'];
@@ -172,12 +172,12 @@
               <input name="idpropio" value="<?php if($fila1 != null) { echo $idpropio; } else {$idpropio = 0; echo $idpropio;}?>"  style='display:none;'>
 
                       <button name="submit1"   class="guardar" >GUARDAR</button>
-                     
 
- 
+
+
 
               <input name="idpaciente" value = "<?php echo $idpac; ?>" style="display:none;">
-                      
+
                      </form>
                 </div>
            </div>
