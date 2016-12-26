@@ -235,7 +235,7 @@ switch ($sesion) {
 						 			  direccion			= '$direccion',
 						 			  telefono  		= '$telefono',
 						 			  contrasena 		= '$password',
-						 			  n_user			= '$user',
+						 			  n_user			= '$usuario',
 						 			  email 		    = '$email'
 		 							  WHERE idusuarios = $idup;";
 					if( mysqli_query($mysqli, $sql)){
