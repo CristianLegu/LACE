@@ -167,11 +167,13 @@
 
          while ($fila = mysqli_fetch_array($query, MYSQLI_ASSOC)){
          $nombre = $fila['nombre'];
+         $idprov = $fila['idproveedores'];
+         $link = "proveedores.php?prov=".urlencode(base64_encode($idprov));
  ?>
         <tr>
           <td><?php echo $fila['idproveedores']; ?></td>
           <td><?php echo $nombre; ?></td>
-          <td><a class="text" href= "proveedores.php?prov=<?php echo $fila['idproveedores'] ?>"><strong class="text">Ver</strong></a> </td>
+          <td><a class="text" href= "<?php echo $link?>"><strong class="text">Ver</strong></a> </td>
         </tr>
 
 <?php }

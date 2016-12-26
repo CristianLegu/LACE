@@ -168,13 +168,14 @@
          while ($fila = mysqli_fetch_array($query, MYSQLI_ASSOC)){
          $nombre = $fila['nombre'];
          $iduser = $fila['idusuarios'];
-         $link = "recupera.php?u=".urlencode(base64_encode($iduser));
+         $recupera = "recupera.php?u=".urlencode(base64_encode($iduser));
+         $ver = "usuarios.php?u=".urlencode(base64_encode($iduser));
  ?>
         <tr>
           <td><?php echo $fila['idusuarios']; ?></td>
           <td><?php echo $nombre; ?></td>
-          <td><a href= "usuarios.php?u=<?php echo $fila['idusuarios'] ?>">Ver</a> /
-              <a href= "<?php echo $link ?>">Recuperar contrase&ntilde;a</a></td>
+          <td><a href= "<?php echo $ver ?>">Ver</a> /
+              <a href= "<?php echo $recupera ?>">Recuperar contrase&ntilde;a</a></td>
         </tr>
 
 <?php }

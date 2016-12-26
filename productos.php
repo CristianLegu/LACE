@@ -72,12 +72,7 @@
     <div class="col-3">
       <label>
         Unidad de Medida
-        <br><br>
-      <select tabindex="4" name="u_medida">
-        <option>Lts.</option>
-        <option>M</option>
-        <option>30-40 hrs per week</option>
-      </select>
+        <input  name="u_medida" tabindex="3" required>
       </label>
   </div>
     <div class="col-3">
@@ -127,9 +122,9 @@
         <label>
           Fecha Termino
           <div name="fechatermino" id="fechatermino" class="datefield"><br><br>
-     <input id="day" name="diafechatermino" maxlength="2" placeholder="DD"  value="" required/>  /
-        <input id="month" name="mesfechatermino" maxlength="2" placeholder="MM" value=""  required/> /
-            <input id="year" name="aniofechatermino" maxlength="4" placeholder="AAAA" value=""  required/>
+     <input id="day" name="diafechatermino" maxlength="2" placeholder="DD"  value=""/>  /
+        <input id="month" name="mesfechatermino" maxlength="2" placeholder="MM" value="" /> /
+            <input id="year" name="aniofechatermino" maxlength="4" placeholder="AAAA" value=""/>
 
           </div>
 

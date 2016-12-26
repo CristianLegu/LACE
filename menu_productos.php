@@ -66,7 +66,11 @@
         <tr>
           <th>Folio</th>
           <th>Nombre</th>
-          <th>Stock</th>
+          <th>Fecha Stock</th>
+          <th>Fecha Inicio</th>
+          <th>Fecha T&eacute;rmino</th>
+          <th>Fecha Caducidad</th>
+          <th>Ficha</th>
           <!-- th class="nosort">Agregar</th -->
         </tr>
 
@@ -110,7 +114,10 @@
 
       $sql = "SELECT  idinventario,
                       nombre_art,
-                      cantidad
+                      fechastock,
+                      fechainicio,
+                      fechatermino,
+                      fechacaducidad
               FROM inventario
               ORDER BY idinventario
               ASC $limit";
@@ -151,9 +158,12 @@
         $search = '%'.$pac.'%';
 
         $sql = "SELECT
-                    idinventario,
-                    nombre_art,
-                    cantidad
+                      idinventario,
+                      nombre_art,
+                      fechastock,
+                      fechainicio,
+                      fechatermino,
+                      fechacaducidad
                   FROM inventario
                 WHERE nombre_art LIKE '$search'" ;
                 $query = $con -> query($sql);
@@ -165,12 +175,16 @@
 
          while ($fila = mysqli_fetch_array($query, MYSQLI_ASSOC)){
          $nombre = $fila['nombre_art'];
+         $idprod = $fila['idinventario'];
+         $link = "productos.php?prod=".urlencode(base64_encode($idprod));
  ?>
         <tr>
-          <td><?php echo $fila['idinventario']; ?></td>
+          <td><?php echo $idprod; ?></td>
           <td><?php echo $nombre; ?></td>
-          <td><?php echo $fila['cantidad']; ?></td>
-          <!-- td><a href= "productos_agregar.php?prod=<?php echo $fila['idinventario'] ?>">Agregar</a> </td-->
+          <td><?php echo $fila['fechainicio']; ?></td>
+          <td><?php echo $fila['fechatermino']; ?></td>
+          <td><?php echo $fila['fechacaducidad']; ?></td>
+          <td><a href= "<?php echo $link ?>">Agregar</a> </td>
         </tr>
 
 <?php }

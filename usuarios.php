@@ -27,6 +27,7 @@
 
 </head>
 <?php
+foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
 if (!empty($_GET['u'])) {
     $u = $_GET['u'];  
     $_SESSION['pass']   =  $_GET['u'];
