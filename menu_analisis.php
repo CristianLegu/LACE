@@ -9,7 +9,7 @@
     echo "Falló la conexión: ".mysqli_connect_error();
     }
 
-//foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
+foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
 $id = $_GET['p'];
         $sql = "SELECT nombre
                   FROM pacientes
@@ -63,7 +63,7 @@ $id = $_GET['p'];
 <nav id="hola">
   <ul>
     <li><p>
-          <a href="menu.php">
+          <a href="menu_pacientes.php">
             <img src="img/logo2.png"  id="logo">
           </a>
         </p>
@@ -79,7 +79,7 @@ $id = $_GET['p'];
         </form>
       </p>
     <li>
-      <a  href= "analisis.php?p=<?php echo $_GET['p']?>&pro=<?php echo 0 ?>" class="add"><img src="img/addpac.png"></a>
+      <a  href= "analisis.php?p=<?php echo urlencode(base64_encode($_GET['p']))?>&pro=<?php echo urlencode(base64_encode(0)) ?>" class="add"><img src="img/addpac.png"></a>
     </li>
   </ul>
 </nav>
@@ -200,6 +200,12 @@ $id = $_GET['p'];
               where  idmedicos = '$fila[medicos_idmedicos]'";
                $query1 = mysqli_query($con, $sql1);
                $fila1 = mysqli_fetch_array($query1, MYSQLI_ASSOC);
+               $idm = $fila1['idmedicos'];
+               $idprop = $fila['idpropio'];
+               $idpac = $_GET['p'];
+               $enviar = "recupera.php?idpac=".urlencode(base64_encode($idpac))."&idpr=".urlencode(base64_encode($idprop))."&idm=".urlencode(base64_encode($idm));
+               $editar = "analisis.php?p=".urlencode(base64_encode($idpac))."&pro=".urlencode(base64_encode($idprop));
+               $ver = "reporte.php?idpac=".urlencode(base64_encode($idpac))."&idpr=".urlencode(base64_encode($idprop))."&idm=".urlencode(base64_encode($idm));
 
  ?>
         <tr>
@@ -208,15 +214,15 @@ $id = $_GET['p'];
           <td><?php echo $fila['fecha']; ?></td>
           <td><?php echo $fila1['nombre']; ?> </td>
           <td>
-              <a class="text" href= "recupera.php?idpac=<?php echo $_GET['p']?>&idpr=<?php echo $fila['idpropio']?>&idm=<?php echo $fila1['idmedicos'] ?> " >
+              <a class="text" href= "<?php echo $enviar ?> " >
                 <strong>Enviar Correo electr&oacutenico</strong>
               </a>
               |
-              <a class="text" href= "analisis.php?p=<?php echo $_GET['p']?>&pro=<?php echo $fila['idpropio'] ?> " >
+              <a class="text" href= "<?php echo $editar?> " >
                 <strong>Editar</strong>
               </a>
               |
-              <a class="text" target="_blank" href= "reporte.php?idpac=<?php echo $_GET['p']?>&idpr=<?php echo $fila['idpropio']?>&idm=<?php echo $fila1['idmedicos'] ?> " >
+              <a class="text" target="_blank" href= "<?php echo $ver ?> " >
                 <strong>Visualizar</strong>
               </a>
           </td>

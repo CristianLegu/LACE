@@ -7,6 +7,7 @@
             if (mysqli_connect_errno()) {
           echo "Falló la conexión:".mysqli_connect_error();
               }
+foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
 ?>
 <!doctype html>
 <html lang="en-US">

@@ -171,8 +171,6 @@
 
 
 
-
-
          while ($fila = mysqli_fetch_array($query, MYSQLI_ASSOC)){
          $nombre = $fila['nombre_art'];
          $idprod = $fila['idinventario'];
@@ -181,10 +179,11 @@
         <tr>
           <td><?php echo $idprod; ?></td>
           <td><?php echo $nombre; ?></td>
+          <td><?php echo $fila['fechastock']; ?></td>
           <td><?php echo $fila['fechainicio']; ?></td>
           <td><?php echo $fila['fechatermino']; ?></td>
           <td><?php echo $fila['fechacaducidad']; ?></td>
-          <td><a href= "<?php echo $link ?>">Agregar</a> </td>
+          <td><a href= "<?php echo $link ?>">Ver</a> </td>
         </tr>
 
 <?php }
