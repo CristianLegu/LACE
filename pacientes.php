@@ -82,14 +82,22 @@
           </div>
         </div>
   <!-- Pantalla de carga-->
-  <div id="wrapper">
+<nav id="hola">
+  <ul>
+    <li><p>
+          <a href="menu_medicos.php">
+	        <img src="img/logo2.png" id="logo">
+        </a>
+        </p>
 
-    <span style="align: left;">
-      <a href="menu.php">
-       <img src="img/logo2.png"  style="width: 15%; margin-left: 40px; ">
-     </a>
-     <h1>Pacientes</h1>
-   </span>
+    </li>
+
+    <li>
+      <h1>Pacientes</h1>
+    </li>
+  </ul>
+</nav>
+
 
    <form action="guarda.php" method="post" autocomplete="off">
 
