@@ -173,7 +173,7 @@
           <td><?php echo $nombre; ?></td>
           <?php $idpaciente = $fila['idpacientes'];  ?>
           <td><a class="text" href= "pacientes.php?p=<?php echo $idpaciente?>"><strong>Ver</strong></a> </td>
-          <td><a class="text" href= "analisis.php?p=<?php echo $idpaciente ?>&pro=<?php echo 0 ?>"><strong>Agregar</strong></a><strong class="text"> / </strong>
+          <td><a class="text" href= "analisis.php?p=<?php echo $idpaciente ?>&pro=<?php echo 0 ?>"><strong>Agregar</strong></a><strong class="text"> | </strong>
             <a class="text" href= "menu_analisis.php?p=<?php echo $idpaciente ?>"><strong>Ver</strong></a> </td>
         </tr>
 

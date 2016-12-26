@@ -58,7 +58,7 @@
     </li>
       <p>
         <form name="formulario" action="" onSubmit="enviarDatos(); return false" autocomplete="off">
-          <li><input type="text" placeholder="Buscar..." name="busca" id="busca"></li>
+          <li><input style= "visibility:hidden;" type="text" placeholder="Buscar..." name="busca" id="busca"></li>
         </form>
       </p>
     <li>
@@ -80,14 +80,29 @@
   include("includes/conexion.php");
   $con = mysqli_connect($host, $user, $pwd, $db);
   $paginationCtrls = '';
+
+  
+  
+
+
+  if(isset($_GET['p'])){
+    echo "tiene parametro ".$_GET['p'];
+  }
+  else{
+    echo "no tiene parametro P";
+    header('Location: menu_analisis.php?p=1');
+  }
+  $idpacientes = $_GET['p'];
+  //echo "paciente id ".$_GET['p'];
   if (mysqli_connect_errno()) {
         echo "Falló la conexión: ".mysqli_connect_error();
         }
   if(empty($_GET['busca'])){
 
       $sql = "SELECT
-              count(idpacientes)
-              FROM pacientes";
+              count(idanalisis)
+              FROM analisis
+              WHERE pacientes_idpacientes = '$idpacientes' ";
       $result = mysqli_query($con, $sql);
       $row = mysqli_fetch_row($result);
       $rows = $row[0];
@@ -117,14 +132,18 @@
                       fecha,
                       medicos_idmedicos,
                       idpropio
-              FROM analisis";
+              FROM analisis
+              WHERE pacientes_idpacientes = '$idpacientes'
+              ORDER BY idanalisis
+              ASC $limit";
       $query = mysqli_query($con, $sql);
 
 
 
        $sqlcuenta = "SELECT
-              count(idpropio)
-              FROM analisis";
+                      count(idpropio)
+                      FROM analisis
+                      WHERE pacientes_idpacientes = '$idpacientes'";
       $resultado = mysqli_query($con, $sqlcuenta);
       $registros = mysqli_fetch_row($resultado);
       $registros = $row[0];
@@ -132,11 +151,11 @@
       if($last != 1){
           if($pagenum > 1){
             $previous = $pagenum - 1;
-            $paginationCtrls .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$previous.'">Anterior</a> &nbsp; &nbsp; ';
+            $paginationCtrls .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$previous.'&p='.$idpacientes.'">Anterior</a> &nbsp; &nbsp; ';
 
             for($i = $pagenum-4; $i < $pagenum; $i++){
                 if($i > 0){
-                    $paginationCtrls .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'">'.$i.'</a> &nbsp; ';
+                    $paginationCtrls .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'&p='.$idpacientes.'">'.$i.'</a> &nbsp; ';
                 }
 	          }
           }
@@ -144,7 +163,7 @@
           $paginationCtrls .= ''.$pagenum.' &nbsp; ';
 
           for($i = $pagenum+1; $i <= $last; $i++){
-		        $paginationCtrls .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'">'.$i.'</a> &nbsp; ';
+		        $paginationCtrls .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'&p='.$idpacientes.'">'.$i.'</a> &nbsp; ';
 		        if($i >= $pagenum+4){
 			          break;
 		        }
@@ -152,11 +171,12 @@
 
           if ($pagenum != $last) {
                 $next = $pagenum + 1;
-                $paginationCtrls .= ' &nbsp; &nbsp; <a href="'.$_SERVER['PHP_SELF'].'?pn='.$next.'">Siguiente</a> ';
+                $paginationCtrls .= ' &nbsp; &nbsp; <a href="'.$_SERVER['PHP_SELF'].'?pn='.$next.'&p='.$idpacientes.'">Siguiente</a> ';
           }
       }
 
     }else{
+      /*
           $pac = $_GET['busca'];
           $search = '%'.$pac.'%';
           $sql = "SELECT
@@ -165,6 +185,7 @@
                   FROM pacientes
                   WHERE nombre LIKE '$search'" ;
           $query = $con -> query($sql);
+      */
     }
 
 
