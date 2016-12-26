@@ -58,16 +58,25 @@
                 </div>
               </div>
         <!-- Pantalla de carga-->
-      <span style="align: left;">
-        <a href="menu_pacientes.php">
-	        <img src="img/logo2.png"  style="width: 15%; margin-left: 40px; ">
+<nav id="hola">
+  <ul>
+    <li><p>
+          <a href="menu_pacientes.php">
+	        <img src="img/logo2.png" id="logo">
         </a>
+        </p>
 
-        <h1 align="center">Análisis</h1>
-      </span>
-           <div class="container">
-                <div class="form-group">
-                     <form name="add_name" id="add_name" method="post" action="agrega_analisis.php " ALIGN=center autocomplete="off">
+    </li>
+
+    <li>
+      <h1>An&aacute;lisis</h1>
+    </li>
+  </ul>
+</nav>
+
+      <div class="container">
+        <div class="form-group">
+          <form name="add_name" id="add_name" method="post" action="agrega_analisis.php " ALIGN=center autocomplete="off">
       <div>
       <label >
         Elegir Medico

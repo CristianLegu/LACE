@@ -1,6 +1,23 @@
 <?php
       header('Content-Type: text/html; charset=iso-8859-1');
       echo htmlspecialchars("", ENT_QUOTES, 'utf-8');
+      include("includes/conexion.php");
+      
+      $con = mysqli_connect($host, $user, $pwd, $db);
+
+  if (mysqli_connect_errno()) {
+    echo "Falló la conexión: ".mysqli_connect_error();
+    }
+
+//foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
+$id = $_GET['p'];
+        $sql = "SELECT nombre
+                  FROM pacientes
+                  WHERE idpacientes = '$id'" ;
+
+         $query  = mysqli_query($con, $sql);
+         $nombre   = mysqli_fetch_array($query, MYSQLI_ASSOC);
+         mysqli_close($con);
 
 ?>
 <!doctype html>
@@ -54,7 +71,7 @@
     </li>
 
     <li>
-      <h1>An&aacute;lisis</h1>
+      <h3>An&aacute;lisis de <?php echo $nombre['nombre']; ?></h3>
     </li>
       <p>
         <form name="formulario" action="" onSubmit="enviarDatos(); return false" autocomplete="off">
@@ -77,13 +94,9 @@
         </tr>
 
 <?php
-  include("includes/conexion.php");
+  
   $con = mysqli_connect($host, $user, $pwd, $db);
   $paginationCtrls = '';
-
-  
-  
-
 
   if(isset($_GET['p'])){
     //echo "tiene parametro ".$_GET['p'];
@@ -93,7 +106,6 @@
     header('Location: menu_analisis.php?p=1');
   }
   $idpacientes = $_GET['p'];
-  //echo "paciente id ".$_GET['p'];
   if (mysqli_connect_errno()) {
         echo "Falló la conexión: ".mysqli_connect_error();
         }
@@ -175,19 +187,7 @@
           }
       }
 
-    }else{
-      /*
-          $pac = $_GET['busca'];
-          $search = '%'.$pac.'%';
-          $sql = "SELECT
-                   idpacientes,
-                   nombre
-                  FROM pacientes
-                  WHERE nombre LIKE '$search'" ;
-          $query = $con -> query($sql);
-      */
     }
-
 
      if($registros!= null){
 

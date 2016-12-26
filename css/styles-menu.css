@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Laila:400,700);
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
 
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
@@ -36,13 +36,14 @@ em, i { font-style: italic; }
 
 h3{
   display: block;
-  font-size: 2.1em;
+  font-size: 2.6em;
   line-height: 1.45em;
-  font-family: 'Laila', serif;
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
   font-weight: bold;
-  color: #555;
-  text-shadow: 1px 1px 0 #fff;
+  color: #f2f2f2;
+  text-shadow: 1px 1px 0 #555;
+  margin-top: 10%;
 }
 
 
@@ -308,7 +309,7 @@ img:hover {
   display: block;
   font-size: 4.0em;
   line-height: 1.45em;
-  font-family: 'Laila', serif;
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
   font-weight: bold;
   color: #fff;
@@ -359,7 +360,7 @@ input[type=text]:focus {
   display: block;
   font-size: 3.5em;
   line-height: 1.45em;
-  font-family: 'Laila', serif;
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
   font-weight: bold;
   color: #fff;
@@ -407,7 +408,7 @@ nav ul li {
   display: block;
   font-size: 2.8em;
   line-height: 1.45em;
-  font-family: 'Laila', serif;
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
   font-weight: bold;
   color: #fff;
@@ -451,7 +452,7 @@ input[type="text"]:focus { width: 50%;}
   display: block;
   font-size: 2.0em;
   line-height: 1.45em;
-  font-family: 'Laila', serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   color: #fff;
   text-shadow: 1px 1px 0 #000;
