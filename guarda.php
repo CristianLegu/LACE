@@ -227,8 +227,7 @@ switch ($sesion) {
 					}
 
 					
-					  include("includes/password.php");	  
-					  echo $password;
+					include("includes/password.php");	  
 					$idup = $_SESSION['idup'];
 				    $sql = "UPDATE usuarios
 								  set nombre 			= '$nombre', 
