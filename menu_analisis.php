@@ -208,7 +208,7 @@ $id = $_GET['p'];
           <td><?php echo $fila['fecha']; ?></td>
           <td><?php echo $fila1['nombre']; ?> </td>
           <td>
-              <a class="text" href= "analisis.php?p=<?php echo $_GET['p']?>&pro=<?php echo $fila['idpropio'] ?> " >
+              <a class="text" href= "recupera.php?idpac=<?php echo $_GET['p']?>&idpr=<?php echo $fila['idpropio']?>&idm=<?php echo $fila1['idmedicos'] ?> " >
                 <strong>Enviar Correo electr&oacutenico</strong>
               </a> 
               |
