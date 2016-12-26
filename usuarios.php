@@ -91,7 +91,7 @@ if (!empty($_GET['u'])) {
 </nav>
 
 
-   <form action="guarda.php" action="guarda.php" method="post" name="fus" autocomplete="off">
+   <form action="guarda.php" method="post" name="fus" autocomplete="off">
 
     <div class="col-3">
       <label>

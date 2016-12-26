@@ -134,16 +134,26 @@ switch ($sesion) {
 
 	case 'USUARIO':
 			$encontro=0;
+			$usuario = "";
 			$con = mysqli_connect($host, $user, $pwd, $db);
 			if (mysqli_connect_errno()) {
     		echo "Falló la conexión: ".mysqli_connect_error();
         	}
-        	$nombre 	   	= utf8_decode($_POST['nombre']);
-			$direccion 		= utf8_decode($_POST['direccion']);
-			$telefono		= utf8_decode($_POST['telefono']);
-			$usuario        = utf8_decode($_POST['user']);
-			$pass        	= utf8_decode($_POST['contraseña']);
-		    $email	        = utf8_decode($_POST['email']);
+			if( isset($_POST['nombre']) && isset($_POST['direccion']) &&
+				isset($_POST['telefono']) && isset($_POST['user']) && isset($_POST['contraseña']) &&
+				isset($_POST['email'])
+				)
+			{
+				$nombre 	   	= utf8_decode($_POST['nombre']);
+				$direccion 		= utf8_decode($_POST['direccion']);
+				$telefono		= utf8_decode($_POST['telefono']);
+				$usuario        = utf8_decode($_POST['user']);
+				$pass        	= utf8_decode($_POST['contraseña']);
+				$email	        = utf8_decode($_POST['email']);
+
+			}
+
+        	
 
 		    $sql = "SELECT n_user
                     FROM usuarios
@@ -208,12 +218,20 @@ switch ($sesion) {
 			if (mysqli_connect_errno()) {
     		echo "Falló la conexión: ".mysqli_connect_error();
         	}
-        	$nombre 	   	= utf8_decode($_POST['nombre']);
-			$direccion 		= utf8_decode($_POST['direccion']);
-			$telefono		= utf8_decode($_POST['telefono']);
-			$usuario        = utf8_decode($_POST['user']);
-			$pass  	        = utf8_decode($_POST['contraseña']);
-		    $email	        = utf8_decode($_POST['email']);
+			if( isset($_POST['nombre']) && isset($_POST['direccion']) &&
+				isset($_POST['telefono']) && isset($_POST['user']) && isset($_POST['contraseña']) &&
+				isset($_POST['email'])
+				)
+			{
+				$nombre 	   	= utf8_decode($_POST['nombre']);
+				$direccion 		= utf8_decode($_POST['direccion']);
+				$telefono		= utf8_decode($_POST['telefono']);
+				$usuario        = utf8_decode($_POST['user']);
+				$pass  	        = utf8_decode($_POST['contraseña']);
+				$email	        = utf8_decode($_POST['email']);
+			}
+
+        
 
 
 		    	if (isset($_POST['nombre']) && !empty($_POST['nombre'])   &&
