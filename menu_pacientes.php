@@ -46,7 +46,7 @@
 <nav id="hola">
   <ul>
     <li><p>
-          <a href="menu.php">
+          <a href="pacientes.php">
             <img src="img/logo2.png"  id="logo">
           </a>
         </p>
