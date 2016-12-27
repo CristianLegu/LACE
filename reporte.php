@@ -1,7 +1,7 @@
 <?php
     include('fpdf181/fpdf.php');
     include("includes/conexion.php");
-      
+    
 foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
 class PDF extends FPDF
     {
@@ -108,7 +108,8 @@ class PDF extends FPDF
         }
 */
     }
-      
+    
+
     $idpr   = 0;
     $idpac  = 0;
     $idmed  = 0;
@@ -138,6 +139,7 @@ class PDF extends FPDF
     
     
     $pdf = new PDF();
+    $pdf->Settitle("Reporte");
     $pdf->AddPage();
     $pdf->AliasNbPages();
     $pdf->SetFillColor(232, 232, 232);
@@ -214,5 +216,4 @@ class PDF extends FPDF
         $pdf->Cell(180, 6, 'QFB. Fabiola Espinosa Bribiesca', 0, 1, 'C');
 
         $pdf->Output();
-
 ?>

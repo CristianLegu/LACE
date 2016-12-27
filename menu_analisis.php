@@ -9,7 +9,8 @@
     echo "Falló la conexión: ".mysqli_connect_error();
     }
 
-foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
+
+
 $id = $_GET['p'];
         $sql = "SELECT nombre
                   FROM pacientes
@@ -163,6 +164,7 @@ $id = $_GET['p'];
       if($last != 1){
           if($pagenum > 1){
             $previous = $pagenum - 1;
+            
             $paginationCtrls .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$previous.'&p='.$idpacientes.'">Anterior</a> &nbsp; &nbsp; ';
 
             for($i = $pagenum-4; $i < $pagenum; $i++){
@@ -175,6 +177,7 @@ $id = $_GET['p'];
           $paginationCtrls .= ''.$pagenum.' &nbsp; ';
 
           for($i = $pagenum+1; $i <= $last; $i++){
+            
 		        $paginationCtrls .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'&p='.$idpacientes.'">'.$i.'</a> &nbsp; ';
 		        if($i >= $pagenum+4){
 			          break;
@@ -183,6 +186,7 @@ $id = $_GET['p'];
 
           if ($pagenum != $last) {
                 $next = $pagenum + 1;
+            
                 $paginationCtrls .= ' &nbsp; &nbsp; <a href="'.$_SERVER['PHP_SELF'].'?pn='.$next.'&p='.$idpacientes.'">Siguiente</a> ';
           }
       }
@@ -204,7 +208,7 @@ $id = $_GET['p'];
                $idprop = $fila['idpropio'];
                $idpac = $_GET['p'];
                $enviar = "recupera.php?idpac=".urlencode(base64_encode($idpac))."&idpr=".urlencode(base64_encode($idprop))."&idm=".urlencode(base64_encode($idm));
-               $editar = "analisis.php?p=".urlencode(base64_encode($idpac))."&pro=".urlencode(base64_encode($idprop));
+               $editar = "analisis.php?p=".urlencode(base64_encode($idpac))."&pro=".urlencode(base64_encode($idprop))."&idm=".urlencode(base64_encode($idm));
                $ver = "reporte.php?idpac=".urlencode(base64_encode($idpac))."&idpr=".urlencode(base64_encode($idprop))."&idm=".urlencode(base64_encode($idm));
 
  ?>

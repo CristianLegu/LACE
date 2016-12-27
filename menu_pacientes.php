@@ -170,7 +170,7 @@
          $idpac = $fila['idpacientes'];
          $ver = "pacientes.php?p=".urlencode(base64_encode($idpac));
          $agregar = "analisis.php?p=".urlencode(base64_encode($idpac))."&pro=".urlencode(base64_encode("0"));
-         $vera = "menu_analisis.php?p=".urlencode(base64_encode($idpac));
+         $vera = "menu_analisis.php?p=".$idpac;
  ?>
         <tr>
           <td><?php echo $fila['idpacientes']; ?></td>
