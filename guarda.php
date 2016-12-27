@@ -591,6 +591,8 @@ if (isset($_POST['nombre_art'])             && !empty($_POST['nombre_art'])   &&
 			   	$fechatermino = "NO";
 			   }
 				$idproveedores 	    = utf8_decode($_POST['idproveedor']);
+
+				
 				$costo_prueba 		= utf8_decode($_POST['costo_prueba']);
 				$marca 				= utf8_decode($_POST['marca']);
 				$prueba_kit 		= utf8_decode($_POST['prueba_kit']);

@@ -54,10 +54,11 @@ if ($_GET['prod'] != '0'){
           $diafechacaducidad = '';
         }
 
-   $query1 = $con -> query ("SELECT idproveedores, nombre FROM proveedores where idproveedores = '$prod' ");
+   $query1 = $con -> query ("SELECT idproveedores FROM inventario where idinventario = '$prod' ");
+    $idproveedor1 = mysqli_fetch_array($query1);
 
-         $nombreproveedor1 = mysqli_fetch_array($query1);
-           
+   $query2 = $con -> query ("SELECT idproveedores, nombre FROM proveedores where idproveedores = '$idproveedor1[idproveedores]' ");
+         $nombreproveedor1 = mysqli_fetch_array($query2);
         // echo '<option value="'.$valores[idproveedores].'">'.$valores[nombre].'</option>';
          
   //   $sql1    = "SELECT  nombre FROM proveedores where idproveedores = '$prod' ";
@@ -172,7 +173,7 @@ else{
  </div>
         <div class="col-3">
           <label>
-            Proveedores 
+            Proveedores <?php echo $nombreproveedor1['nombre'];  ?>
                         <br><br>
  <select id="idproveedor"  name="idproveedor" >
 
