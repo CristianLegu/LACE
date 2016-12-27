@@ -146,15 +146,8 @@ foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
 
 <?php  if($fila == null) { ?>
           <table class="table table-bordered" id="dynamic_field">
-            <tr id="0">
-              <td>Prueba</td>
-              <td>Resultado</td>
-              <td>Unidades</td>
-              <td>Valor de referencia</td>
-              <td>Observaciones</td>
-            </tr>
             <tr>
-             
+              <td><input type="form-control" name="pruebas[]" placeholder="Prueba" class="form-control name_list" /></td>
               <td><input type="form-control" name="resultado[]" placeholder="Resultado" class="form-control name_list" /></td>
               <td><input type="form-control" name="unidades[]" placeholder="Unidades" class="form-control name_list" /></td>
               <td><input  type="form-control" name="valorreferencia[]" placeholder="Valor de referencia" class="form-control name_list" /></td>
@@ -188,7 +181,7 @@ foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
       </table>
      	<?php	 }   $i ;   ?>
        </div>
-   <div>
+   <div class="col-2">
     <label >
        Comentarios
     </label>
