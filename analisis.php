@@ -86,17 +86,18 @@ foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
 
 -->
 <form name="add_name" id="add_name" method="post" action="agrega_analisis.php " ALIGN=center autocomplete="off">
- <select id="idmedico"  name="idmedico" >
-        <option  value="<?php $idmedico ?>" >Seleccionar Médico</option>
-        <?php
-          $mysqli = mysqli_connect($host, $user, $pwd, $db);
-          $querymedicos = $mysqli -> query ("SELECT idmedicos, nombre FROM medicos");
+        <select id="idmedico"  name="idmedico" >
+          <option  value="<?php $idmedico ?>" >Seleccionar Médico</option>
+          <?php
+            $mysqli = mysqli_connect($host, $user, $pwd, $db);
+            $querymedicos = $mysqli -> query ("SELECT idmedicos, nombre FROM medicos");
 
-          while ($valores =  mysqli_fetch_array($querymedicos, MYSQLI_ASSOC)) {
-            echo '<option value="'.$valores['idmedicos'].'">'.$valores['nombre'].'</option>';
-          }
-          mysqli_close($mysqli);
-        ?>
+            while ($valores =  mysqli_fetch_array($querymedicos, MYSQLI_ASSOC)) {
+              echo '<option value="'.$valores['idmedicos'].'">'.$valores['nombre'].'</option>';
+            }
+            mysqli_close($mysqli);
+            
+          ?>
         </select>
       </label>
       </div>

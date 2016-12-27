@@ -7,8 +7,14 @@
        echo "Falló la conexión: IF".mysqli_connect_error();
       }
      
-$idpropio   = $_POST["idpropio"];
-$idpaciente = $_POST["idpaciente"];
+
+$idpropio   = 0;
+$idpaciente = 0;
+
+if(isset($_POST['idpropio']) && isset($_POST['idpaciente'])){
+      $idpropio   = $_POST["idpropio"];
+      $idpaciente = $_POST["idpaciente"];
+}
 
 if ($idpropio == 0) {
       $sql    = "SELECT idpropio FROM analisis order by idpropio desc"; 
@@ -31,7 +37,18 @@ if ($idpropio == 0) {
       $comentario       = $_POST["comentario"];
       $pacientes_idpacientes = $idpaciente;
       $medicos_idmedicos = $_POST["idmedico"];
-      $number        = count($_POST["pruebas"]);  
+      $number        = count($_POST["pruebas"]); 
+
+
+      if ($medicos_idmedicos != null || $medicos_idmedicos != "") {
+        //echo "ID MEDICOS dentro de if ".$medicos_idmedicos;  
+      }
+      else{
+        include('includes/alert_medico.php');
+      }
+
+
+      
       if($number > 0)  
       {  
           for($i=0; $i<$number; $i++)  
@@ -65,6 +82,7 @@ if ($idpropio == 0) {
     }
 }
 else {
+   
   $eliminar = "DELETE FROM analisis WHERE idpropio = $idpropio;";
 
   if ($mysqli->query($eliminar) === TRUE) {
@@ -80,7 +98,12 @@ else {
       $pacientes_idpacientes = 1;
       $medicos_idmedicos = $_POST["idmedico"];
       $number        = count($_POST["pruebas"]);  
-
+    if ($medicos_idmedicos != null || $medicos_idmedicos != "") {
+        //echo "ID MEDICOS dentro de if ".$medicos_idmedicos;  
+      }
+      else{
+        include('includes/alert_medico.php');
+      }
       if($number > 0)  
       {  
         for($i=0; $i<$number; $i++)  
@@ -152,7 +175,7 @@ else {
 								    <span class="icon">
 									    <i aria-hidden="true" class="icon-services"></i>
 								    </span>
-								    <span>Enviar por correo electr&oacutenico</span>
+								    <span>Correo electr&oacutenico</span>
 							      </a>
                   </li>
                   <li style="visibility:hidden;">
@@ -169,7 +192,7 @@ else {
 								    <span class="icon">
 									    <i aria-hidden="true" class="icon-services"></i>
 								    </span>
-								    <span>Enviar por correo electr&oacutenico</span>
+								    <span>Correo electr&oacutenico</span>
 							      </a>
                   </li>
                   <li>
@@ -186,7 +209,7 @@ else {
 								    <span class="icon">
 									    <i aria-hidden="true" class="icon-services"></i>
 								    </span>
-								    <span>Enviar por correo electr&oacutenico</span>
+								    <span>Correo electr&oacutenico</span>
 							      </a>
                   </li>
                   <li style="visibility:hidden;">
