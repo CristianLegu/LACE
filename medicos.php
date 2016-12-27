@@ -9,7 +9,6 @@
   <title>Médicos - LACE</title>
 <link rel="shortcut icon" href="img/icon.png">
   <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
-  <link rel="stylesheet" type="text/css" media="all" href="css/styles2.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
   <script type="text/javascript" src="js/switchery.min.js"></script>
   <!-- Pantalla de carga-->
@@ -63,14 +62,21 @@
           </div>
         </div>
   <!-- Pantalla de carga-->
-  <div id="wrapper">
+<nav id="hola">
+  <ul>
+    <li><p>
+          <a href="menu_medicos.php">
+	        <img src="img/logo2.png" id="logo">
+        </a>
+        </p>
 
-<span style="align: left;">
-<a href="menu.php">
-	<img src="img/logo2.png"  style="width: 15%; margin-left: 40px; ">
-</a>
-	<h1>M&eacute;dicos</h1>
-</span>
+    </li>
+
+    <li>
+      <h1>M&eacute;dicos</h1>
+    </li>
+  </ul>
+</nav>
 
   <form action="guarda.php" method="post" autocomplete="off">
 

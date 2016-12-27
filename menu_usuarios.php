@@ -177,8 +177,8 @@
         <tr>
           <td><?php echo $fila['idusuarios']; ?></td>
           <td><?php echo $nombre; ?></td>
-          <td><a href= "<?php echo $ver ?>">Ver</a> /
-              <a href= "<?php echo $recupera ?>">Recuperar contrase&ntilde;a</a></td>
+          <td><a class="text" href= "<?php echo $ver ?>"><strong>Ver</strong></a> <strong class="text"> | </strong>
+              <a class="text" href= "<?php echo $recupera ?>"><strong>Recuperar contrase&ntilde;a</strong></a></td>
         </tr>
 
 <?php }

@@ -7,8 +7,8 @@
       // echo "Error ".mysqli_error($mysqli);
        }
 
-       foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
-       
+foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
+
   $cont = 1;
   $i = 1;
   $idpac = $_GET['p'];
@@ -58,16 +58,25 @@
                 </div>
               </div>
         <!-- Pantalla de carga-->
-      <span style="align: left;">
-        <a href="menu_pacientes.php">
-	        <img src="img/logo2.png"  style="width: 15%; margin-left: 40px; ">
+<nav id="hola">
+  <ul>
+    <li><p>
+          <a href="<?php echo $_SERVER['HTTP_REFERER']; ?>">
+	        <img src="img/logo2.png" id="logo">
         </a>
+        </p>
 
-        <h1 align="center">Análisis</h1>
-      </span>
-           <div class="container">
-                <div class="form-group">
-                     <form name="add_name" id="add_name" method="post" action="agrega_analisis.php " ALIGN=center autocomplete="off">
+    </li>
+
+    <li>
+      <h1>An&aacute;lisis</h1>
+    </li>
+  </ul>
+</nav>
+
+      <div class="container">
+        <div class="form-group">
+          <form name="add_name" id="add_name" method="post" action="agrega_analisis.php " ALIGN=center autocomplete="off">
       <div>
       <label >
         Elegir Medico
@@ -77,17 +86,18 @@
 
 -->
 <form name="add_name" id="add_name" method="post" action="agrega_analisis.php " ALIGN=center autocomplete="off">
- <select id="idmedico"  name="idmedico" >
-        <option  value="<?php $idmedico ?>" >Seleccionar Médico</option>
-        <?php
-          $mysqli = mysqli_connect($host, $user, $pwd, $db);
-          $querymedicos = $mysqli -> query ("SELECT idmedicos, nombre FROM medicos");
+        <select id="idmedico"  name="idmedico" >
+          <option  value="<?php $idmedico ?>" >Seleccionar Médico</option>
+          <?php
+            $mysqli = mysqli_connect($host, $user, $pwd, $db);
+            $querymedicos = $mysqli -> query ("SELECT idmedicos, nombre FROM medicos");
 
-          while ($valores =  mysqli_fetch_array($querymedicos, MYSQLI_ASSOC)) {
-            echo '<option value="'.$valores['idmedicos'].'">'.$valores['nombre'].'</option>';
-          }
-          mysqli_close($mysqli);
-        ?>
+            while ($valores =  mysqli_fetch_array($querymedicos, MYSQLI_ASSOC)) {
+              echo '<option value="'.$valores['idmedicos'].'">'.$valores['nombre'].'</option>';
+            }
+            mysqli_close($mysqli);
+            
+          ?>
         </select>
       </label>
       </div>
@@ -166,12 +176,12 @@
               <input name="idpropio" value="<?php if($fila1 != null) { echo $idpropio; } else {$idpropio = 0; echo $idpropio;}?>"  style='display:none;'>
 
                       <button name="submit1"   class="guardar" >GUARDAR</button>
-                     
 
- 
+
+
 
               <input name="idpaciente" value = "<?php echo $idpac; ?>" style="display:none;">
-                      
+
                      </form>
                 </div>
            </div>

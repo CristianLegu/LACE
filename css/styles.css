@@ -1,12 +1,10 @@
-nes (318 sloc)  8.75 KB
-@import url(http://fonts.googleapis.com/css?family=Laila:400,700);
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
 
-html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
-  margin: 20;
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
   padding: 0;
   border: 0;
   font-size: 100%;
-  font: inherit;
   vertical-align: baseline;
   outline: none;
   -webkit-font-smoothing: antialiased;
@@ -22,7 +20,7 @@ body {
   background: #e2eef4;
   font-size: 62.5%;
   line-height: 1;
-  padding-top: 40px;
+  padding-top: 0px;
 }
 
 br { display: block; line-height: 1.6em; } 
@@ -39,18 +37,19 @@ h1{
   display: block;
   font-size: 4.1em;
   line-height: 1.45em;
-  font-family: 'Laila', serif;
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
   font-weight: bold;
-  color: #555;
-  text-shadow: 1px 1px 0 #fff;
+  color: #f2f2f2;
+  text-shadow: 1px 1px 0 #555;
+  margin-top: 40px;
 }
 
 h3{
   display: block;
   font-size: 2.1em;
   line-height: 1.45em;
-  font-family: 'Laila', serif;
+  font-family: 'Montserrat', sans-serif;
   text-align: center;
   font-weight: bold;
   color: #555;
@@ -289,26 +288,11 @@ input[type=text]:focus {
     width: 70%;
 }
 
-
-#hola{
-  display: table;
-  margin-top: 10px; 
-  margin-left: 30px;
-}
-
-#hola ul{
-float: left;
-margin-top: 0;
-margin-bottom: 1rem;
-
-}
-
 #logo {
-
+width: 50%;
 float: left;
-
+margin-top: 3%;
 }
-
 
 /**********************************************************
 /*  ****************INICIO DATEBIRTH*
@@ -775,4 +759,46 @@ button.submit1 {
     color: #fff;
 }
 
+nav{
+    overflow:hidden;
+    padding:0px;
+    width:100%;
+    background:#2D4C82;
+}
 
+nav ul{
+    list-style:none;
+    margin:0 10px 0 10px;
+    padding:0;
+    width: 100%;
+}
+
+nav ul li{
+    /*Bordes redondeados*/
+    -webkit-border-radius:5px;/*Chrome y Safari*/
+    -moz-border-radius:5px;/*Firefox*/
+    -o-border-radius:5px;/*Opera*/
+    border-radius:5px;/*Estandar por defecto*/
+    float:left;
+    font-family:Arial, Helvetica, sans-serif;
+    font-size:16px;
+    font-weight:bold;
+    /*Sombras para texto, los mismos parametros que box-shadow*/
+    text-shadow: 0px 1px 0px #FFF;
+    width: 27em;
+}
+
+img {
+      opacity: 1.0;
+      -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity = 100);
+      filter: alpha(opacity = 100);
+      }
+img:hover {
+      opacity: 0.4;
+      -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity = 70);
+      filter: alpha(opacity = 70);
+      transition-duration: 0.5s;
+      -moz-transition-duration: 0.5s;
+      -webkit-transition-duration: 0.5s;
+      -o-transition-duration: 0.5s;
+      }

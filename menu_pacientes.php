@@ -175,9 +175,12 @@
         <tr>
           <td><?php echo $fila['idpacientes']; ?></td>
           <td><?php echo $nombre; ?></td>
+
+          <?php $idpaciente = $fila['idpacientes'];  ?>
           <td><a class="text" href= "<?php echo $ver?>"><strong>Ver</strong></a> </td>
-          <td><a class="text" href= "<?php echo $agregar?>"><strong>Agregar</strong></a><strong class="text"> / </strong>
-              <a class="text" href= "<?php echo $vera ?>"><strong>Ver</strong></a> </td>
+          <td><a class="text" href= "<?php echo $agregar?>"><strong>Agregar</strong></a><strong class="text"> | </strong>
+            <a class="text" href= "<?php echo $vera ?>"><strong>Ver</strong></a> </td>
+
         </tr>
 
 <?php }

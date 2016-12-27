@@ -1,6 +1,23 @@
 <?php
       header('Content-Type: text/html; charset=iso-8859-1');
       echo htmlspecialchars("", ENT_QUOTES, 'utf-8');
+      include("includes/conexion.php");
+
+      $con = mysqli_connect($host, $user, $pwd, $db);
+
+  if (mysqli_connect_errno()) {
+    echo "Falló la conexión: ".mysqli_connect_error();
+    }
+
+foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
+$id = $_GET['p'];
+        $sql = "SELECT nombre
+                  FROM pacientes
+                  WHERE idpacientes = '$id'" ;
+
+         $query  = mysqli_query($con, $sql);
+         $nombre   = mysqli_fetch_array($query, MYSQLI_ASSOC);
+         mysqli_close($con);
 
 ?>
 <!doctype html>
@@ -46,7 +63,7 @@
 <nav id="hola">
   <ul>
     <li><p>
-          <a href="menu.php">
+          <a href="menu_pacientes.php">
             <img src="img/logo2.png"  id="logo">
           </a>
         </p>
@@ -54,15 +71,15 @@
     </li>
 
     <li>
-      <h1>An&aacute;lisis</h1>
+      <h3>An&aacute;lisis de <?php echo $nombre['nombre']; ?></h3>
     </li>
       <p>
         <form name="formulario" action="" onSubmit="enviarDatos(); return false" autocomplete="off">
-          <li><input type="text" placeholder="Buscar..." name="busca" id="busca"></li>
+          <li><input style= "visibility:hidden;" type="text" placeholder="Buscar..." name="busca" id="busca"></li>
         </form>
       </p>
     <li>
-      <a  href= "analisis.php?p=<?php echo $_GET['p']?>&pro=<?php echo 0 ?>" class="add"><img src="img/addpac.png"></a>
+      <a  href= "analisis.php?p=<?php echo urlencode(base64_encode($_GET['p']))?>&pro=<?php echo urlencode(base64_encode(0)) ?>" class="add"><img src="img/addpac.png"></a>
     </li>
   </ul>
 </nav>
@@ -77,17 +94,27 @@
         </tr>
 
 <?php
-  include("includes/conexion.php");
+
   $con = mysqli_connect($host, $user, $pwd, $db);
   $paginationCtrls = '';
+
+  if(isset($_GET['p'])){
+    //echo "tiene parametro ".$_GET['p'];
+  }
+  else{
+    echo "no tiene parametro P";
+    header('Location: menu_analisis.php?p=1');
+  }
+  $idpacientes = $_GET['p'];
   if (mysqli_connect_errno()) {
         echo "Falló la conexión: ".mysqli_connect_error();
         }
   if(empty($_GET['busca'])){
 
       $sql = "SELECT
-              count(idpacientes)
-              FROM pacientes";
+              count(idanalisis)
+              FROM analisis
+              WHERE pacientes_idpacientes = '$idpacientes' ";
       $result = mysqli_query($con, $sql);
       $row = mysqli_fetch_row($result);
       $rows = $row[0];
@@ -117,14 +144,18 @@
                       fecha,
                       medicos_idmedicos,
                       idpropio
-              FROM analisis";
+              FROM analisis
+              WHERE pacientes_idpacientes = '$idpacientes'
+              ORDER BY idanalisis
+              ASC $limit";
       $query = mysqli_query($con, $sql);
 
 
 
        $sqlcuenta = "SELECT
-              count(idpropio)
-              FROM analisis";
+                      count(idpropio)
+                      FROM analisis
+                      WHERE pacientes_idpacientes = '$idpacientes'";
       $resultado = mysqli_query($con, $sqlcuenta);
       $registros = mysqli_fetch_row($resultado);
       $registros = $row[0];
@@ -132,11 +163,11 @@
       if($last != 1){
           if($pagenum > 1){
             $previous = $pagenum - 1;
-            $paginationCtrls .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$previous.'">Anterior</a> &nbsp; &nbsp; ';
+            $paginationCtrls .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$previous.'&p='.$idpacientes.'">Anterior</a> &nbsp; &nbsp; ';
 
             for($i = $pagenum-4; $i < $pagenum; $i++){
                 if($i > 0){
-                    $paginationCtrls .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'">'.$i.'</a> &nbsp; ';
+                    $paginationCtrls .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'&p='.$idpacientes.'">'.$i.'</a> &nbsp; ';
                 }
 	          }
           }
@@ -144,7 +175,7 @@
           $paginationCtrls .= ''.$pagenum.' &nbsp; ';
 
           for($i = $pagenum+1; $i <= $last; $i++){
-		        $paginationCtrls .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'">'.$i.'</a> &nbsp; ';
+		        $paginationCtrls .= '<a href="'.$_SERVER['PHP_SELF'].'?pn='.$i.'&p='.$idpacientes.'">'.$i.'</a> &nbsp; ';
 		        if($i >= $pagenum+4){
 			          break;
 		        }
@@ -152,21 +183,11 @@
 
           if ($pagenum != $last) {
                 $next = $pagenum + 1;
-                $paginationCtrls .= ' &nbsp; &nbsp; <a href="'.$_SERVER['PHP_SELF'].'?pn='.$next.'">Siguiente</a> ';
+                $paginationCtrls .= ' &nbsp; &nbsp; <a href="'.$_SERVER['PHP_SELF'].'?pn='.$next.'&p='.$idpacientes.'">Siguiente</a> ';
           }
       }
 
-    }else{
-          $pac = $_GET['busca'];
-          $search = '%'.$pac.'%';
-          $sql = "SELECT
-                   idpacientes,
-                   nombre
-                  FROM pacientes
-                  WHERE nombre LIKE '$search'" ;
-          $query = $con -> query($sql);
     }
-
 
      if($registros!= null){
 
@@ -179,6 +200,12 @@
               where  idmedicos = '$fila[medicos_idmedicos]'";
                $query1 = mysqli_query($con, $sql1);
                $fila1 = mysqli_fetch_array($query1, MYSQLI_ASSOC);
+               $idm = $fila1['idmedicos'];
+               $idprop = $fila['idpropio'];
+               $idpac = $_GET['p'];
+               $enviar = "recupera.php?idpac=".urlencode(base64_encode($idpac))."&idpr=".urlencode(base64_encode($idprop))."&idm=".urlencode(base64_encode($idm));
+               $editar = "analisis.php?p=".urlencode(base64_encode($idpac))."&pro=".urlencode(base64_encode($idprop));
+               $ver = "reporte.php?idpac=".urlencode(base64_encode($idpac))."&idpr=".urlencode(base64_encode($idprop))."&idm=".urlencode(base64_encode($idm));
 
  ?>
         <tr>
@@ -187,17 +214,17 @@
           <td><?php echo $fila['fecha']; ?></td>
           <td><?php echo $fila1['nombre']; ?> </td>
           <td>
-              <a class="text" href= "analisis.php?p=<?php echo $_GET['p']?>&pro=<?php echo $fila['idpropio'] ?> " >
+              <a class="text" href= "<?php echo $enviar ?> " >
                 <strong>Enviar Correo electr&oacutenico</strong>
-              </a> 
+              </a>
               |
-              <a class="text" href= "analisis.php?p=<?php echo $_GET['p']?>&pro=<?php echo $fila['idpropio'] ?> " >
+              <a class="text" href= "<?php echo $editar?> " >
                 <strong>Editar</strong>
-              </a> 
+              </a>
               |
-              <a class="text" target="_blank" href= "reporte.php?idpac=<?php echo $_GET['p']?>&idpr=<?php echo $fila['idpropio']?>&idm=<?php echo $fila1['idmedicos'] ?> " >
+              <a class="text" target="_blank" href= "<?php echo $ver ?> " >
                 <strong>Visualizar</strong>
-              </a> 
+              </a>
           </td>
         </tr>
          <?php $idpropio = $fila['idpropio'];  } ?>
