@@ -1,6 +1,7 @@
 <?php
       header('Content-Type: text/html; charset=iso-8859-1');
       echo htmlspecialchars("", ENT_QUOTES, 'utf-8');
+      $linkvacio = "productos.php?prod=".urlencode(base64_encode(0));
 ?>
 <!doctype html>
 <html lang="es">
@@ -56,7 +57,7 @@
         </form>
       </p>
     <li>
-      <a href="productos.php" class="add"><img src="img/addprod.png" alt="Agregar Productos"></a>
+      <a href="<?php echo $linkvacio ?>" class="add"><img src="img/addprod.png" alt="Agregar Productos"></a>
     </li>
   </ul>
 </nav>

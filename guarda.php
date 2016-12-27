@@ -575,33 +575,49 @@ if (isset($_POST['nombre_art'])             && !empty($_POST['nombre_art'])   &&
 				$diafechainicio		= utf8_decode($_POST['diafechainicio']);
 				$mesfechainicio     = utf8_decode($_POST['mesfechainicio']); 
 				$aniofechainicio    = utf8_decode($_POST['aniofechainicio']); 
-				$diafechatermino	= utf8_decode($_POST['diafechatermino']);
-				$mesfechatermino    = utf8_decode($_POST['mesfechatermino']); 
-				$aniofechatermino   = utf8_decode($_POST['aniofechatermino']); 
+				
 				$diafechacaducidad	= utf8_decode($_POST['diafechacaducidad']);
 				$mesfechacaducidad  = utf8_decode($_POST['mesfechacaducidad']); 
 				$aniofechacaducidad = utf8_decode($_POST['aniofechacaducidad']); 
+				if($_POST['aniofechatermino'] !=null && $_POST['diafechatermino'] != null 
+					&& $_POST['mesfechatermino'] != null){
+				$aniofechatermino   = utf8_decode($_POST['aniofechatermino']); 
+				$diafechatermino	= utf8_decode($_POST['diafechatermino']);
+				$mesfechatermino    = utf8_decode($_POST['mesfechatermino']); 
+				
+				 $fechatermino 		= $aniofechatermino .'.'.$mesfechatermino .'.'.$diafechatermino ;
+			   }
+			   else{
+			   	$fechatermino = "NO";
+			   }
 				$idproveedores 	    = utf8_decode($_POST['idproveedor']);
 				$costo_prueba 		= utf8_decode($_POST['costo_prueba']);
 				$marca 				= utf8_decode($_POST['marca']);
 				$prueba_kit 		= utf8_decode($_POST['prueba_kit']);
-
-
 				$fechastock 		= $aniofechastock .'.'.$mesfechastock .'.'.$diafechastock ;
 				$fechainicio 		= $aniofechainicio .'.'.$mesfechainicio .'.'.$diafechainicio ;
-                $fechatermino 		= $aniofechatermino .'.'.$mesfechatermino .'.'.$diafechatermino ;
+               
                 $fechacaducidad 	= $aniofechacaducidad .'.'.$mesfechacaducidad .'.'.$diafechacaducidad ;
 				$mysqli = mysqli_connect($host, $user, $pwd, $db);
 				if (mysqli_connect_errno()) {
 				 echo "Falló la conexión:".mysqli_connect_error();
 				}
-
+				if ($fechatermino == "NO"){
 				$sql = "INSERT INTO inventario (nombre_art, cantidad, Costo, u_medida, idproveedores,
+								fechastock, fechainicio,  fechacaducidad, costo_prueba, marca, prueba_kit)
+					 VALUES('$nombre_art', '$cantidad', '$Costo', '$u_medida', '$idproveedores' ,
+						 '$fechastock', '$fechainicio', '$fechacaducidad', '$costo_prueba', 
+						 '$marca', '$prueba_kit');";
+				}
+				else{
+					$sql = "INSERT INTO inventario (nombre_art, cantidad, Costo, u_medida, idproveedores,
 								fechastock, fechainicio, fechatermino, fechacaducidad, costo_prueba, marca, prueba_kit)
 					 VALUES('$nombre_art', '$cantidad', '$Costo', '$u_medida', '$idproveedores' ,
 						 '$fechastock', '$fechainicio', '$fechatermino', '$fechacaducidad', '$costo_prueba', 
 						 '$marca', '$prueba_kit');";
 
+				}
+				
 				if( mysqli_query($mysqli, $sql)){
 
 				}else{
