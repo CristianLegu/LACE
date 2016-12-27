@@ -62,7 +62,7 @@ foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
 <nav id="hola">
   <ul>
     <li><p>
-          <a href="menu_pacientes.php">
+          <a href="<?php echo $_SERVER['HTTP_REFERER'];?>">
 	        <img src="img/logo2.png" id="logo">
         </a>
         </p>
