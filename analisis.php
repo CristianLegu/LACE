@@ -129,10 +129,13 @@
          <table class="table table-bordered" id="dynamic_field">
   <?php  while (  $row = mysqli_fetch_array($fila, MYSQLI_ASSOC)) {
   ?>                                              <?php $renglon = "row".$i; ?>
-                                          <tr id="<?php echo $renglon; ?>" >
+                                          <tr style="margin-left: 500px;" id="<?php echo $renglon; ?>" >
+                                         
                                          <td><input type="form-control" name="pruebas[]" placeholder="Prueba" class="form-control name_list" value="<?php  echo $row ['prueba'] ?> " /></td>
+
                                          <td><input  type="form-control" name="resultado[]" placeholder="Resultado" class="form-control name_list" value="<?php  echo $row ['resultado'] ?> " /></td>
                                          <td><input type="form-control" name="unidades[]" placeholder="Unidades" class="form-control name_list" value="<?php  echo $row ['unidades'] ?> " /></td>
+                                         <br>
                                          <td><input  type="form-control" name="valorreferencia[]" placeholder="Valor de referencia" class="form-control name_list" value="<?php  echo $row ['valorreferencia'] ?> " /></td>
 
                                          <td><input  type="form-control" name="observaciones[]" placeholder="Observaciones" class="form-control name_list" value="<?php  echo $row ['observaciones'] ?> " /></td>
