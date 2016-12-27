@@ -36,11 +36,12 @@
 	content: url("../img/doctor (1).png");
 }
 
+.icon-pdf:before {
+	content: url("../img/pdf.png");
+}
+
 .icon-orina:before {
-
-	content: url("../img/sangre.png");
-
-	/*background-image: "..img/icon.png";*/
+	content: url("../img/correo.png");
 }
 
 .icon-portfolio:before {

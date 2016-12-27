@@ -1,12 +1,12 @@
-<?php 
- 
+<?php
+
       include("includes/conexion.php");
       $mysqli = mysqli_connect($host, $user, $pwd, $db);
 
       if (mysqli_connect_errno()) {
        echo "Falló la conexión: IF".mysqli_connect_error();
       }
-     
+
 
 $idpropio   = 0;
 $idpaciente = 0;
@@ -17,7 +17,7 @@ if(isset($_POST['idpropio']) && isset($_POST['idpaciente'])){
 }
 
 if ($idpropio == 0) {
-      $sql    = "SELECT idpropio FROM analisis order by idpropio desc"; 
+      $sql    = "SELECT idpropio FROM analisis order by idpropio desc";
       $query  = mysqli_query($mysqli, $sql);
       $fila   = mysqli_fetch_array($query, MYSQLI_ASSOC);
       if($fila == null) {
@@ -30,31 +30,31 @@ if ($idpropio == 0) {
     &&  isset($_POST['estudio']) && isset($_POST['idmedico'])
     &&  isset($_POST['pruebas'])
     ){
-      $fecha         =  date("Y") . date("m") . date("j") ; 
+      $fecha         =  date("Y") . date("m") . date("j") ;
       $area          = $_POST["area"];
       $departamento  = $_POST["departamento"];
       $estudio       = $_POST["estudio"];
       $comentario       = $_POST["comentario"];
       $pacientes_idpacientes = $idpaciente;
       $medicos_idmedicos = $_POST["idmedico"];
-      $number        = count($_POST["pruebas"]); 
+      $number        = count($_POST["pruebas"]);
 
 
       if ($medicos_idmedicos != null || $medicos_idmedicos != "") {
-        //echo "ID MEDICOS dentro de if ".$medicos_idmedicos;  
+        //echo "ID MEDICOS dentro de if ".$medicos_idmedicos;
       }
       else{
         include('includes/alert_medico.php');
       }
 
 
-      
-      if($number > 0)  
-      {  
-          for($i=0; $i<$number; $i++)  
-          {  
-             if(trim($_POST["pruebas"][$i] != ''))  
-             {  
+
+      if($number > 0)
+      {
+          for($i=0; $i<$number; $i++)
+          {
+             if(trim($_POST["pruebas"][$i] != ''))
+             {
                 $mysqli = mysqli_connect($host, $user, $pwd, $db);
               if(mysqli_connect_errno()) {
                 }
@@ -64,25 +64,25 @@ if ($idpropio == 0) {
                 $valorreferencia =  $_POST["valorreferencia"][$i];
                 $observaciones   =  $_POST["observaciones"][$i];
 
-         //       $sql = "INSERT INTO analisis(idanalisis, area, departamento, estudio, pruebas, observaciones, pacientes_idpacientes, medicos_idmedicos ) VALUES('".mysqli_real_escape_string($connect, $_POST["name"][$i])."')";  
-                $sql = "INSERT INTO analisis ( area, departamento, estudio, prueba, resultado, unidades, valorreferencia, comentario, observaciones, fecha, pacientes_idpacientes, medicos_idmedicos, idpropio) 
-                    VALUES( '$area', '$departamento', '$estudio', '$prueba', '$resultado', '$unidades','$valorreferencia','$comentario','$observaciones', '$fecha', '$pacientes_idpacientes', '$medicos_idmedicos', '$idpropio')";  
+         //       $sql = "INSERT INTO analisis(idanalisis, area, departamento, estudio, pruebas, observaciones, pacientes_idpacientes, medicos_idmedicos ) VALUES('".mysqli_real_escape_string($connect, $_POST["name"][$i])."')";
+                $sql = "INSERT INTO analisis ( area, departamento, estudio, prueba, resultado, unidades, valorreferencia, comentario, observaciones, fecha, pacientes_idpacientes, medicos_idmedicos, idpropio)
+                    VALUES( '$area', '$departamento', '$estudio', '$prueba', '$resultado', '$unidades','$valorreferencia','$comentario','$observaciones', '$fecha', '$pacientes_idpacientes', '$medicos_idmedicos', '$idpropio')";
                 if( mysqli_query($mysqli, $sql)){
                 } else{
                   echo "Error antes de cerrar 1 ".mysqli_error($mysqli);
-                } 
+                }
                 mysqli_close($mysqli);
-            }  
-        }  
-      }  
-      else  
-      {  
-        echo "Please Enter Name";  
-      }  
+            }
+        }
+      }
+      else
+      {
+        echo "Please Enter Name";
+      }
     }
 }
 else {
-   
+
   $eliminar = "DELETE FROM analisis WHERE idpropio = $idpropio;";
 
   if ($mysqli->query($eliminar) === TRUE) {
@@ -90,26 +90,26 @@ else {
     &&  isset($_POST['estudio']) && isset($_POST['idmedico'])
     &&  isset($_POST['pruebas'])
     ){
-      $fecha         =  date("Y") . date("m") . date("j") ; 
+      $fecha         =  date("Y") . date("m") . date("j") ;
       $area          = $_POST["area"];
       $departamento  = $_POST["departamento"];
       $estudio       = $_POST["estudio"];
       $comentario       = $_POST["comentario"];
       $pacientes_idpacientes = 1;
       $medicos_idmedicos = $_POST["idmedico"];
-      $number        = count($_POST["pruebas"]);  
+      $number        = count($_POST["pruebas"]);
     if ($medicos_idmedicos != null || $medicos_idmedicos != "") {
-        //echo "ID MEDICOS dentro de if ".$medicos_idmedicos;  
+        //echo "ID MEDICOS dentro de if ".$medicos_idmedicos;
       }
       else{
         include('includes/alert_medico.php');
       }
-      if($number > 0)  
-      {  
-        for($i=0; $i<$number; $i++)  
-        {  
-           if(trim($_POST["pruebas"][$i] != ''))  
-           {  
+      if($number > 0)
+      {
+        for($i=0; $i<$number; $i++)
+        {
+           if(trim($_POST["pruebas"][$i] != ''))
+           {
               $mysqli = mysqli_connect($host, $user, $pwd, $db);
               if (mysqli_connect_errno()) {
 
@@ -120,27 +120,27 @@ else {
               $valorreferencia =  $_POST["valorreferencia"][$i];
               $observaciones   =  $_POST["observaciones"][$i];
 
-         //       $sql = "INSERT INTO analisis(idanalisis, area, departamento, estudio, pruebas, observaciones, pacientes_idpacientes, medicos_idmedicos ) VALUES('".mysqli_real_escape_string($connect, $_POST["name"][$i])."')";  
-              $sql = "INSERT INTO analisis ( area, departamento, estudio, prueba, resultado, unidades, valorreferencia, comentario, observaciones, fecha, pacientes_idpacientes, medicos_idmedicos, idpropio) 
-                    VALUES( '$area', '$departamento', '$estudio', '$prueba', '$resultado', '$unidades','$valorreferencia','$comentario','$observaciones', '$fecha', '$pacientes_idpacientes', '$medicos_idmedicos', '$idpropio')";  
+         //       $sql = "INSERT INTO analisis(idanalisis, area, departamento, estudio, pruebas, observaciones, pacientes_idpacientes, medicos_idmedicos ) VALUES('".mysqli_real_escape_string($connect, $_POST["name"][$i])."')";
+              $sql = "INSERT INTO analisis ( area, departamento, estudio, prueba, resultado, unidades, valorreferencia, comentario, observaciones, fecha, pacientes_idpacientes, medicos_idmedicos, idpropio)
+                    VALUES( '$area', '$departamento', '$estudio', '$prueba', '$resultado', '$unidades','$valorreferencia','$comentario','$observaciones', '$fecha', '$pacientes_idpacientes', '$medicos_idmedicos', '$idpropio')";
               if( mysqli_query($mysqli, $sql)){
 
               } else{
-                
+
                 echo "Error antes de cerrar 2 ".mysqli_error($mysqli);
                 }
               mysqli_close($mysqli);
-            }  
-        }  
-      }  
-      else  
-      {  
-        echo "Please Enter Name";  
-      }  
+            }
+        }
+      }
+      else
+      {
+        echo "Please Enter Name";
+      }
      }
-    } 
+    }
 }
-   
+
 
 
  //session_start();
@@ -190,7 +190,7 @@ else {
                    <li>
                     <a href="">
 								    <span class="icon">
-									    <i aria-hidden="true" class="icon-services"></i>
+									    <i aria-hidden="true" class="icon-orina"></i>
 								    </span>
 								    <span>Correo electr&oacutenico</span>
 							      </a>
@@ -198,7 +198,7 @@ else {
                   <li>
                     <a target="_blank" href="reporte.php?idpr=<?php echo $idpropio?>&idpac=<?php echo $idpaciente?>&idm=<?php echo $medicos_idmedicos?>">
 								    <span class="icon">
-									    <i aria-hidden="true" class="icon-services"></i>
+									    <i aria-hidden="true" class="icon-pdf"></i>
 								    </span>
 								    <span>Visualizar PDF</span>
 							      </a>
