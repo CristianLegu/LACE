@@ -47,7 +47,6 @@ foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
            </script>
            <!-- Pantalla de carga-->
       </head>
-      <body>
         <!-- Pantalla de carga-->
               <div id="cargando">
                 <div class="cssload-thecube">
@@ -58,6 +57,7 @@ foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
                 </div>
               </div>
         <!-- Pantalla de carga-->
+<body>
 <nav id="hola">
   <ul>
     <li><p>
@@ -81,9 +81,6 @@ foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
       <label >
         Elegir Medico
     <!--    <select id="idmedico"  name="idmedico" >
-
-
-
 -->
 <form name="add_name" id="add_name" method="post" action="agrega_analisis.php " ALIGN=center autocomplete="off">
         <select id="idmedico"  name="idmedico" >
@@ -101,19 +98,19 @@ foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
         </select>
       </label>
       </div>
-      <div>
+      <div class="col-4">
     	 <label>
       				Área
       			  <input name="area" value="<?php if($fila1 != null) { echo $fila1 [1]; }?>" style="background-color:powderblue; "required>
     	 </label>
   		 </div>
-  				<div >
+  				<div class="col-4">
       			<label >
       					Departamento
       					<input name="departamento" value="<?php if($fila1 != null) { echo $fila1 [2]; }?>" style="background-color:powderblue; "required>
     				</label>
   				</div>
-    	    <div >
+    	    <div class="col-4">
       			<label >
      					  Estudio
     						<input name="estudio" value="<?php if($fila1 != null) { echo $fila1 [3]; }?>" style="background-color:powderblue; "required>
@@ -124,8 +121,15 @@ foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
 
 <?php  if($fila == null) { ?>
           <table class="table table-bordered" id="dynamic_field">
+            <tr id="0">
+              <td>Prueba</td>
+              <td>Resultado</td>
+              <td>Unidades</td>
+              <td>Valor de referencia</td>
+              <td>Observaciones</td>
+            </tr>
             <tr>
-              <td><input type="form-control"  name="pruebas[]" placeholder="Prueba" class="form-control name_list"   /></td>
+             
               <td><input type="form-control" name="resultado[]" placeholder="Resultado" class="form-control name_list" /></td>
               <td><input type="form-control" name="unidades[]" placeholder="Unidades" class="form-control name_list" /></td>
               <td><input  type="form-control" name="valorreferencia[]" placeholder="Valor de referencia" class="form-control name_list" /></td>
@@ -136,57 +140,45 @@ foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
 <?php
       }
       else{ ?>
-         <table class="table table-bordered" id="dynamic_field">
+         <table id="dynamic_field">
   <?php  while (  $row = mysqli_fetch_array($fila, MYSQLI_ASSOC)) {
-  ?>                                              <?php $renglon = "row".$i; ?>
-                                          <tr id="<?php echo $renglon; ?>" >
-                                         <td><input type="form-control" name="pruebas[]" placeholder="Prueba" class="form-control name_list" value="<?php  echo $row ['prueba'] ?> " /></td>
-                                         <td><input  type="form-control" name="resultado[]" placeholder="Resultado" class="form-control name_list" value="<?php  echo $row ['resultado'] ?> " /></td>
-                                         <td><input type="form-control" name="unidades[]" placeholder="Unidades" class="form-control name_list" value="<?php  echo $row ['unidades'] ?> " /></td>
-                                         <td><input  type="form-control" name="valorreferencia[]" placeholder="Valor de referencia" class="form-control name_list" value="<?php  echo $row ['valorreferencia'] ?> " /></td>
-
-                                         <td><input  type="form-control" name="observaciones[]" placeholder="Observaciones" class="form-control name_list" value="<?php  echo $row ['observaciones'] ?> " /></td>
-                                         <?php if ($cont == 1) { ?>
-                                         <td><button type="button" name="add" id="add" class="agregar">Agregar</button></td>
-                                         <?php } else { ?>
-										                    <td><button type="button" name="remove" id="<?php echo $i; ?>" class="eliminar btn_remove">X</button></td>
-                                         <?php } ?>
-
-                                    </tr>
-                             <script language='javascript'>
-                              var i = i + 1;
-				                    </script>
-
-                               <?php $cont++; $i++;
-									} ?>
-									   </table>
-     							<?php	 }   $i ;   ?>
-             </div>
-
-              <div >
-              <label >
-                  Comentarios
-                  <input name="comentario" value="<?php if($fila1 != null) { echo $fila1 [8]; }?>"  style="background-color:powderblue; ">
-
-              </label>
-             </div>
-              <input name="idpropio" value="<?php if($fila1 != null) { echo $idpropio; } else {$idpropio = 0; echo $idpropio;}?>"  style='display:none;'>
-
-                      <button name="submit1"   class="guardar" >GUARDAR</button>
-
-
-
-
-              <input name="idpaciente" value = "<?php echo $idpac; ?>" style="display:none;">
-
-                     </form>
-                </div>
-           </div>
-
-      </body>
+  ?>   <?php $renglon = "row".$i; ?>
+           <tr id="<?php echo $renglon; ?>">
+              <td><input type="form-control" name="pruebas[]" placeholder="Prueba" class="form-control name_list" value="<?php  echo $row ['prueba'] ?> " /></td>
+              <td><input  type="form-control" name="resultado[]" placeholder="Resultado" class="form-control name_list" value="<?php  echo $row ['resultado'] ?> " /></td>
+              <td><input type="form-control" name="unidades[]" placeholder="Unidades" class="form-control name_list" value="<?php  echo $row ['unidades'] ?> " /></td>
+              <td><input  type="form-control" name="valorreferencia[]" placeholder="Valor de referencia" class="form-control name_list" value="<?php  echo $row ['valorreferencia'] ?> " /></td>
+              <td><input  type="form-control" name="observaciones[]" placeholder="Observaciones" class="form-control name_list" value="<?php  echo $row ['observaciones'] ?> " /></td>
+                  <?php if ($cont == 1) { ?>
+              <td><button type="button" name="add" id="add" class="agregar">Agregar</button></td>
+                  <?php } else { ?>
+              <td><button type="button" name="remove" id="<?php echo $i; ?>" class="eliminar btn_remove">X</button></td>
+                    <?php } ?>
+           </tr>
+           
+<script language='javascript'>
+   var i = i + 1;
+</script>
+  <?php $cont++; $i++;} ?>
+      </table>
+     	<?php	 }   $i ;   ?>
+       </div>
+   <div>
+    <label >
+       Comentarios
+    </label>
+           <textarea rows="6" cols="50" name="comentario" value="<?php if($fila1 != null) { echo $fila1 [8]; }?>"  style="background-color:powderblue; "></textarea>
+   </div>
+      <div class="col-submit button">
+        <input name="idpropio" value="<?php if($fila1 != null) { echo $idpropio; } else {$idpropio = 0; echo $idpropio;}?>"  style='display:none;'>
+        <input name="idpaciente" value = "<?php echo $idpac; ?>" style="display:none;">
+            <button name="submit1"   class="guardar" >GUARDAR</button>
+      </div>
+  </form>
+      </div>
+    </div>
+  </body>
  </html>
-
-
 
  <script>
  $(document).ready(function(){
@@ -195,7 +187,6 @@ foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
 
 
            $('#dynamic_field').append('<tr id="row'+i+'"><td><input type="form-control" name="pruebas[]" placeholder="Prueba" class="form-control name_list" /></td><td><input type="form-control" name="resultado[]" placeholder="Resultado" class="form-control name_list" /></td><td><input type="form-control" name="unidades[]" placeholder="Unidades" class="form-control name_list" /></td><td><input type="form-control" name="valorreferencia[]" placeholder="Valor de referencia" class="form-control name_list" /></td> <td><input type="form-control" name="observaciones[]" placeholder="Observaciones" class="form-control name_list" /></td> <td><button type="button" name="remove" id="'+i+'" class="eliminar btn_remove">X</button></td></tr>');
-
       });
       $(document).on('click', '.btn_remove', function(){
            var button_id = $(this).attr("id");

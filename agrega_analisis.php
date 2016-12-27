@@ -1,24 +1,11 @@
-<<<<<<< HEAD
-<?php  
-=======
 <?php
 
->>>>>>> origin/master
       include("includes/conexion.php");
       $mysqli = mysqli_connect($host, $user, $pwd, $db);
 
       if (mysqli_connect_errno()) {
        echo "Falló la conexión: IF".mysqli_connect_error();
       }
-<<<<<<< HEAD
-     
-$idpropio = $_POST["idpropio"];
-
-if ($idpropio == 0) {
-$sql    =    "SELECT idpropio FROM analisis order by idpropio desc"; 
-        $query  = mysqli_query($mysqli, $sql);
-         $fila   = mysqli_fetch_array($query, MYSQLI_ASSOC);
-=======
 
 
 $idpropio   = 0;
@@ -33,75 +20,16 @@ if ($idpropio == 0) {
       $sql    = "SELECT idpropio FROM analisis order by idpropio desc";
       $query  = mysqli_query($mysqli, $sql);
       $fila   = mysqli_fetch_array($query, MYSQLI_ASSOC);
->>>>>>> origin/master
       if($fila == null) {
         $idpropio = 1;
-
       }
       else{
          $idpropio = $fila['idpropio'] + 1;
       }
-      
-
-if(isset($_POST['area']) && isset($_POST['departamento'])
+    if(isset($_POST['area']) && isset($_POST['departamento'])
     &&  isset($_POST['estudio']) && isset($_POST['idmedico'])
     &&  isset($_POST['pruebas'])
     ){
-<<<<<<< HEAD
-
-    
-    
-    $fecha         =  date("Y") . date("m") . date("j") ; 
-    $area          = $_POST["area"];
-    $departamento  = $_POST["departamento"];
-    $estudio       = $_POST["estudio"];
-    $comentario       = $_POST["comentario"];
-    $pacientes_idpacientes = $_POST["idpaciente"];
-    $medicos_idmedicos = $_POST["idmedico"];
-    $number        = count($_POST["pruebas"]);  
-
- if($number > 0)  
- {  
-      for($i=0; $i<$number; $i++)  
-      {  
-           if(trim($_POST["pruebas"][$i] != ''))  
-
-           {  
-          //  $hola = 1;
-             $mysqli = mysqli_connect($host, $user, $pwd, $db);
-      if (mysqli_connect_errno()) {
-      // echo "Falló la conexión:".mysqli_connect_error();
-      }
-       $prueba          =  $_POST["pruebas"][$i];
-       $resultado       =  $_POST["resultado"][$i];
-       $unidades        =  $_POST["unidades"][$i];
-       $valorreferencia =  $_POST["valorreferencia"][$i];
-       $observaciones   =  $_POST["observaciones"][$i];
-
-         //       $sql = "INSERT INTO analisis(idanalisis, area, departamento, estudio, pruebas, observaciones, pacientes_idpacientes, medicos_idmedicos ) VALUES('".mysqli_real_escape_string($connect, $_POST["name"][$i])."')";  
-            $sql = "INSERT INTO analisis ( area, departamento, estudio, prueba, resultado, unidades, valorreferencia, comentario, observaciones, fecha, pacientes_idpacientes, medicos_idmedicos, idpropio) 
-                    VALUES( '$area', '$departamento', '$estudio', '$prueba', '$resultado', '$unidades','$valorreferencia','$comentario','$observaciones', '$fecha', '$pacientes_idpacientes', '$medicos_idmedicos', '$idpropio')";  
-              if( mysqli_query($mysqli, $sql)){
-
-     } else{
-     echo "Error antes de cerrar".mysqli_error($mysqli);
-      }
-
-      mysqli_close($mysqli);
-             includealert_analisis  
-           }  
-      }  
- }  
- else  
- {  
-      echo "Please Enter Name";  
- }  
-
- }
-
-}
-else {
-=======
       $fecha         =  date("Y") . date("m") . date("j") ;
       $area          = $_POST["area"];
       $departamento  = $_POST["departamento"];
@@ -156,35 +84,12 @@ else {
 else {
 
   $eliminar = "DELETE FROM analisis WHERE idpropio = $idpropio;";
->>>>>>> origin/master
 
-
-$eliminar = "DELETE FROM analisis WHERE idpropio = $idpropio;";
-
-if ($mysqli->query($eliminar) === TRUE) {
+  if ($mysqli->query($eliminar) === TRUE) {
     if(isset($_POST['area']) && isset($_POST['departamento'])
     &&  isset($_POST['estudio']) && isset($_POST['idmedico'])
     &&  isset($_POST['pruebas'])
     ){
-<<<<<<< HEAD
-
-    
-    
-    $fecha         =  date("Y") . date("m") . date("j") ; 
-    $area          = $_POST["area"];
-    $departamento  = $_POST["departamento"];
-    $estudio       = $_POST["estudio"];
-    $comentario       = $_POST["comentario"];
-    $pacientes_idpacientes = $_POST["idpaciente"];
-    $medicos_idmedicos = $_POST["idmedico"];
-    $number        = count($_POST["pruebas"]);  
-
- if($number > 0)  
- {  
-      for($i=0; $i<$number; $i++)  
-      {  
-           if(trim($_POST["pruebas"][$i] != ''))  
-=======
       $fecha         =  date("Y") . date("m") . date("j") ;
       $area          = $_POST["area"];
       $departamento  = $_POST["departamento"];
@@ -207,49 +112,14 @@ if ($mysqli->query($eliminar) === TRUE) {
            {
               $mysqli = mysqli_connect($host, $user, $pwd, $db);
               if (mysqli_connect_errno()) {
->>>>>>> origin/master
 
-           {  
-          //  $hola = 1;
-             $mysqli = mysqli_connect($host, $user, $pwd, $db);
-      if (mysqli_connect_errno()) {
-      // echo "Falló la conexión:".mysqli_connect_error();
-      }
-       $prueba          =  $_POST["pruebas"][$i];
-       $resultado       =  $_POST["resultado"][$i];
-       $unidades        =  $_POST["unidades"][$i];
-       $valorreferencia =  $_POST["valorreferencia"][$i];
-       $observaciones   =  $_POST["observaciones"][$i];
+              }
+              $prueba          =  $_POST["pruebas"][$i];
+              $resultado       =  $_POST["resultado"][$i];
+              $unidades        =  $_POST["unidades"][$i];
+              $valorreferencia =  $_POST["valorreferencia"][$i];
+              $observaciones   =  $_POST["observaciones"][$i];
 
-<<<<<<< HEAD
-         //       $sql = "INSERT INTO analisis(idanalisis, area, departamento, estudio, pruebas, observaciones, pacientes_idpacientes, medicos_idmedicos ) VALUES('".mysqli_real_escape_string($connect, $_POST["name"][$i])."')";  
-            $sql = "INSERT INTO analisis ( area, departamento, estudio, prueba, resultado, unidades, valorreferencia, comentario, observaciones, fecha, pacientes_idpacientes, medicos_idmedicos, idpropio) 
-                    VALUES( '$area', '$departamento', '$estudio', '$prueba', '$resultado', '$unidades','$valorreferencia','$comentario','$observaciones', '$fecha', '$pacientes_idpacientes', '$medicos_idmedicos', '$idpropio')";  
-              if( mysqli_query($mysqli, $sql)){
-
-     } else{
-     echo "Error antes de cerrar".mysqli_error($mysqli);
-      }
-
-      mysqli_close($mysqli);
-               
-           }  
-      }  
- }  
- else  
- {  
-      echo "Please Enter Name";  
- }  
-
- }
-
-} else {
-
-}
-
-}
-?>
-=======
          //       $sql = "INSERT INTO analisis(idanalisis, area, departamento, estudio, pruebas, observaciones, pacientes_idpacientes, medicos_idmedicos ) VALUES('".mysqli_real_escape_string($connect, $_POST["name"][$i])."')";
               $sql = "INSERT INTO analisis ( area, departamento, estudio, prueba, resultado, unidades, valorreferencia, comentario, observaciones, fecha, pacientes_idpacientes, medicos_idmedicos, idpropio)
                     VALUES( '$area', '$departamento', '$estudio', '$prueba', '$resultado', '$unidades','$valorreferencia','$comentario','$observaciones', '$fecha', '$pacientes_idpacientes', '$medicos_idmedicos', '$idpropio')";
@@ -279,13 +149,13 @@ if ($mysqli->query($eliminar) === TRUE) {
       //echo '<script type="text/javascript">
         //          window.open("reporte.php?id=", "_blank");
           //  </script>';
-
+          $var = "reporte.php?idpr=".urlencode(base64_encode($idpropio))."&idpac=".urlencode(base64_encode($idpaciente))."&idm=".urlencode(base64_encode($medicos_idmedicos));
  ?>
  <!DOCTYPE html>
 <html lang="es" class="no-js">
 <head>
 		<meta charset="UTF-8" />
-		<title>Menú Principal</title>
+		<title>Opciones de reporte</title>
 		<link rel="shortcut icon" href="img/icon.png">
 		<link rel="stylesheet" type="text/css" href="css/default.css" />
 		<link rel="stylesheet" type="text/css" href="css/menu.css" />
@@ -316,7 +186,7 @@ if ($mysqli->query($eliminar) === TRUE) {
 								    <span>Visualizar PDF</span>
 							      </a>
                   </li>
-
+<!--*****************************************************************************************-->
                    <li>
                     <a href="">
 								    <span class="icon">
@@ -326,14 +196,14 @@ if ($mysqli->query($eliminar) === TRUE) {
 							      </a>
                   </li>
                   <li>
-                    <a target="_blank" href="reporte.php?idpr=<?php echo $idpropio?>&idpac=<?php echo $idpaciente?>&idm=<?php echo $medicos_idmedicos?>">
+                    <a target="_blank" href="<?php echo $var;?>">
 								    <span class="icon">
 									    <i aria-hidden="true" class="icon-pdf"></i>
 								    </span>
 								    <span>Visualizar PDF</span>
 							      </a>
                   </li>
-
+<!--*****************************************************************************************-->
                    <li style="visibility:hidden;">
                     <a href="">
 								    <span class="icon">
@@ -366,4 +236,3 @@ if ($mysqli->query($eliminar) === TRUE) {
      // alert(prop+" "+pac+" "+med);
      // window.open("reporte.php?idpr=" + prop + "&idpac=" + pac + "&idm=" + med, "_blank");
  </script>
->>>>>>> origin/master

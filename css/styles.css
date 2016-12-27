@@ -239,7 +239,7 @@ button.submitbtn:active {
   .col-3 { width: 33.3333333333% }
   .col-4 { width: 25% }
   
-  .col-submit button { width: 30%; margin: 0 auto; }
+  .col-submit button { width: 20%; margin: 0 auto; }
 }
 
 #customers {
@@ -251,7 +251,7 @@ button.submitbtn:active {
 
 #customers td, #customers th {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 5px;
 }
 
 #customers tr:nth-child(even){background-color: #f2f2f2;}
