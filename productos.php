@@ -252,7 +252,7 @@ else{
     <div class="col-submit">
       <button type="submit" class="submitbtn">Guardar</button>
     </div>
-
+   <input name="idprod" value = "<?php echo $prod; ?>" style="display:none;">
   </form>
 
 <script type="text/javascript">

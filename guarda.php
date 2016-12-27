@@ -602,6 +602,8 @@ if (isset($_POST['nombre_art'])             && !empty($_POST['nombre_art'])   &&
 				if (mysqli_connect_errno()) {
 				 echo "Falló la conexión:".mysqli_connect_error();
 				}
+
+				if ($_POST['idprod'] == 0) {
 				if ($fechatermino == "NO"){
 				$sql = "INSERT INTO inventario (nombre_art, cantidad, Costo, u_medida, idproveedores,
 								fechastock, fechainicio,  fechacaducidad, costo_prueba, marca, prueba_kit)
@@ -617,6 +619,49 @@ if (isset($_POST['nombre_art'])             && !empty($_POST['nombre_art'])   &&
 						 '$marca', '$prueba_kit');";
 
 				}
+			}
+			else{
+        $idprod = $_POST['idprod'];
+
+if ($fechatermino == "NO"){
+
+	
+
+				$sql = "UPDATE inventario 
+				set nombre_art     = '$nombre_art',
+				    cantidad       = '$cantidad',
+				    Costo          = '$Costo',
+				    u_medida       = '$u_medida',
+				    idproveedores  = '$idproveedores',
+				    fechastock     = '$fechastock',
+				    fechainicio    = '$fechainicio',
+				    fechacaducidad = '$fechacaducidad',
+				    costo_prueba   = '$costo_prueba',
+				    marca          = '$marca',
+				    prueba_kit     = '$prueba_kit'
+					WHERE idinventario = $idprod;";
+				}
+				else{
+					$sql = "UPDATE inventario 
+				set nombre_art     = '$nombre_art',
+				    cantidad       = '$cantidad',
+				    Costo          = '$Costo',
+				    u_medida       = '$u_medida',
+				    idproveedores  = '$idproveedores',
+				    fechastock     = '$fechastock',
+				    fechainicio    = '$fechainicio',
+				    fechatermino   = '$fechatermino',
+				    fechacaducidad = '$fechacaducidad',
+				    costo_prueba   = '$costo_prueba',
+				    marca          = '$marca',
+				    prueba_kit     = '$prueba_kit'
+					WHERE idinventario = $idprod;";
+
+				
+				}
+			}
+
+			
 				
 				if( mysqli_query($mysqli, $sql)){
 
