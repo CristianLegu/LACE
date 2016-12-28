@@ -33,7 +33,7 @@
                   <li>
                     <a target="_blank" href="reporte_prod_fin.php">
 						<span class="icon">
-					        <i aria-hidden="true" class="icon-services"></i>
+					        <i aria-hidden="true" class="icon-prodterm"></i>
 					   </span>
 					   <span style="font-size: 17px">Productos finalizados</span>
 					</a>
@@ -42,7 +42,7 @@
                    <li>
                     <a target="_blank" href="reporte_prod_no_fin.php">
 					    <span class="icon">
-						    <i aria-hidden="true" class="icon-orina"></i>
+						    <i aria-hidden="true" class="icon-prodexis"></i>
 					    </span>
 						<span style="font-size: 16.4px">Productos no finalizados</span>
 					</a>
@@ -51,7 +51,7 @@
                   <li>
                     <a target="_blank" href="reporte_gral_analisis.php">
 						<span class="icon">
-						    <i aria-hidden="true" class="icon-pdf"></i>
+						    <i aria-hidden="true" class="icon-veranalis"></i>
 						</span>
 				        <span>Mostrar análisis</span>
 				    </a>
