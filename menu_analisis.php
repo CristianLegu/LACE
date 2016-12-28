@@ -2,6 +2,7 @@
       header('Content-Type: text/html; charset=iso-8859-1');
       echo htmlspecialchars("", ENT_QUOTES, 'utf-8');
       include("includes/conexion.php");
+     
 
       $con = mysqli_connect($host, $user, $pwd, $db);
 
@@ -9,9 +10,15 @@
     echo "Falló la conexión: ".mysqli_connect_error();
     }
 
+  $id = "";
+  if(isset($_GET['p'])){
+    $id = $_GET['p'];
+  }
+  else{
+    include('includes/alert_getp.php');
+  }
 
-
-$id = $_GET['p'];
+  
         $sql = "SELECT nombre
                   FROM pacientes
                   WHERE idpacientes = '$id'" ;
@@ -98,15 +105,25 @@ $id = $_GET['p'];
 
   $con = mysqli_connect($host, $user, $pwd, $db);
   $paginationCtrls = '';
-
+/*
+  $p = $_SESSION['var_p'];
+  
+  echo $p;
   if(isset($_GET['p'])){
     //echo "tiene parametro ".$_GET['p'];
   }
   else{
     echo "no tiene parametro P";
-    header('Location: menu_analisis.php?p=1');
+    header('Location: menu_analisis.php?p='.$p);
   }
-  $idpacientes = $_GET['p'];
+*/
+  $idpacientes = "";
+  if(isset($_GET['p'])){
+    $idpacientes = $_GET['p'];
+  }
+  else{
+    $idpacientes = "";
+  }
   if (mysqli_connect_errno()) {
         echo "Falló la conexión: ".mysqli_connect_error();
         }
