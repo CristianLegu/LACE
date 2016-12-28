@@ -40,6 +40,18 @@
 	content: url("../img/pdf.png");
 }
 
+.icon-prodterm:before {
+	content: url("../img/term.png");
+}
+
+.icon-prodexis:before {
+	content: url("../img/exis.png");
+}
+
+.icon-veranalis:before {
+	content: url("../img/analitica.png");
+}
+
 .icon-orina:before {
 	content: url("../img/correo.png");
 }

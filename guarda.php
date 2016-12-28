@@ -1,6 +1,7 @@
 <?php
 	include("includes/conexion.php");
 	session_start();
+	$sesion = "";
 	if(isset($_SESSION['valueF'])){
 		 $sesion = $_SESSION['valueF'];
 	}
