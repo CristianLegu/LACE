@@ -68,10 +68,19 @@ class PDF extends FPDF
             $this->Cell(20);
           //  $this->Cell(30, 10, utf8_decode('Examen practicado a: '.$nombrePaciente), 0, 0 ,'C');
               
-            
+            $dia    = "";
+            $mes    = "";
+            $anio   = "";
+            $fecha  = "";
+
+            $dia    = date("d");
+            $mes    = date("m");
+            $anio   = date("Y");
+            $fecha  = $anio."-".$mes."-".$dia;
+
             $this->SetFont('Arial', '', 10);
             $this->Cell(105);
-            $this->Cell(30, 10, utf8_decode('Fecha: '), 0, 0 ,'C');
+            $this->Cell(30, 10, utf8_decode('Fecha: '.$fecha), 0, 0 ,'C');
 
             $this->Ln(5);
             $this->SetFont('Arial', '', 10);
@@ -95,24 +104,37 @@ class PDF extends FPDF
 
         function AcceptPAgeBreak()
         {
-             $this->AddPage();
-/*
-             $this->SetFillColor(232, 232, 232);
-             $this->SetFont('Arial', 'B', 12);
-             $this->SetX(10);
-             $this->Cell(70, 6, 'Prueba', 1, 0, 'C', 1);
-             $this->SetX(80);
-             $this->Cell(20, 6, 'Resultado', 1, 0, 'C', 1);
-             $this->SetX(100);
-             $this->Cell(70, 6, 'Unidades', 1, 0, 'C', 1);
-*/
-             $this->Ln(15);
+            $this->AddPage();
+            
+            $this->SetFillColor(232, 232, 232);
+            $this->SetFont('Arial', 'B', 9);
+            $this->SetFillColor(45, 76, 130);
+            $this->SetTextColor(255, 255, 255);
+
+            $this->Ln(15);   
+            
+            $this->SetX(10);
+            $this->Cell(30, 6, 'Fecha realizado', 1, 0, 'C', 1);
+            
+            $this->SetX(40);
+            $this->Cell(50, 6, 'Nombre '.utf8_decode('análisis').' (Prueba)', 1, 0, 'C', 1);
+            
+            $this->SetX(90);
+            $this->Cell(50, 6, 'Estudio relacionado', 1, 0, 'C', 1);
+            
+            $this->SetX(140);
+            $this->Cell(60, 6, 'Nombre Paciente', 1, 0, 'C', 1);
+            $this->Ln();   
+
+            $this->SetFont('Arial', '', 9);
+            $this->SetTextColor(0, 0, 0);
+             
         }
 
     }
     
 
-/*
+
     $dia    = "";
     $mes    = "";
     $anio   = "";
@@ -122,7 +144,7 @@ class PDF extends FPDF
     $mes    = date("m");
     $anio   = date("Y");
     $fecha  = $anio."-".$mes."-".$dia;
-*/
+
 
     $con = mysqli_connect($host, $user, $pwd, $db);
 
@@ -173,13 +195,14 @@ class PDF extends FPDF
 
     
     $pdf->Ln();
-
+ 
  
     while($row = mysqli_fetch_array($query, MYSQLI_ASSOC))
     {
+        
         $pdf->SetFont('Arial', '', 9);
         $pdf->SetTextColor(0, 0, 0);
-        
+
         $pdf->SetX(10);
         $pdf->Cell(30, 6, $row['fecha'], 1, 0, 'C');
         
