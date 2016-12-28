@@ -92,10 +92,11 @@ class PDF extends FPDF
 
         }
 
-/*
+
         function AcceptPAgeBreak()
         {
              $this->AddPage();
+/*
              $this->SetFillColor(232, 232, 232);
              $this->SetFont('Arial', 'B', 12);
              $this->SetX(10);
@@ -104,13 +105,14 @@ class PDF extends FPDF
              $this->Cell(20, 6, 'Resultado', 1, 0, 'C', 1);
              $this->SetX(100);
              $this->Cell(70, 6, 'Unidades', 1, 0, 'C', 1);
-             $this->Ln();
-        }
 */
+             $this->Ln(15);
+        }
+
     }
     
 
-    
+/*
     $dia    = "";
     $mes    = "";
     $anio   = "";
@@ -120,16 +122,15 @@ class PDF extends FPDF
     $mes    = date("m");
     $anio   = date("Y");
     $fecha  = $anio."-".$mes."-".$dia;
-
+*/
 
     $con = mysqli_connect($host, $user, $pwd, $db);
 
-    $sql = "SELECT inv.nombre_art, prov.nombre, inv.fechacaducidad, inv.costo_prueba, inv.marca, inv.prueba_kit
-                FROM 	inventario AS inv
-                JOIN 	proveedores AS prov
-                ON 	inv.idproveedores = prov.idproveedores
-                WHERE (inv.fechatermino is NULL) OR (inv.fechatermino is NULL AND inv.fechacaducidad <= '$fecha')
-                ORDER BY inv.fechacaducidad;";
+    $sql = "SELECT an.fecha, an.prueba, an.estudio, pac.nombre
+	            FROM analisis AS an
+                JOIN pacientes AS pac
+                WHERE an.fecha between '2016-01-01' AND '2016-12-31'
+                ORDER BY an.fecha;";
     
     
     $query = $con -> query($sql);
@@ -138,7 +139,7 @@ class PDF extends FPDF
     
     
     $pdf = new PDF();
-    $pdf->Settitle("Reporte general de análisis realizados");
+    $pdf->Settitle('Reporte general de '.utf8_decode('análisis').' realizados');
     $pdf->AddPage();
     $pdf->AliasNbPages();
 
@@ -158,104 +159,41 @@ class PDF extends FPDF
 
     $pdf->Ln(10);   
     
-    $pdf->SetX(5);
-    $pdf->Cell(30, 6, 'Nombre '.utf8_decode('Artículo'), 1, 0, 'C', 1);
+    $pdf->SetX(10);
+    $pdf->Cell(30, 6, 'Fecha realizado', 1, 0, 'C', 1);
     
-    $pdf->SetX(35);
-    $pdf->Cell(40, 6, 'Marca', 1, 0, 'C', 1);
+    $pdf->SetX(40);
+    $pdf->Cell(50, 6, 'Nombre '.utf8_decode('análisis').' (Prueba)', 1, 0, 'C', 1);
     
-    $pdf->SetX(75);
-    $pdf->Cell(30, 6, 'Costo Prueba', 1, 0, 'C', 1);
+    $pdf->SetX(90);
+    $pdf->Cell(50, 6, 'Estudio relacionado', 1, 0, 'C', 1);
     
-    $pdf->SetX(105);
-    $pdf->Cell(30, 6, 'Fecha Cad.', 1, 0, 'C', 1);
-
-    $pdf->SetX(135);
-    $pdf->Cell(35, 6, 'Prueba kit', 1, 0, 'C', 1);
-
-    $pdf->SetX(170);
-    $pdf->Cell(35, 6, 'Proveedor', 1, 0, 'C', 1);
-   // $pdf->SetX(155);
-    //$pdf->Cell(40, 6, 'Comentarios', 1, 0, 'C', 1);
+    $pdf->SetX(140);
+    $pdf->Cell(60, 6, 'Nombre Paciente', 1, 0, 'C', 1);
 
     
     $pdf->Ln();
 
-    $observaciones = "";
+ 
     while($row = mysqli_fetch_array($query, MYSQLI_ASSOC))
     {
         $pdf->SetFont('Arial', '', 9);
         $pdf->SetTextColor(0, 0, 0);
         
-        $pdf->SetX(5);
-        $pdf->Cell(30, 6, $row['nombre_art'], 1, 0, 'C');
+        $pdf->SetX(10);
+        $pdf->Cell(30, 6, $row['fecha'], 1, 0, 'C');
         
-        $pdf->SetX(35);
-        $pdf->Cell(40, 6, $row['marca'], 1, 0, 'C');
+        $pdf->SetX(40);
+        $pdf->Cell(50, 6, $row['prueba'], 1, 0, 'C');
         
-        $pdf->SetX(75);
-        $pdf->Cell(30, 6, $row['costo_prueba'], 1, 0, 'C');
-
-
-        if($row['fechacaducidad'] <= $fecha){
-            $pdf->SetTextColor(255, 0, 0);
-        }
-        else{
-            $pdf->SetTextColor(0, 0, 0);
-        }        
+        $pdf->SetX(90);
+        $pdf->Cell(50, 6, $row['estudio'], 1, 0, 'C'); 
         
-        $pdf->SetX(105);
-        $pdf->Cell(30, 6, $row['fechacaducidad'], 1, 0, 'C');
-
-        $pdf->SetTextColor(0, 0, 0);
-
-        $pdf->SetX(135);
-        $pdf->Cell(35, 6, $row['prueba_kit'], 1, 0, 'C');
-
-        $pdf->SetX(170);
-        $pdf->Cell(35, 6, $row['nombre'], 1, 1, 'C');
-
-/*
-        $pdf->SetX(15);
-        $pdf->Cell(30, 6, $row['prueba'], 1, 0, 'C');
-        
-        $pdf->SetX(45);
-        $pdf->Cell(100, 6, $row['resultado'], 1, 0, 'C');
-        
-        $pdf->SetX(145);
-        $pdf->Cell(25, 6, $row['unidades'], 1, 0, 'C');
-        
-        $pdf->SetX(170);
-        $pdf->Cell(25, 6, $row['valorreferencia'], 1, 1, 'C');
-        
-        //$pdf->SetX(155);
-        //$pdf->MultiCell(40, 6, $row['observaciones'], 1, 'C', false);
-
-        $observaciones = $row['comentario'];
-*/        
+        $pdf->SetX(140);
+        $pdf->Cell(60, 6, $row['nombre'], 1, 1, 'C');
         
     }
    
-/*
-        $pdf->Ln();
-        $pdf->SetFillColor(255, 255, 255);
-        $pdf->SetTextColor(0, 0, 0);
-        $pdf->SetX(20);
-        $pdf->Cell(170, 6, 'Observaciones', 1, 1, 'C');
-        $pdf->SetX(20);
-        $pdf->MultiCell(170, 6, $observaciones, 1, 'J', true);
- 
-        $pdf->Ln(50);
-        $pdf->SetX(20);
-        $pdf->SetFillColor(255, 255, 255);
-        $pdf->SetTextColor(0, 0, 0);
-        $pdf->Cell(180, 6, 'Atentamente', 0, 1, 'C');
 
-        $pdf->Ln(20);
-        $pdf->SetX(20);
-        $pdf->SetFillColor(255, 255, 255);
-        $pdf->SetTextColor(0, 0, 0);
-        $pdf->Cell(180, 6, 'QFB. Fabiola Espinosa Bribiesca', 0, 1, 'C');
-*/
         $pdf->Output();
 ?>
