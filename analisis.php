@@ -93,18 +93,30 @@ foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
               if(isset($_GET['idm'])){
                 $idmed = $_GET['idm'];
               }
-              $querymedicos = $mysqli -> query ("SELECT idmedicos, nombre FROM medicos WHERE idmedicos = '$idmed'");  
+              $querymedicos = $mysqli -> query ("SELECT idmedicos, nombre FROM medicos WHERE idmedicos = '$idmed'");
+              $querymedicos2 = $mysqli -> query ("SELECT idmedicos, nombre FROM medicos");
+
+              
+              while ($valores =  mysqli_fetch_array($querymedicos, MYSQLI_ASSOC)) {
+                echo '<option value="'.$valores['idmedicos'].'">'.$valores['nombre'].'</option>';
+              } 
+              while ($valores =  mysqli_fetch_array($querymedicos2, MYSQLI_ASSOC)) {
+                echo '<option value="'.$valores['idmedicos'].'">'.$valores['nombre'].'</option>';
+              } 
+
+
+              /*
+              while ($valores =  mysqli_fetch_array($querymedicos, MYSQLI_ASSOC)) {
+                echo '<option value="'.$valores['idmedicos'].'">'.$valores['nombre'].'</option>';
+              } 
+              */ 
             }else{
               echo "<option  value=".$idmedico.">Seleccionar Médico</option>";
               $querymedicos = $mysqli -> query ("SELECT idmedicos, nombre FROM medicos");
+              while ($valores =  mysqli_fetch_array($querymedicos, MYSQLI_ASSOC)) {
+                echo '<option value="'.$valores['idmedicos'].'">'.$valores['nombre'].'</option>';
+              }
             }
-
-            $name = "";
-            while ($valores =  mysqli_fetch_array($querymedicos, MYSQLI_ASSOC)) {
-              echo '<option value="'.$valores['idmedicos'].'">'.$valores['nombre'].'</option>';
-              $name =  $valores['nombre'];
-            }
-            
             mysqli_close($mysqli);
             
           ?>
@@ -113,7 +125,7 @@ foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
       </div>
       <div class="col-4">
     	 <label>
-      				Área
+      				Área <?php //echo $name;?>
       			  <input name="area" value="<?php if($fila1 != null) { echo $fila1 [1]; }?>" style="background-color:powderblue; "required>
     	 </label>
   		 </div>

@@ -9,7 +9,7 @@ class PDF extends FPDF
         function Header()
         {
 
-/**************************************************/
+/**************************************************
             include("includes/conexion.php");
             $idpr   = 0;
             $idpac  = 0;
@@ -66,17 +66,17 @@ class PDF extends FPDF
             $this->Ln(14);
             $this->SetFont('Arial', '', 10);
             $this->Cell(20);
-            $this->Cell(30, 10, utf8_decode('Examen practicado a: '.$nombrePaciente), 0, 0 ,'C');
+          //  $this->Cell(30, 10, utf8_decode('Examen practicado a: '.$nombrePaciente), 0, 0 ,'C');
               
             
             $this->SetFont('Arial', '', 10);
             $this->Cell(105);
-            $this->Cell(30, 10, utf8_decode('Fecha: '.$fecha), 0, 0 ,'C');
+            $this->Cell(30, 10, utf8_decode('Fecha: '), 0, 0 ,'C');
 
             $this->Ln(5);
             $this->SetFont('Arial', '', 10);
             $this->Cell(26);
-            $this->Cell(30, 10, utf8_decode('Solicitado por el (la) Dr. (a): '.$nombreMedico), 0, 0 ,'C');
+           // $this->Cell(30, 10, utf8_decode('Solicitado por el (la) Dr. (a): '.$nombreMedico), 0, 0 ,'C');
             
         }
 
@@ -110,28 +110,25 @@ class PDF extends FPDF
     }
     
 
-    $idpr   = 0;
-    $idpac  = 0;
-    $idmed  = 0;
-    $queryhead = "";
-    if(isset($_GET['idpr']) && isset($_GET['idpac']) && isset($_GET['idm'])){
-        $idpr   = $_GET['idpr'];
-        $idpac  = $_GET['idpac'];
-        $idmed  = $_GET['idm'];
-        
-    }
     
+    $dia    = "";
+    $mes    = "";
+    $anio   = "";
+    $fecha  = "";
+
+    $dia    = date("d");
+    $mes    = date("m");
+    $anio   = date("Y");
+    $fecha  = $anio."-".$mes."-".$dia;
+
 
     $con = mysqli_connect($host, $user, $pwd, $db);
 
-    $sql = "SELECT  a.prueba, a.resultado, a.unidades, a.valorreferencia, a.comentario, a.observaciones
-            FROM analisis AS a 
-            JOIN pacientes AS p 
-            ON a.pacientes_idpacientes = p.idpacientes
-            JOIN medicos m
-            ON a.medicos_idmedicos = m.idmedicos
-            WHERE a.idpropio = '$idpr'
-            ORDER BY a.idpropio";
+    $sql = "SELECT inv.nombre_art, inv.marca, inv.costo_prueba, inv.fechacaducidad,  inv.fechatermino, prov.nombre
+                FROM 	inventario AS    inv
+                JOIN 	proveedores AS   prov
+                ON   	inv.idproveedores = prov.idproveedores
+                WHERE   fechatermino <= '$fecha'";
 
     
     $query = $con -> query($sql);
@@ -139,29 +136,43 @@ class PDF extends FPDF
     
     
     $pdf = new PDF();
-    $pdf->Settitle("Reporte");
+    $pdf->Settitle("Reporte Productos Finalizados");
     $pdf->AddPage();
     $pdf->AliasNbPages();
+
+
+    $pdf->Ln();
+    $pdf->Ln(15);
+    $pdf->SetX(20);
+    $pdf->SetFillColor(255, 255, 255);
+    $pdf->SetTextColor(0, 0, 0);
+    $pdf->SetFont('Arial', 'B', 12);
+    $pdf->Cell(175, 6, 'Reporte de Productos finalizados', 0, 1, 'C');
+
     $pdf->SetFillColor(232, 232, 232);
-    $pdf->SetFont('Arial', 'B', 10);
+    $pdf->SetFont('Arial', 'B', 9);
     $pdf->SetFillColor(45, 76, 130);
     $pdf->SetTextColor(255, 255, 255);
 
-    $pdf->Ln();
-    $pdf->Ln(5);
+    $pdf->Ln(10);   
+    
+    $pdf->SetX(5);
+    $pdf->Cell(30, 6, 'Nombre '.utf8_decode('Artículo'), 1, 0, 'C', 1);
+    
+    $pdf->SetX(35);
+    $pdf->Cell(40, 6, 'Marca', 1, 0, 'C', 1);
+    
+    $pdf->SetX(75);
+    $pdf->Cell(30, 6, 'Costo Prueba', 1, 0, 'C', 1);
+    
+    $pdf->SetX(105);
+    $pdf->Cell(30, 6, 'Fecha Cad.', 1, 0, 'C', 1);
 
-    $pdf->SetX(15);
-    $pdf->Cell(30, 6, 'Prueba', 1, 0, 'C', 1);
-    
-    $pdf->SetX(45);
-    $pdf->Cell(100, 6, 'Resultado', 1, 0, 'C', 1);
-    
-    $pdf->SetX(145);
-    $pdf->Cell(25, 6, 'Unidades', 1, 0, 'C', 1);
-    
+    $pdf->SetX(135);
+    $pdf->Cell(35, 6, 'Fecha termino', 1, 0, 'C', 1);
+
     $pdf->SetX(170);
-    $pdf->Cell(25, 6, 'Vl. Referencia', 1, 0, 'C', 1);
-
+    $pdf->Cell(35, 6, 'Proveedor', 1, 0, 'C', 1);
    // $pdf->SetX(155);
     //$pdf->Cell(40, 6, 'Comentarios', 1, 0, 'C', 1);
 
@@ -173,7 +184,26 @@ class PDF extends FPDF
     {
         $pdf->SetFont('Arial', '', 9);
         $pdf->SetTextColor(0, 0, 0);
-                
+        
+        $pdf->SetX(5);
+        $pdf->Cell(30, 6, $row['nombre_art'], 1, 0, 'C');
+        
+        $pdf->SetX(35);
+        $pdf->Cell(40, 6, $row['marca'], 1, 0, 'C');
+        
+        $pdf->SetX(75);
+        $pdf->Cell(30, 6, $row['costo_prueba'], 1, 0, 'C');
+        
+        $pdf->SetX(105);
+        $pdf->Cell(30, 6, $row['fechacaducidad'], 1, 0, 'C');
+
+        $pdf->SetX(135);
+        $pdf->Cell(35, 6, $row['fechatermino'], 1, 0, 'C');
+
+        $pdf->SetX(170);
+        $pdf->Cell(35, 6, $row['nombre'], 1, 1, 'C');
+
+/*
         $pdf->SetX(15);
         $pdf->Cell(30, 6, $row['prueba'], 1, 0, 'C');
         
@@ -190,11 +220,11 @@ class PDF extends FPDF
         //$pdf->MultiCell(40, 6, $row['observaciones'], 1, 'C', false);
 
         $observaciones = $row['comentario'];
-        
+*/        
         
     }
    
-
+/*
         $pdf->Ln();
         $pdf->SetFillColor(255, 255, 255);
         $pdf->SetTextColor(0, 0, 0);
@@ -202,7 +232,7 @@ class PDF extends FPDF
         $pdf->Cell(170, 6, 'Observaciones', 1, 1, 'C');
         $pdf->SetX(20);
         $pdf->MultiCell(170, 6, $observaciones, 1, 'J', true);
-        
+ 
         $pdf->Ln(50);
         $pdf->SetX(20);
         $pdf->SetFillColor(255, 255, 255);
@@ -214,6 +244,6 @@ class PDF extends FPDF
         $pdf->SetFillColor(255, 255, 255);
         $pdf->SetTextColor(0, 0, 0);
         $pdf->Cell(180, 6, 'QFB. Fabiola Espinosa Bribiesca', 0, 1, 'C');
-
+*/
         $pdf->Output();
 ?>
