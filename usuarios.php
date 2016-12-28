@@ -2,7 +2,14 @@
   include("includes/conexion.php");
   session_start();
   $_SESSION['valueF'] = 'USUARIO';
+if(!empty($_SESSION['valueuser'])){
 
+
+     }
+     else{
+  include("includes/error_nologin.php");
+
+     }
 
 ?>
 <!doctype html>

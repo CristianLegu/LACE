@@ -11,6 +11,12 @@
 
 
 
+foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
+if(!isset($_GET['p']) ){
+   include("includes/error_nologin.php"); 
+  }
+
+  else{
 $id = $_GET['p'];
         $sql = "SELECT nombre
                   FROM pacientes
@@ -19,7 +25,16 @@ $id = $_GET['p'];
          $query  = mysqli_query($con, $sql);
          $nombre   = mysqli_fetch_array($query, MYSQLI_ASSOC);
          mysqli_close($con);
+}
+session_start();
+  if(!empty($_SESSION['valueuser'])){
 
+
+     }
+     else{
+  include("includes/error_nologin.php");
+
+     }
 ?>
 <!doctype html>
 <html lang="es">

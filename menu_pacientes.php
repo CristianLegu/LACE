@@ -1,11 +1,23 @@
 <?php
       header('Content-Type: text/html; charset=iso-8859-1');
       echo htmlspecialchars("", ENT_QUOTES, 'utf-8');
+        session_start();
+  if(empty($_SESSION['valueuser'])){
+
+
+  include("includes/error_nologin.php");
+
+     }
+foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
+  $linkpaciente = "pacientes.php?V=".urlencode(base64_encode('variable'));
+      if(!isset($_GET['V'])){ 
+      include("includes/error_nologin.php");
+  }
 ?>
 <!doctype html>
 <html lang="es">
 <head>
-  <meta charset="utf-8">
+<meta charset="utf-8">
   <meta http-equiv="Content-Type" content="text/html">
   <title>Men&uacute; Pacientes | LACE </title>
   <link rel="shortcut icon" href="img/icon.png">
@@ -62,7 +74,7 @@
         </form>
       </p>
     <li>
-      <a href="pacientes.php" class="add"><img src="img/addpac.png"></a>
+      <a href="<?php echo $linkpaciente; ?>" class="add"><img src="img/addpac.png"></a>
     </li>
   </ul>
 </nav>
@@ -170,7 +182,7 @@
          $idpac = $fila['idpacientes'];
          $ver = "pacientes.php?p=".urlencode(base64_encode($idpac));
          $agregar = "analisis.php?p=".urlencode(base64_encode($idpac))."&pro=".urlencode(base64_encode("0"));
-         $vera = "menu_analisis.php?p=".$idpac;
+         $vera = "menu_analisis.php?p=".urlencode(base64_encode($idpac));
  ?>
         <tr>
           <td><?php echo $fila['idpacientes']; ?></td>
@@ -179,7 +191,7 @@
           <?php $idpaciente = $fila['idpacientes'];  ?>
           <td><a class="text" href= "<?php echo $ver?>"><strong>Ver</strong></a> </td>
           <td><a class="text" href= "<?php echo $agregar?>"><strong>Agregar</strong></a><strong class="text"> | </strong>
-            <a class="text" href= "<?php echo $vera ?>"><strong>Ver</strong></a> </td>
+            <a class="text" href= "<?php echo $vera; ?>"><strong>Ver</strong></a> </td>
 
         </tr>
 

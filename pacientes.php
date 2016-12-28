@@ -1,5 +1,18 @@
 <?php
   include("includes/conexion.php");
+
+
+  session_start();
+  if(!empty($_SESSION['valueuser'])){
+
+
+     }
+     else{
+  include("includes/error_nologin.php");
+
+     }
+
+ 
 ?>
 <!doctype html>
 <html lang="en-US">
@@ -10,7 +23,13 @@
 
 
   <link rel="shortcut icon" href="img/icon.png">
+      <?php       if(!isset($_GET['V'])){ 
+      include("includes/error_nologin.php");
+  }
+  else { ?>
+
   <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+  <?php } ?>
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
   <script type="text/javascript" src="js/switchery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
@@ -37,13 +56,11 @@ foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
 /*Verifica si el campo busca esta vacio*/
     if(empty($_GET['p'])){
             $pac = ' ';
-            session_start();
                $_SESSION['valueF'] = 'PACIENTES';
           }
 
     else{
         $pac = $_GET['p'];
-        session_start();
                $_SESSION['valueF'] = 'PACIENTESUP';
                $_SESSION['idup'] = $pac;
 

@@ -1,6 +1,16 @@
 <?php
       header('Content-Type: text/html; charset=iso-8859-1');
       echo htmlspecialchars("", ENT_QUOTES, 'utf-8');
+
+      session_start();
+  if(!empty($_SESSION['valueuser'])){
+
+
+     }
+     else{
+  include("includes/error_nologin.php");
+
+     }
 ?>
 <!doctype html>
 <html lang="es">

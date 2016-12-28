@@ -1,14 +1,12 @@
 <?php
 
 	session_start();
-	if(!empty($_SESSION['valueuser'])){
+	if(empty($_SESSION['valueuser'])){
 
-
+	include("includes/error_nologin.php");
+	
 		 }
-		 else{
-	//include("includes/error_nologin.php");
-
-		 }
+     $linkpaciente = "menu_pacientes.php?V=".urlencode(base64_encode('variable'));
 		  ?>
 <!DOCTYPE html>
 <html lang="es" class="no-js">
@@ -48,7 +46,7 @@
 				<nav id="menu" class="nav">
 					<ul>
 						<li>
-							<a href="menu_pacientes.php">
+							<a href="<?php echo $linkpaciente;?>" >
 								<span class="icon">
 									<i aria-hidden="true" class="icon-services" width="25%"></i>
 								</span>

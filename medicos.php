@@ -1,5 +1,14 @@
 <?php
   include("includes/conexion.php");
+        session_start();
+  if(!empty($_SESSION['valueuser'])){
+
+
+     }
+     else{
+  include("includes/error_nologin.php");
+
+     }
 ?>
 <!doctype html>
 <html lang="en-US">
