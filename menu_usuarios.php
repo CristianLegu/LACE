@@ -1,6 +1,19 @@
 <?php
       header('Content-Type: text/html; charset=iso-8859-1');
       echo htmlspecialchars("", ENT_QUOTES, 'utf-8');
+        include("includes/conexion.php");
+        session_start();
+        $_SESSION['me'] ="";
+  if(empty($_SESSION['valueuser'])){
+
+  include("includes/error_nologin1.php");
+
+     }
+     if(!isset($_GET['V']) ){
+   include("includes/error_nologin1.php"); 
+  }
+    $linkusuario = "usuarios.php?V=".urlencode(base64_encode("variable"));
+    $linkmenu  = "menu.php?V=".urlencode(base64_encode('variable'));
 ?>
 <!doctype html>
 <html lang="es">
@@ -44,7 +57,7 @@
 <nav id="hola">
   <ul>
     <li><p>
-          <a href="menu.php">
+          <a href="<?php echo $linkmenu; ?>">
             <img src="img/logo2.png"  id="logo">
           </a>
         </p>
@@ -60,7 +73,7 @@
         </form>
       </p>
     <li>
-      <a href="usuarios.php" class="add"><img src="img/adduser.png"></a>
+      <a href="<?php echo $linkusuario; ?>" class="add"><img src="img/adduser.png"></a>
     </li>
   </ul>
 </nav>

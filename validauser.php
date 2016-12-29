@@ -15,7 +15,7 @@
        if (!empty($fila['n_user']) && !empty($fila['contrasena'])){
          session_start();
                $_SESSION['valueuser'] = $fila['n_user'];
-              
+               $_SESSION['me'] = "menu"; 
         
         header ("Location: menu.php");
        }

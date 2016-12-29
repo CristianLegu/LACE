@@ -1,6 +1,14 @@
 <?php
-  include("includes/conexion.php");
+  session_start();
+        $_SESSION['me'] ="";
+  if(empty($_SESSION['valueuser'])){
 
+
+  include("includes/error_nologin1.php");
+
+     }
+  include("includes/conexion.php");
+   $linkprovvedores = "menu_proveedores.php?V=".urlencode(base64_encode("variable"));
 ?>
 
 <!doctype html>
@@ -10,7 +18,12 @@
   <meta http-equiv="Content-Type" content="text/html">
   <title>Proveedores - LACE</title>
 <link rel="shortcut icon" href="img/icon.png">
+ <?php  if(!isset($_GET['prov']) && !isset($_GET['V']) ){
+   include("includes/error_nologin.php"); 
+  } 
+  else{ ?>
   <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+  <?php } ?>
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
   <script type="text/javascript" src="js/switchery.min.js"></script>
   <!-- Pantalla de carga-->
@@ -46,13 +59,11 @@
 /*Verifica si el campo busca esta vacio*/
     if(empty($_GET['prov'])){
             $pac = ' ';
-            session_start();
               $_SESSION['valueF'] = 'PROVEEDOR';
           }
 
     else{
         $pac = $_GET['prov'];
-        session_start();
                $_SESSION['valueF'] = 'PROVEEDORUP';
                $_SESSION['idup'] = $pac;
         }
@@ -68,7 +79,7 @@
 <nav id="hola">
   <ul>
     <li><p>
-          <a href="menu_proveedores.php">
+          <a href="<?php echo $linkprovvedores; ?>">
 	        <img src="img/logo2.png" id="logo">
         </a>
         </p>

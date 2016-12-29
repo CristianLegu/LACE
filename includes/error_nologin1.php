@@ -5,7 +5,6 @@
 	}
  session_start();
  session_destroy();
-
 ?>
 <html>
 <head>
@@ -21,7 +20,7 @@
 
 			swal({
   				title: "Error",
-   				text: "No ha iniciado sesión",  
+   				text: "<?php echo utf8_decode("No ha iniciado sesión"); ?>",  
     			type: "warning"
   			}, function(){
 						window.location.href = 'index.php';

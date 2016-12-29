@@ -2,7 +2,14 @@
   include("includes/conexion.php");
   session_start();
   $_SESSION['valueF'] = 'USUARIO';
+if(empty($_SESSION['valueuser'])){
 
+
+  include("includes/error_nologin.php");
+
+     }
+  $linkusuario = "menu_usuarios.php?V=".urlencode(base64_encode("variable"));
+ 
 
 ?>
 <!doctype html>
@@ -12,7 +19,15 @@
   <meta http-equiv="Content-Type" content="text/html">
   <title>Usuarios| LACE</title>
   <link rel="shortcut icon" href="img/icon.png">
-  <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+  <?php 
+      if(!isset($_GET['V']) && !isset($_GET['u']) ){
+
+   include("includes/error_nologin.php"); 
+ }
+ else{ ?>
+ <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+ <?php } ?>
+
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
   <script type="text/javascript" src="js/switchery.min.js"></script>
   <!-- Pantalla de carga-->
@@ -77,7 +92,7 @@ if (!empty($_GET['u'])) {
 <nav id="hola">
   <ul>
     <li><p>
-          <a href="menu_usuarios.php">
+          <a href="<?php echo  $linkusuario; ?>">
 	        <img src="img/logo2.png" id="logo">
         </a>
         </p>

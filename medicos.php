@@ -1,5 +1,16 @@
 <?php
   include("includes/conexion.php");
+        session_start();
+  if(!empty($_SESSION['valueuser'])){
+
+
+     }
+     else{
+  include("includes/error_nologin.php");
+
+     }
+      $linkmedico = "menu_medicos.php?V=".urlencode(base64_encode("variable"));
+
 ?>
 <!doctype html>
 <html lang="en-US">
@@ -8,7 +19,16 @@
   <meta http-equiv="Content-Type" content="text/html">
   <title>Médicos - LACE</title>
 <link rel="shortcut icon" href="img/icon.png">
+<?php      
+if (!isset($_GET['V']) && !isset($_GET['m']) ){
+
+   include("includes/error_nologin.php"); 
+  }
+
+
+  else{?>
   <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+  <?php } ?>
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
   <script type="text/javascript" src="js/switchery.min.js"></script>
   <!-- Pantalla de carga-->
@@ -32,13 +52,11 @@
 /*Verifica si el campo busca esta vacio*/
     if(empty($_GET['m'])){
             $pac = ' ';
-            session_start();
                $_SESSION['valueF'] = 'MEDICOS';
           }
 
     else{
         $pac = $_GET['m'];
-        session_start();
                $_SESSION['valueF'] = 'MEDICOSUP';
                $_SESSION['idup'] = $pac;
         }
@@ -65,7 +83,7 @@
 <nav id="hola">
   <ul>
     <li><p>
-          <a href="menu_medicos.php">
+          <a href="<?php echo $linkmedico; ?>">
 	        <img src="img/logo2.png" id="logo">
         </a>
         </p>

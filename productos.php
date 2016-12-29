@@ -9,6 +9,8 @@
               }
 foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
 
+ $linkproductos = "menu_productos.php?V=".urlencode(base64_encode("variable"));
+ 
 if ($_GET['prod'] != '0'){
  $prod = $_GET['prod'];
   $sql    = "SELECT * FROM inventario where idinventario = '$prod' ";
@@ -92,7 +94,12 @@ else{
   <meta http-equiv="Content-Type" content="text/html">
   <title>Productos | LACE</title>
   <link rel="shortcut icon" href="img/icon.png">
+  <?php  if(!isset($_GET['prod']) ){
+   include("includes/error_nologin.php"); 
+  }
+  else{ ?>
   <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+  <?php } ?>
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
   <script type="text/javascript" src="js/switchery.min.js"></script>
   <!-- Pantalla de carga-->
@@ -119,7 +126,7 @@ else{
 <nav id="hola">
   <ul>
     <li><p>
-          <a href="menu_productos.php">
+          <a href="<?php echo $linkproductos; ?>">
 	        <img src="img/logo2.png" id="logo">
         </a>
         </p>
@@ -173,7 +180,7 @@ else{
  </div>
         <div class="col-3">
           <label>
-            Proveedores <?php echo $nombreproveedor1['nombre'];  ?>
+            Proveedores <?php //echo $nombreproveedor1['nombre'];  ?>
                         <br><br>
  <select id="idproveedor"  name="idproveedor" >
 

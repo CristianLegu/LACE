@@ -6,28 +6,25 @@
           else{
       // echo "Error ".mysqli_error($mysqli);
        }
+session_start();
+  if(empty($_SESSION['valueuser'])){
+
+  include("includes/error_nologin.php");
+
+     }
 
 foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
 
   $cont = 1;
   $i = 1;
-  $idmed = 0;
-  $idpac = $_GET['p'];
-  if ($_GET['pro'] != 0){
-
-
-    $idpropio = $_GET['pro'];
-		$sql    = "SELECT * FROM analisis where idpropio = '$idpropio' ";
-        $query  = mysqli_query($mysqli, $sql);
-        $fila = $mysqli->query($sql);
-        $fila1 = mysqli_fetch_array($query);
-		mysqli_close($mysqli);
-          ?>
-
-		<?php    }
-		else{ $fila = null;
-         $fila1 = null;}?>
-
+  $idmed = 0;?>
+ 
+  <?php if(!isset($_GET['p'])){
+  // include("includes/error_usuario1.php"); 
+      include("includes/error_nologin.php");
+  }
+  else{ 
+    ?>
 				   <script language='javascript'>
 				  var i = 1;
 			</script>
@@ -36,7 +33,30 @@ foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
       <head>
            <title>Análisis</title>
            <script src="js/jquery.min.js"></script>
-           <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+                    <?php
+ $idpac = $_GET['p']; ?>
+ <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+  <?php if ($_GET['pro'] != 0){
+
+
+    $idpropio = $_GET['pro'];
+    $sql    = "SELECT * FROM analisis where idpropio = '$idpropio' ";
+        $query  = mysqli_query($mysqli, $sql);
+        $fila = $mysqli->query($sql);
+        $fila1 = mysqli_fetch_array($query);
+    mysqli_close($mysqli);
+          ?>
+
+    <?php    }
+    else{ $fila = null;
+         $fila1 = null;
+
+       }
+  }?>
+
+
+
+
            <link rel="shortcut icon" href="img/icon.png">
            <meta charset="utf-8">
            <!-- Pantalla de carga-->
@@ -46,6 +66,7 @@ foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
                  document.getElementById("cargando").style.visibility="hidden";
                }
            </script>
+
            <!-- Pantalla de carga-->
       </head>
         <!-- Pantalla de carga-->

@@ -95,7 +95,7 @@ else {
       $departamento  = $_POST["departamento"];
       $estudio       = $_POST["estudio"];
       $comentario       = $_POST["comentario"];
-      $pacientes_idpacientes = 1;
+      $pacientes_idpacientes = $idpaciente;
       $medicos_idmedicos = $_POST["idmedico"];
       $number        = count($_POST["pruebas"]);
     if ($medicos_idmedicos != null || $medicos_idmedicos != "") {

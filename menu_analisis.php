@@ -2,24 +2,27 @@
       header('Content-Type: text/html; charset=iso-8859-1');
       echo htmlspecialchars("", ENT_QUOTES, 'utf-8');
       include("includes/conexion.php");
+     
 
       $con = mysqli_connect($host, $user, $pwd, $db);
 
   if (mysqli_connect_errno()) {
     echo "Falló la conexión: ".mysqli_connect_error();
     }
+  session_start();
+  if(empty($_SESSION['valueuser'])){
 
 
+  include("includes/error_nologin1.php");
 
-$id = $_GET['p'];
-        $sql = "SELECT nombre
-                  FROM pacientes
-                  WHERE idpacientes = '$id'" ;
-
-         $query  = mysqli_query($con, $sql);
-         $nombre   = mysqli_fetch_array($query, MYSQLI_ASSOC);
-         mysqli_close($con);
-
+     }
+  $id = "";
+  if(isset($_GET['p'])){
+    $id = $_GET['p'];
+  }
+  else{
+    include('includes/alert_getp.php');
+  }
 ?>
 <!doctype html>
 <html lang="es">
@@ -51,6 +54,34 @@ $id = $_GET['p'];
 </head>
 
 <body>
+<?php 
+ $linkpaciente = "menu_pacientes.php?V=".urlencode(base64_encode('variable'));
+
+
+foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
+if(!isset($_GET['p']) ){
+   include("includes/error_nologin.php"); 
+  }
+
+  else{
+$id = $_GET['p'];
+
+        $sql = "SELECT nombre
+                  FROM pacientes
+                  WHERE idpacientes = '$id'" ;
+
+         $query  = mysqli_query($con, $sql);
+         $nombre   = mysqli_fetch_array($query, MYSQLI_ASSOC);
+         mysqli_close($con);
+}
+  if(!empty($_SESSION['valueuser'])){
+
+
+     }
+     else{
+  include("includes/error_nologin1.php");
+
+     } ?>
   <!-- Pantalla de carga-->
         <div id="cargando">
           <div class="cssload-thecube">
@@ -64,7 +95,7 @@ $id = $_GET['p'];
 <nav id="hola">
   <ul>
     <li><p>
-          <a href="menu_pacientes.php">
+          <a href="<?php echo  $linkpaciente; ?>">
             <img src="img/logo2.png"  id="logo">
           </a>
         </p>
@@ -98,15 +129,25 @@ $id = $_GET['p'];
 
   $con = mysqli_connect($host, $user, $pwd, $db);
   $paginationCtrls = '';
-
+/*
+  $p = $_SESSION['var_p'];
+  
+  echo $p;
   if(isset($_GET['p'])){
     //echo "tiene parametro ".$_GET['p'];
   }
   else{
     echo "no tiene parametro P";
-    header('Location: menu_analisis.php?p=1');
+    header('Location: menu_analisis.php?p='.$p);
   }
-  $idpacientes = $_GET['p'];
+*/
+  $idpacientes = "";
+  if(isset($_GET['p'])){
+    $idpacientes = $_GET['p'];
+  }
+  else{
+    $idpacientes = "";
+  }
   if (mysqli_connect_errno()) {
         echo "Falló la conexión: ".mysqli_connect_error();
         }

@@ -1,14 +1,25 @@
 <?php
 
 	session_start();
-	if(!empty($_SESSION['valueuser'])){
+	if(empty($_SESSION['valueuser'])){
 
-
+	include("includes/error_nologin.php");
+	
 		 }
-		 else{
-	//include("includes/error_nologin.php");
+    if ($_SESSION['me'] != "menu" && !isset($_GET['V']) ){
+    include("includes/error_nologin.php");
+    }
+   
+		 foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
 
-		 }
+     $linkpaciente    = "menu_pacientes.php?V=".urlencode(base64_encode('variable'));
+     $linkmedico      = "menu_medicos.php?V=".urlencode(base64_encode('variable'));
+     $linkusuarios    = "menu_usuarios.php?V=".urlencode(base64_encode('variable'));
+     $linkproveedores = "menu_proveedores.php?V=".urlencode(base64_encode('variable'));
+     $linkproductos = "menu_productos.php?V=".urlencode(base64_encode('variable')); 
+	 $linkreporte = "menu_reporte.php?V=".urlencode(base64_encode('variable'));
+	 $linkmenu = "menu.php?V=".urlencode(base64_encode('variable'));
+
 		  ?>
 <!DOCTYPE html>
 <html lang="es" class="no-js">
@@ -42,13 +53,13 @@
 
 			</div>
 			<header>
-				<span><a href="menu.php"><img src="img/logo2.png" class="imag"></a></span>
+				<span><a href="<?php echo $linkmenu; ?>"><img src="img/logo2.png" class="imag"></a></span>
 			</header>
 			<div class="main clearfix">
 				<nav id="menu" class="nav">
 					<ul>
 						<li>
-							<a href="menu_pacientes.php">
+							<a href="<?php echo $linkpaciente;?>" >
 								<span class="icon">
 									<i aria-hidden="true" class="icon-services" width="25%"></i>
 								</span>
@@ -56,7 +67,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="menu_medicos.php">
+							<a href="<?php echo $linkmedico;?>" >
 								<span class="icon">
 									<i aria-hidden="true" class="icon-team"></i>
 								</span>
@@ -64,7 +75,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="menu_usuarios.php">
+							<a href="<?php echo $linkusuarios;?>">
 								<span class="icon">
 									<i aria-hidden="true" class="icon-blog"></i>
 								</span>
@@ -72,7 +83,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="menu_proveedores.php">
+							<a href="<?php echo $linkproveedores;?>">
 								<span class="icon">
 									<i aria-hidden="true" class="icon-menu"></i>
 								</span>
@@ -80,7 +91,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="menu_productos.php">
+							<a href="<?php echo $linkproductos;?>">
 								<span class="icon">
 									<i aria-hidden="true" class="icon-portfolio"></i>
 								</span>
@@ -88,7 +99,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="menu_reporte.php">
+							<a href="<?php echo $linkreporte; ?>">
 								<span class="icon">
 									<i aria-hidden="true" class="icon-contact"></i>
 								</span>
