@@ -19,7 +19,7 @@
   <meta http-equiv="Content-Type" content="text/html">
   <title>Médicos - LACE</title>
 <link rel="shortcut icon" href="img/icon.png">
-<?php      foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
+<?php      
 if (!isset($_GET['V']) && !isset($_GET['m']) ){
 
    include("includes/error_nologin.php"); 

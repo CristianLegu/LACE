@@ -8,7 +8,7 @@ if(empty($_SESSION['valueuser'])){
   include("includes/error_nologin.php");
 
      }
-
+  $linkusuario = "menu_usuarios.php?V=".urlencode(base64_encode("variable"));
  
 
 ?>
@@ -92,7 +92,7 @@ if (!empty($_GET['u'])) {
 <nav id="hola">
   <ul>
     <li><p>
-          <a href="menu_usuarios.php">
+          <a href="<?php echo  $linkusuario; ?>">
 	        <img src="img/logo2.png" id="logo">
         </a>
         </p>

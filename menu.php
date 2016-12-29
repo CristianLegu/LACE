@@ -18,6 +18,7 @@
      $linkproveedores = "menu_proveedores.php?V=".urlencode(base64_encode('variable'));
      $linkproductos = "menu_productos.php?V=".urlencode(base64_encode('variable')); 
 	 $linkreporte = "menu_reporte.php?V=".urlencode(base64_encode('variable'));
+	 $linkmenu = "menu.php?V=".urlencode(base64_encode('variable'));
 
 		  ?>
 <!DOCTYPE html>
@@ -52,7 +53,7 @@
 
 			</div>
 			<header>
-				<span><a href="menu.php"><img src="img/logo2.png" class="imag"></a></span>
+				<span><a href="<?php echo $linkmenu; ?>"><img src="img/logo2.png" class="imag"></a></span>
 			</header>
 			<div class="main clearfix">
 				<nav id="menu" class="nav">
