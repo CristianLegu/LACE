@@ -11,6 +11,11 @@
   include("includes/error_nologin.php");
 
      }
+     foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
+if(!isset($_GET['V']) ){
+   include("includes/error_nologin.php"); 
+  }
+  $linkmedico = "medicos.php?V=".urlencode(base64_encode("variable"));
 ?>
 <!doctype html>
 <html lang="es">
@@ -70,7 +75,7 @@
         </form>
       </p>
     <li>
-      <a href="medicos.php" class="add"><img src="img/addmed.png"></a>
+      <a href="<?php echo $linkmedico; ?>" class="add"><img src="img/addmed.png"></a>
     </li>
   </ul>
 </nav>

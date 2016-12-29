@@ -7,6 +7,8 @@
 	
 		 }
      $linkpaciente = "menu_pacientes.php?V=".urlencode(base64_encode('variable'));
+     $linkmedico = "menu_medicos.php?V=".urlencode(base64_encode('variable'));
+     $linkusuarios = "menu_usuarios.php?V=".urlencode(base64_encode('variable'));
 		  ?>
 <!DOCTYPE html>
 <html lang="es" class="no-js">
@@ -54,7 +56,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="menu_medicos.php">
+							<a href="<?php echo $linkmedico;?>" >
 								<span class="icon">
 									<i aria-hidden="true" class="icon-team"></i>
 								</span>
@@ -62,7 +64,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="menu_usuarios.php">
+							<a href="<?php echo $linkusuarios;?>">
 								<span class="icon">
 									<i aria-hidden="true" class="icon-blog"></i>
 								</span>
@@ -70,7 +72,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="menu_proveedores.php">
+							<a href="<?php echo $linkproveedores;?>">
 								<span class="icon">
 									<i aria-hidden="true" class="icon-menu"></i>
 								</span>
@@ -78,7 +80,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="menu_productos.php">
+							<a href="<?php echo $linkproductos;?>">
 								<span class="icon">
 									<i aria-hidden="true" class="icon-portfolio"></i>
 								</span>
@@ -86,7 +88,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="menu_reporte.php">
+							<a href="#">
 								<span class="icon">
 									<i aria-hidden="true" class="icon-contact"></i>
 								</span>

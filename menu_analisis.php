@@ -18,7 +18,7 @@
     include('includes/alert_getp.php');
   }
 
-<<<<<<< HEAD
+
 
 foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
 if(!isset($_GET['p']) ){
@@ -27,9 +27,7 @@ if(!isset($_GET['p']) ){
 
   else{
 $id = $_GET['p'];
-=======
-  
->>>>>>> origin/master
+
         $sql = "SELECT nombre
                   FROM pacientes
                   WHERE idpacientes = '$id'" ;

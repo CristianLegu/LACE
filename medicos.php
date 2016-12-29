@@ -9,6 +9,7 @@
   include("includes/error_nologin.php");
 
      }
+
 ?>
 <!doctype html>
 <html lang="en-US">
@@ -17,7 +18,17 @@
   <meta http-equiv="Content-Type" content="text/html">
   <title>Médicos - LACE</title>
 <link rel="shortcut icon" href="img/icon.png">
+<?php      foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
+if (!isset($_GET['V']) ){
+if(!isset($_GET['m']) ){
+   include("includes/error_nologin.php"); 
+  }
+  else{ ?>
   <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+  <?php } }
+  else{?>
+  <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+  <?php } ?>
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
   <script type="text/javascript" src="js/switchery.min.js"></script>
   <!-- Pantalla de carga-->
@@ -41,13 +52,11 @@
 /*Verifica si el campo busca esta vacio*/
     if(empty($_GET['m'])){
             $pac = ' ';
-            session_start();
                $_SESSION['valueF'] = 'MEDICOS';
           }
 
     else{
         $pac = $_GET['m'];
-        session_start();
                $_SESSION['valueF'] = 'MEDICOSUP';
                $_SESSION['idup'] = $pac;
         }

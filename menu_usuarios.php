@@ -3,14 +3,14 @@
       echo htmlspecialchars("", ENT_QUOTES, 'utf-8');
         include("includes/conexion.php");
         session_start();
-  if(!empty($_SESSION['valueuser'])){
+  if(empty($_SESSION['valueuser'])){
 
-
-     }
-     else{
   include("includes/error_nologin.php");
 
      }
+     if(!isset($_GET['V']) ){
+   include("includes/error_nologin.php"); 
+  }
 ?>
 <!doctype html>
 <html lang="es">
