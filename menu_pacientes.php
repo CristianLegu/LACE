@@ -12,7 +12,7 @@
 foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
   $linkpaciente = "pacientes.php?V=".urlencode(base64_encode('variable'));
   $linkmenu  = "menu.php?V=".urlencode(base64_encode('variable')); 
-      if(!isset($_GET['V'])){ 
+      if(!isset($_GET['V']) && !isset($_GET['busca'])){ 
       include("includes/error_nologin1.php");
   }
 ?>

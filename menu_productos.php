@@ -11,7 +11,7 @@
      }
       $linkvacio = "productos.php?prod=".urlencode(base64_encode(0));
 
-        if(!isset($_GET['V']) ){
+        if(!isset($_GET['V']) && !isset($_GET['busca']) ){
    include("includes/error_nologin1.php"); 
   }
   $linkmenu  = "menu.php?V=".urlencode(base64_encode('variable')); 

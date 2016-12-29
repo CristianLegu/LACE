@@ -6,8 +6,16 @@
       if (mysqli_connect_errno()) {
        echo "Falló la conexión: IF".mysqli_connect_error();
       }
+      session_start();
+  if(empty($_SESSION['valueuser'])){
 
+  include("includes/error_nologin.php");
 
+     }
+if(!isset($_POST['idpaciente'])){
+       include("includes/error_nologin.php");
+}
+$linkmenu = "menu.php?V=".urlencode(base64_encode('variable'));
 $idpropio   = 0;
 $idpaciente = 0;
 
@@ -165,7 +173,7 @@ else {
   <body>
     <div class="container">
         <header>
-				  <span><a href="menu.php"><img src="img/logo2.png" class="imag"></a></span>
+				  <span><a href="<?php echo $linkmenu; ?>"><img src="img/logo2.png" class="imag"></a></span>
 			  </header>
       <div class="main clearfix">
           <nav id="menu" class="nav" style="">

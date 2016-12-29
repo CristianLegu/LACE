@@ -59,7 +59,7 @@
 
 
 foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
-if(!isset($_GET['p']) ){
+if(!isset($_GET['p']) && !isset($_GET['busca']) ){
    include("includes/error_nologin.php"); 
   }
 
