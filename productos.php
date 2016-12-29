@@ -180,7 +180,7 @@ else{
  </div>
         <div class="col-3">
           <label>
-            Proveedores <?php echo $nombreproveedor1['nombre'];  ?>
+            Proveedores <?php //echo $nombreproveedor1['nombre'];  ?>
                         <br><br>
  <select id="idproveedor"  name="idproveedor" >
 
