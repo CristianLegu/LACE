@@ -74,7 +74,6 @@ $id = $_GET['p'];
          $nombre   = mysqli_fetch_array($query, MYSQLI_ASSOC);
          mysqli_close($con);
 }
-session_start();
   if(!empty($_SESSION['valueuser'])){
 
 

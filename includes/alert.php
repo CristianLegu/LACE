@@ -27,15 +27,15 @@
 								window.location.href = '<?php echo $linkproveedores; ?>';
 
 								<?php } 	  if(  $sesion == 'PRODUCTOS') { ?>
-								window.location.href = 'menu_productos.php';
-							<?php	} if (  $sesion == 'EMPLEADO' ) { ?>
 								window.location.href = '<?php echo $linkproductos; ?>';
+							<?php	} if (  $sesion == 'EMPLEADO' ) { ?>
+								window.location.href = '<?php echo $linkusuarios; ?>';
 							<?php	} if (  $sesion == 'MEDICOS' or $sesion == 'MEDICOSUP') { ?>
 								window.location.href = '<?php echo $linkmedico; ?>';
 							<?php	} if (  $sesion == 'PACIENTES' OR $sesion == 'PACIENTESUP' ) { ?>
 								window.location.href = '<?php echo $linkpaciente; ?>';
 							<?php	} if (  $sesion == 'USUARIO'  or $sesion == 'USUARIOUP' ) { ?>
-								window.location.href = '<?php echo $linkusuario; ?>';
+								window.location.href = '<?php echo $linkusuarios; ?>';
 							
 
 							<?php	} 

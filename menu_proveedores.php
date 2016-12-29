@@ -10,7 +10,7 @@
 
      }
       if(!isset($_GET['V']) ){
-   include("includes/error_nologin.php"); 
+   include("includes/error_nologin1.php"); 
   }
     $linkproveedor = "proveedores.php?V=".urlencode(base64_encode("variable"));
     $linkmenu  = "menu.php?V=".urlencode(base64_encode('variable')); 
