@@ -3,6 +3,8 @@
 
 	if(isset($_SESSION['valueF'])){
 	}
+ session_start();
+ session_destroy();
 
 ?>
 <html>

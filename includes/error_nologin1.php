@@ -3,7 +3,8 @@
 
 	if(isset($_SESSION['valueF'])){
 	}
-$mensaje = 'No ha iniciado sesión';
+ session_start();
+ session_destroy();
 ?>
 <html>
 <head>
@@ -19,7 +20,7 @@ $mensaje = 'No ha iniciado sesión';
 
 			swal({
   				title: "Error",
-   				text: "<?php echo $mensaje; ?> ",  
+   				text: "<?php echo utf8_decode("No ha iniciado sesión"); ?>",  
     			type: "warning"
   			}, function(){
 						window.location.href = 'index.php';

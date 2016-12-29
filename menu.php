@@ -11,6 +11,9 @@
      $linkusuarios    = "menu_usuarios.php?V=".urlencode(base64_encode('variable'));
      $linkproveedores = "menu_proveedores.php?V=".urlencode(base64_encode('variable'));
      $linkproductos = "menu_productos.php?V=".urlencode(base64_encode('variable'));
+		 
+		
+
 		  ?>
 <!DOCTYPE html>
 <html lang="es" class="no-js">
