@@ -5,13 +5,13 @@
   if(empty($_SESSION['valueuser'])){
 
 
-  include("includes/error_nologin.php");
+  include("includes/error_nologin1.php");
 
      }
 foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
   $linkpaciente = "pacientes.php?V=".urlencode(base64_encode('variable'));
       if(!isset($_GET['V'])){ 
-      include("includes/error_nologin.php");
+      include("includes/error_nologin1.php");
   }
 ?>
 <!doctype html>

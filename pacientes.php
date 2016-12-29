@@ -23,7 +23,7 @@
 
 
   <link rel="shortcut icon" href="img/icon.png">
-      <?php       if(!isset($_GET['V'])){ 
+      <?php       if(!isset($_GET['V']) && !isset($_GET['p'])  ){ 
       include("includes/error_nologin.php");
   }
   else { ?>
