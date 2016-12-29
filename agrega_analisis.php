@@ -158,6 +158,8 @@ else {
         //          window.open("reporte.php?id=", "_blank");
           //  </script>';
           $var = "reporte.php?idpr=".urlencode(base64_encode($idpropio))."&idpac=".urlencode(base64_encode($idpaciente))."&idm=".urlencode(base64_encode($medicos_idmedicos));
+          $bar = "recupera.php?idpr=".urlencode(base64_encode($idpropio))."&idpac=".urlencode(base64_encode($idpaciente))."&idm=".urlencode(base64_encode($medicos_idmedicos));
+
  ?>
  <!DOCTYPE html>
 <html lang="es" class="no-js">
@@ -196,7 +198,7 @@ else {
                   </li>
 <!--*****************************************************************************************-->
                    <li>
-                    <a href="">
+                    <a target="_blank" href="<?php echo $bar;?>">
 								    <span class="icon">
 									    <i aria-hidden="true" class="icon-orina"></i>
 								    </span>
