@@ -2,6 +2,9 @@
       header('Content-Type: text/html; charset=iso-8859-1');
       echo htmlspecialchars("", ENT_QUOTES, 'utf-8');
       $linkvacio = "productos.php?prod=".urlencode(base64_encode(0));
+        if(!isset($_GET['V']) ){
+   include("includes/error_nologin.php"); 
+  }
 ?>
 <!doctype html>
 <html lang="es">

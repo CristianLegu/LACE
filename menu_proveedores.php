@@ -1,6 +1,10 @@
 <?php
       header('Content-Type: text/html; charset=iso-8859-1');
       echo htmlspecialchars("", ENT_QUOTES, 'utf-8');
+      if(!isset($_GET['V']) ){
+   include("includes/error_nologin.php"); 
+  }
+    $linkproveedor = "proveedores.php?V=".urlencode(base64_encode("variable"));
 ?>
 <!doctype html>
 <html lang="es">
@@ -60,7 +64,7 @@
         </form>
       </p>
     <li>
-      <a href="proveedores.php" class="add"><img src="img/addprov.png"></a>
+      <a href="<?php echo $linkproveedor; ?>" class="add"><img src="img/addprov.png"></a>
     </li>
   </ul>
 </nav>

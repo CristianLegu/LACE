@@ -11,6 +11,7 @@
      if(!isset($_GET['V']) ){
    include("includes/error_nologin.php"); 
   }
+    $linkusuario = "medicos.php?V=".urlencode(base64_encode("variable"));
 ?>
 <!doctype html>
 <html lang="es">
@@ -70,7 +71,7 @@
         </form>
       </p>
     <li>
-      <a href="usuarios.php" class="add"><img src="img/adduser.png"></a>
+      <a href="<?php echo $linkusuario; ?>" class="add"><img src="img/adduser.png"></a>
     </li>
   </ul>
 </nav>

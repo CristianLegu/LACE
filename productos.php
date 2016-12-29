@@ -9,6 +9,8 @@
               }
 foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
 
+
+ 
 if ($_GET['prod'] != '0'){
  $prod = $_GET['prod'];
   $sql    = "SELECT * FROM inventario where idinventario = '$prod' ";
@@ -92,7 +94,12 @@ else{
   <meta http-equiv="Content-Type" content="text/html">
   <title>Productos | LACE</title>
   <link rel="shortcut icon" href="img/icon.png">
+  <?php  if(!isset($_GET['prod']) ){
+   include("includes/error_nologin.php"); 
+  }
+  else{ ?>
   <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+  <?php } ?>
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
   <script type="text/javascript" src="js/switchery.min.js"></script>
   <!-- Pantalla de carga-->

@@ -6,9 +6,11 @@
 	include("includes/error_nologin.php");
 	
 		 }
-     $linkpaciente = "menu_pacientes.php?V=".urlencode(base64_encode('variable'));
-     $linkmedico = "menu_medicos.php?V=".urlencode(base64_encode('variable'));
-     $linkusuarios = "menu_usuarios.php?V=".urlencode(base64_encode('variable'));
+     $linkpaciente    = "menu_pacientes.php?V=".urlencode(base64_encode('variable'));
+     $linkmedico      = "menu_medicos.php?V=".urlencode(base64_encode('variable'));
+     $linkusuarios    = "menu_usuarios.php?V=".urlencode(base64_encode('variable'));
+     $linkproveedores = "menu_proveedores.php?V=".urlencode(base64_encode('variable'));
+     $linkproductos = "menu_productos.php?V=".urlencode(base64_encode('variable'));
 		  ?>
 <!DOCTYPE html>
 <html lang="es" class="no-js">

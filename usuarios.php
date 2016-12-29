@@ -2,14 +2,14 @@
   include("includes/conexion.php");
   session_start();
   $_SESSION['valueF'] = 'USUARIO';
-if(!empty($_SESSION['valueuser'])){
+if(empty($_SESSION['valueuser'])){
 
 
-     }
-     else{
   include("includes/error_nologin.php");
 
      }
+
+ 
 
 ?>
 <!doctype html>
@@ -19,7 +19,15 @@ if(!empty($_SESSION['valueuser'])){
   <meta http-equiv="Content-Type" content="text/html">
   <title>Usuarios| LACE</title>
   <link rel="shortcut icon" href="img/icon.png">
-  <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+  <?php 
+      if(!isset($_GET['V']) && !isset($_GET['u']) ){
+
+   include("includes/error_nologin.php"); 
+ }
+ else{ ?>
+ <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+ <?php } ?>
+
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
   <script type="text/javascript" src="js/switchery.min.js"></script>
   <!-- Pantalla de carga-->

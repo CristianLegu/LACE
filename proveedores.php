@@ -1,6 +1,6 @@
 <?php
   include("includes/conexion.php");
-
+   
 ?>
 
 <!doctype html>
@@ -10,7 +10,12 @@
   <meta http-equiv="Content-Type" content="text/html">
   <title>Proveedores - LACE</title>
 <link rel="shortcut icon" href="img/icon.png">
+ <?php  if(!isset($_GET['prov']) && !isset($_GET['V']) ){
+   include("includes/error_nologin.php"); 
+  } 
+  else{ ?>
   <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
+  <?php } ?>
   <link rel="stylesheet" type="text/css" media="all" href="css/switchery.min.css">
   <script type="text/javascript" src="js/switchery.min.js"></script>
   <!-- Pantalla de carga-->
