@@ -7,11 +7,8 @@
     include("includes/error_nologin.php");
     
          }
-foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
+//foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
 
-if(!isset($_GET['V']) ){
-   include("includes/error_nologin.php"); 
-  }
 class PDF extends FPDF
     {
         //******Cabecera
@@ -142,7 +139,24 @@ class PDF extends FPDF
 
     }
     
-
+    $f1 ="";
+    $f2 ="";
+    if(isset($_GET['f1']) && isset($_GET['f2'])){
+         
+         $f1     = $_GET['f1'];
+         $f2     = $_GET['f2'];
+    $diac    = "";
+    $diac2    = "";
+    $mesc    = "";
+    $anoc   = "";
+    $mesc2    = "";
+    $anoc2   = "";
+         list($diac, $mesc, $anoc) = explode('/', $f1);
+         list($diac2, $mesc2, $anoc2 ) = explode('/', $f2);
+         $fechac  = $anoc."/".$diac."/".$mesc;
+         $fechac2  = $anoc2."/".$diac2."/".$mesc2;
+        
+    }
 
     $dia    = "";
     $mes    = "";
@@ -153,14 +167,14 @@ class PDF extends FPDF
     $mes    = date("m");
     $anio   = date("Y");
     $fecha  = $anio."-".$mes."-".$dia;
-
+    
 
     $con = mysqli_connect($host, $user, $pwd, $db);
 
     $sql = "SELECT an.fecha, an.prueba, an.estudio, pac.nombre
 	            FROM analisis AS an
                 JOIN pacientes AS pac
-                WHERE an.fecha between '2016-01-01' AND '2016-12-31'
+                WHERE an.fecha between '$fechac' AND '$fechac2'
                 ORDER BY an.fecha;";
     
     
