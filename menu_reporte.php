@@ -73,7 +73,7 @@ $linkmenu  = "menu.php?V=".urlencode(base64_encode('variable'));
                   </li>
 
                   <li>
-                    <a target="_blank" href="<?php echo $linkreporte_reporte_gral_analisis;?>">
+                    <a href="#">
 						<span class="icon">
 						    <i aria-hidden="true" class="icon-veranalis"></i>
 						</span>
