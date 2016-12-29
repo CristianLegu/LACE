@@ -12,7 +12,7 @@
      if(!isset($_GET['V']) ){
    include("includes/error_nologin1.php"); 
   }
-    $linkusuario = "medicos.php?V=".urlencode(base64_encode("variable"));
+    $linkusuario = "usuarios.php?V=".urlencode(base64_encode("variable"));
     $linkmenu  = "menu.php?V=".urlencode(base64_encode('variable'));
 ?>
 <!doctype html>
