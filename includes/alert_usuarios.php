@@ -19,6 +19,7 @@ $con = mysqli_connect($host, $user, $pwd, $db);
 
         $fila = $query -> fetch_array();
         $pass = $fila['respuscol'];	
+         $linkusuario = "menu_usuarios.php?V=".urlencode(base64_encode('variable'));
 ?>
 <html>
 	<header>
@@ -41,7 +42,7 @@ $con = mysqli_connect($host, $user, $pwd, $db);
 			},
 			function(inputValue){
 			  if (inputValue === false){
-			  	window.location.href = 'menu_usuarios.php';
+			  	window.location.href = '<?php echo $linkusuario; ?>';
 			  } 
 			  
 			  if (inputValue === "") {

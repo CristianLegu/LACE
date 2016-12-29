@@ -6,11 +6,11 @@
         $_SESSION['me'] ="";
   if(empty($_SESSION['valueuser'])){
 
-  include("includes/error_nologin.php");
+  include("includes/error_nologin1.php");
 
      }
      if(!isset($_GET['V']) ){
-   include("includes/error_nologin.php"); 
+   include("includes/error_nologin1.php"); 
   }
     $linkusuario = "medicos.php?V=".urlencode(base64_encode("variable"));
     $linkmenu  = "menu.php?V=".urlencode(base64_encode('variable'));
