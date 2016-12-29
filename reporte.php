@@ -3,10 +3,10 @@
     include("includes/conexion.php");
     
 foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
-
+/*
 if(!isset($_GET['V']) ){
    include("includes/error_nologin.php"); 
-  }
+  }*/
 class PDF extends FPDF
     {
         //******Cabecera
