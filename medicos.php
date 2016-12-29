@@ -9,6 +9,7 @@
   include("includes/error_nologin.php");
 
      }
+      $linkmedico = "menu_medicos.php?V=".urlencode(base64_encode("variable"));
 
 ?>
 <!doctype html>
@@ -82,7 +83,7 @@ if (!isset($_GET['V']) && !isset($_GET['m']) ){
 <nav id="hola">
   <ul>
     <li><p>
-          <a href="menu_medicos.php">
+          <a href="<?php echo $linkmedico; ?>">
 	        <img src="img/logo2.png" id="logo">
         </a>
         </p>

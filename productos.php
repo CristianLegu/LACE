@@ -9,7 +9,7 @@
               }
 foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
 
-
+ $linkproductos = "menu_productos.php?V=".urlencode(base64_encode("variable"));
  
 if ($_GET['prod'] != '0'){
  $prod = $_GET['prod'];
@@ -126,7 +126,7 @@ else{
 <nav id="hola">
   <ul>
     <li><p>
-          <a href="menu_productos.php">
+          <a href="<?php echo $linkproductos; ?>">
 	        <img src="img/logo2.png" id="logo">
         </a>
         </p>

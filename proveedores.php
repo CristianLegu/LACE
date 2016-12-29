@@ -1,6 +1,6 @@
 <?php
   include("includes/conexion.php");
-   
+   $linkprovvedores = "menu_proveedores.php?V=".urlencode(base64_encode("variable"));
 ?>
 
 <!doctype html>
@@ -73,7 +73,7 @@
 <nav id="hola">
   <ul>
     <li><p>
-          <a href="menu_proveedores.php">
+          <a href="<?php echo $linkprovvedores; ?>">
 	        <img src="img/logo2.png" id="logo">
         </a>
         </p>
