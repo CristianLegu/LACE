@@ -9,7 +9,13 @@
   if (mysqli_connect_errno()) {
     echo "Falló la conexión: ".mysqli_connect_error();
     }
+  session_start();
+  if(empty($_SESSION['valueuser'])){
 
+
+  include("includes/error_nologin1.php");
+
+     }
   $id = "";
   if(isset($_GET['p'])){
     $id = $_GET['p'];
@@ -17,34 +23,6 @@
   else{
     include('includes/alert_getp.php');
   }
- $linkpaciente = "menu_pacientes.php?V=".urlencode(base64_encode('variable'));
-
-
-foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
-if(!isset($_GET['p']) ){
-   include("includes/error_nologin.php"); 
-  }
-
-  else{
-$id = $_GET['p'];
-
-        $sql = "SELECT nombre
-                  FROM pacientes
-                  WHERE idpacientes = '$id'" ;
-
-         $query  = mysqli_query($con, $sql);
-         $nombre   = mysqli_fetch_array($query, MYSQLI_ASSOC);
-         mysqli_close($con);
-}
-session_start();
-  if(!empty($_SESSION['valueuser'])){
-
-
-     }
-     else{
-  include("includes/error_nologin.php");
-
-     }
 ?>
 <!doctype html>
 <html lang="es">
@@ -76,6 +54,35 @@ session_start();
 </head>
 
 <body>
+<?php 
+ $linkpaciente = "menu_pacientes.php?V=".urlencode(base64_encode('variable'));
+
+
+foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
+if(!isset($_GET['p']) ){
+   include("includes/error_nologin.php"); 
+  }
+
+  else{
+$id = $_GET['p'];
+
+        $sql = "SELECT nombre
+                  FROM pacientes
+                  WHERE idpacientes = '$id'" ;
+
+         $query  = mysqli_query($con, $sql);
+         $nombre   = mysqli_fetch_array($query, MYSQLI_ASSOC);
+         mysqli_close($con);
+}
+session_start();
+  if(!empty($_SESSION['valueuser'])){
+
+
+     }
+     else{
+  include("includes/error_nologin1.php");
+
+     } ?>
   <!-- Pantalla de carga-->
         <div id="cargando">
           <div class="cssload-thecube">
