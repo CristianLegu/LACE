@@ -17,7 +17,7 @@
   else{
     include('includes/alert_getp.php');
   }
-
+ $linkpaciente = "menu_pacientes.php?V=".urlencode(base64_encode('variable'));
 
 
 foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
@@ -89,7 +89,7 @@ session_start();
 <nav id="hola">
   <ul>
     <li><p>
-          <a href="menu_pacientes.php">
+          <a href="<?php echo  $linkpaciente; ?>">
             <img src="img/logo2.png"  id="logo">
           </a>
         </p>
