@@ -3,6 +3,7 @@
       echo htmlspecialchars("", ENT_QUOTES, 'utf-8');
 
       session_start();
+      $_SESSION['me'] ="";
   if(!empty($_SESSION['valueuser'])){
 
 
@@ -16,6 +17,7 @@ if(!isset($_GET['V']) ){
    include("includes/error_nologin.php"); 
   }
   $linkmedico = "medicos.php?V=".urlencode(base64_encode("variable"));
+  $linkmenu  = "menu.php?V=".urlencode(base64_encode('variable')); 
 ?>
 <!doctype html>
 <html lang="es">
@@ -59,7 +61,7 @@ if(!isset($_GET['V']) ){
 <nav id="hola">
   <ul>
     <li><p>
-          <a href="menu.php">
+          <a href="<?php echo $linkmenu; ?>">
             <img src="img/logo2.png"  id="logo">
           </a>
         </p>

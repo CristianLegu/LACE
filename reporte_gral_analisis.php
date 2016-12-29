@@ -1,8 +1,17 @@
 <?php
     include('fpdf181/fpdf.php');
-    include("includes/conexion.php");
+     include("includes/conexion.php");
+    session_start();
+    if(empty($_SESSION['valueuser'])){
+
+    include("includes/error_nologin.php");
     
+         }
 foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
+
+if(!isset($_GET['V']) ){
+   include("includes/error_nologin.php"); 
+  }
 class PDF extends FPDF
     {
         //******Cabecera

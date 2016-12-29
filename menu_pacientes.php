@@ -2,6 +2,7 @@
       header('Content-Type: text/html; charset=iso-8859-1');
       echo htmlspecialchars("", ENT_QUOTES, 'utf-8');
         session_start();
+        $_SESSION['me'] ="";
   if(empty($_SESSION['valueuser'])){
 
 
@@ -10,6 +11,7 @@
      }
 foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
   $linkpaciente = "pacientes.php?V=".urlencode(base64_encode('variable'));
+  $linkmenu  = "menu.php?V=".urlencode(base64_encode('variable')); 
       if(!isset($_GET['V'])){ 
       include("includes/error_nologin1.php");
   }
@@ -58,7 +60,7 @@ foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
 <nav id="hola">
   <ul>
     <li><p>
-          <a href="menu.php">
+          <a href="<?php echo $linkmenu; ?>">
             <img src="img/logo2.png"  id="logo">
           </a>
         </p>

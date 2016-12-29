@@ -3,6 +3,7 @@
     include("includes/conexion.php");
     
 foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
+
 class PDF extends FPDF
     {
         //******Cabecera

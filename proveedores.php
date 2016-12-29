@@ -1,4 +1,12 @@
 <?php
+  session_start();
+        $_SESSION['me'] ="";
+  if(empty($_SESSION['valueuser'])){
+
+
+  include("includes/error_nologin1.php");
+
+     }
   include("includes/conexion.php");
    $linkprovvedores = "menu_proveedores.php?V=".urlencode(base64_encode("variable"));
 ?>
@@ -51,13 +59,11 @@
 /*Verifica si el campo busca esta vacio*/
     if(empty($_GET['prov'])){
             $pac = ' ';
-            session_start();
               $_SESSION['valueF'] = 'PROVEEDOR';
           }
 
     else{
         $pac = $_GET['prov'];
-        session_start();
                $_SESSION['valueF'] = 'PROVEEDORUP';
                $_SESSION['idup'] = $pac;
         }

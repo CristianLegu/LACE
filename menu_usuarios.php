@@ -3,6 +3,7 @@
       echo htmlspecialchars("", ENT_QUOTES, 'utf-8');
         include("includes/conexion.php");
         session_start();
+        $_SESSION['me'] ="";
   if(empty($_SESSION['valueuser'])){
 
   include("includes/error_nologin.php");
@@ -12,6 +13,7 @@
    include("includes/error_nologin.php"); 
   }
     $linkusuario = "medicos.php?V=".urlencode(base64_encode("variable"));
+    $linkmenu  = "menu.php?V=".urlencode(base64_encode('variable'));
 ?>
 <!doctype html>
 <html lang="es">
@@ -55,7 +57,7 @@
 <nav id="hola">
   <ul>
     <li><p>
-          <a href="menu.php">
+          <a href="<?php echo $linkmenu; ?>">
             <img src="img/logo2.png"  id="logo">
           </a>
         </p>

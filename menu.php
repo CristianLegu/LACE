@@ -6,13 +6,18 @@
 	include("includes/error_nologin.php");
 	
 		 }
+    if ($_SESSION['me'] != "menu" && !isset($_GET['V']) ){
+    include("includes/error_nologin.php");
+    }
+   
+		 foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
+
      $linkpaciente    = "menu_pacientes.php?V=".urlencode(base64_encode('variable'));
      $linkmedico      = "menu_medicos.php?V=".urlencode(base64_encode('variable'));
      $linkusuarios    = "menu_usuarios.php?V=".urlencode(base64_encode('variable'));
      $linkproveedores = "menu_proveedores.php?V=".urlencode(base64_encode('variable'));
-     $linkproductos = "menu_productos.php?V=".urlencode(base64_encode('variable'));
-		 
-		
+     $linkproductos = "menu_productos.php?V=".urlencode(base64_encode('variable')); 
+	 $linkreporte = "menu_reporte.php?V=".urlencode(base64_encode('variable'));
 
 		  ?>
 <!DOCTYPE html>
@@ -93,7 +98,7 @@
 							</a>
 						</li>
 						<li>
-							<a href="#">
+							<a href="<?php echo $linkreporte; ?>">
 								<span class="icon">
 									<i aria-hidden="true" class="icon-contact"></i>
 								</span>

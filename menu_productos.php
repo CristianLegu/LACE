@@ -1,10 +1,20 @@
 <?php
       header('Content-Type: text/html; charset=iso-8859-1');
       echo htmlspecialchars("", ENT_QUOTES, 'utf-8');
+         session_start();
+        $_SESSION['me'] ="";
+  if(empty($_SESSION['valueuser'])){
+
+
+  include("includes/error_nologin1.php");
+
+     }
       $linkvacio = "productos.php?prod=".urlencode(base64_encode(0));
+
         if(!isset($_GET['V']) ){
    include("includes/error_nologin1.php"); 
   }
+  $linkmenu  = "menu.php?V=".urlencode(base64_encode('variable')); 
 ?>
 <!doctype html>
 <html lang="es">
@@ -44,7 +54,7 @@
 <nav id="hola">
   <ul>
     <li><p>
-          <a href="menu.php">
+          <a href="<?php echo $linkmenu ; ?>">
             <img src="img/logo2.png"  id="logo">
           </a>
         </p>
