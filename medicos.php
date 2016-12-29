@@ -19,13 +19,12 @@
   <title>Médicos - LACE</title>
 <link rel="shortcut icon" href="img/icon.png">
 <?php      foreach($_GET as $loc=>$item) $_GET[$loc] = urldecode(base64_decode($item));
-if (!isset($_GET['V']) ){
-if(!isset($_GET['m']) ){
+if (!isset($_GET['V']) && !isset($_GET['m']) ){
+
    include("includes/error_nologin.php"); 
   }
-  else{ ?>
-  <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
-  <?php } }
+
+
   else{?>
   <link rel="stylesheet" type="text/css" media="all" href="css/styles.css">
   <?php } ?>
