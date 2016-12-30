@@ -12,9 +12,9 @@
       $linkvacio = "productos.php?prod=".urlencode(base64_encode(0));
 
         if(!isset($_GET['V']) && !isset($_GET['busca']) ){
-   include("includes/error_nologin1.php"); 
+   include("includes/error_nologin1.php");
   }
-  $linkmenu  = "menu.php?V=".urlencode(base64_encode('variable')); 
+  $linkmenu  = "menu.php?V=".urlencode(base64_encode('variable'));
 ?>
 <!doctype html>
 <html lang="es">
@@ -30,6 +30,10 @@
   <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.css">
   <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-switch.min.css">
   <script type="text/javascript" src="js/script.js"></script>
+  <style>
+  .text {font-size:10; font-family:Arial, Tahoma, sans-serif; color:#0072C6; text-decoration:none}
+  .text:hover {font-size:10; font-family:Arial, Tahoma, sans-serif; color:#005B99; text-decoration:none}
+  </style>
   <!-- Pantalla de carga-->
   <script type="text/javascript">
     window.onload = detectarCarga;
@@ -197,7 +201,7 @@
           <td><?php echo $fila['fechainicio']; ?></td>
           <td><?php echo $fila['fechatermino']; ?></td>
           <td><?php echo $fila['fechacaducidad']; ?></td>
-          <td><a href= "<?php echo $link ?>">Ver</a> </td>
+          <td><a class="text" href= "<?php echo $link ?>"><strong>Ver</strong></a> </td>
         </tr>
 
 <?php }
