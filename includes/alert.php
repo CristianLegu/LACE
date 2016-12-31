@@ -19,7 +19,7 @@
 
 			swal({
   				title: "Guardado",
-   				text: "Guardado con éxito.",
+   				text: "<?php echo utf8_decode("Guardado con éxito."); ?>",
     			type: "success"
   			}, function(){
 
