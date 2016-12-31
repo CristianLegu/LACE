@@ -3,6 +3,11 @@
 
 	if(isset($_SESSION['valueF'])){
 	}
+	$linkpaciente    = "menu_pacientes.php?V=".urlencode(base64_encode('variable'));
+     $linkmedico      = "menu_medicos.php?V=".urlencode(base64_encode('variable'));
+     $linkusuarios    = "menu_usuarios.php?V=".urlencode(base64_encode('variable'));
+     $linkproveedores = "menu_proveedores.php?V=".urlencode(base64_encode('variable'));
+     $linkproductos = "menu_productos.php?V=".urlencode(base64_encode('variable')); 
 ?>
 <html>
 	<header>
@@ -19,25 +24,25 @@
   			}, function(){
 
 				<?php 	  if(  $sesion == 'PROVEEDOR') { ?>
-								window.location.href = 'proveedores.php';
+								window.location.href = '<?php echo $linkproveedores; ?>';
 							<?php	} if (  $sesion == 'EMPLEADO' ) { ?>
-								window.location.href = 'empleados.php';
+								window.location.href = '<?php echo $linkusuarios; ?>';
 							<?php	} if (  $sesion == 'MEDICOS' ) { ?>
-								window.location.href = 'menu_medicos.php';
+								window.location.href = '<?php echo $linkmedico; ?>';
 							<?php	} if (  $sesion == 'PACIENTES' ) { ?>
-								window.location.href = 'menu_pacientes.php';
+								window.location.href = '<?php echo $linkpaciente; ?>';
 							<?php	} if (  $sesion == 'PACIENTESUP' ) { ?>
-								window.location.href = 'menu_pacientes.php';
+								window.location.href = '<?php echo $linkpaciente; ?>';
 							<?php   } ?>
 
 				<?php 	  if(  $sesion == 'PROVEEDOR') { ?>
-					window.location.href = 'proveedores.php';
+					window.location.href = '<?php echo $linkproveedores; ?>';
 				<?php	} if (  $sesion == 'USUARIO' ) { ?>
-					window.location.href = 'menu_usuarios.php';
+					window.location.href = '<?php echo $linkusuarios; ?>';
 				<?php	} if (  $sesion == 'MEDICOS' ) { ?>
-					window.location.href = 'menu_medicos.php';
+					window.location.href = '<?php echo $linkmedico; ?>';
 				<?php	} if (  $sesion == 'PACIENTES' ) { ?>
-					window.location.href = 'menu_pacientes.php';
+					window.location.href = '<?php echo $linkpaciente; ?>';
 				<?php   } ?>
 	
 				}

@@ -384,6 +384,7 @@ switch ($sesion) {
 	 		isset($_POST['domicilio_m']) && !empty($_POST['domicilio_m']) &&
 	 		isset($_POST['telefono_m']) && !empty($_POST['telefono_m']))
 			{
+		
 				$nombre   = utf8_decode($_POST['nombre_m']);
 				$direccion   = utf8_decode($_POST['domicilio_m']);
 				$ciudad   = utf8_decode($_POST['ciudad_m']);
@@ -392,11 +393,22 @@ switch ($sesion) {
 				$nombre_hosp  = utf8_decode($_POST['nombre_h']);
 				$domicilio_hos = utf8_decode($_POST['domicilio_h']);
 
+			 
+               $encontro = 0;
+
 				$mysqli = mysqli_connect($host, $user, $pwd, $db);
 				if (mysqli_connect_errno()) {
 				 echo "Falló la conexión:".mysqli_connect_error();
 				}
-
+				$sql1 = "SELECT  *
+                     FROM medicos";
+             $query1 = mysqli_query($mysqli, $sql1);
+             while ($fila = mysqli_fetch_array($query1, MYSQLI_ASSOC)){
+             if( $nombre = $fila['nombre']){
+              $encontro = 1;
+               }
+              }
+              if ($encontro ==0){
 				$sql = "INSERT INTO medicos (nombre, domicilio_medi, ciudad_medi, estado_medi,
 								telefono_medi, hospital, direccion_hospital)
 					 VALUES('$nombre', '$direccion', '$ciudad', '$estado',
@@ -404,14 +416,21 @@ switch ($sesion) {
 
 				if( mysqli_query($mysqli, $sql)){
 
-				}else{
+				}
+				else{
 				 echo "Error ".mysqli_error($mysqli);
 				}
-
-				mysqli_close($mysqli);
+			
+        
+			
 
 				include("includes/alert.php");
 			}
+				else{
+				include("includes/alert_existe.php");
+				}
+					mysqli_close($mysqli);
+		}
 			else
 			{
 				echo "Error";
@@ -436,7 +455,7 @@ switch ($sesion) {
 				if (mysqli_connect_errno()) {
 				 echo "Falló la conexión:".mysqli_connect_error();
 				}
-
+ 
 				$idup = $_SESSION['idup'];
 				$sql = "UPDATE medicos
 								  set nombre 			= '$nombre', 
