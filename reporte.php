@@ -55,7 +55,7 @@ class PDF extends FPDF
             $this->SetFont('Arial', 'B', 14);
             //Espacio
             $this->Cell(85);
-            $this->Cell(30, 10, utf8_decode('Laboratorio Espinosa Análisis Clínico'), 0, 0 ,'C');
+            $this->Cell(30, 10, utf8_decode('Laboratorio Análisis Clínico Espinosa'), 0, 0 ,'C');
             //Salto de linea
             $this->Ln(5);
             $this->SetFont('Arial', '', 8);
@@ -205,7 +205,7 @@ class PDF extends FPDF
         $pdf->SetX(20);
         $pdf->Cell(170, 6, 'Observaciones', 1, 1, 'C');
         $pdf->SetX(20);
-        $pdf->MultiCell(170, 6, $observaciones, 1, 'J', true);
+        $pdf->MultiCell(170, 6, utf8_decode($observaciones), 1, 'J', true);
         
         $pdf->Ln(50);
         $pdf->SetX(20);

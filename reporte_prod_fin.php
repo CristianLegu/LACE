@@ -53,14 +53,22 @@ class PDF extends FPDF
             }
             
 /***********************************************************/
+                $dia    = "";
+                $mes    = "";
+                $anio   = "";
+                $fecha  = "";
 
+                $dia    = date("d");
+                $mes    = date("m");
+                $anio   = date("Y");
+                $fecha  = $anio."-".$mes."-".$dia;
             //Logo
             $this->Image('img/logo2.png', 10, 8, 33);
             //Fuente
             $this->SetFont('Arial', 'B', 14);
             //Espacio
             $this->Cell(85);
-            $this->Cell(30, 10, utf8_decode('Laboratorio Espinosa Análisis Clínico'), 0, 0 ,'C');
+            $this->Cell(30, 10, utf8_decode('Laboratorio Análisis Clínico Espinosa'), 0, 0 ,'C');
             //Salto de linea
             $this->Ln(5);
             $this->SetFont('Arial', '', 8);
@@ -79,8 +87,8 @@ class PDF extends FPDF
               
             
             $this->SetFont('Arial', '', 10);
-            $this->Cell(105);
-            $this->Cell(30, 10, utf8_decode('Fecha: '), 0, 0 ,'C');
+            $this->Cell(135);
+            $this->Cell(30, 10, utf8_decode('Fecha: ').$fecha, 0, 0 ,'C');
 
             $this->Ln(5);
             $this->SetFont('Arial', '', 10);

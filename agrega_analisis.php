@@ -38,7 +38,7 @@ if ($idpropio == 0) {
     &&  isset($_POST['estudio']) && isset($_POST['idmedico'])
     &&  isset($_POST['pruebas'])
     ){
-      $fecha         =  date("Y") . date("m") . date("j") ;
+      $fecha         =  date("Y") . date("m") . date("d") ;
       $area          = $_POST["area"];
       $departamento  = $_POST["departamento"];
       $estudio       = $_POST["estudio"];
